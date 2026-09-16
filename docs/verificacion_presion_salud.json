@@ -1,0 +1,844 @@
+{
+  "base_commit": "3f4550ee1dde564cba007e677c9f657278e99a72",
+  "mode": "hospitalizacion",
+  "capture": "2026-09-16",
+  "capacity": {
+    "records": 2822,
+    "municipalities": 810,
+    "positive": 810,
+    "imputed": 0,
+    "zero_is_not_missing": true,
+    "source_branch": "salud-relativa-hospitalizacion",
+    "source_file": "data/salud_capacidad_reps_2022.json",
+    "source_commit": "d9124b4ee6dd35a98a22c70f7d42d3e876e20fe7",
+    "git_blob": null
+  },
+  "scopes": {
+    "decree": {
+      "reference": 509,
+      "health_with_data": 77,
+      "health_positive": 77,
+      "missing_health": 432,
+      "calibration": {
+        "id": "salud_presion_heridos",
+        "source": "3iS-Sheets",
+        "label": "Heridos frente a camas generales",
+        "share": 1,
+        "unit": "Número",
+        "anchor": 14.25,
+        "n": 77,
+        "positive": 77,
+        "coherent": true
+      },
+      "top_health": [
+        {
+          "code": "27073",
+          "name": "Bagadó",
+          "department": "Chocó",
+          "numerator": 57,
+          "denominator": 4,
+          "ratio": 14.25,
+          "anchor": 14.25,
+          "health": 100,
+          "global": 35.67846489186764,
+          "rank": 1,
+          "reason": ""
+        },
+        {
+          "code": "76606",
+          "name": "Restrepo",
+          "department": "Valle del Cauca",
+          "numerator": 60,
+          "denominator": 5,
+          "ratio": 12,
+          "anchor": 14.25,
+          "health": 84.21052631578947,
+          "global": 33.84241833725685,
+          "rank": 2,
+          "reason": ""
+        },
+        {
+          "code": "76126",
+          "name": "Calima",
+          "department": "Valle del Cauca",
+          "numerator": 74,
+          "denominator": 9,
+          "ratio": 8.222222222222221,
+          "anchor": 14.25,
+          "health": 57.69980506822612,
+          "global": 28.01096099024975,
+          "rank": 3,
+          "reason": ""
+        },
+        {
+          "code": "76233",
+          "name": "Dagua",
+          "department": "Valle del Cauca",
+          "numerator": 58,
+          "denominator": 8,
+          "ratio": 7.25,
+          "anchor": 14.25,
+          "health": 50.877192982456144,
+          "global": 13.596179542383823,
+          "rank": 27,
+          "reason": ""
+        },
+        {
+          "code": "76497",
+          "name": "Obando",
+          "department": "Valle del Cauca",
+          "numerator": 57,
+          "denominator": 8,
+          "ratio": 7.125,
+          "anchor": 14.25,
+          "health": 50,
+          "global": 24.632065085467136,
+          "rank": 5,
+          "reason": ""
+        },
+        {
+          "code": "76828",
+          "name": "Trujillo",
+          "department": "Valle del Cauca",
+          "numerator": 36,
+          "denominator": 7,
+          "ratio": 5.142857142857143,
+          "anchor": 14.25,
+          "health": 36.090225563909776,
+          "global": 22.47349840717608,
+          "rank": 7,
+          "reason": ""
+        },
+        {
+          "code": "63594",
+          "name": "Quimbaya",
+          "department": "Quindío",
+          "numerator": 59,
+          "denominator": 13,
+          "ratio": 4.538461538461538,
+          "anchor": 14.25,
+          "health": 31.84885290148448,
+          "global": 21.729494734643335,
+          "rank": 8,
+          "reason": ""
+        },
+        {
+          "code": "76823",
+          "name": "Toro",
+          "department": "Valle del Cauca",
+          "numerator": 31,
+          "denominator": 7,
+          "ratio": 4.428571428571429,
+          "anchor": 14.25,
+          "health": 31.077694235588975,
+          "global": 21.513330829676484,
+          "rank": 9,
+          "reason": ""
+        },
+        {
+          "code": "17873",
+          "name": "Villamaria",
+          "department": "Caldas",
+          "numerator": 48,
+          "denominator": 11,
+          "ratio": 4.363636363636363,
+          "anchor": 14.25,
+          "health": 30.62200956937799,
+          "global": 7.2851091018419964,
+          "rank": 69,
+          "reason": ""
+        },
+        {
+          "code": "66170",
+          "name": "Dosquebradas",
+          "department": "Risaralda",
+          "numerator": 230,
+          "denominator": 55,
+          "ratio": 4.181818181818182,
+          "anchor": 14.25,
+          "health": 29.346092503987244,
+          "global": 14.015081086450675,
+          "rank": 25,
+          "reason": ""
+        }
+      ],
+      "examples": [
+        {
+          "code": "27001",
+          "name": "Quibdó",
+          "department": "Chocó",
+          "numerator": 145,
+          "denominator": 273,
+          "ratio": 0.5311355311355311,
+          "anchor": 14.25,
+          "health": 3.7272668851616215,
+          "global": 17.224791402425424,
+          "rank": 19,
+          "reason": ""
+        },
+        {
+          "code": "27050",
+          "name": "Atrato",
+          "department": "Chocó",
+          "numerator": 3,
+          "denominator": 10,
+          "ratio": 0.3,
+          "anchor": 14.25,
+          "health": 2.1052631578947367,
+          "global": 14.561403504380683,
+          "rank": 24,
+          "reason": ""
+        },
+        {
+          "code": "27660",
+          "name": "San José Del Palmar",
+          "department": "Chocó",
+          "numerator": 2,
+          "denominator": 5,
+          "ratio": 0.4,
+          "anchor": 14.25,
+          "health": 2.807017543859649,
+          "global": 5.337602482647974,
+          "rank": 87,
+          "reason": ""
+        },
+        {
+          "code": "66001",
+          "name": "Pereira",
+          "department": "Risaralda",
+          "numerator": 259,
+          "denominator": 970,
+          "ratio": 0.2670103092783505,
+          "anchor": 14.25,
+          "health": 1.8737565563393017,
+          "global": 17.058960716513717,
+          "rank": 20,
+          "reason": ""
+        },
+        {
+          "code": "76001",
+          "name": "Santiago de Cali",
+          "department": "Valle del Cauca",
+          "numerator": 1517,
+          "denominator": 3465,
+          "ratio": 0.4378066378066378,
+          "anchor": 14.25,
+          "health": 3.072327282853599,
+          "global": 4.5125017291344545,
+          "rank": 99,
+          "reason": ""
+        },
+        {
+          "code": "76828",
+          "name": "Trujillo",
+          "department": "Valle del Cauca",
+          "numerator": 36,
+          "denominator": 7,
+          "ratio": 5.142857142857143,
+          "anchor": 14.25,
+          "health": 36.090225563909776,
+          "global": 22.47349840717608,
+          "rank": 7,
+          "reason": ""
+        }
+      ],
+      "top_global": [
+        {
+          "code": "27073",
+          "name": "Bagadó",
+          "department": "Chocó",
+          "numerator": 57,
+          "denominator": 4,
+          "ratio": 14.25,
+          "anchor": 14.25,
+          "health": 100,
+          "global": 35.67846489186764,
+          "rank": 1,
+          "reason": ""
+        },
+        {
+          "code": "76606",
+          "name": "Restrepo",
+          "department": "Valle del Cauca",
+          "numerator": 60,
+          "denominator": 5,
+          "ratio": 12,
+          "anchor": 14.25,
+          "health": 84.21052631578947,
+          "global": 33.84241833725685,
+          "rank": 2,
+          "reason": ""
+        },
+        {
+          "code": "76126",
+          "name": "Calima",
+          "department": "Valle del Cauca",
+          "numerator": 74,
+          "denominator": 9,
+          "ratio": 8.222222222222221,
+          "anchor": 14.25,
+          "health": 57.69980506822612,
+          "global": 28.01096099024975,
+          "rank": 3,
+          "reason": ""
+        },
+        {
+          "code": "76020",
+          "name": "Alcalá",
+          "department": "Valle del Cauca",
+          "numerator": 20,
+          "denominator": 7,
+          "ratio": 2.857142857142857,
+          "anchor": 14.25,
+          "health": 20.05012531328321,
+          "global": 25.964130022595754,
+          "rank": 4,
+          "reason": ""
+        },
+        {
+          "code": "76497",
+          "name": "Obando",
+          "department": "Valle del Cauca",
+          "numerator": 57,
+          "denominator": 8,
+          "ratio": 7.125,
+          "anchor": 14.25,
+          "health": 50,
+          "global": 24.632065085467136,
+          "rank": 5,
+          "reason": ""
+        },
+        {
+          "code": "27745",
+          "name": "Sipí",
+          "department": "Chocó",
+          "numerator": null,
+          "denominator": 6,
+          "ratio": null,
+          "anchor": 14.25,
+          "health": null,
+          "global": 23.4982931841153,
+          "rank": 6,
+          "reason": "Sin reporte de heridos comparable en esta captura"
+        },
+        {
+          "code": "76828",
+          "name": "Trujillo",
+          "department": "Valle del Cauca",
+          "numerator": 36,
+          "denominator": 7,
+          "ratio": 5.142857142857143,
+          "anchor": 14.25,
+          "health": 36.090225563909776,
+          "global": 22.47349840717608,
+          "rank": 7,
+          "reason": ""
+        },
+        {
+          "code": "63594",
+          "name": "Quimbaya",
+          "department": "Quindío",
+          "numerator": 59,
+          "denominator": 13,
+          "ratio": 4.538461538461538,
+          "anchor": 14.25,
+          "health": 31.84885290148448,
+          "global": 21.729494734643335,
+          "rank": 8,
+          "reason": ""
+        },
+        {
+          "code": "76823",
+          "name": "Toro",
+          "department": "Valle del Cauca",
+          "numerator": 31,
+          "denominator": 7,
+          "ratio": 4.428571428571429,
+          "anchor": 14.25,
+          "health": 31.077694235588975,
+          "global": 21.513330829676484,
+          "rank": 9,
+          "reason": ""
+        },
+        {
+          "code": "76243",
+          "name": "El Águila",
+          "department": "Valle del Cauca",
+          "numerator": 25,
+          "denominator": 6,
+          "ratio": 4.166666666666667,
+          "anchor": 14.25,
+          "health": 29.23976608187135,
+          "global": 20.963485685885665,
+          "rank": 10,
+          "reason": ""
+        }
+      ],
+      "rank_changes": [
+        {
+          "code": "27073",
+          "new_rank": 1,
+          "previous_rank": 12
+        },
+        {
+          "code": "76606",
+          "new_rank": 2,
+          "previous_rank": 5
+        },
+        {
+          "code": "76126",
+          "new_rank": 3,
+          "previous_rank": 7
+        },
+        {
+          "code": "76020",
+          "new_rank": 4,
+          "previous_rank": 3
+        },
+        {
+          "code": "76497",
+          "new_rank": 5,
+          "previous_rank": 8
+        },
+        {
+          "code": "27745",
+          "new_rank": 6,
+          "previous_rank": 2
+        },
+        {
+          "code": "76828",
+          "new_rank": 7,
+          "previous_rank": 1
+        },
+        {
+          "code": "63594",
+          "new_rank": 8,
+          "previous_rank": 17
+        },
+        {
+          "code": "76823",
+          "new_rank": 9,
+          "previous_rank": 9
+        },
+        {
+          "code": "76243",
+          "new_rank": 10,
+          "previous_rank": 16
+        }
+      ]
+    },
+    "all": {
+      "reference": 631,
+      "health_with_data": 77,
+      "health_positive": 77,
+      "missing_health": 554,
+      "calibration": {
+        "id": "salud_presion_heridos",
+        "source": "3iS-Sheets",
+        "label": "Heridos frente a camas generales",
+        "share": 1,
+        "unit": "Número",
+        "anchor": 14.25,
+        "n": 77,
+        "positive": 77,
+        "coherent": true
+      },
+      "top_health": [
+        {
+          "code": "27073",
+          "name": "Bagadó",
+          "department": "Chocó",
+          "numerator": 57,
+          "denominator": 4,
+          "ratio": 14.25,
+          "anchor": 14.25,
+          "health": 100,
+          "global": 35.67846489186764,
+          "rank": 1,
+          "reason": ""
+        },
+        {
+          "code": "76606",
+          "name": "Restrepo",
+          "department": "Valle del Cauca",
+          "numerator": 60,
+          "denominator": 5,
+          "ratio": 12,
+          "anchor": 14.25,
+          "health": 84.21052631578947,
+          "global": 33.84241833725685,
+          "rank": 2,
+          "reason": ""
+        },
+        {
+          "code": "76126",
+          "name": "Calima",
+          "department": "Valle del Cauca",
+          "numerator": 74,
+          "denominator": 9,
+          "ratio": 8.222222222222221,
+          "anchor": 14.25,
+          "health": 57.69980506822612,
+          "global": 28.01096099024975,
+          "rank": 3,
+          "reason": ""
+        },
+        {
+          "code": "76233",
+          "name": "Dagua",
+          "department": "Valle del Cauca",
+          "numerator": 58,
+          "denominator": 8,
+          "ratio": 7.25,
+          "anchor": 14.25,
+          "health": 50.877192982456144,
+          "global": 13.596179542383823,
+          "rank": 27,
+          "reason": ""
+        },
+        {
+          "code": "76497",
+          "name": "Obando",
+          "department": "Valle del Cauca",
+          "numerator": 57,
+          "denominator": 8,
+          "ratio": 7.125,
+          "anchor": 14.25,
+          "health": 50,
+          "global": 24.632065085467136,
+          "rank": 5,
+          "reason": ""
+        },
+        {
+          "code": "76828",
+          "name": "Trujillo",
+          "department": "Valle del Cauca",
+          "numerator": 36,
+          "denominator": 7,
+          "ratio": 5.142857142857143,
+          "anchor": 14.25,
+          "health": 36.090225563909776,
+          "global": 22.47349840717608,
+          "rank": 7,
+          "reason": ""
+        },
+        {
+          "code": "63594",
+          "name": "Quimbaya",
+          "department": "Quindío",
+          "numerator": 59,
+          "denominator": 13,
+          "ratio": 4.538461538461538,
+          "anchor": 14.25,
+          "health": 31.84885290148448,
+          "global": 21.729494734643335,
+          "rank": 8,
+          "reason": ""
+        },
+        {
+          "code": "76823",
+          "name": "Toro",
+          "department": "Valle del Cauca",
+          "numerator": 31,
+          "denominator": 7,
+          "ratio": 4.428571428571429,
+          "anchor": 14.25,
+          "health": 31.077694235588975,
+          "global": 21.513330829676484,
+          "rank": 9,
+          "reason": ""
+        },
+        {
+          "code": "17873",
+          "name": "Villamaria",
+          "department": "Caldas",
+          "numerator": 48,
+          "denominator": 11,
+          "ratio": 4.363636363636363,
+          "anchor": 14.25,
+          "health": 30.62200956937799,
+          "global": 7.2851091018419964,
+          "rank": 69,
+          "reason": ""
+        },
+        {
+          "code": "66170",
+          "name": "Dosquebradas",
+          "department": "Risaralda",
+          "numerator": 230,
+          "denominator": 55,
+          "ratio": 4.181818181818182,
+          "anchor": 14.25,
+          "health": 29.346092503987244,
+          "global": 14.015081086450675,
+          "rank": 25,
+          "reason": ""
+        }
+      ],
+      "examples": [
+        {
+          "code": "27001",
+          "name": "Quibdó",
+          "department": "Chocó",
+          "numerator": 145,
+          "denominator": 273,
+          "ratio": 0.5311355311355311,
+          "anchor": 14.25,
+          "health": 3.7272668851616215,
+          "global": 17.224791402425424,
+          "rank": 19,
+          "reason": ""
+        },
+        {
+          "code": "27050",
+          "name": "Atrato",
+          "department": "Chocó",
+          "numerator": 3,
+          "denominator": 10,
+          "ratio": 0.3,
+          "anchor": 14.25,
+          "health": 2.1052631578947367,
+          "global": 14.561403504380683,
+          "rank": 24,
+          "reason": ""
+        },
+        {
+          "code": "27660",
+          "name": "San José Del Palmar",
+          "department": "Chocó",
+          "numerator": 2,
+          "denominator": 5,
+          "ratio": 0.4,
+          "anchor": 14.25,
+          "health": 2.807017543859649,
+          "global": 5.337602482647974,
+          "rank": 87,
+          "reason": ""
+        },
+        {
+          "code": "66001",
+          "name": "Pereira",
+          "department": "Risaralda",
+          "numerator": 259,
+          "denominator": 970,
+          "ratio": 0.2670103092783505,
+          "anchor": 14.25,
+          "health": 1.8737565563393017,
+          "global": 17.058960716513717,
+          "rank": 20,
+          "reason": ""
+        },
+        {
+          "code": "76001",
+          "name": "Santiago de Cali",
+          "department": "Valle del Cauca",
+          "numerator": 1517,
+          "denominator": 3465,
+          "ratio": 0.4378066378066378,
+          "anchor": 14.25,
+          "health": 3.072327282853599,
+          "global": 4.5125017291344545,
+          "rank": 99,
+          "reason": ""
+        },
+        {
+          "code": "76828",
+          "name": "Trujillo",
+          "department": "Valle del Cauca",
+          "numerator": 36,
+          "denominator": 7,
+          "ratio": 5.142857142857143,
+          "anchor": 14.25,
+          "health": 36.090225563909776,
+          "global": 22.47349840717608,
+          "rank": 7,
+          "reason": ""
+        }
+      ],
+      "top_global": [
+        {
+          "code": "27073",
+          "name": "Bagadó",
+          "department": "Chocó",
+          "numerator": 57,
+          "denominator": 4,
+          "ratio": 14.25,
+          "anchor": 14.25,
+          "health": 100,
+          "global": 35.67846489186764,
+          "rank": 1,
+          "reason": ""
+        },
+        {
+          "code": "76606",
+          "name": "Restrepo",
+          "department": "Valle del Cauca",
+          "numerator": 60,
+          "denominator": 5,
+          "ratio": 12,
+          "anchor": 14.25,
+          "health": 84.21052631578947,
+          "global": 33.84241833725685,
+          "rank": 2,
+          "reason": ""
+        },
+        {
+          "code": "76126",
+          "name": "Calima",
+          "department": "Valle del Cauca",
+          "numerator": 74,
+          "denominator": 9,
+          "ratio": 8.222222222222221,
+          "anchor": 14.25,
+          "health": 57.69980506822612,
+          "global": 28.01096099024975,
+          "rank": 3,
+          "reason": ""
+        },
+        {
+          "code": "76020",
+          "name": "Alcalá",
+          "department": "Valle del Cauca",
+          "numerator": 20,
+          "denominator": 7,
+          "ratio": 2.857142857142857,
+          "anchor": 14.25,
+          "health": 20.05012531328321,
+          "global": 25.964130022595754,
+          "rank": 4,
+          "reason": ""
+        },
+        {
+          "code": "76497",
+          "name": "Obando",
+          "department": "Valle del Cauca",
+          "numerator": 57,
+          "denominator": 8,
+          "ratio": 7.125,
+          "anchor": 14.25,
+          "health": 50,
+          "global": 24.632065085467136,
+          "rank": 5,
+          "reason": ""
+        },
+        {
+          "code": "27745",
+          "name": "Sipí",
+          "department": "Chocó",
+          "numerator": null,
+          "denominator": 6,
+          "ratio": null,
+          "anchor": 14.25,
+          "health": null,
+          "global": 23.4982931841153,
+          "rank": 6,
+          "reason": "Sin reporte de heridos comparable en esta captura"
+        },
+        {
+          "code": "76828",
+          "name": "Trujillo",
+          "department": "Valle del Cauca",
+          "numerator": 36,
+          "denominator": 7,
+          "ratio": 5.142857142857143,
+          "anchor": 14.25,
+          "health": 36.090225563909776,
+          "global": 22.47349840717608,
+          "rank": 7,
+          "reason": ""
+        },
+        {
+          "code": "63594",
+          "name": "Quimbaya",
+          "department": "Quindío",
+          "numerator": 59,
+          "denominator": 13,
+          "ratio": 4.538461538461538,
+          "anchor": 14.25,
+          "health": 31.84885290148448,
+          "global": 21.729494734643335,
+          "rank": 8,
+          "reason": ""
+        },
+        {
+          "code": "76823",
+          "name": "Toro",
+          "department": "Valle del Cauca",
+          "numerator": 31,
+          "denominator": 7,
+          "ratio": 4.428571428571429,
+          "anchor": 14.25,
+          "health": 31.077694235588975,
+          "global": 21.513330829676484,
+          "rank": 9,
+          "reason": ""
+        },
+        {
+          "code": "76243",
+          "name": "El Águila",
+          "department": "Valle del Cauca",
+          "numerator": 25,
+          "denominator": 6,
+          "ratio": 4.166666666666667,
+          "anchor": 14.25,
+          "health": 29.23976608187135,
+          "global": 20.963485685885665,
+          "rank": 10,
+          "reason": ""
+        }
+      ],
+      "rank_changes": [
+        {
+          "code": "27073",
+          "new_rank": 1,
+          "previous_rank": 12
+        },
+        {
+          "code": "76606",
+          "new_rank": 2,
+          "previous_rank": 5
+        },
+        {
+          "code": "76126",
+          "new_rank": 3,
+          "previous_rank": 7
+        },
+        {
+          "code": "76020",
+          "new_rank": 4,
+          "previous_rank": 3
+        },
+        {
+          "code": "76497",
+          "new_rank": 5,
+          "previous_rank": 8
+        },
+        {
+          "code": "27745",
+          "new_rank": 6,
+          "previous_rank": 2
+        },
+        {
+          "code": "76828",
+          "new_rank": 7,
+          "previous_rank": 1
+        },
+        {
+          "code": "63594",
+          "new_rank": 8,
+          "previous_rank": 17
+        },
+        {
+          "code": "76823",
+          "new_rank": 9,
+          "previous_rank": 9
+        },
+        {
+          "code": "76243",
+          "new_rank": 10,
+          "previous_rank": 16
+        }
+      ]
+    }
+  }
+}
