@@ -1,0 +1,3567 @@
+{
+  "base_commit": "5dd41e1b281f9afbd5291bbfc35054b54a04eebb",
+  "capture": "2026-09-16",
+  "generated": "2026-09-16T16:46:34+00:00",
+  "sectors": [
+    {
+      "id": "impacto_humano",
+      "weight": 0.2,
+      "fields": [
+        {
+          "id": "3is_familias",
+          "weight": 0.25
+        },
+        {
+          "id": "3is_fallecidos",
+          "weight": 0.25
+        },
+        {
+          "id": "3is_desaparecidos",
+          "weight": 0.25
+        },
+        {
+          "id": "3is_heridos",
+          "weight": 0.25
+        }
+      ]
+    },
+    {
+      "id": "vivienda",
+      "weight": 0.2,
+      "fields": [
+        {
+          "id": "3is_vivdestruidas",
+          "weight": 0.25
+        },
+        {
+          "id": "3is_vivaveriadas",
+          "weight": 0.25
+        },
+        {
+          "id": "pnud_vd",
+          "weight": 0.25
+        },
+        {
+          "id": "pnud_va",
+          "weight": 0.25
+        }
+      ]
+    },
+    {
+      "id": "salud",
+      "weight": 0.2,
+      "fields": [
+        {
+          "id": "3is_salud",
+          "weight": 0.5
+        },
+        {
+          "id": "pnud_csalud",
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": "educacion",
+      "weight": 0.2,
+      "fields": [
+        {
+          "id": "3is_educativos",
+          "weight": 0.5
+        },
+        {
+          "id": "pnud_cedu",
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "id": "infraestructura",
+      "weight": 0.2,
+      "fields": [
+        {
+          "id": "3is_colapsos",
+          "weight": 0.3333333333333333
+        },
+        {
+          "id": "3is_acueductos",
+          "weight": 0.3333333333333333
+        },
+        {
+          "id": "3is_vias",
+          "weight": 0.3333333333333333
+        }
+      ]
+    }
+  ],
+  "source_audit": {
+    "reps_municipalities": 1123,
+    "education": {
+      "csv_rows": 2890,
+      "duplicate_cells_removed": 0,
+      "municipalities": 1120,
+      "total_sites": 53375
+    },
+    "imputed": 0,
+    "notes": [
+      "Los inventarios aproximan la oferta; no se acredita operación preevento ni correspondencia nominal con PNUD/3iS.",
+      "El año 2022 educativo se conserva explícitamente; no es SIMAT 2025/2026.",
+      "Cociente mayor que uno se conserva y marca; no se convierte en porcentaje ni se recorta.",
+      "Municipios sin denominador positivo quedan sin tasa; no se rellenan con cero o ML."
+    ]
+  },
+  "scopes": {
+    "decree": {
+      "absolute": {
+        "reference": 509,
+        "scored": 470,
+        "missing": 39,
+        "coverage": {
+          "impacto_humano": {
+            "with_score": 124,
+            "complete": 3
+          },
+          "vivienda": {
+            "with_score": 470,
+            "complete": 114
+          },
+          "salud": {
+            "with_score": 470,
+            "complete": 88
+          },
+          "educacion": {
+            "with_score": 470,
+            "complete": 119
+          },
+          "infraestructura": {
+            "with_score": 98,
+            "complete": 2
+          }
+        },
+        "comparison": {
+          "n": 286,
+          "r2": 0.2358914076325853,
+          "pearson": 0.4856865322742492,
+          "spearman": 0.7992102725374971
+        },
+        "top10": [
+          {
+            "code": "66001",
+            "municipality": "Pereira",
+            "lower": 58.2445569344239,
+            "upper": 63.779223601090564,
+            "available": 14
+          },
+          {
+            "code": "76001",
+            "municipality": "Santiago de Cali",
+            "lower": 39.449121202327085,
+            "upper": 58.671121202327086,
+            "available": 11
+          },
+          {
+            "code": "27001",
+            "municipality": "Quibdó",
+            "lower": 30.67156964181202,
+            "upper": 46.96623630847869,
+            "available": 12
+          },
+          {
+            "code": "76109",
+            "municipality": "Buenaventura",
+            "lower": 20.55607883314365,
+            "upper": 36.72607883314365,
+            "available": 12
+          },
+          {
+            "code": "66170",
+            "municipality": "Dosquebradas",
+            "lower": 18.548522445644732,
+            "upper": 26.82252244564474,
+            "available": 14
+          },
+          {
+            "code": "63001",
+            "municipality": "Armenia",
+            "lower": 14.615461529150775,
+            "upper": 24.28479486248411,
+            "available": 13
+          },
+          {
+            "code": "76828",
+            "municipality": "Trujillo",
+            "lower": 11.92741194461253,
+            "upper": 27.873745277945865,
+            "available": 12
+          },
+          {
+            "code": "76520",
+            "municipality": "Palmira",
+            "lower": 10.9568672278028,
+            "upper": 39.761867227802796,
+            "available": 9
+          },
+          {
+            "code": "17001",
+            "municipality": "Manizales",
+            "lower": 10.852188052681871,
+            "upper": 20.509854719348542,
+            "available": 13
+          },
+          {
+            "code": "27025",
+            "municipality": "Alto Baudó",
+            "lower": 10.84986106702222,
+            "upper": 38.65052773368888,
+            "available": 10
+          }
+        ],
+        "calibration": [
+          {
+            "id": "3is_familias",
+            "source": "3iS-Sheets",
+            "label": "Familias afectadas",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": 45139,
+            "n": 124,
+            "positive": 124,
+            "coherent": true
+          },
+          {
+            "id": "3is_fallecidos",
+            "source": "3iS-Sheets",
+            "label": "Personas fallecidas",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": 156,
+            "n": 27,
+            "positive": 27,
+            "coherent": true
+          },
+          {
+            "id": "3is_desaparecidos",
+            "source": "3iS-Sheets",
+            "label": "Personas desaparecidas",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": 78,
+            "n": 6,
+            "positive": 6,
+            "coherent": true
+          },
+          {
+            "id": "3is_heridos",
+            "source": "3iS-Sheets",
+            "label": "Personas heridas",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": 1517,
+            "n": 81,
+            "positive": 81,
+            "coherent": true
+          },
+          {
+            "id": "3is_vivdestruidas",
+            "source": "3iS-Sheets",
+            "label": "Destruidas · 3iS",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": 9134,
+            "n": 116,
+            "positive": 116,
+            "coherent": true
+          },
+          {
+            "id": "3is_vivaveriadas",
+            "source": "3iS-Sheets",
+            "label": "Averiadas · 3iS",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": 29974,
+            "n": 122,
+            "positive": 122,
+            "coherent": true
+          },
+          {
+            "id": "pnud_vd",
+            "source": "PNUD",
+            "label": "Destruidas · PNUD",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": 9134,
+            "n": 470,
+            "positive": 152,
+            "coherent": true
+          },
+          {
+            "id": "pnud_va",
+            "source": "PNUD",
+            "label": "Averiadas · PNUD",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": 29974,
+            "n": 470,
+            "positive": 364,
+            "coherent": true
+          },
+          {
+            "id": "3is_salud",
+            "source": "3iS-Sheets",
+            "label": "Puntos de salud · 3iS",
+            "share": 0.5,
+            "unit": "Número",
+            "anchor": 34,
+            "n": 88,
+            "positive": 88,
+            "coherent": true
+          },
+          {
+            "id": "pnud_csalud",
+            "source": "PNUD",
+            "label": "Centros de salud · PNUD",
+            "share": 0.5,
+            "unit": "Número",
+            "anchor": 34,
+            "n": 470,
+            "positive": 162,
+            "coherent": true
+          },
+          {
+            "id": "3is_educativos",
+            "source": "3iS-Sheets",
+            "label": "Puntos educativos · 3iS",
+            "share": 0.5,
+            "unit": "Número",
+            "anchor": 238,
+            "n": 119,
+            "positive": 119,
+            "coherent": true
+          },
+          {
+            "id": "pnud_cedu",
+            "source": "PNUD",
+            "label": "Centros educativos · PNUD",
+            "share": 0.5,
+            "unit": "Número",
+            "anchor": 214,
+            "n": 470,
+            "positive": 369,
+            "coherent": true
+          },
+          {
+            "id": "3is_colapsos",
+            "source": "3iS-Sheets",
+            "label": "Colapsos de edificios",
+            "share": 0.3333333333333333,
+            "unit": "Número",
+            "anchor": 530,
+            "n": 6,
+            "positive": 6,
+            "coherent": true
+          },
+          {
+            "id": "3is_acueductos",
+            "source": "3iS-Sheets",
+            "label": "Acueductos afectados",
+            "share": 0.3333333333333333,
+            "unit": "Número",
+            "anchor": 15,
+            "n": 55,
+            "positive": 55,
+            "coherent": true
+          },
+          {
+            "id": "3is_vias",
+            "source": "3iS-Sheets",
+            "label": "Vías afectadas (conteo)",
+            "share": 0.3333333333333333,
+            "unit": "Número",
+            "anchor": 90,
+            "n": 66,
+            "positive": 66,
+            "coherent": true
+          }
+        ],
+        "examples": [
+          {
+            "code": "27050",
+            "name": "Atrato",
+            "rank": 11,
+            "lower": 8.395523804872598,
+            "sectors": [
+              {
+                "id": "salud",
+                "lower": 26.47058823529412,
+                "upper": 26.47058823529412,
+                "fields": [
+                  {
+                    "id": "3is_salud",
+                    "numerator": 9,
+                    "base": null,
+                    "rate": null,
+                    "anchor": 34,
+                    "score": 26.47058823529412
+                  },
+                  {
+                    "id": "pnud_csalud",
+                    "numerator": 9,
+                    "base": null,
+                    "rate": null,
+                    "anchor": 34,
+                    "score": 26.47058823529412
+                  }
+                ]
+              },
+              {
+                "id": "educacion",
+                "lower": 3.5498311474122355,
+                "upper": 3.5498311474122355,
+                "fields": [
+                  {
+                    "id": "3is_educativos",
+                    "numerator": 8,
+                    "base": null,
+                    "rate": null,
+                    "anchor": 238,
+                    "score": 3.361344537815126
+                  },
+                  {
+                    "id": "pnud_cedu",
+                    "numerator": 8,
+                    "base": null,
+                    "rate": null,
+                    "anchor": 214,
+                    "score": 3.7383177570093453
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "code": "27660",
+            "name": "San José Del Palmar",
+            "rank": 84,
+            "lower": 1.793952548913163,
+            "sectors": [
+              {
+                "id": "salud",
+                "lower": 2.941176470588235,
+                "upper": 2.941176470588235,
+                "fields": [
+                  {
+                    "id": "3is_salud",
+                    "numerator": 1,
+                    "base": null,
+                    "rate": null,
+                    "anchor": 34,
+                    "score": 2.941176470588235
+                  },
+                  {
+                    "id": "pnud_csalud",
+                    "numerator": 1,
+                    "base": null,
+                    "rate": null,
+                    "anchor": 34,
+                    "score": 2.941176470588235
+                  }
+                ]
+              },
+              {
+                "id": "educacion",
+                "lower": 0,
+                "upper": 50,
+                "fields": [
+                  {
+                    "id": "3is_educativos",
+                    "numerator": null,
+                    "base": null,
+                    "rate": null,
+                    "anchor": 238,
+                    "score": null
+                  },
+                  {
+                    "id": "pnud_cedu",
+                    "numerator": 0,
+                    "base": null,
+                    "rate": null,
+                    "anchor": 214,
+                    "score": 0
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "code": "66001",
+            "name": "Pereira",
+            "rank": 1,
+            "lower": 58.2445569344239,
+            "sectors": [
+              {
+                "id": "salud",
+                "lower": 100,
+                "upper": 100,
+                "fields": [
+                  {
+                    "id": "3is_salud",
+                    "numerator": 34,
+                    "base": null,
+                    "rate": null,
+                    "anchor": 34,
+                    "score": 100
+                  },
+                  {
+                    "id": "pnud_csalud",
+                    "numerator": 34,
+                    "base": null,
+                    "rate": null,
+                    "anchor": 34,
+                    "score": 100
+                  }
+                ]
+              },
+              {
+                "id": "educacion",
+                "lower": 73.21526741537737,
+                "upper": 73.21526741537737,
+                "fields": [
+                  {
+                    "id": "3is_educativos",
+                    "numerator": 165,
+                    "base": null,
+                    "rate": null,
+                    "anchor": 238,
+                    "score": 69.32773109243698
+                  },
+                  {
+                    "id": "pnud_cedu",
+                    "numerator": 165,
+                    "base": null,
+                    "rate": null,
+                    "anchor": 214,
+                    "score": 77.10280373831776
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "code": "76828",
+            "name": "Trujillo",
+            "rank": 7,
+            "lower": 11.92741194461253,
+            "sectors": [
+              {
+                "id": "salud",
+                "lower": 47.05882352941176,
+                "upper": 47.05882352941176,
+                "fields": [
+                  {
+                    "id": "3is_salud",
+                    "numerator": 16,
+                    "base": null,
+                    "rate": null,
+                    "anchor": 34,
+                    "score": 47.05882352941176
+                  },
+                  {
+                    "id": "pnud_csalud",
+                    "numerator": 16,
+                    "base": null,
+                    "rate": null,
+                    "anchor": 34,
+                    "score": 47.05882352941176
+                  }
+                ]
+              },
+              {
+                "id": "educacion",
+                "lower": 10.160606298594203,
+                "upper": 10.160606298594203,
+                "fields": [
+                  {
+                    "id": "3is_educativos",
+                    "numerator": 15,
+                    "base": null,
+                    "rate": null,
+                    "anchor": 238,
+                    "score": 6.302521008403361
+                  },
+                  {
+                    "id": "pnud_cedu",
+                    "numerator": 30,
+                    "base": null,
+                    "rate": null,
+                    "anchor": 214,
+                    "score": 14.018691588785046
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "percapita": {
+        "reference": 509,
+        "scored": 468,
+        "missing": 41,
+        "coverage": {
+          "impacto_humano": {
+            "with_score": 123,
+            "complete": 3
+          },
+          "vivienda": {
+            "with_score": 468,
+            "complete": 114
+          },
+          "salud": {
+            "with_score": 468,
+            "complete": 87
+          },
+          "educacion": {
+            "with_score": 468,
+            "complete": 118
+          },
+          "infraestructura": {
+            "with_score": 98,
+            "complete": 2
+          }
+        },
+        "comparison": {
+          "n": 286,
+          "r2": 0.35161396205416284,
+          "pearson": 0.592970456308038,
+          "spearman": 0.7871517290680368
+        },
+        "top10": [
+          {
+            "code": "27050",
+            "municipality": "Atrato",
+            "lower": 42.955929572314616,
+            "upper": 53.72426290564795,
+            "available": 13
+          },
+          {
+            "code": "27745",
+            "municipality": "Sipí",
+            "lower": 38.274310533866085,
+            "upper": 71.15331053386608,
+            "available": 9
+          },
+          {
+            "code": "76054",
+            "municipality": "Argelia",
+            "lower": 27.527711354693196,
+            "upper": 53.69971135469319,
+            "available": 10
+          },
+          {
+            "code": "76243",
+            "municipality": "El Águila",
+            "lower": 27.34447529313264,
+            "upper": 48.041141959799305,
+            "available": 11
+          },
+          {
+            "code": "76828",
+            "municipality": "Trujillo",
+            "lower": 26.36817629382271,
+            "upper": 42.31450962715605,
+            "available": 12
+          },
+          {
+            "code": "63111",
+            "municipality": "Buenavista",
+            "lower": 25.679024121809913,
+            "upper": 58.56902412180991,
+            "available": 9
+          },
+          {
+            "code": "76246",
+            "municipality": "El Cairo",
+            "lower": 25.456230722055345,
+            "upper": 50.15156405538867,
+            "available": 11
+          },
+          {
+            "code": "63302",
+            "municipality": "Génova",
+            "lower": 22.26646314412595,
+            "upper": 36.70312981079262,
+            "available": 12
+          },
+          {
+            "code": "27787",
+            "municipality": "Tadó",
+            "lower": 21.306885370203428,
+            "upper": 36.63688537020342,
+            "available": 12
+          },
+          {
+            "code": "27073",
+            "municipality": "Bagadó",
+            "lower": 20.941006658395644,
+            "upper": 43.38767332506231,
+            "available": 11
+          }
+        ],
+        "calibration": [
+          {
+            "id": "3is_familias",
+            "source": "3iS-Sheets",
+            "label": "Familias afectadas",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": 2647.165041531239,
+            "n": 123,
+            "positive": 123,
+            "coherent": true
+          },
+          {
+            "id": "3is_fallecidos",
+            "source": "3iS-Sheets",
+            "label": "Personas fallecidas",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": 4.279600570613409,
+            "n": 27,
+            "positive": 27,
+            "coherent": true
+          },
+          {
+            "id": "3is_desaparecidos",
+            "source": "3iS-Sheets",
+            "label": "Personas desaparecidas",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": 1.5989504325365913,
+            "n": 6,
+            "positive": 6,
+            "coherent": true
+          },
+          {
+            "id": "3is_heridos",
+            "source": "3iS-Sheets",
+            "label": "Personas heridas",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": 45.38939321548017,
+            "n": 81,
+            "positive": 81,
+            "coherent": true
+          },
+          {
+            "id": "3is_vivdestruidas",
+            "source": "3iS-Sheets",
+            "label": "Destruidas · 3iS",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": 1764.1747923438065,
+            "n": 115,
+            "positive": 115,
+            "coherent": true
+          },
+          {
+            "id": "3is_vivaveriadas",
+            "source": "3iS-Sheets",
+            "label": "Averiadas · 3iS",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": 2029.0763253540545,
+            "n": 122,
+            "positive": 122,
+            "coherent": true
+          },
+          {
+            "id": "pnud_vd",
+            "source": "PNUD",
+            "label": "Destruidas · PNUD",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": 700.1747077005779,
+            "n": 468,
+            "positive": 150,
+            "coherent": true
+          },
+          {
+            "id": "pnud_va",
+            "source": "PNUD",
+            "label": "Averiadas · PNUD",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": 1936.9009584664536,
+            "n": 468,
+            "positive": 363,
+            "coherent": true
+          },
+          {
+            "id": "3is_salud",
+            "source": "3iS-Sheets",
+            "label": "Puntos de salud · 3iS",
+            "share": 0.5,
+            "unit": "Número",
+            "anchor": 13.778322106552357,
+            "n": 87,
+            "positive": 87,
+            "coherent": true
+          },
+          {
+            "id": "pnud_csalud",
+            "source": "PNUD",
+            "label": "Centros de salud · PNUD",
+            "share": 0.5,
+            "unit": "Número",
+            "anchor": 13.778322106552357,
+            "n": 468,
+            "positive": 160,
+            "coherent": true
+          },
+          {
+            "id": "3is_educativos",
+            "source": "3iS-Sheets",
+            "label": "Puntos educativos · 3iS",
+            "share": 0.5,
+            "unit": "Número",
+            "anchor": 55.63480741797432,
+            "n": 118,
+            "positive": 118,
+            "coherent": true
+          },
+          {
+            "id": "pnud_cedu",
+            "source": "PNUD",
+            "label": "Centros educativos · PNUD",
+            "share": 0.5,
+            "unit": "Número",
+            "anchor": 41.07424960505529,
+            "n": 468,
+            "positive": 367,
+            "coherent": true
+          },
+          {
+            "id": "3is_colapsos",
+            "source": "3iS-Sheets",
+            "label": "Colapsos de edificios",
+            "share": 0.3333333333333333,
+            "unit": "Número",
+            "anchor": 3.74467198301547,
+            "n": 6,
+            "positive": 6,
+            "coherent": true
+          },
+          {
+            "id": "3is_acueductos",
+            "source": "3iS-Sheets",
+            "label": "Acueductos afectados",
+            "share": 0.3333333333333333,
+            "unit": "Número",
+            "anchor": 7.654623392529087,
+            "n": 55,
+            "positive": 55,
+            "coherent": true
+          },
+          {
+            "id": "3is_vias",
+            "source": "3iS-Sheets",
+            "label": "Vías afectadas (conteo)",
+            "share": 0.3333333333333333,
+            "unit": "Número",
+            "anchor": 16.06855918585967,
+            "n": 66,
+            "positive": 66,
+            "coherent": true
+          }
+        ],
+        "examples": [
+          {
+            "code": "27050",
+            "name": "Atrato",
+            "rank": 1,
+            "lower": 42.955929572314616,
+            "sectors": [
+              {
+                "id": "salud",
+                "lower": 100,
+                "upper": 100,
+                "fields": [
+                  {
+                    "id": "3is_salud",
+                    "numerator": 9,
+                    "base": 6532,
+                    "rate": 13.778322106552357,
+                    "anchor": 13.778322106552357,
+                    "score": 100,
+                    "reason": ""
+                  },
+                  {
+                    "id": "pnud_csalud",
+                    "numerator": 9,
+                    "base": 6532,
+                    "rate": 13.778322106552357,
+                    "anchor": 13.778322106552357,
+                    "score": 100,
+                    "reason": ""
+                  }
+                ]
+              },
+              {
+                "id": "educacion",
+                "lower": 25.915806993577966,
+                "upper": 25.915806993577966,
+                "fields": [
+                  {
+                    "id": "3is_educativos",
+                    "numerator": 8,
+                    "base": 6532,
+                    "rate": 12.24739742804654,
+                    "anchor": 55.63480741797432,
+                    "score": 22.013911787334933,
+                    "reason": ""
+                  },
+                  {
+                    "id": "pnud_cedu",
+                    "numerator": 8,
+                    "base": 6532,
+                    "rate": 12.24739742804654,
+                    "anchor": 41.07424960505529,
+                    "score": 29.817702199821,
+                    "reason": ""
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "code": "27660",
+            "name": "San José Del Palmar",
+            "rank": 27,
+            "lower": 16.220290945823017,
+            "sectors": [
+              {
+                "id": "salud",
+                "lower": 14.131187262028385,
+                "upper": 14.131187262028385,
+                "fields": [
+                  {
+                    "id": "3is_salud",
+                    "numerator": 1,
+                    "base": 5136,
+                    "rate": 1.9470404984423677,
+                    "anchor": 13.778322106552357,
+                    "score": 14.131187262028385,
+                    "reason": ""
+                  },
+                  {
+                    "id": "pnud_csalud",
+                    "numerator": 1,
+                    "base": 5136,
+                    "rate": 1.9470404984423677,
+                    "anchor": 13.778322106552357,
+                    "score": 14.131187262028385,
+                    "reason": ""
+                  }
+                ]
+              },
+              {
+                "id": "educacion",
+                "lower": 0,
+                "upper": 50,
+                "fields": [
+                  {
+                    "id": "3is_educativos",
+                    "numerator": null,
+                    "base": 5136,
+                    "rate": null,
+                    "anchor": 55.63480741797432,
+                    "score": null,
+                    "reason": "Sin numerador válido."
+                  },
+                  {
+                    "id": "pnud_cedu",
+                    "numerator": 0,
+                    "base": 5136,
+                    "rate": 0,
+                    "anchor": 41.07424960505529,
+                    "score": 0,
+                    "reason": ""
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "code": "66001",
+            "name": "Pereira",
+            "rank": 28,
+            "lower": 16.18652726838794,
+            "sectors": [
+              {
+                "id": "salud",
+                "lower": 5.058514297167899,
+                "upper": 5.058514297167899,
+                "fields": [
+                  {
+                    "id": "3is_salud",
+                    "numerator": 34,
+                    "base": 487820,
+                    "rate": 0.6969783936697962,
+                    "anchor": 13.778322106552357,
+                    "score": 5.058514297167899,
+                    "reason": ""
+                  },
+                  {
+                    "id": "pnud_csalud",
+                    "numerator": 34,
+                    "base": 487820,
+                    "rate": 0.6969783936697962,
+                    "anchor": 13.778322106552357,
+                    "score": 5.058514297167899,
+                    "reason": ""
+                  }
+                ]
+              },
+              {
+                "id": "educacion",
+                "lower": 7.157234856488679,
+                "upper": 7.157234856488679,
+                "fields": [
+                  {
+                    "id": "3is_educativos",
+                    "numerator": 165,
+                    "base": 487820,
+                    "rate": 3.3823951457504817,
+                    "anchor": 55.63480741797432,
+                    "score": 6.07963845428484,
+                    "reason": ""
+                  },
+                  {
+                    "id": "pnud_cedu",
+                    "numerator": 165,
+                    "base": 487820,
+                    "rate": 3.3823951457504817,
+                    "anchor": 41.07424960505529,
+                    "score": 8.234831258692518,
+                    "reason": ""
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "code": "76828",
+            "name": "Trujillo",
+            "rank": 5,
+            "lower": 26.36817629382271,
+            "sectors": [
+              {
+                "id": "salud",
+                "lower": 57.89432866908189,
+                "upper": 57.89432866908189,
+                "fields": [
+                  {
+                    "id": "3is_salud",
+                    "numerator": 16,
+                    "base": 20058,
+                    "rate": 7.976867085452189,
+                    "anchor": 13.778322106552357,
+                    "score": 57.89432866908189,
+                    "reason": ""
+                  },
+                  {
+                    "id": "pnud_csalud",
+                    "numerator": 16,
+                    "base": 20058,
+                    "rate": 7.976867085452189,
+                    "anchor": 13.778322106552357,
+                    "score": 57.89432866908189,
+                    "reason": ""
+                  }
+                ]
+              },
+              {
+                "id": "educacion",
+                "lower": 24.92770964203809,
+                "upper": 24.92770964203809,
+                "fields": [
+                  {
+                    "id": "3is_educativos",
+                    "numerator": 15,
+                    "base": 20058,
+                    "rate": 7.478312892611427,
+                    "anchor": 55.63480741797432,
+                    "score": 13.441788045437464,
+                    "reason": ""
+                  },
+                  {
+                    "id": "pnud_cedu",
+                    "numerator": 30,
+                    "base": 20058,
+                    "rate": 14.956625785222855,
+                    "anchor": 41.07424960505529,
+                    "score": 36.413631238638715,
+                    "reason": ""
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "sectorial": {
+        "reference": 509,
+        "scored": 468,
+        "missing": 41,
+        "coverage": {
+          "impacto_humano": {
+            "with_score": 82,
+            "complete": 0
+          },
+          "vivienda": {
+            "with_score": 468,
+            "complete": 114
+          },
+          "salud": {
+            "with_score": 468,
+            "complete": 87
+          },
+          "educacion": {
+            "with_score": 468,
+            "complete": 118
+          },
+          "infraestructura": {
+            "with_score": 0,
+            "complete": 0
+          }
+        },
+        "comparison": {
+          "n": 286,
+          "r2": 0.4098795881168713,
+          "pearson": 0.6402183909548923,
+          "spearman": 0.7318774628528117
+        },
+        "top10": [
+          {
+            "code": "76828",
+            "municipality": "Trujillo",
+            "lower": 33.59124276807833,
+            "upper": 59.68524276807833,
+            "available": 10
+          },
+          {
+            "code": "27745",
+            "municipality": "Sipí",
+            "lower": 24.672543184115302,
+            "upper": 62.24854318411529,
+            "available": 8
+          },
+          {
+            "code": "76020",
+            "municipality": "Alcalá",
+            "lower": 22.50027037347295,
+            "upper": 61.37127037347294,
+            "available": 8
+          },
+          {
+            "code": "63111",
+            "municipality": "Buenavista",
+            "lower": 20.952656125262873,
+            "upper": 63.852656125262875,
+            "available": 7
+          },
+          {
+            "code": "76606",
+            "municipality": "Restrepo",
+            "lower": 20.372637635502464,
+            "upper": 49.82163763550246,
+            "available": 9
+          },
+          {
+            "code": "76054",
+            "municipality": "Argelia",
+            "lower": 19.958661392919947,
+            "upper": 50.49266139291995,
+            "available": 9
+          },
+          {
+            "code": "76126",
+            "municipality": "Calima",
+            "lower": 18.5405881832322,
+            "upper": 44.0825881832322,
+            "available": 10
+          },
+          {
+            "code": "76497",
+            "municipality": "Obando",
+            "lower": 18.164065085467136,
+            "upper": 48.34806508546713,
+            "available": 9
+          },
+          {
+            "code": "76823",
+            "municipality": "Toro",
+            "lower": 17.762237157997284,
+            "upper": 43.68823715799728,
+            "available": 10
+          },
+          {
+            "code": "27050",
+            "municipality": "Atrato",
+            "lower": 17.63402192543332,
+            "upper": 45.324021925433314,
+            "available": 10
+          }
+        ],
+        "calibration": [
+          {
+            "id": "3is_familias",
+            "source": "3iS-Sheets",
+            "label": "Familias afectadas",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": null,
+            "n": 0,
+            "positive": 0,
+            "coherent": true
+          },
+          {
+            "id": "3is_fallecidos",
+            "source": "3iS-Sheets",
+            "label": "Personas fallecidas",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": 4.279600570613409,
+            "n": 27,
+            "positive": 27,
+            "coherent": true
+          },
+          {
+            "id": "3is_desaparecidos",
+            "source": "3iS-Sheets",
+            "label": "Personas desaparecidas",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": 1.5989504325365913,
+            "n": 6,
+            "positive": 6,
+            "coherent": true
+          },
+          {
+            "id": "3is_heridos",
+            "source": "3iS-Sheets",
+            "label": "Personas heridas",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": 45.38939321548017,
+            "n": 81,
+            "positive": 81,
+            "coherent": true
+          },
+          {
+            "id": "3is_vivdestruidas",
+            "source": "3iS-Sheets",
+            "label": "Destruidas · 3iS",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": 40.93003770423125,
+            "n": 115,
+            "positive": 115,
+            "coherent": true
+          },
+          {
+            "id": "3is_vivaveriadas",
+            "source": "3iS-Sheets",
+            "label": "Averiadas · 3iS",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": 48.648648648648646,
+            "n": 122,
+            "positive": 122,
+            "coherent": true
+          },
+          {
+            "id": "pnud_vd",
+            "source": "PNUD",
+            "label": "Destruidas · PNUD",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": 16.167091836734695,
+            "n": 468,
+            "positive": 150,
+            "coherent": true
+          },
+          {
+            "id": "pnud_va",
+            "source": "PNUD",
+            "label": "Averiadas · PNUD",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": 48.648648648648646,
+            "n": 468,
+            "positive": 363,
+            "coherent": true
+          },
+          {
+            "id": "3is_salud",
+            "source": "3iS-Sheets",
+            "label": "Puntos de salud · 3iS",
+            "share": 0.5,
+            "unit": "Número",
+            "anchor": 16,
+            "n": 87,
+            "positive": 87,
+            "coherent": true
+          },
+          {
+            "id": "pnud_csalud",
+            "source": "PNUD",
+            "label": "Centros de salud · PNUD",
+            "share": 0.5,
+            "unit": "Número",
+            "anchor": 16,
+            "n": 468,
+            "positive": 160,
+            "coherent": true
+          },
+          {
+            "id": "3is_educativos",
+            "source": "3iS-Sheets",
+            "label": "Puntos educativos · 3iS",
+            "share": 0.5,
+            "unit": "Número",
+            "anchor": 1.4705882352941178,
+            "n": 118,
+            "positive": 118,
+            "coherent": true
+          },
+          {
+            "id": "pnud_cedu",
+            "source": "PNUD",
+            "label": "Centros educativos · PNUD",
+            "share": 0.5,
+            "unit": "Número",
+            "anchor": 1.4705882352941178,
+            "n": 468,
+            "positive": 367,
+            "coherent": true
+          },
+          {
+            "id": "3is_colapsos",
+            "source": "3iS-Sheets",
+            "label": "Colapsos de edificios",
+            "share": 0.3333333333333333,
+            "unit": "Número",
+            "anchor": null,
+            "n": 0,
+            "positive": 0,
+            "coherent": true
+          },
+          {
+            "id": "3is_acueductos",
+            "source": "3iS-Sheets",
+            "label": "Acueductos afectados",
+            "share": 0.3333333333333333,
+            "unit": "Número",
+            "anchor": null,
+            "n": 0,
+            "positive": 0,
+            "coherent": true
+          },
+          {
+            "id": "3is_vias",
+            "source": "3iS-Sheets",
+            "label": "Vías afectadas (conteo)",
+            "share": 0.3333333333333333,
+            "unit": "Número",
+            "anchor": null,
+            "n": 0,
+            "positive": 0,
+            "coherent": true
+          }
+        ],
+        "examples": [
+          {
+            "code": "27050",
+            "name": "Atrato",
+            "rank": 10,
+            "lower": 17.63402192543332,
+            "sectors": [
+              {
+                "id": "salud",
+                "lower": 18.75,
+                "upper": 18.75,
+                "fields": [
+                  {
+                    "id": "3is_salud",
+                    "numerator": 9,
+                    "base": 3,
+                    "rate": 3,
+                    "anchor": 16,
+                    "score": 18.75,
+                    "reason": ""
+                  },
+                  {
+                    "id": "pnud_csalud",
+                    "numerator": 9,
+                    "base": 3,
+                    "rate": 3,
+                    "anchor": 16,
+                    "score": 18.75,
+                    "reason": ""
+                  }
+                ]
+              },
+              {
+                "id": "educacion",
+                "lower": 34,
+                "upper": 34,
+                "fields": [
+                  {
+                    "id": "3is_educativos",
+                    "numerator": 8,
+                    "base": 16,
+                    "rate": 0.5,
+                    "anchor": 1.4705882352941178,
+                    "score": 34,
+                    "reason": ""
+                  },
+                  {
+                    "id": "pnud_cedu",
+                    "numerator": 8,
+                    "base": 16,
+                    "rate": 0.5,
+                    "anchor": 1.4705882352941178,
+                    "score": 34,
+                    "reason": ""
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "code": "27660",
+            "name": "San José Del Palmar",
+            "rank": 86,
+            "lower": 5.395996780893588,
+            "sectors": [
+              {
+                "id": "salud",
+                "lower": 3.125,
+                "upper": 3.125,
+                "fields": [
+                  {
+                    "id": "3is_salud",
+                    "numerator": 1,
+                    "base": 2,
+                    "rate": 0.5,
+                    "anchor": 16,
+                    "score": 3.125,
+                    "reason": ""
+                  },
+                  {
+                    "id": "pnud_csalud",
+                    "numerator": 1,
+                    "base": 2,
+                    "rate": 0.5,
+                    "anchor": 16,
+                    "score": 3.125,
+                    "reason": ""
+                  }
+                ]
+              },
+              {
+                "id": "educacion",
+                "lower": 0,
+                "upper": 50,
+                "fields": [
+                  {
+                    "id": "3is_educativos",
+                    "numerator": null,
+                    "base": 15,
+                    "rate": null,
+                    "anchor": 1.4705882352941178,
+                    "score": null,
+                    "reason": "Sin numerador válido de esta fuente"
+                  },
+                  {
+                    "id": "pnud_cedu",
+                    "numerator": 0,
+                    "base": 15,
+                    "rate": 0,
+                    "anchor": 1.4705882352941178,
+                    "score": 0,
+                    "reason": ""
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "code": "66001",
+            "name": "Pereira",
+            "rank": 18,
+            "lower": 16.861659919834622,
+            "sectors": [
+              {
+                "id": "salud",
+                "lower": 0.685483870967742,
+                "upper": 0.685483870967742,
+                "fields": [
+                  {
+                    "id": "3is_salud",
+                    "numerator": 34,
+                    "base": 310,
+                    "rate": 0.10967741935483871,
+                    "anchor": 16,
+                    "score": 0.685483870967742,
+                    "reason": ""
+                  },
+                  {
+                    "id": "pnud_csalud",
+                    "numerator": 34,
+                    "base": 310,
+                    "rate": 0.10967741935483871,
+                    "anchor": 16,
+                    "score": 0.685483870967742,
+                    "reason": ""
+                  }
+                ]
+              },
+              {
+                "id": "educacion",
+                "lower": 35.73248407643312,
+                "upper": 35.73248407643312,
+                "fields": [
+                  {
+                    "id": "3is_educativos",
+                    "numerator": 165,
+                    "base": 314,
+                    "rate": 0.5254777070063694,
+                    "anchor": 1.4705882352941178,
+                    "score": 35.73248407643312,
+                    "reason": ""
+                  },
+                  {
+                    "id": "pnud_cedu",
+                    "numerator": 165,
+                    "base": 314,
+                    "rate": 0.5254777070063694,
+                    "anchor": 1.4705882352941178,
+                    "score": 35.73248407643312,
+                    "reason": ""
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "code": "76828",
+            "name": "Trujillo",
+            "rank": 1,
+            "lower": 33.59124276807833,
+            "sectors": [
+              {
+                "id": "salud",
+                "lower": 100,
+                "upper": 100,
+                "fields": [
+                  {
+                    "id": "3is_salud",
+                    "numerator": 16,
+                    "base": 1,
+                    "rate": 16,
+                    "anchor": 16,
+                    "score": 100,
+                    "reason": ""
+                  },
+                  {
+                    "id": "pnud_csalud",
+                    "numerator": 16,
+                    "base": 1,
+                    "rate": 16,
+                    "anchor": 16,
+                    "score": 100,
+                    "reason": ""
+                  }
+                ]
+              },
+              {
+                "id": "educacion",
+                "lower": 37.3170731707317,
+                "upper": 37.3170731707317,
+                "fields": [
+                  {
+                    "id": "3is_educativos",
+                    "numerator": 15,
+                    "base": 41,
+                    "rate": 0.36585365853658536,
+                    "anchor": 1.4705882352941178,
+                    "score": 24.878048780487802,
+                    "reason": ""
+                  },
+                  {
+                    "id": "pnud_cedu",
+                    "numerator": 30,
+                    "base": 41,
+                    "rate": 0.7317073170731707,
+                    "anchor": 1.4705882352941178,
+                    "score": 49.756097560975604,
+                    "reason": ""
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "exceeds_registry": [
+          {
+            "code": "27050",
+            "name": "Atrato",
+            "id": "3is_salud",
+            "numerator": 9,
+            "base": 3,
+            "ratio": 3
+          },
+          {
+            "code": "27050",
+            "name": "Atrato",
+            "id": "pnud_csalud",
+            "numerator": 9,
+            "base": 3,
+            "ratio": 3
+          },
+          {
+            "code": "27600",
+            "name": "Rio Quito",
+            "id": "3is_salud",
+            "numerator": 5,
+            "base": 2,
+            "ratio": 2.5
+          },
+          {
+            "code": "27600",
+            "name": "Rio Quito",
+            "id": "pnud_csalud",
+            "numerator": 5,
+            "base": 2,
+            "ratio": 2.5
+          },
+          {
+            "code": "17616",
+            "name": "Risaralda",
+            "id": "pnud_cedu",
+            "numerator": 29,
+            "base": 28,
+            "ratio": 1.0357142857142858
+          },
+          {
+            "code": "27495",
+            "name": "Nuquí",
+            "id": "3is_salud",
+            "numerator": 4,
+            "base": 3,
+            "ratio": 1.3333333333333333
+          },
+          {
+            "code": "27495",
+            "name": "Nuquí",
+            "id": "pnud_csalud",
+            "numerator": 4,
+            "base": 3,
+            "ratio": 1.3333333333333333
+          },
+          {
+            "code": "63111",
+            "name": "Buenavista",
+            "id": "3is_educativos",
+            "numerator": 12,
+            "base": 11,
+            "ratio": 1.0909090909090908
+          },
+          {
+            "code": "63111",
+            "name": "Buenavista",
+            "id": "pnud_cedu",
+            "numerator": 13,
+            "base": 11,
+            "ratio": 1.1818181818181819
+          },
+          {
+            "code": "76020",
+            "name": "Alcalá",
+            "id": "3is_educativos",
+            "numerator": 25,
+            "base": 17,
+            "ratio": 1.4705882352941178
+          },
+          {
+            "code": "76020",
+            "name": "Alcalá",
+            "id": "pnud_cedu",
+            "numerator": 25,
+            "base": 17,
+            "ratio": 1.4705882352941178
+          },
+          {
+            "code": "76054",
+            "name": "Argelia",
+            "id": "pnud_csalud",
+            "numerator": 3,
+            "base": 1,
+            "ratio": 3
+          },
+          {
+            "code": "76246",
+            "name": "El Cairo",
+            "id": "3is_educativos",
+            "numerator": 39,
+            "base": 34,
+            "ratio": 1.1470588235294117
+          },
+          {
+            "code": "76275",
+            "name": "Florida",
+            "id": "3is_educativos",
+            "numerator": 76,
+            "base": 72,
+            "ratio": 1.0555555555555556
+          },
+          {
+            "code": "76377",
+            "name": "La Cumbre",
+            "id": "3is_salud",
+            "numerator": 4,
+            "base": 2,
+            "ratio": 2
+          },
+          {
+            "code": "76377",
+            "name": "La Cumbre",
+            "id": "pnud_csalud",
+            "numerator": 4,
+            "base": 2,
+            "ratio": 2
+          },
+          {
+            "code": "76497",
+            "name": "Obando",
+            "id": "3is_salud",
+            "numerator": 4,
+            "base": 2,
+            "ratio": 2
+          },
+          {
+            "code": "76497",
+            "name": "Obando",
+            "id": "pnud_csalud",
+            "numerator": 4,
+            "base": 2,
+            "ratio": 2
+          },
+          {
+            "code": "76616",
+            "name": "Riofrío",
+            "id": "3is_educativos",
+            "numerator": 38,
+            "base": 37,
+            "ratio": 1.027027027027027
+          },
+          {
+            "code": "76823",
+            "name": "Toro",
+            "id": "3is_salud",
+            "numerator": 2,
+            "base": 1,
+            "ratio": 2
+          },
+          {
+            "code": "76828",
+            "name": "Trujillo",
+            "id": "3is_salud",
+            "numerator": 16,
+            "base": 1,
+            "ratio": 16
+          },
+          {
+            "code": "76828",
+            "name": "Trujillo",
+            "id": "pnud_csalud",
+            "numerator": 16,
+            "base": 1,
+            "ratio": 16
+          },
+          {
+            "code": "76863",
+            "name": "Versalles",
+            "id": "3is_salud",
+            "numerator": 2,
+            "base": 1,
+            "ratio": 2
+          },
+          {
+            "code": "27006",
+            "name": "Acandí",
+            "id": "3is_salud",
+            "numerator": 6,
+            "base": 4,
+            "ratio": 1.5
+          },
+          {
+            "code": "27006",
+            "name": "Acandí",
+            "id": "pnud_csalud",
+            "numerator": 6,
+            "base": 4,
+            "ratio": 1.5
+          },
+          {
+            "code": "05308",
+            "name": "Girardota",
+            "id": "pnud_cedu",
+            "numerator": 39,
+            "base": 37,
+            "ratio": 1.054054054054054
+          },
+          {
+            "code": "19743",
+            "name": "Silvia",
+            "id": "pnud_csalud",
+            "numerator": 5,
+            "base": 4,
+            "ratio": 1.25
+          }
+        ]
+      }
+    },
+    "all": {
+      "absolute": {
+        "reference": 631,
+        "scored": 534,
+        "missing": 97,
+        "coverage": {
+          "impacto_humano": {
+            "with_score": 124,
+            "complete": 3
+          },
+          "vivienda": {
+            "with_score": 534,
+            "complete": 114
+          },
+          "salud": {
+            "with_score": 534,
+            "complete": 88
+          },
+          "educacion": {
+            "with_score": 534,
+            "complete": 119
+          },
+          "infraestructura": {
+            "with_score": 98,
+            "complete": 2
+          }
+        },
+        "comparison": {
+          "n": 287,
+          "r2": 0.2362512405577988,
+          "pearson": 0.48605682852707544,
+          "spearman": 0.800524693534508
+        },
+        "top10": [
+          {
+            "code": "66001",
+            "municipality": "Pereira",
+            "lower": 58.2445569344239,
+            "upper": 63.779223601090564,
+            "available": 14
+          },
+          {
+            "code": "76001",
+            "municipality": "Santiago de Cali",
+            "lower": 39.449121202327085,
+            "upper": 58.671121202327086,
+            "available": 11
+          },
+          {
+            "code": "27001",
+            "municipality": "Quibdó",
+            "lower": 30.67156964181202,
+            "upper": 46.96623630847869,
+            "available": 12
+          },
+          {
+            "code": "76109",
+            "municipality": "Buenaventura",
+            "lower": 20.55607883314365,
+            "upper": 36.72607883314365,
+            "available": 12
+          },
+          {
+            "code": "66170",
+            "municipality": "Dosquebradas",
+            "lower": 18.548522445644732,
+            "upper": 26.82252244564474,
+            "available": 14
+          },
+          {
+            "code": "63001",
+            "municipality": "Armenia",
+            "lower": 14.615461529150775,
+            "upper": 24.28479486248411,
+            "available": 13
+          },
+          {
+            "code": "76828",
+            "municipality": "Trujillo",
+            "lower": 11.92741194461253,
+            "upper": 27.873745277945865,
+            "available": 12
+          },
+          {
+            "code": "76520",
+            "municipality": "Palmira",
+            "lower": 10.9568672278028,
+            "upper": 39.761867227802796,
+            "available": 9
+          },
+          {
+            "code": "17001",
+            "municipality": "Manizales",
+            "lower": 10.852188052681871,
+            "upper": 20.509854719348542,
+            "available": 13
+          },
+          {
+            "code": "27025",
+            "municipality": "Alto Baudó",
+            "lower": 10.84986106702222,
+            "upper": 38.65052773368888,
+            "available": 10
+          }
+        ],
+        "calibration": [
+          {
+            "id": "3is_familias",
+            "source": "3iS-Sheets",
+            "label": "Familias afectadas",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": 45139,
+            "n": 124,
+            "positive": 124,
+            "coherent": true
+          },
+          {
+            "id": "3is_fallecidos",
+            "source": "3iS-Sheets",
+            "label": "Personas fallecidas",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": 156,
+            "n": 27,
+            "positive": 27,
+            "coherent": true
+          },
+          {
+            "id": "3is_desaparecidos",
+            "source": "3iS-Sheets",
+            "label": "Personas desaparecidas",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": 78,
+            "n": 6,
+            "positive": 6,
+            "coherent": true
+          },
+          {
+            "id": "3is_heridos",
+            "source": "3iS-Sheets",
+            "label": "Personas heridas",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": 1517,
+            "n": 81,
+            "positive": 81,
+            "coherent": true
+          },
+          {
+            "id": "3is_vivdestruidas",
+            "source": "3iS-Sheets",
+            "label": "Destruidas · 3iS",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": 9134,
+            "n": 116,
+            "positive": 116,
+            "coherent": true
+          },
+          {
+            "id": "3is_vivaveriadas",
+            "source": "3iS-Sheets",
+            "label": "Averiadas · 3iS",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": 29974,
+            "n": 122,
+            "positive": 122,
+            "coherent": true
+          },
+          {
+            "id": "pnud_vd",
+            "source": "PNUD",
+            "label": "Destruidas · PNUD",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": 9134,
+            "n": 534,
+            "positive": 153,
+            "coherent": true
+          },
+          {
+            "id": "pnud_va",
+            "source": "PNUD",
+            "label": "Averiadas · PNUD",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": 29974,
+            "n": 534,
+            "positive": 385,
+            "coherent": true
+          },
+          {
+            "id": "3is_salud",
+            "source": "3iS-Sheets",
+            "label": "Puntos de salud · 3iS",
+            "share": 0.5,
+            "unit": "Número",
+            "anchor": 34,
+            "n": 88,
+            "positive": 88,
+            "coherent": true
+          },
+          {
+            "id": "pnud_csalud",
+            "source": "PNUD",
+            "label": "Centros de salud · PNUD",
+            "share": 0.5,
+            "unit": "Número",
+            "anchor": 34,
+            "n": 534,
+            "positive": 177,
+            "coherent": true
+          },
+          {
+            "id": "3is_educativos",
+            "source": "3iS-Sheets",
+            "label": "Puntos educativos · 3iS",
+            "share": 0.5,
+            "unit": "Número",
+            "anchor": 238,
+            "n": 119,
+            "positive": 119,
+            "coherent": true
+          },
+          {
+            "id": "pnud_cedu",
+            "source": "PNUD",
+            "label": "Centros educativos · PNUD",
+            "share": 0.5,
+            "unit": "Número",
+            "anchor": 214,
+            "n": 534,
+            "positive": 413,
+            "coherent": true
+          },
+          {
+            "id": "3is_colapsos",
+            "source": "3iS-Sheets",
+            "label": "Colapsos de edificios",
+            "share": 0.3333333333333333,
+            "unit": "Número",
+            "anchor": 530,
+            "n": 6,
+            "positive": 6,
+            "coherent": true
+          },
+          {
+            "id": "3is_acueductos",
+            "source": "3iS-Sheets",
+            "label": "Acueductos afectados",
+            "share": 0.3333333333333333,
+            "unit": "Número",
+            "anchor": 15,
+            "n": 55,
+            "positive": 55,
+            "coherent": true
+          },
+          {
+            "id": "3is_vias",
+            "source": "3iS-Sheets",
+            "label": "Vías afectadas (conteo)",
+            "share": 0.3333333333333333,
+            "unit": "Número",
+            "anchor": 90,
+            "n": 66,
+            "positive": 66,
+            "coherent": true
+          }
+        ],
+        "examples": [
+          {
+            "code": "27050",
+            "name": "Atrato",
+            "rank": 11,
+            "lower": 8.395523804872598,
+            "sectors": [
+              {
+                "id": "salud",
+                "lower": 26.47058823529412,
+                "upper": 26.47058823529412,
+                "fields": [
+                  {
+                    "id": "3is_salud",
+                    "numerator": 9,
+                    "base": null,
+                    "rate": null,
+                    "anchor": 34,
+                    "score": 26.47058823529412
+                  },
+                  {
+                    "id": "pnud_csalud",
+                    "numerator": 9,
+                    "base": null,
+                    "rate": null,
+                    "anchor": 34,
+                    "score": 26.47058823529412
+                  }
+                ]
+              },
+              {
+                "id": "educacion",
+                "lower": 3.5498311474122355,
+                "upper": 3.5498311474122355,
+                "fields": [
+                  {
+                    "id": "3is_educativos",
+                    "numerator": 8,
+                    "base": null,
+                    "rate": null,
+                    "anchor": 238,
+                    "score": 3.361344537815126
+                  },
+                  {
+                    "id": "pnud_cedu",
+                    "numerator": 8,
+                    "base": null,
+                    "rate": null,
+                    "anchor": 214,
+                    "score": 3.7383177570093453
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "code": "27660",
+            "name": "San José Del Palmar",
+            "rank": 84,
+            "lower": 1.793952548913163,
+            "sectors": [
+              {
+                "id": "salud",
+                "lower": 2.941176470588235,
+                "upper": 2.941176470588235,
+                "fields": [
+                  {
+                    "id": "3is_salud",
+                    "numerator": 1,
+                    "base": null,
+                    "rate": null,
+                    "anchor": 34,
+                    "score": 2.941176470588235
+                  },
+                  {
+                    "id": "pnud_csalud",
+                    "numerator": 1,
+                    "base": null,
+                    "rate": null,
+                    "anchor": 34,
+                    "score": 2.941176470588235
+                  }
+                ]
+              },
+              {
+                "id": "educacion",
+                "lower": 0,
+                "upper": 50,
+                "fields": [
+                  {
+                    "id": "3is_educativos",
+                    "numerator": null,
+                    "base": null,
+                    "rate": null,
+                    "anchor": 238,
+                    "score": null
+                  },
+                  {
+                    "id": "pnud_cedu",
+                    "numerator": 0,
+                    "base": null,
+                    "rate": null,
+                    "anchor": 214,
+                    "score": 0
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "code": "66001",
+            "name": "Pereira",
+            "rank": 1,
+            "lower": 58.2445569344239,
+            "sectors": [
+              {
+                "id": "salud",
+                "lower": 100,
+                "upper": 100,
+                "fields": [
+                  {
+                    "id": "3is_salud",
+                    "numerator": 34,
+                    "base": null,
+                    "rate": null,
+                    "anchor": 34,
+                    "score": 100
+                  },
+                  {
+                    "id": "pnud_csalud",
+                    "numerator": 34,
+                    "base": null,
+                    "rate": null,
+                    "anchor": 34,
+                    "score": 100
+                  }
+                ]
+              },
+              {
+                "id": "educacion",
+                "lower": 73.21526741537737,
+                "upper": 73.21526741537737,
+                "fields": [
+                  {
+                    "id": "3is_educativos",
+                    "numerator": 165,
+                    "base": null,
+                    "rate": null,
+                    "anchor": 238,
+                    "score": 69.32773109243698
+                  },
+                  {
+                    "id": "pnud_cedu",
+                    "numerator": 165,
+                    "base": null,
+                    "rate": null,
+                    "anchor": 214,
+                    "score": 77.10280373831776
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "code": "76828",
+            "name": "Trujillo",
+            "rank": 7,
+            "lower": 11.92741194461253,
+            "sectors": [
+              {
+                "id": "salud",
+                "lower": 47.05882352941176,
+                "upper": 47.05882352941176,
+                "fields": [
+                  {
+                    "id": "3is_salud",
+                    "numerator": 16,
+                    "base": null,
+                    "rate": null,
+                    "anchor": 34,
+                    "score": 47.05882352941176
+                  },
+                  {
+                    "id": "pnud_csalud",
+                    "numerator": 16,
+                    "base": null,
+                    "rate": null,
+                    "anchor": 34,
+                    "score": 47.05882352941176
+                  }
+                ]
+              },
+              {
+                "id": "educacion",
+                "lower": 10.160606298594203,
+                "upper": 10.160606298594203,
+                "fields": [
+                  {
+                    "id": "3is_educativos",
+                    "numerator": 15,
+                    "base": null,
+                    "rate": null,
+                    "anchor": 238,
+                    "score": 6.302521008403361
+                  },
+                  {
+                    "id": "pnud_cedu",
+                    "numerator": 30,
+                    "base": null,
+                    "rate": null,
+                    "anchor": 214,
+                    "score": 14.018691588785046
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "percapita": {
+        "reference": 631,
+        "scored": 532,
+        "missing": 99,
+        "coverage": {
+          "impacto_humano": {
+            "with_score": 123,
+            "complete": 3
+          },
+          "vivienda": {
+            "with_score": 532,
+            "complete": 114
+          },
+          "salud": {
+            "with_score": 532,
+            "complete": 87
+          },
+          "educacion": {
+            "with_score": 532,
+            "complete": 118
+          },
+          "infraestructura": {
+            "with_score": 98,
+            "complete": 2
+          }
+        },
+        "comparison": {
+          "n": 287,
+          "r2": 0.3527360781943373,
+          "pearson": 0.5939158847802753,
+          "spearman": 0.788824684443252
+        },
+        "top10": [
+          {
+            "code": "27050",
+            "municipality": "Atrato",
+            "lower": 42.955929572314616,
+            "upper": 53.72426290564795,
+            "available": 13
+          },
+          {
+            "code": "27745",
+            "municipality": "Sipí",
+            "lower": 38.274310533866085,
+            "upper": 71.15331053386608,
+            "available": 9
+          },
+          {
+            "code": "76054",
+            "municipality": "Argelia",
+            "lower": 27.527711354693196,
+            "upper": 53.69971135469319,
+            "available": 10
+          },
+          {
+            "code": "76243",
+            "municipality": "El Águila",
+            "lower": 27.34447529313264,
+            "upper": 48.041141959799305,
+            "available": 11
+          },
+          {
+            "code": "76828",
+            "municipality": "Trujillo",
+            "lower": 26.36817629382271,
+            "upper": 42.31450962715605,
+            "available": 12
+          },
+          {
+            "code": "63111",
+            "municipality": "Buenavista",
+            "lower": 25.679024121809913,
+            "upper": 58.56902412180991,
+            "available": 9
+          },
+          {
+            "code": "76246",
+            "municipality": "El Cairo",
+            "lower": 25.456230722055345,
+            "upper": 50.15156405538867,
+            "available": 11
+          },
+          {
+            "code": "63302",
+            "municipality": "Génova",
+            "lower": 22.26646314412595,
+            "upper": 36.70312981079262,
+            "available": 12
+          },
+          {
+            "code": "27787",
+            "municipality": "Tadó",
+            "lower": 21.306885370203428,
+            "upper": 36.63688537020342,
+            "available": 12
+          },
+          {
+            "code": "27073",
+            "municipality": "Bagadó",
+            "lower": 20.941006658395644,
+            "upper": 43.38767332506231,
+            "available": 11
+          }
+        ],
+        "calibration": [
+          {
+            "id": "3is_familias",
+            "source": "3iS-Sheets",
+            "label": "Familias afectadas",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": 2647.165041531239,
+            "n": 123,
+            "positive": 123,
+            "coherent": true
+          },
+          {
+            "id": "3is_fallecidos",
+            "source": "3iS-Sheets",
+            "label": "Personas fallecidas",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": 4.279600570613409,
+            "n": 27,
+            "positive": 27,
+            "coherent": true
+          },
+          {
+            "id": "3is_desaparecidos",
+            "source": "3iS-Sheets",
+            "label": "Personas desaparecidas",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": 1.5989504325365913,
+            "n": 6,
+            "positive": 6,
+            "coherent": true
+          },
+          {
+            "id": "3is_heridos",
+            "source": "3iS-Sheets",
+            "label": "Personas heridas",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": 45.38939321548017,
+            "n": 81,
+            "positive": 81,
+            "coherent": true
+          },
+          {
+            "id": "3is_vivdestruidas",
+            "source": "3iS-Sheets",
+            "label": "Destruidas · 3iS",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": 1764.1747923438065,
+            "n": 115,
+            "positive": 115,
+            "coherent": true
+          },
+          {
+            "id": "3is_vivaveriadas",
+            "source": "3iS-Sheets",
+            "label": "Averiadas · 3iS",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": 2029.0763253540545,
+            "n": 122,
+            "positive": 122,
+            "coherent": true
+          },
+          {
+            "id": "pnud_vd",
+            "source": "PNUD",
+            "label": "Destruidas · PNUD",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": 700.1747077005779,
+            "n": 532,
+            "positive": 151,
+            "coherent": true
+          },
+          {
+            "id": "pnud_va",
+            "source": "PNUD",
+            "label": "Averiadas · PNUD",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": 1936.9009584664536,
+            "n": 532,
+            "positive": 384,
+            "coherent": true
+          },
+          {
+            "id": "3is_salud",
+            "source": "3iS-Sheets",
+            "label": "Puntos de salud · 3iS",
+            "share": 0.5,
+            "unit": "Número",
+            "anchor": 13.778322106552357,
+            "n": 87,
+            "positive": 87,
+            "coherent": true
+          },
+          {
+            "id": "pnud_csalud",
+            "source": "PNUD",
+            "label": "Centros de salud · PNUD",
+            "share": 0.5,
+            "unit": "Número",
+            "anchor": 13.778322106552357,
+            "n": 532,
+            "positive": 175,
+            "coherent": true
+          },
+          {
+            "id": "3is_educativos",
+            "source": "3iS-Sheets",
+            "label": "Puntos educativos · 3iS",
+            "share": 0.5,
+            "unit": "Número",
+            "anchor": 55.63480741797432,
+            "n": 118,
+            "positive": 118,
+            "coherent": true
+          },
+          {
+            "id": "pnud_cedu",
+            "source": "PNUD",
+            "label": "Centros educativos · PNUD",
+            "share": 0.5,
+            "unit": "Número",
+            "anchor": 41.07424960505529,
+            "n": 532,
+            "positive": 411,
+            "coherent": true
+          },
+          {
+            "id": "3is_colapsos",
+            "source": "3iS-Sheets",
+            "label": "Colapsos de edificios",
+            "share": 0.3333333333333333,
+            "unit": "Número",
+            "anchor": 3.74467198301547,
+            "n": 6,
+            "positive": 6,
+            "coherent": true
+          },
+          {
+            "id": "3is_acueductos",
+            "source": "3iS-Sheets",
+            "label": "Acueductos afectados",
+            "share": 0.3333333333333333,
+            "unit": "Número",
+            "anchor": 7.654623392529087,
+            "n": 55,
+            "positive": 55,
+            "coherent": true
+          },
+          {
+            "id": "3is_vias",
+            "source": "3iS-Sheets",
+            "label": "Vías afectadas (conteo)",
+            "share": 0.3333333333333333,
+            "unit": "Número",
+            "anchor": 16.06855918585967,
+            "n": 66,
+            "positive": 66,
+            "coherent": true
+          }
+        ],
+        "examples": [
+          {
+            "code": "27050",
+            "name": "Atrato",
+            "rank": 1,
+            "lower": 42.955929572314616,
+            "sectors": [
+              {
+                "id": "salud",
+                "lower": 100,
+                "upper": 100,
+                "fields": [
+                  {
+                    "id": "3is_salud",
+                    "numerator": 9,
+                    "base": 6532,
+                    "rate": 13.778322106552357,
+                    "anchor": 13.778322106552357,
+                    "score": 100,
+                    "reason": ""
+                  },
+                  {
+                    "id": "pnud_csalud",
+                    "numerator": 9,
+                    "base": 6532,
+                    "rate": 13.778322106552357,
+                    "anchor": 13.778322106552357,
+                    "score": 100,
+                    "reason": ""
+                  }
+                ]
+              },
+              {
+                "id": "educacion",
+                "lower": 25.915806993577966,
+                "upper": 25.915806993577966,
+                "fields": [
+                  {
+                    "id": "3is_educativos",
+                    "numerator": 8,
+                    "base": 6532,
+                    "rate": 12.24739742804654,
+                    "anchor": 55.63480741797432,
+                    "score": 22.013911787334933,
+                    "reason": ""
+                  },
+                  {
+                    "id": "pnud_cedu",
+                    "numerator": 8,
+                    "base": 6532,
+                    "rate": 12.24739742804654,
+                    "anchor": 41.07424960505529,
+                    "score": 29.817702199821,
+                    "reason": ""
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "code": "27660",
+            "name": "San José Del Palmar",
+            "rank": 27,
+            "lower": 16.220290945823017,
+            "sectors": [
+              {
+                "id": "salud",
+                "lower": 14.131187262028385,
+                "upper": 14.131187262028385,
+                "fields": [
+                  {
+                    "id": "3is_salud",
+                    "numerator": 1,
+                    "base": 5136,
+                    "rate": 1.9470404984423677,
+                    "anchor": 13.778322106552357,
+                    "score": 14.131187262028385,
+                    "reason": ""
+                  },
+                  {
+                    "id": "pnud_csalud",
+                    "numerator": 1,
+                    "base": 5136,
+                    "rate": 1.9470404984423677,
+                    "anchor": 13.778322106552357,
+                    "score": 14.131187262028385,
+                    "reason": ""
+                  }
+                ]
+              },
+              {
+                "id": "educacion",
+                "lower": 0,
+                "upper": 50,
+                "fields": [
+                  {
+                    "id": "3is_educativos",
+                    "numerator": null,
+                    "base": 5136,
+                    "rate": null,
+                    "anchor": 55.63480741797432,
+                    "score": null,
+                    "reason": "Sin numerador válido."
+                  },
+                  {
+                    "id": "pnud_cedu",
+                    "numerator": 0,
+                    "base": 5136,
+                    "rate": 0,
+                    "anchor": 41.07424960505529,
+                    "score": 0,
+                    "reason": ""
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "code": "66001",
+            "name": "Pereira",
+            "rank": 28,
+            "lower": 16.18652726838794,
+            "sectors": [
+              {
+                "id": "salud",
+                "lower": 5.058514297167899,
+                "upper": 5.058514297167899,
+                "fields": [
+                  {
+                    "id": "3is_salud",
+                    "numerator": 34,
+                    "base": 487820,
+                    "rate": 0.6969783936697962,
+                    "anchor": 13.778322106552357,
+                    "score": 5.058514297167899,
+                    "reason": ""
+                  },
+                  {
+                    "id": "pnud_csalud",
+                    "numerator": 34,
+                    "base": 487820,
+                    "rate": 0.6969783936697962,
+                    "anchor": 13.778322106552357,
+                    "score": 5.058514297167899,
+                    "reason": ""
+                  }
+                ]
+              },
+              {
+                "id": "educacion",
+                "lower": 7.157234856488679,
+                "upper": 7.157234856488679,
+                "fields": [
+                  {
+                    "id": "3is_educativos",
+                    "numerator": 165,
+                    "base": 487820,
+                    "rate": 3.3823951457504817,
+                    "anchor": 55.63480741797432,
+                    "score": 6.07963845428484,
+                    "reason": ""
+                  },
+                  {
+                    "id": "pnud_cedu",
+                    "numerator": 165,
+                    "base": 487820,
+                    "rate": 3.3823951457504817,
+                    "anchor": 41.07424960505529,
+                    "score": 8.234831258692518,
+                    "reason": ""
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "code": "76828",
+            "name": "Trujillo",
+            "rank": 5,
+            "lower": 26.36817629382271,
+            "sectors": [
+              {
+                "id": "salud",
+                "lower": 57.89432866908189,
+                "upper": 57.89432866908189,
+                "fields": [
+                  {
+                    "id": "3is_salud",
+                    "numerator": 16,
+                    "base": 20058,
+                    "rate": 7.976867085452189,
+                    "anchor": 13.778322106552357,
+                    "score": 57.89432866908189,
+                    "reason": ""
+                  },
+                  {
+                    "id": "pnud_csalud",
+                    "numerator": 16,
+                    "base": 20058,
+                    "rate": 7.976867085452189,
+                    "anchor": 13.778322106552357,
+                    "score": 57.89432866908189,
+                    "reason": ""
+                  }
+                ]
+              },
+              {
+                "id": "educacion",
+                "lower": 24.92770964203809,
+                "upper": 24.92770964203809,
+                "fields": [
+                  {
+                    "id": "3is_educativos",
+                    "numerator": 15,
+                    "base": 20058,
+                    "rate": 7.478312892611427,
+                    "anchor": 55.63480741797432,
+                    "score": 13.441788045437464,
+                    "reason": ""
+                  },
+                  {
+                    "id": "pnud_cedu",
+                    "numerator": 30,
+                    "base": 20058,
+                    "rate": 14.956625785222855,
+                    "anchor": 41.07424960505529,
+                    "score": 36.413631238638715,
+                    "reason": ""
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "sectorial": {
+        "reference": 631,
+        "scored": 532,
+        "missing": 99,
+        "coverage": {
+          "impacto_humano": {
+            "with_score": 82,
+            "complete": 0
+          },
+          "vivienda": {
+            "with_score": 532,
+            "complete": 114
+          },
+          "salud": {
+            "with_score": 532,
+            "complete": 87
+          },
+          "educacion": {
+            "with_score": 532,
+            "complete": 118
+          },
+          "infraestructura": {
+            "with_score": 0,
+            "complete": 0
+          }
+        },
+        "comparison": {
+          "n": 287,
+          "r2": 0.41118227615963115,
+          "pearson": 0.6412349617415064,
+          "spearman": 0.7339247979801686
+        },
+        "top10": [
+          {
+            "code": "76828",
+            "municipality": "Trujillo",
+            "lower": 33.59124276807833,
+            "upper": 59.68524276807833,
+            "available": 10
+          },
+          {
+            "code": "27745",
+            "municipality": "Sipí",
+            "lower": 24.672543184115302,
+            "upper": 62.24854318411529,
+            "available": 8
+          },
+          {
+            "code": "76020",
+            "municipality": "Alcalá",
+            "lower": 22.50027037347295,
+            "upper": 61.37127037347294,
+            "available": 8
+          },
+          {
+            "code": "63111",
+            "municipality": "Buenavista",
+            "lower": 20.952656125262873,
+            "upper": 63.852656125262875,
+            "available": 7
+          },
+          {
+            "code": "76606",
+            "municipality": "Restrepo",
+            "lower": 20.372637635502464,
+            "upper": 49.82163763550246,
+            "available": 9
+          },
+          {
+            "code": "76054",
+            "municipality": "Argelia",
+            "lower": 19.958661392919947,
+            "upper": 50.49266139291995,
+            "available": 9
+          },
+          {
+            "code": "76126",
+            "municipality": "Calima",
+            "lower": 18.5405881832322,
+            "upper": 44.0825881832322,
+            "available": 10
+          },
+          {
+            "code": "76497",
+            "municipality": "Obando",
+            "lower": 18.164065085467136,
+            "upper": 48.34806508546713,
+            "available": 9
+          },
+          {
+            "code": "76823",
+            "municipality": "Toro",
+            "lower": 17.762237157997284,
+            "upper": 43.68823715799728,
+            "available": 10
+          },
+          {
+            "code": "27050",
+            "municipality": "Atrato",
+            "lower": 17.63402192543332,
+            "upper": 45.324021925433314,
+            "available": 10
+          }
+        ],
+        "calibration": [
+          {
+            "id": "3is_familias",
+            "source": "3iS-Sheets",
+            "label": "Familias afectadas",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": null,
+            "n": 0,
+            "positive": 0,
+            "coherent": true
+          },
+          {
+            "id": "3is_fallecidos",
+            "source": "3iS-Sheets",
+            "label": "Personas fallecidas",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": 4.279600570613409,
+            "n": 27,
+            "positive": 27,
+            "coherent": true
+          },
+          {
+            "id": "3is_desaparecidos",
+            "source": "3iS-Sheets",
+            "label": "Personas desaparecidas",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": 1.5989504325365913,
+            "n": 6,
+            "positive": 6,
+            "coherent": true
+          },
+          {
+            "id": "3is_heridos",
+            "source": "3iS-Sheets",
+            "label": "Personas heridas",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": 45.38939321548017,
+            "n": 81,
+            "positive": 81,
+            "coherent": true
+          },
+          {
+            "id": "3is_vivdestruidas",
+            "source": "3iS-Sheets",
+            "label": "Destruidas · 3iS",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": 40.93003770423125,
+            "n": 115,
+            "positive": 115,
+            "coherent": true
+          },
+          {
+            "id": "3is_vivaveriadas",
+            "source": "3iS-Sheets",
+            "label": "Averiadas · 3iS",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": 48.648648648648646,
+            "n": 122,
+            "positive": 122,
+            "coherent": true
+          },
+          {
+            "id": "pnud_vd",
+            "source": "PNUD",
+            "label": "Destruidas · PNUD",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": 16.167091836734695,
+            "n": 532,
+            "positive": 151,
+            "coherent": true
+          },
+          {
+            "id": "pnud_va",
+            "source": "PNUD",
+            "label": "Averiadas · PNUD",
+            "share": 0.25,
+            "unit": "Número",
+            "anchor": 48.648648648648646,
+            "n": 532,
+            "positive": 384,
+            "coherent": true
+          },
+          {
+            "id": "3is_salud",
+            "source": "3iS-Sheets",
+            "label": "Puntos de salud · 3iS",
+            "share": 0.5,
+            "unit": "Número",
+            "anchor": 16,
+            "n": 87,
+            "positive": 87,
+            "coherent": true
+          },
+          {
+            "id": "pnud_csalud",
+            "source": "PNUD",
+            "label": "Centros de salud · PNUD",
+            "share": 0.5,
+            "unit": "Número",
+            "anchor": 16,
+            "n": 532,
+            "positive": 175,
+            "coherent": true
+          },
+          {
+            "id": "3is_educativos",
+            "source": "3iS-Sheets",
+            "label": "Puntos educativos · 3iS",
+            "share": 0.5,
+            "unit": "Número",
+            "anchor": 1.4705882352941178,
+            "n": 118,
+            "positive": 118,
+            "coherent": true
+          },
+          {
+            "id": "pnud_cedu",
+            "source": "PNUD",
+            "label": "Centros educativos · PNUD",
+            "share": 0.5,
+            "unit": "Número",
+            "anchor": 1.4705882352941178,
+            "n": 532,
+            "positive": 411,
+            "coherent": true
+          },
+          {
+            "id": "3is_colapsos",
+            "source": "3iS-Sheets",
+            "label": "Colapsos de edificios",
+            "share": 0.3333333333333333,
+            "unit": "Número",
+            "anchor": null,
+            "n": 0,
+            "positive": 0,
+            "coherent": true
+          },
+          {
+            "id": "3is_acueductos",
+            "source": "3iS-Sheets",
+            "label": "Acueductos afectados",
+            "share": 0.3333333333333333,
+            "unit": "Número",
+            "anchor": null,
+            "n": 0,
+            "positive": 0,
+            "coherent": true
+          },
+          {
+            "id": "3is_vias",
+            "source": "3iS-Sheets",
+            "label": "Vías afectadas (conteo)",
+            "share": 0.3333333333333333,
+            "unit": "Número",
+            "anchor": null,
+            "n": 0,
+            "positive": 0,
+            "coherent": true
+          }
+        ],
+        "examples": [
+          {
+            "code": "27050",
+            "name": "Atrato",
+            "rank": 10,
+            "lower": 17.63402192543332,
+            "sectors": [
+              {
+                "id": "salud",
+                "lower": 18.75,
+                "upper": 18.75,
+                "fields": [
+                  {
+                    "id": "3is_salud",
+                    "numerator": 9,
+                    "base": 3,
+                    "rate": 3,
+                    "anchor": 16,
+                    "score": 18.75,
+                    "reason": ""
+                  },
+                  {
+                    "id": "pnud_csalud",
+                    "numerator": 9,
+                    "base": 3,
+                    "rate": 3,
+                    "anchor": 16,
+                    "score": 18.75,
+                    "reason": ""
+                  }
+                ]
+              },
+              {
+                "id": "educacion",
+                "lower": 34,
+                "upper": 34,
+                "fields": [
+                  {
+                    "id": "3is_educativos",
+                    "numerator": 8,
+                    "base": 16,
+                    "rate": 0.5,
+                    "anchor": 1.4705882352941178,
+                    "score": 34,
+                    "reason": ""
+                  },
+                  {
+                    "id": "pnud_cedu",
+                    "numerator": 8,
+                    "base": 16,
+                    "rate": 0.5,
+                    "anchor": 1.4705882352941178,
+                    "score": 34,
+                    "reason": ""
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "code": "27660",
+            "name": "San José Del Palmar",
+            "rank": 86,
+            "lower": 5.395996780893588,
+            "sectors": [
+              {
+                "id": "salud",
+                "lower": 3.125,
+                "upper": 3.125,
+                "fields": [
+                  {
+                    "id": "3is_salud",
+                    "numerator": 1,
+                    "base": 2,
+                    "rate": 0.5,
+                    "anchor": 16,
+                    "score": 3.125,
+                    "reason": ""
+                  },
+                  {
+                    "id": "pnud_csalud",
+                    "numerator": 1,
+                    "base": 2,
+                    "rate": 0.5,
+                    "anchor": 16,
+                    "score": 3.125,
+                    "reason": ""
+                  }
+                ]
+              },
+              {
+                "id": "educacion",
+                "lower": 0,
+                "upper": 50,
+                "fields": [
+                  {
+                    "id": "3is_educativos",
+                    "numerator": null,
+                    "base": 15,
+                    "rate": null,
+                    "anchor": 1.4705882352941178,
+                    "score": null,
+                    "reason": "Sin numerador válido de esta fuente"
+                  },
+                  {
+                    "id": "pnud_cedu",
+                    "numerator": 0,
+                    "base": 15,
+                    "rate": 0,
+                    "anchor": 1.4705882352941178,
+                    "score": 0,
+                    "reason": ""
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "code": "66001",
+            "name": "Pereira",
+            "rank": 18,
+            "lower": 16.861659919834622,
+            "sectors": [
+              {
+                "id": "salud",
+                "lower": 0.685483870967742,
+                "upper": 0.685483870967742,
+                "fields": [
+                  {
+                    "id": "3is_salud",
+                    "numerator": 34,
+                    "base": 310,
+                    "rate": 0.10967741935483871,
+                    "anchor": 16,
+                    "score": 0.685483870967742,
+                    "reason": ""
+                  },
+                  {
+                    "id": "pnud_csalud",
+                    "numerator": 34,
+                    "base": 310,
+                    "rate": 0.10967741935483871,
+                    "anchor": 16,
+                    "score": 0.685483870967742,
+                    "reason": ""
+                  }
+                ]
+              },
+              {
+                "id": "educacion",
+                "lower": 35.73248407643312,
+                "upper": 35.73248407643312,
+                "fields": [
+                  {
+                    "id": "3is_educativos",
+                    "numerator": 165,
+                    "base": 314,
+                    "rate": 0.5254777070063694,
+                    "anchor": 1.4705882352941178,
+                    "score": 35.73248407643312,
+                    "reason": ""
+                  },
+                  {
+                    "id": "pnud_cedu",
+                    "numerator": 165,
+                    "base": 314,
+                    "rate": 0.5254777070063694,
+                    "anchor": 1.4705882352941178,
+                    "score": 35.73248407643312,
+                    "reason": ""
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "code": "76828",
+            "name": "Trujillo",
+            "rank": 1,
+            "lower": 33.59124276807833,
+            "sectors": [
+              {
+                "id": "salud",
+                "lower": 100,
+                "upper": 100,
+                "fields": [
+                  {
+                    "id": "3is_salud",
+                    "numerator": 16,
+                    "base": 1,
+                    "rate": 16,
+                    "anchor": 16,
+                    "score": 100,
+                    "reason": ""
+                  },
+                  {
+                    "id": "pnud_csalud",
+                    "numerator": 16,
+                    "base": 1,
+                    "rate": 16,
+                    "anchor": 16,
+                    "score": 100,
+                    "reason": ""
+                  }
+                ]
+              },
+              {
+                "id": "educacion",
+                "lower": 37.3170731707317,
+                "upper": 37.3170731707317,
+                "fields": [
+                  {
+                    "id": "3is_educativos",
+                    "numerator": 15,
+                    "base": 41,
+                    "rate": 0.36585365853658536,
+                    "anchor": 1.4705882352941178,
+                    "score": 24.878048780487802,
+                    "reason": ""
+                  },
+                  {
+                    "id": "pnud_cedu",
+                    "numerator": 30,
+                    "base": 41,
+                    "rate": 0.7317073170731707,
+                    "anchor": 1.4705882352941178,
+                    "score": 49.756097560975604,
+                    "reason": ""
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "exceeds_registry": [
+          {
+            "code": "27050",
+            "name": "Atrato",
+            "id": "3is_salud",
+            "numerator": 9,
+            "base": 3,
+            "ratio": 3
+          },
+          {
+            "code": "27050",
+            "name": "Atrato",
+            "id": "pnud_csalud",
+            "numerator": 9,
+            "base": 3,
+            "ratio": 3
+          },
+          {
+            "code": "27600",
+            "name": "Rio Quito",
+            "id": "3is_salud",
+            "numerator": 5,
+            "base": 2,
+            "ratio": 2.5
+          },
+          {
+            "code": "27600",
+            "name": "Rio Quito",
+            "id": "pnud_csalud",
+            "numerator": 5,
+            "base": 2,
+            "ratio": 2.5
+          },
+          {
+            "code": "17616",
+            "name": "Risaralda",
+            "id": "pnud_cedu",
+            "numerator": 29,
+            "base": 28,
+            "ratio": 1.0357142857142858
+          },
+          {
+            "code": "27495",
+            "name": "Nuquí",
+            "id": "3is_salud",
+            "numerator": 4,
+            "base": 3,
+            "ratio": 1.3333333333333333
+          },
+          {
+            "code": "27495",
+            "name": "Nuquí",
+            "id": "pnud_csalud",
+            "numerator": 4,
+            "base": 3,
+            "ratio": 1.3333333333333333
+          },
+          {
+            "code": "63111",
+            "name": "Buenavista",
+            "id": "3is_educativos",
+            "numerator": 12,
+            "base": 11,
+            "ratio": 1.0909090909090908
+          },
+          {
+            "code": "63111",
+            "name": "Buenavista",
+            "id": "pnud_cedu",
+            "numerator": 13,
+            "base": 11,
+            "ratio": 1.1818181818181819
+          },
+          {
+            "code": "76020",
+            "name": "Alcalá",
+            "id": "3is_educativos",
+            "numerator": 25,
+            "base": 17,
+            "ratio": 1.4705882352941178
+          },
+          {
+            "code": "76020",
+            "name": "Alcalá",
+            "id": "pnud_cedu",
+            "numerator": 25,
+            "base": 17,
+            "ratio": 1.4705882352941178
+          },
+          {
+            "code": "76054",
+            "name": "Argelia",
+            "id": "pnud_csalud",
+            "numerator": 3,
+            "base": 1,
+            "ratio": 3
+          },
+          {
+            "code": "76246",
+            "name": "El Cairo",
+            "id": "3is_educativos",
+            "numerator": 39,
+            "base": 34,
+            "ratio": 1.1470588235294117
+          },
+          {
+            "code": "76275",
+            "name": "Florida",
+            "id": "3is_educativos",
+            "numerator": 76,
+            "base": 72,
+            "ratio": 1.0555555555555556
+          },
+          {
+            "code": "76377",
+            "name": "La Cumbre",
+            "id": "3is_salud",
+            "numerator": 4,
+            "base": 2,
+            "ratio": 2
+          },
+          {
+            "code": "76377",
+            "name": "La Cumbre",
+            "id": "pnud_csalud",
+            "numerator": 4,
+            "base": 2,
+            "ratio": 2
+          },
+          {
+            "code": "76497",
+            "name": "Obando",
+            "id": "3is_salud",
+            "numerator": 4,
+            "base": 2,
+            "ratio": 2
+          },
+          {
+            "code": "76497",
+            "name": "Obando",
+            "id": "pnud_csalud",
+            "numerator": 4,
+            "base": 2,
+            "ratio": 2
+          },
+          {
+            "code": "76616",
+            "name": "Riofrío",
+            "id": "3is_educativos",
+            "numerator": 38,
+            "base": 37,
+            "ratio": 1.027027027027027
+          },
+          {
+            "code": "76823",
+            "name": "Toro",
+            "id": "3is_salud",
+            "numerator": 2,
+            "base": 1,
+            "ratio": 2
+          },
+          {
+            "code": "76828",
+            "name": "Trujillo",
+            "id": "3is_salud",
+            "numerator": 16,
+            "base": 1,
+            "ratio": 16
+          },
+          {
+            "code": "76828",
+            "name": "Trujillo",
+            "id": "pnud_csalud",
+            "numerator": 16,
+            "base": 1,
+            "ratio": 16
+          },
+          {
+            "code": "76863",
+            "name": "Versalles",
+            "id": "3is_salud",
+            "numerator": 2,
+            "base": 1,
+            "ratio": 2
+          },
+          {
+            "code": "27006",
+            "name": "Acandí",
+            "id": "3is_salud",
+            "numerator": 6,
+            "base": 4,
+            "ratio": 1.5
+          },
+          {
+            "code": "27006",
+            "name": "Acandí",
+            "id": "pnud_csalud",
+            "numerator": 6,
+            "base": 4,
+            "ratio": 1.5
+          },
+          {
+            "code": "05308",
+            "name": "Girardota",
+            "id": "pnud_cedu",
+            "numerator": 39,
+            "base": 37,
+            "ratio": 1.054054054054054
+          },
+          {
+            "code": "19743",
+            "name": "Silvia",
+            "id": "pnud_csalud",
+            "numerator": 5,
+            "base": 4,
+            "ratio": 1.25
+          },
+          {
+            "code": "18860",
+            "name": "Valparaíso",
+            "id": "pnud_csalud",
+            "numerator": 2,
+            "base": 1,
+            "ratio": 2
+          }
+        ]
+      }
+    }
+  }
+}
