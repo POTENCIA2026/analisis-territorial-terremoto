@@ -64,6 +64,9 @@ def prepare_payload(current, history=()):
     population = json.loads(population_path.read_text(encoding='utf-8')) if population_path.exists() else {'rows': []}
     denominator_path = ROOT / 'data/denominadores_sectoriales.json'
     denominators = json.loads(denominator_path.read_text(encoding='utf-8')) if denominator_path.exists() else {'rows': []}
+    proxy_path = ROOT / 'data/denominadores_reps_simat.json'
+    if proxy_path.exists():
+        denominators['registry_proxies'] = json.loads(proxy_path.read_text(encoding='utf-8'))
     reference_names = defaultdict(set)
     reference_codes = {r['code']: r for r in baseline['rows']}
     for r in baseline['rows']:

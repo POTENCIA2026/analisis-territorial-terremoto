@@ -16,9 +16,9 @@ test('impacto humano incluye cuatro entradas iguales y respeta cero y ausencia',
 });
 function full(geo,value){return P.SECTORS.flatMap(s=>s.fields.map(f=>row(geo,f.source,f.id,value)));}
 test('cada sector conserva su peso fijo, incluso con distinto número de variables',()=>{
- assert.equal(P.SECTORS.length,6);
+ assert.equal(P.SECTORS.length,5);
  for(const s of P.SECTORS)assert.ok(Math.abs(s.fields.reduce((n,f)=>n+f.share,0)-1)<1e-10);
- assert.equal(P.SECTORS.flatMap(s=>s.fields).length,17);
+ assert.equal(P.SECTORS.flatMap(s=>s.fields).length,15);
 });
 test('normalización proporcional conserva razones, cero y faltantes',()=>{
  assert.equal(P.normalize(0,null),0);assert.equal(P.normalize(null,100),null);
@@ -80,7 +80,7 @@ test('selector de dimensión ordena por su puntaje y conserva el puesto global',
 });
 test('empates comparten puesto; sensibilidad y límites incluyen el caso base',()=>{
  const p=P.create(payload(full('1',10).concat(full('2',10)),[{code:'1',v:20},{code:'2',v:20}])).compute(state);
- assert.equal(p.scenarios,39);
+ assert.equal(p.scenarios,33);
  for(const r of p.items){assert.equal(r.rank,1);assert.equal(r.bestRank,1);assert.equal(r.worstRank,1);assert.ok(r.rankMin<=r.rank&&r.rankMax>=r.rank);}
 });
 test('municipio solo ExE permanece consultable, sin un puesto global fabricado',()=>{
@@ -89,7 +89,7 @@ test('municipio solo ExE permanece consultable, sin un puesto global fabricado',
 });
 test('ejemplo calculado a mano: familias conocidas y resto faltante',()=>{
  const r=P.create(payload([row('1','3iS-Sheets','3is_familias',10)],[{code:'1',v:25}])).compute(state).items[0];
- assert.ok(Math.abs(r.lower-(100/24)*.85)<1e-8);
+ assert.ok(Math.abs(r.lower-(100/20)*.85)<1e-8);
  assert.ok(Math.abs(r.upper-85)<1e-8);
- assert.ok(Math.abs(r.coverage-1/24)<1e-8);
+ assert.ok(Math.abs(r.coverage-1/20)<1e-8);
 });

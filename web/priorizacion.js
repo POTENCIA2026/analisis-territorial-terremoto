@@ -1,4 +1,4 @@
-/* Modelo 1.2: escala proporcional, pesos fijos y límites por datos faltantes. */
+/* Modelo 1.2-RS: cinco dimensiones, escala proporcional, pesos fijos y límites por datos faltantes. */
 (function (root) {
   'use strict';
   const T = typeof module !== 'undefined' && module.exports ? require('./modelo.js') : root.Territorial;
@@ -6,16 +6,16 @@
   const field = (id, source, label, share) => ({id, source, label, share, unit:'Número'});
   const reported = (id, label, share=1) => field('3is_'+id, '3iS-Sheets', label, share);
   const estimated = (id, label, share=1) => field('pnud_'+id, 'PNUD', label, share);
-  // Cada sector pesa 1/6. En sectores compartidos, cada canal pesa 1/2.
+  // Cada sector pesa 1/5. En sectores compartidos, cada canal pesa 1/2.
   // Los canales pueden compartir insumos: nunca se cuentan como validaciones independientes.
   const SECTORS = [
     {id:'impacto_humano', name:'Impacto humano', fields:[reported('familias','Familias afectadas',.25),reported('fallecidos','Personas fallecidas',.25),reported('desaparecidos','Personas desaparecidas',.25),reported('heridos','Personas heridas',.25)]},
     {id:'vivienda', name:'Vivienda', fields:[reported('vivdestruidas','Destruidas · 3iS',.25),reported('vivaveriadas','Averiadas · 3iS',.25),estimated('vd','Destruidas · PNUD',.25),estimated('va','Averiadas · PNUD',.25)]},
     {id:'salud', name:'Salud', fields:[reported('salud','Puntos de salud · 3iS',.5),estimated('csalud','Centros de salud · PNUD',.5)]},
     {id:'educacion', name:'Educación', fields:[reported('educativos','Puntos educativos · 3iS',.5),estimated('cedu','Centros educativos · PNUD',.5)]},
-    {id:'infraestructura', name:'Infraestructura y acceso', fields:[reported('colapsos','Colapsos de edificios',1/3),reported('acueductos','Acueductos afectados',1/3),reported('vias','Vías afectadas (conteo)',1/3)]},
-    {id:'comunidad', name:'Servicios comunitarios', fields:[reported('comunitarios','Puntos comunitarios · 3iS',.5),estimated('ccom','Centros comunitarios · PNUD',.5)]}
+    {id:'infraestructura', name:'Infraestructura y acceso', fields:[reported('colapsos','Colapsos de edificios',1/3),reported('acueductos','Acueductos afectados',1/3),reported('vias','Vías afectadas (conteo)',1/3)]}
   ];
+  const FIELD_COUNT = SECTORS.reduce((n,s)=>n+s.fields.length,0);
   const clamp = (v,lo,hi) => Math.min(hi,Math.max(lo,v));
   const EPS = 1e-8;
   const same = (a,b) => Math.abs(a-b)<EPS;
@@ -92,7 +92,7 @@
           const fields=sector.fields.map(f=>{
             const c=calibrations.get(f.id),r=c.rows.get(place.geo),value=measure(r),score=normalize(value,c.anchor);
             return {...f,row:r||null,score,rate:relative?value:null,...(relative?relativeMeasure(r,f.id,place.code):{}),anchor:c.anchor,n:c.n,positive:c.positive,
-              percentile:value!=null?T.percentile(c.values,value):null,contribution:score==null?null:score*f.share/6};
+              percentile:value!=null?T.percentile(c.values,value):null,contribution:score==null?null:score*f.share/SECTORS.length};
           });
           const lower=fields.reduce((s,f)=>s+(f.score??0)*f.share,0);
           const unknown=fields.filter(f=>f.score==null).reduce((s,f)=>s+100*f.share,0);
@@ -101,9 +101,9 @@
         });
         const baseline=baselines.get(place.code),vulnerability=baseline&&baseline.v<=100?baseline.v:null;
         const score=aggregate(sectors,vulnerability,weights);
-        const coverage=sectors.reduce((s,d)=>s+d.coverage/6,0);
+        const coverage=sectors.reduce((s,d)=>s+d.coverage/SECTORS.length,0);
         const rec=recoveryRank.get(place.geo);
-        return {...place,...score,sectors,coverage,baseline:baseline||null,vulnerability,population:populations.get(place.code)||null,relative,mode,
+        return {...place,...score,sectors,fieldCount:FIELD_COUNT,coverage,baseline:baseline||null,vulnerability,population:populations.get(place.code)||null,relative,mode,
           recovery:rec?.v??null,recoveryRank:rec?.rank??null,available:sectors.flatMap(s=>s.fields).filter(f=>f.score!=null).length,
           complete:coverage>1-EPS&&vulnerability!=null,rank:null,rankMin:null,rankMax:null};
       });
@@ -114,7 +114,7 @@
         r.worstRank=1+ranked.filter(o=>o.geo!==r.geo&&o.upper>r.lower+EPS).length;
       });
       const scenarioWeights=[weights];
-      for(let i=0;i<6;i++)for(const factor of [.75,1.25])scenarioWeights.push(weights.map((w,j)=>j===i?w*factor:w));
+      for(let i=0;i<SECTORS.length;i++)for(const factor of [.75,1.25])scenarioWeights.push(weights.map((w,j)=>j===i?w*factor:w));
       let scenarios=0;
       for(const alpha of [0,.25,.5])for(const w of scenarioWeights){
         scenarios++;
@@ -161,6 +161,6 @@
     }
     return bundles.get(data);
   }
-  const api={create,models,normalize,aggregate,ranks,SECTORS,VERSION:'1.2'};
+  const api={create,models,normalize,aggregate,ranks,SECTORS,FIELD_COUNT,VERSION:'1.2-RS'};
   if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.Priorizacion=api;
 })(typeof globalThis!=='undefined'?globalThis:this);

@@ -60,7 +60,7 @@ test('ámbito recalcula; búsqueda y departamento conservan referencia',()=>{
  const b=model.selection({...state,dept:'D',matrixSearch:'05001'}).items[0];assert.equal(a.lower,b.lower);assert.equal(a.rank,b.rank);
  const c=model.selection({...state,scope:'decree'}).items.find(r=>r.code==='05001');assert.ok(c.lower>a.lower);
 });
-test('los 17 campos tienen decisión explícita; solo siete están habilitados',()=>{
+test('los 15 campos tienen decisión explícita; solo siete están habilitados',()=>{
  const ids=P.SECTORS.flatMap(s=>s.fields).map(f=>f.id).sort();
  assert.deepEqual(Object.keys(D.RULES).sort(),ids);
  assert.equal(Object.values(D.RULES).filter(r=>r.enabled).length,7);
