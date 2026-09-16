@@ -4,7 +4,7 @@
   "mode": "hospitalizacion",
   "base_commit": "3f4550ee1dde564cba007e677c9f657278e99a72",
   "event_date": "2026-08-10",
-  "note": "Carga potencial: heridos reportados / camas generales REPS 2022. Sin ML; no es ocupación hospitalaria. Heridos también participa en Impacto humano.",
+  "note": "Carga potencial: heridos reportados / camas generales REPS 2022. Sin ML; no es ocupación hospitalaria. Heridos se usa solo en Salud en este índice.",
   "capacity": {
     "kind": "camas_generales_reps",
     "label": "Camas generales adultas y pediátricas · REPS 2022",
@@ -15009,5 +15009,16 @@
     "source_file": "data/salud_capacidad_reps_2022.json",
     "source_commit": "d9124b4ee6dd35a98a22c70f7d42d3e876e20fe7",
     "git_blob": null
+  },
+  "human_impact_variant": {
+    "id": "sin-heridos-ih",
+    "parent_branch": "salud-presion-hospitalizacion",
+    "parent_commit": "cdd78f2522d978063caf33c55edd370a3ac4de5c",
+    "fields": [
+      "3is_familias",
+      "3is_fallecidos",
+      "3is_desaparecidos"
+    ],
+    "internal_weight": "1/3"
   }
 }
