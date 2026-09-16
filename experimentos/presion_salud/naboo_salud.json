@@ -1,0 +1,3380 @@
+{
+  "url": "https://www.mapadelterremoto.com/datos/registro.json",
+  "checked": "2026-09-16T21:43:47.743880+00:00",
+  "sha256": "b8fc37d6ca7a74f54129cb32c6fcc5a9013e0aba534b7e2b8833c2340b0a2d9f",
+  "note": "Índice de localización de evidencia; tipo HOSPITAL no equivale a daño. No se usa como numerador sin verificar el reporte original.",
+  "rows": [
+    {
+      "code": "P-005",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Hospital Universitario del Valle Evaristo García (HUV)",
+      "classification": "COLAPSO",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-72a6ba8b380c",
+        "fu-68b90ed88834",
+        "fu-c7eb239fcd85",
+        "fu-ad5648637fd3",
+        "fu-bdce42c4a435",
+        "fu-7cdafedbe6ba",
+        "fu-0fac98c30263",
+        "fu-b1052884c985",
+        "fu-54b6e8e9378f",
+        "fu-847763c73322",
+        "fu-300c6ed03081",
+        "fu-84de4e16c869",
+        "fu-669361070f7f",
+        "fu-dcf3aa7a7332",
+        "fu-020698387c67",
+        "fu-0aefb8d0bef3",
+        "fu-f72fa2dff251",
+        "fu-6861e99251a5",
+        "fu-55bc8bd7f72b",
+        "fu-df7b81f2201e",
+        "fu-a6555a8951d0",
+        "fu-e8d16ff9d49e",
+        "fu-1a7113a4bb23",
+        "fu-1e170a25c129",
+        "fu-25c833a38f3b",
+        "fu-0b3a29f1f887",
+        "fu-8441ff455c1a",
+        "fu-7c513102ad56",
+        "fu-1501f201b304",
+        "fu-4f31426c8f0d",
+        "fu-41d869a8fb1c",
+        "fu-49c463049891",
+        "fu-cd3c24eb6101",
+        "fu-e1f4dceb29f0",
+        "fu-5f5c8cb54ec1",
+        "fu-6d1e5d01ed8c",
+        "fu-c31e6306a66e",
+        "fu-87a7a50f6862",
+        "fu-92cd1863dd94",
+        "fu-8592c07b5d30",
+        "fu-4b40665b6011",
+        "fu-a089b630c006",
+        "fu-7f508a4a1a40",
+        "fu-e37b4d529c34",
+        "fu-7d69011124b1",
+        "fu-722a8a3bf70b",
+        "fu-5d5bdb35f99a",
+        "fu-dcacf0db8924",
+        "fu-e555c85a1e05",
+        "fu-5eb4548bbaff",
+        "fu-1b430d812e66",
+        "fu-42ff39483d15",
+        "fu-8824e606cb8f",
+        "fu-b326d79d90f3",
+        "fu-4f60351c8fe7",
+        "fu-9db55a1ffb79",
+        "fu-215506452d62",
+        "fu-bd9111e58698",
+        "fu-12698f08e5f5",
+        "fu-520167d39a2e",
+        "fu-c945fce90f6e",
+        "fu-f8a728bb5a2c",
+        "fu-f9f4ddf2e7a6",
+        "fu-a402cba57632",
+        "fu-76fc6edcc5f5",
+        "fu-537055a5ace4",
+        "fu-702520253b0e",
+        "fu-b05d58234e8b",
+        "fu-5557915aa6f7",
+        "fu-d3daf9cc800e",
+        "fu-e3e3cbc86887",
+        "fu-de9302ef25af",
+        "fu-3f0e6e2ff170",
+        "fu-2820c5b122f4",
+        "fu-923820fa04ec",
+        "fu-f9f1829fd9d4",
+        "fu-93bc0988801f",
+        "fu-28a195c6631d",
+        "fu-f86d2fd28b1e",
+        "fu-5af8f551563f",
+        "fu-b01ed3b16e20",
+        "fu-8d57419c97ad",
+        "fu-e79cb77b101b",
+        "fu-4ac8b27ef3b3",
+        "fu-496e33470e09",
+        "fu-c3e6cf58cac7",
+        "fu-a6b2cda547d7",
+        "fu-943c7f3b522d",
+        "fu-5b6cd7bde535",
+        "fu-c9ea049b2ec7"
+      ]
+    },
+    {
+      "code": "P-006",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Clínica Valle Salud · sede San Fernando",
+      "classification": "COLAPSO",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-72a6ba8b380c",
+        "fu-2b2f3501f63e",
+        "fu-0fac98c30263",
+        "fu-cd3c24eb6101",
+        "fu-87a7a50f6862",
+        "fu-702520253b0e",
+        "fu-288446d62b1e",
+        "fu-c3e6cf58cac7"
+      ]
+    },
+    {
+      "code": "P-007",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Clínica Alba · CLINICA AL ALBA · AVENIDA 4 NORTE # 21N54",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-72a6ba8b380c",
+        "fu-c7eb239fcd85",
+        "fu-617f7bc41d43",
+        "fu-b55ac3ff9d6a"
+      ]
+    },
+    {
+      "code": "P-008",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Clínica Rey David",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-72a6ba8b380c",
+        "fu-c7eb239fcd85",
+        "fu-0fac98c30263",
+        "fu-cd3c24eb6101",
+        "fu-669361070f7f",
+        "fu-19458c14b28b",
+        "fu-f2184853b1b1",
+        "fu-b55ac3ff9d6a",
+        "fu-c31e6306a66e"
+      ]
+    },
+    {
+      "code": "P-009",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Clínica Nuestra Señora del Rosario",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-72a6ba8b380c",
+        "fu-c7eb239fcd85",
+        "fu-b55ac3ff9d6a",
+        "fu-c31e6306a66e"
+      ]
+    },
+    {
+      "code": "P-010",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Clínica Sanitas Tequendama",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-72a6ba8b380c",
+        "fu-c7eb239fcd85",
+        "fu-0fac98c30263",
+        "fu-cd3c24eb6101",
+        "fu-a6555a8951d0",
+        "fu-b55ac3ff9d6a",
+        "fu-c31e6306a66e"
+      ]
+    },
+    {
+      "code": "P-011",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Clínica Cali · Avenida 3A Norte # 32AN-40",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-72a6ba8b380c",
+        "fu-c7eb239fcd85",
+        "fu-b55ac3ff9d6a",
+        "fu-c31e6306a66e"
+      ]
+    },
+    {
+      "code": "P-012",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Hospital Carlos Holmes Trujillo",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-72a6ba8b380c",
+        "fu-c7eb239fcd85",
+        "fu-b55ac3ff9d6a",
+        "fu-c31e6306a66e",
+        "fu-a089b630c006",
+        "fu-f78c984c1224",
+        "fu-67fd6b32de99",
+        "fu-1073423fa163",
+        "fu-288446d62b1e",
+        "fu-c3e6cf58cac7",
+        "fu-a10812cbc9aa",
+        "fu-a8aca17d099c",
+        "fu-4a2cae4bcec2"
+      ]
+    },
+    {
+      "code": "P-013",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Urgencias Pasoancho",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-72a6ba8b380c",
+        "fu-c7eb239fcd85",
+        "fu-b55ac3ff9d6a",
+        "fu-c31e6306a66e"
+      ]
+    },
+    {
+      "code": "P-014",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Clínica Colombiana Versalles",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-72a6ba8b380c",
+        "fu-c7eb239fcd85"
+      ]
+    },
+    {
+      "code": "P-019",
+      "municipality": "Pereira",
+      "department": "Risaralda",
+      "name": "Clínica Comfamiliar Risaralda · al finalizar la avenida Circunvalar",
+      "classification": "GRAVE",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-107a3cac6aa0",
+        "fu-72a6ba8b380c",
+        "fu-ee7b5b240635",
+        "fu-6588cc1cc58b",
+        "fu-ce35216f1a30",
+        "fu-5fcbbac8114b",
+        "fu-24e38a8e79a7",
+        "fu-c05c3ebbb9c6",
+        "fu-af32fbd147a4",
+        "fu-baa07c0b0af2",
+        "fu-9d23fb82a9ff",
+        "fu-b040daa4c973",
+        "fu-04e2f71ded16",
+        "fu-4887e83d0cb7",
+        "fu-73406748b42c",
+        "fu-8eed719503d1",
+        "fu-8feedd57720c",
+        "fu-86576b32338f"
+      ]
+    },
+    {
+      "code": "P-020",
+      "municipality": "Pereira",
+      "department": "Risaralda",
+      "name": "Clínica Noé · sector de Turín, Pereira",
+      "classification": "GRAVE",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-72a6ba8b380c",
+        "fu-ee7b5b240635",
+        "fu-c05c3ebbb9c6",
+        "fu-6588cc1cc58b",
+        "fu-4027790a0ce4",
+        "fu-ce35216f1a30",
+        "fu-24e38a8e79a7",
+        "fu-af32fbd147a4",
+        "fu-baa07c0b0af2",
+        "fu-84de4e16c869",
+        "fu-9d23fb82a9ff",
+        "fu-ddebe2633963",
+        "fu-12b9459eafb1",
+        "fu-d317ce94e498",
+        "fu-44d6ed24f547",
+        "fu-24e6e111bdf9"
+      ]
+    },
+    {
+      "code": "P-021",
+      "municipality": "Pereira",
+      "department": "Risaralda",
+      "name": "Clínica Los Nevados · centro de Pereira",
+      "classification": "MODERADO",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-72a6ba8b380c",
+        "fu-ee7b5b240635",
+        "fu-6588cc1cc58b",
+        "fu-e8ea26956933",
+        "fu-ce35216f1a30",
+        "fu-5fcbbac8114b",
+        "fu-24e38a8e79a7",
+        "fu-c05c3ebbb9c6",
+        "fu-af32fbd147a4",
+        "fu-107a3cac6aa0",
+        "fu-baa07c0b0af2",
+        "fu-9d23fb82a9ff",
+        "fu-04e2f71ded16",
+        "fu-4027790a0ce4",
+        "fu-fe5cf6dbea1c",
+        "fu-2da94707cd70",
+        "fu-207ef6ca9ef0",
+        "fu-e007350284a0",
+        "fu-25a0b744c3e3",
+        "fu-8feedd57720c",
+        "fu-711f46873d7c"
+      ]
+    },
+    {
+      "code": "P-022",
+      "municipality": "Pereira",
+      "department": "Risaralda",
+      "name": "Hospital Universitario San Jorge · dos manzanas entre las carreras 3ª y 4ª, calles 24 a 26",
+      "classification": "GRAVE",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-72a6ba8b380c",
+        "fu-ee7b5b240635",
+        "fu-b040daa4c973",
+        "fu-6588cc1cc58b",
+        "fu-e8ea26956933",
+        "fu-ce35216f1a30",
+        "fu-5fcbbac8114b",
+        "fu-24e38a8e79a7",
+        "fu-c05c3ebbb9c6",
+        "fu-af32fbd147a4",
+        "fu-107a3cac6aa0",
+        "fu-baa07c0b0af2",
+        "fu-04e2f71ded16",
+        "fu-9d23fb82a9ff",
+        "fu-2910a2bbcb10",
+        "fu-5d5bdb35f99a",
+        "fu-7497bbaf849d",
+        "fu-d317ce94e498",
+        "fu-8540945675e5",
+        "fu-dccea895bb53",
+        "fu-5f21d578e675",
+        "fu-32ae20da2a2d",
+        "fu-8feedd57720c",
+        "fu-86576b32338f",
+        "fu-64e486f052ec",
+        "fu-c91dde1431bb"
+      ]
+    },
+    {
+      "code": "P-023",
+      "municipality": "La Virginia",
+      "department": "Risaralda",
+      "name": "Hospital San Pedro y San Pablo",
+      "classification": "SIN_EVALUAR",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-72a6ba8b380c",
+        "fu-7a7e52ff1990"
+      ]
+    },
+    {
+      "code": "P-024",
+      "municipality": "Belén de Umbría",
+      "department": "Risaralda",
+      "name": "Hospital San José de Belén de Umbría",
+      "classification": "GRAVE",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-72a6ba8b380c",
+        "fu-0e779437c52e"
+      ]
+    },
+    {
+      "code": "P-025",
+      "municipality": "Manizales",
+      "department": "Caldas",
+      "name": "Hospital Departamental Santa Sofía · evacuación",
+      "classification": "GRAVE",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-72a6ba8b380c",
+        "fu-59f15ca655e8",
+        "fu-0fac98c30263",
+        "fu-f853e2083f52",
+        "fu-31bfc39c05e1",
+        "fu-1aefb6a4a448",
+        "fu-a68dd952681d",
+        "fu-cd3c24eb6101",
+        "fu-5208e161735d",
+        "fu-525521c620d0",
+        "fu-95d05587eb40",
+        "fu-914a962a1b38",
+        "fu-45ef515e3554",
+        "fu-318aba1a0d58",
+        "fu-6b28d47e75c3",
+        "fu-803b44460f69",
+        "fu-bf3cfb1090cb",
+        "fu-d1b7ad7c9dc6",
+        "fu-c39b80004399",
+        "fu-d3b5ab1711ca",
+        "fu-f9f1829fd9d4",
+        "fu-a5ea1580202f",
+        "fu-97191ae65235",
+        "fu-edf40e5bc95c",
+        "fu-0a85941503a8"
+      ]
+    },
+    {
+      "code": "P-050",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Clínica DESA",
+      "classification": "SIN_EVALUAR",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-850176169050",
+        "fu-a95c8028a162",
+        "fu-5d3f5106cfe5",
+        "fu-df7b81f2201e",
+        "fu-ae1d140d6ae6",
+        "fu-220448607167",
+        "fu-c31e6306a66e",
+        "fu-74f637f64a8e",
+        "fu-e67ad9802ba6",
+        "fu-a6555a8951d0"
+      ]
+    },
+    {
+      "code": "P-051",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Fundación Valle del Lili",
+      "classification": "LEVE",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-87a7a50f6862",
+        "fu-356bc1245f6a",
+        "fu-617f7bc41d43",
+        "fu-ad5648637fd3",
+        "fu-0fac98c30263",
+        "fu-c511fa24dff8",
+        "fu-850176169050",
+        "fu-cd3c24eb6101",
+        "fu-5f5c8cb54ec1",
+        "fu-c31e6306a66e",
+        "fu-92cd1863dd94",
+        "fu-72a6ba8b380c",
+        "fu-782207084c9f"
+      ]
+    },
+    {
+      "code": "P-064",
+      "municipality": "Cartago",
+      "department": "Valle del Cauca",
+      "name": "Hospital de Cartago · Hospital Universitario del Valle «Evaristo García» E.S.E. sede Cartago · Carrera 3b con calle 2 esquina y carrera 3 con calle 2 No 1-113",
+      "classification": "MODERADO",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-850176169050",
+        "fu-bdce42c4a435",
+        "fu-68b90ed88834",
+        "fu-fcd9e22e7c5b",
+        "fu-e8d16ff9d49e",
+        "fu-c1f84df0cfe4",
+        "fu-0ae5c1f46bc7",
+        "fu-41207d27ec65",
+        "fu-529a6e09be6d",
+        "fu-83c8f34c9fbb",
+        "fu-a6555a8951d0",
+        "fu-04e2f71ded16",
+        "fu-50a4e106e942",
+        "fu-1501f201b304",
+        "fu-416b0bf1a81b"
+      ]
+    },
+    {
+      "code": "P-069",
+      "municipality": "El Águila",
+      "department": "Valle del Cauca",
+      "name": "Hospital de El Águila · Hospital San Rafael E.S.E. · KR 3 Nro. 13 -21",
+      "classification": "COLAPSO",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-87a7a50f6862",
+        "fu-04fd14257fea",
+        "fu-eeb5159514c1",
+        "fu-6a89ba0a3a80",
+        "fu-9837aac6379b",
+        "fu-120902069836",
+        "fu-cd3c24eb6101",
+        "fu-6861e99251a5",
+        "fu-fcd9e22e7c5b",
+        "fu-ea1081f4680f",
+        "fu-ae1d140d6ae6",
+        "fu-e8d16ff9d49e",
+        "fu-c1f84df0cfe4",
+        "fu-0ae5c1f46bc7",
+        "fu-41d869a8fb1c",
+        "fu-45b6767ad61e",
+        "fu-49c463049891",
+        "fu-529a6e09be6d",
+        "fu-83c8f34c9fbb",
+        "fu-5f5c8cb54ec1",
+        "fu-617f7bc41d43",
+        "fu-3cc67770cdc6",
+        "fu-1501f201b304",
+        "fu-782207084c9f",
+        "fu-2a4b970728c7",
+        "fu-0d0046150749",
+        "fu-5d5bdb35f99a",
+        "fu-d8e5758d1ce1",
+        "fu-e9fd3e1ab1e7",
+        "fu-9db55a1ffb79",
+        "fu-215506452d62",
+        "fu-520167d39a2e",
+        "fu-12698f08e5f5",
+        "fu-a402cba57632",
+        "fu-702520253b0e",
+        "fu-4a24ce492b60",
+        "fu-e15225985601",
+        "fu-d84a1cca53bb",
+        "fu-3f0e6e2ff170",
+        "fu-2820c5b122f4",
+        "fu-f9f1829fd9d4",
+        "fu-28a195c6631d",
+        "fu-5af8f551563f",
+        "fu-33fa49c81e60",
+        "fu-93b929567dd7",
+        "fu-a10812cbc9aa"
+      ]
+    },
+    {
+      "code": "P-070",
+      "municipality": "Zarzal",
+      "department": "Valle del Cauca",
+      "name": "Hospital de Zarzal",
+      "classification": "GRAVE",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-87a7a50f6862",
+        "fu-bdce42c4a435",
+        "fu-eeb5159514c1",
+        "fu-fcd9e22e7c5b",
+        "fu-e8d16ff9d49e",
+        "fu-c1f84df0cfe4",
+        "fu-0ae5c1f46bc7",
+        "fu-41d869a8fb1c",
+        "fu-41207d27ec65",
+        "fu-49c463049891",
+        "fu-83c8f34c9fbb",
+        "fu-a6555a8951d0",
+        "fu-04e2f71ded16",
+        "fu-50a4e106e942",
+        "fu-3cc67770cdc6",
+        "fu-1501f201b304",
+        "fu-782207084c9f",
+        "fu-702520253b0e",
+        "fu-d84a1cca53bb"
+      ]
+    },
+    {
+      "code": "P-071",
+      "municipality": "Roldanillo",
+      "department": "Valle del Cauca",
+      "name": "Hospital de Roldanillo · Hospital San Antonio",
+      "classification": "GRAVE",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-6861e99251a5",
+        "fu-50a4e106e942",
+        "fu-e408e1054b7a",
+        "fu-04fd14257fea",
+        "fu-eeb5159514c1",
+        "fu-6a89ba0a3a80",
+        "fu-cd3c24eb6101",
+        "fu-ae1d140d6ae6",
+        "fu-afebca76f806",
+        "fu-41d869a8fb1c",
+        "fu-d41320fb3fa1",
+        "fu-49c463049891",
+        "fu-a17cbddf7a3f",
+        "fu-7ef6114b7f5f",
+        "fu-782207084c9f",
+        "fu-31edf0d40763",
+        "fu-8f72fb4fdcc5",
+        "fu-0d0046150749",
+        "fu-5d5bdb35f99a",
+        "fu-e37b4d529c34",
+        "fu-4cc65d9a40ef",
+        "fu-f8a728bb5a2c",
+        "fu-702520253b0e",
+        "fu-4a24ce492b60",
+        "fu-e15225985601",
+        "fu-079984d9a441",
+        "fu-1a04f29ab100",
+        "fu-66845518315e"
+      ]
+    },
+    {
+      "code": "P-072",
+      "municipality": "La Victoria",
+      "department": "Valle del Cauca",
+      "name": "Hospital Nuestra Señora de los Santos",
+      "classification": "COLAPSO",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-e67ad9802ba6",
+        "fu-50a4e106e942",
+        "fu-12b6af3155f6",
+        "fu-7ef6114b7f5f",
+        "fu-96c902e52f77",
+        "fu-0d0046150749",
+        "fu-4a24ce492b60",
+        "fu-4723cbf271d5"
+      ]
+    },
+    {
+      "code": "P-093",
+      "municipality": "Dosquebradas",
+      "department": "Risaralda",
+      "name": "Hospital Santa Mónica",
+      "classification": "MODERADO",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-c8005e7f53c6",
+        "fu-5890a6b79cbc",
+        "fu-0fac98c30263",
+        "fu-e6c9f3cfdb2a",
+        "fu-b040daa4c973",
+        "fu-5e178e8c3baa",
+        "fu-cd3c24eb6101",
+        "fu-e8ea26956933",
+        "fu-84de4e16c869",
+        "fu-8db53ae57ad2",
+        "fu-92cd1863dd94",
+        "fu-0aa146a96f52",
+        "fu-f9f1829fd9d4"
+      ]
+    },
+    {
+      "code": "P-111",
+      "municipality": "Manizales",
+      "department": "Caldas",
+      "name": "Hospital San José",
+      "classification": "GRAVE",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-525521c620d0",
+        "fu-318aba1a0d58",
+        "fu-fc267ee75967"
+      ]
+    },
+    {
+      "code": "P-113",
+      "municipality": "Viterbo",
+      "department": "Caldas",
+      "name": "Hospital de Viterbo",
+      "classification": "SIN_EVALUAR",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-525521c620d0",
+        "fu-d3b5ab1711ca"
+      ]
+    },
+    {
+      "code": "P-114",
+      "municipality": "Neira",
+      "department": "Caldas",
+      "name": "Hospital de Neira · E.S.E. Hospital Departamental San José de Neira · CARRERA 7 CALLE 8 ESQUINA",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-74f637f64a8e",
+        "fu-48afa429f99a",
+        "fu-525521c620d0",
+        "fu-73cfb37e7738",
+        "fu-d3b5ab1711ca"
+      ]
+    },
+    {
+      "code": "P-115",
+      "municipality": "Chinchiná",
+      "department": "Caldas",
+      "name": "Hospital de Chinchiná",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-74f637f64a8e",
+        "fu-73cfb37e7738",
+        "fu-d3b5ab1711ca"
+      ]
+    },
+    {
+      "code": "P-116",
+      "municipality": "Supía",
+      "department": "Caldas",
+      "name": "Hospital de Supía",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-74f637f64a8e",
+        "fu-d3b5ab1711ca"
+      ]
+    },
+    {
+      "code": "P-145",
+      "municipality": "Quibdó",
+      "department": "Chocó",
+      "name": "Hospital San Francisco de Asís",
+      "classification": "GRAVE",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-ee2ced4670fb",
+        "fu-44dbc17d28e0",
+        "fu-d5e7cff583a6",
+        "fu-0fac98c30263",
+        "fu-3250719f84f1",
+        "fu-617d4f9e54be",
+        "fu-cd3c24eb6101",
+        "fu-37c9f11f6984",
+        "fu-7c293f3acbb8",
+        "fu-d4eb1d737fa3",
+        "fu-84de4e16c869",
+        "fu-c3a3e5969f43",
+        "fu-67c0616db1e4",
+        "fu-9f469be8ec86",
+        "fu-782207084c9f",
+        "fu-0e0d3088df93",
+        "fu-e80d4ae34d4c",
+        "fu-939a045ebba3",
+        "fu-b90cddeadd89",
+        "fu-2887c083999c",
+        "fu-0619d36c0e05",
+        "fu-13f9f3ccfdbb",
+        "fu-ab3484768908",
+        "fu-0c1f836ff2be",
+        "fu-8791a4a3e7d9",
+        "fu-12d9df8f6666",
+        "fu-311bd3cd29f9",
+        "fu-f9f1829fd9d4",
+        "fu-723f07684bc1",
+        "fu-69c416855423",
+        "fu-4b4aeed73bd2",
+        "fu-71430d5e553a"
+      ]
+    },
+    {
+      "code": "P-176",
+      "municipality": "La Cruz",
+      "department": "Nariño",
+      "name": "Hospital El Buen Samaritano",
+      "classification": "SIN_EVALUAR",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-023065216c9d",
+        "fu-716a33a05664"
+      ]
+    },
+    {
+      "code": "P-177",
+      "municipality": "La Cruz",
+      "department": "Nariño",
+      "name": "Puesto de salud de Tajumbina",
+      "classification": "SIN_EVALUAR",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-023065216c9d",
+        "fu-716a33a05664"
+      ]
+    },
+    {
+      "code": "P-218",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Clínica de los Colores",
+      "classification": "MODERADO",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-b55ac3ff9d6a",
+        "fu-0fac98c30263",
+        "fu-cd3c24eb6101",
+        "fu-5d3f5106cfe5",
+        "fu-19458c14b28b",
+        "fu-ae1d140d6ae6",
+        "fu-220448607167",
+        "fu-9767036cd955",
+        "fu-1700fc67e173",
+        "fu-74f637f64a8e",
+        "fu-e67ad9802ba6"
+      ]
+    },
+    {
+      "code": "P-261",
+      "municipality": "Pereira",
+      "department": "Risaralda",
+      "name": "Clínica Familiar Risaralda",
+      "classification": "GRAVE",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-617d4f9e54be"
+      ]
+    },
+    {
+      "code": "P-269",
+      "municipality": "Pereira",
+      "department": "Risaralda",
+      "name": "Hospital de campaña de 28 camas",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-bdf2bd85c686",
+        "fu-c8005e7f53c6"
+      ]
+    },
+    {
+      "code": "P-284",
+      "municipality": "Buenaventura",
+      "department": "Valle del Cauca",
+      "name": "Clínica Santa Sofía del Pacífico",
+      "classification": "GRAVE",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-93df3f3b908c",
+        "fu-0fac98c30263",
+        "fu-cd3c24eb6101",
+        "fu-caafac2bf880",
+        "fu-eb96175b8a9a",
+        "fu-103025194ebd",
+        "fu-5b9141571c53",
+        "fu-0bdc63f96d55",
+        "fu-9d7aae76ed03",
+        "fu-c0cbf086de61",
+        "fu-9476dfe7c5f9",
+        "fu-f130e3f922da",
+        "fu-89002669144e",
+        "fu-d4de89af9503",
+        "fu-57a3dd21ee6b"
+      ]
+    },
+    {
+      "code": "P-285",
+      "municipality": "Buenaventura",
+      "department": "Valle del Cauca",
+      "name": "Hospital Luis Ablanque de la Plata",
+      "classification": "MODERADO",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-93df3f3b908c",
+        "fu-0fac98c30263",
+        "fu-cd3c24eb6101",
+        "fu-9367e0b908b0",
+        "fu-caafac2bf880",
+        "fu-7e2fe7ada566",
+        "fu-eb96175b8a9a",
+        "fu-103025194ebd",
+        "fu-0bdc63f96d55",
+        "fu-1cd3fc1eb23d",
+        "fu-395c71240a44",
+        "fu-4c184c7eaae6",
+        "fu-dde84ef4d8da",
+        "fu-c0cbf086de61",
+        "fu-49bfdc0551ba",
+        "fu-75e2a85ffc08",
+        "fu-f130e3f922da",
+        "fu-89002669144e",
+        "fu-3f23a3d53322",
+        "fu-919897e08cd4",
+        "fu-d4de89af9503"
+      ]
+    },
+    {
+      "code": "P-318",
+      "municipality": "Palocabildo",
+      "department": "Tolima",
+      "name": "Hospital de Palocabildo · E.S.E. Hospital Ricardo Acosta Nivel I · Calle 5 # 9-50",
+      "classification": "GRAVE",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-5afe2c3b2cc0",
+        "fu-70ba80619e59"
+      ]
+    },
+    {
+      "code": "P-321",
+      "municipality": "Ortega",
+      "department": "Tolima",
+      "name": "Hospital y alcaldía de Ortega",
+      "classification": "GRAVE",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-5afe2c3b2cc0"
+      ]
+    },
+    {
+      "code": "P-322",
+      "municipality": "Baraya",
+      "department": "Huila",
+      "name": "E.S.E. Hospital Tulia Durán de Borrero de Baraya · Avenida 2 # 8-10",
+      "classification": "GRAVE",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-462899a9ed66",
+        "fu-7e9d111c06fa",
+        "fu-61b48c6a8050",
+        "fu-7c056fa29398",
+        "fu-43025a72e799",
+        "fu-56508d62c1de",
+        "fu-6bc6cf1f2c7f"
+      ]
+    },
+    {
+      "code": "P-355",
+      "municipality": "Barrancabermeja",
+      "department": "Santander",
+      "name": "Puesto de Salud de San Rafael de Chucurí",
+      "classification": "GRAVE",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-1fe9e2b45669"
+      ]
+    },
+    {
+      "code": "P-358",
+      "municipality": "El Cairo",
+      "department": "Valle del Cauca",
+      "name": "Hospital Santa Catalina",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-daf7d0dd0a17",
+        "fu-9297a060cda6",
+        "fu-863ca42e0d9c",
+        "fu-2b74b4a44332"
+      ]
+    },
+    {
+      "code": "P-371",
+      "municipality": "Tenjo",
+      "department": "Cundinamarca",
+      "name": "Hospital de Tenjo",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-a3a999282ad1",
+        "fu-134dbf314f68"
+      ]
+    },
+    {
+      "code": "P-396",
+      "municipality": "Montenegro",
+      "department": "Quindío",
+      "name": "Hospital Roberto Quintero Villa · Montenegro · área de urgencias",
+      "classification": "GRAVE",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-53d6d8bd21f8",
+        "fu-d1d351a488e1",
+        "fu-043671333861",
+        "fu-792f0dd36794",
+        "fu-2daf943813a8",
+        "fu-6ae5c164d8e7",
+        "fu-38007c834d6b"
+      ]
+    },
+    {
+      "code": "P-397",
+      "municipality": "Calarcá",
+      "department": "Quindío",
+      "name": "Hospital La Misericordia",
+      "classification": "GRAVE",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-53d6d8bd21f8",
+        "fu-479c2e0c51dd",
+        "fu-dcceb899528f",
+        "fu-6d8b7b9b3f2f",
+        "fu-3f722dd769ee",
+        "fu-d0775184d46f",
+        "fu-8c2842e1b572",
+        "fu-b6caed6e441c",
+        "fu-732eedb62afe",
+        "fu-6d5dd7f5863d",
+        "fu-9fdd9d787eca",
+        "fu-607d565a25a9"
+      ]
+    },
+    {
+      "code": "P-422",
+      "municipality": "Nuquí",
+      "department": "Chocó",
+      "name": "Hospital de Nuquí",
+      "classification": "GRAVE",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-be0265cb6ff1"
+      ]
+    },
+    {
+      "code": "P-436",
+      "municipality": "Medellín",
+      "department": "Antioquia",
+      "name": "Hospital La María",
+      "classification": "MODERADO",
+      "status": "EN_VERIFICACION",
+      "evidence_ids": [
+        "fu-a82bda6a960a",
+        "fu-d0455dfc653c",
+        "fu-c68e606a0c96",
+        "fu-77f9b53ee6e2",
+        "fu-2ad58900f5d8",
+        "fu-09b97c8e0c05"
+      ]
+    },
+    {
+      "code": "P-437",
+      "municipality": "Medellín",
+      "department": "Antioquia",
+      "name": "Hospital Alma Máter de Antioquia · KR 51 B # 69-13",
+      "classification": "LEVE",
+      "status": "EN_VERIFICACION",
+      "evidence_ids": [
+        "fu-a82bda6a960a",
+        "fu-fa9156eb093d"
+      ]
+    },
+    {
+      "code": "P-438",
+      "municipality": "Apartadó",
+      "department": "Antioquia",
+      "name": "Clínica Panamericana de Apartadó",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-d9f71abcbbfe",
+        "fu-5e178e8c3baa",
+        "fu-3a1635044a49",
+        "fu-52b20576f6c2"
+      ]
+    },
+    {
+      "code": "P-446",
+      "municipality": "Argelia",
+      "department": "Valle del Cauca",
+      "name": "Hospital de Argelia · E.S.E. Hospital Pío XII · CRA 4 # 1-65",
+      "classification": "COLAPSO",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-50a4e106e942",
+        "fu-04fd14257fea",
+        "fu-eeb5159514c1",
+        "fu-9837aac6379b",
+        "fu-120902069836",
+        "fu-ea1081f4680f",
+        "fu-41d869a8fb1c",
+        "fu-49c463049891",
+        "fu-905d3a5cc1e8",
+        "fu-782207084c9f",
+        "fu-2a4b970728c7",
+        "fu-733138ab7d20",
+        "fu-d8e5758d1ce1",
+        "fu-702520253b0e",
+        "fu-079984d9a441"
+      ]
+    },
+    {
+      "code": "P-450",
+      "municipality": "El Cerrito",
+      "department": "Valle del Cauca",
+      "name": "Hospital de El Cerrito",
+      "classification": "LEVE",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-50a4e106e942"
+      ]
+    },
+    {
+      "code": "P-457",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Clínica Occidente",
+      "classification": "LEVE",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-617f7bc41d43",
+        "fu-5f5c8cb54ec1"
+      ]
+    },
+    {
+      "code": "P-458",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Clínica Nuestra Señora de los Remedios",
+      "classification": "LEVE",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-617f7bc41d43",
+        "fu-5f5c8cb54ec1"
+      ]
+    },
+    {
+      "code": "P-459",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Clínica Sebastián de Belalcázar",
+      "classification": "LEVE",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-617f7bc41d43",
+        "fu-5f5c8cb54ec1",
+        "fu-86fccc8c47bb"
+      ]
+    },
+    {
+      "code": "P-460",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Hospital San Juan de Dios",
+      "classification": "MODERADO",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-617f7bc41d43",
+        "fu-0fac98c30263",
+        "fu-6781423ac892",
+        "fu-5e178e8c3baa",
+        "fu-cd3c24eb6101"
+      ]
+    },
+    {
+      "code": "P-461",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Fundación Valle del Lili · sede Tequendama",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-356bc1245f6a",
+        "fu-c511fa24dff8"
+      ]
+    },
+    {
+      "code": "P-483",
+      "municipality": "Tello",
+      "department": "Huila",
+      "name": "ESE Miguel Barreto López · CRA 6 # 2-75",
+      "classification": "LEVE",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-7e9d111c06fa",
+        "fu-56508d62c1de"
+      ]
+    },
+    {
+      "code": "P-606",
+      "municipality": "Popayán",
+      "department": "Cauca",
+      "name": "Clínica La Estancia",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-0fac98c30263",
+        "fu-cd3c24eb6101",
+        "fu-2ccca00d28cd"
+      ]
+    },
+    {
+      "code": "P-607",
+      "municipality": "Popayán",
+      "department": "Cauca",
+      "name": "Clínica San Rafael · CL 18 AN 5 20",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-0fac98c30263",
+        "fu-cd3c24eb6101"
+      ]
+    },
+    {
+      "code": "P-608",
+      "municipality": "Popayán",
+      "department": "Cauca",
+      "name": "Clínica Santa Gracia",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-0fac98c30263",
+        "fu-cd3c24eb6101"
+      ]
+    },
+    {
+      "code": "P-609",
+      "municipality": "Popayán",
+      "department": "Cauca",
+      "name": "Hospital Susana López (de Valencia)",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-0fac98c30263",
+        "fu-5e3aea8d269e",
+        "fu-cd3c24eb6101",
+        "fu-48067e579bf9",
+        "fu-2ccca00d28cd",
+        "fu-73e91dcd4ec8"
+      ]
+    },
+    {
+      "code": "P-610",
+      "municipality": "Toribío",
+      "department": "Cauca",
+      "name": "Hospital de Toribío",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-0fac98c30263",
+        "fu-01e60f7813c3",
+        "fu-01f65030c5a8",
+        "fu-cd3c24eb6101"
+      ]
+    },
+    {
+      "code": "P-611",
+      "municipality": "El Tambo",
+      "department": "Cauca",
+      "name": "Hospital de El Tambo",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-0fac98c30263",
+        "fu-cd3c24eb6101"
+      ]
+    },
+    {
+      "code": "P-612",
+      "municipality": "Quibdó",
+      "department": "Chocó",
+      "name": "Hospital Local Ismael Roldán (Valencia)",
+      "classification": "MODERADO",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-0fac98c30263",
+        "fu-cd3c24eb6101",
+        "fu-6f1f50528ed8",
+        "fu-67c0616db1e4",
+        "fu-37c9f11f6984",
+        "fu-95975ea0b0c1",
+        "fu-e0174449edfc",
+        "fu-decaeb362be1"
+      ]
+    },
+    {
+      "code": "P-613",
+      "municipality": "Pereira",
+      "department": "Risaralda",
+      "name": "Clínica Megacentro",
+      "classification": "LEVE",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-0fac98c30263",
+        "fu-ee7b5b240635",
+        "fu-cd3c24eb6101"
+      ]
+    },
+    {
+      "code": "P-614",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Hospital Isaías Duarte Cancino",
+      "classification": "LEVE",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-0fac98c30263",
+        "fu-cd3c24eb6101",
+        "fu-abe33f7a6bc8",
+        "fu-853d8b6f3849",
+        "fu-bef6ff5d5eec"
+      ]
+    },
+    {
+      "code": "P-615",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Hospital Departamental Mario Correa Rengifo",
+      "classification": "LEVE",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-0fac98c30263",
+        "fu-cd3c24eb6101"
+      ]
+    },
+    {
+      "code": "P-616",
+      "municipality": "Armenia",
+      "department": "Quindío",
+      "name": "Hospital San Juan de Dios de Armenia",
+      "classification": "GRAVE",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-0fac98c30263",
+        "fu-d0775184d46f",
+        "fu-cd3c24eb6101",
+        "fu-8979da154c9c",
+        "fu-e8ea26956933",
+        "fu-ac37408dffd8",
+        "fu-7471e1e83740",
+        "fu-6127f49745f0",
+        "fu-e71872f588ee",
+        "fu-6d5dd7f5863d",
+        "fu-9fdd9d787eca",
+        "fu-8eded5ebf508",
+        "fu-cb5ee37e7435"
+      ]
+    },
+    {
+      "code": "P-627",
+      "municipality": "Rionegro",
+      "department": "Antioquia",
+      "name": "Clínica Somer",
+      "classification": "LEVE",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-52534f20688a",
+        "fu-cc2892594a87",
+        "fu-c4cb5ac632e2",
+        "fu-98c780057f18",
+        "fu-ad325aee216a"
+      ]
+    },
+    {
+      "code": "P-634",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Clínica Caicedo",
+      "classification": "GRAVE",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-9767036cd955"
+      ]
+    },
+    {
+      "code": "P-635",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Clínica Imbanaco · CRA 38A # 5A - 100",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-510d3f9c6f15",
+        "fu-1501f201b304",
+        "fu-a0766cfd9b83",
+        "fu-ad5648637fd3",
+        "fu-458b0840c404"
+      ]
+    },
+    {
+      "code": "P-636",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Clínica Nuestra Cali",
+      "classification": "MODERADO",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-8e348c81b921",
+        "fu-df7b81f2201e",
+        "fu-847763c73322",
+        "fu-84de4e16c869",
+        "fu-0fac98c30263",
+        "fu-cd3c24eb6101",
+        "fu-702520253b0e",
+        "fu-3fddc7d3f3ff",
+        "fu-288446d62b1e",
+        "fu-c3e6cf58cac7"
+      ]
+    },
+    {
+      "code": "P-656",
+      "municipality": "Armenia",
+      "department": "Quindío",
+      "name": "Clínica San Rafael · sede Armenia",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-b040daa4c973",
+        "fu-fe87c9938e4b"
+      ]
+    },
+    {
+      "code": "P-669",
+      "municipality": "Pereira",
+      "department": "Risaralda",
+      "name": "ESE Salud Pereira · sede San Joaquín",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-ee7b5b240635",
+        "fu-ddebe2633963",
+        "fu-12b9459eafb1",
+        "fu-24e6e111bdf9"
+      ]
+    },
+    {
+      "code": "P-670",
+      "municipality": "Pereira",
+      "department": "Risaralda",
+      "name": "Clínica San Rafael · sede Pereira",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-b040daa4c973"
+      ]
+    },
+    {
+      "code": "P-711",
+      "municipality": "Pereira",
+      "department": "Risaralda",
+      "name": "Hospital Universitario San Joaquín · Carrera 26 # 77 - 32, sector San Joaquín",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-04e2f71ded16"
+      ]
+    },
+    {
+      "code": "P-726",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Clínica Dessa · CLINICA DESA S.A.S · CALLE 5D NRO. 38 A 35",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-847763c73322",
+        "fu-84de4e16c869"
+      ]
+    },
+    {
+      "code": "P-727",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Clínica Colombia",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-847763c73322",
+        "fu-84de4e16c869",
+        "fu-df7b81f2201e",
+        "fu-a6555a8951d0",
+        "fu-c31e6306a66e",
+        "fu-702520253b0e",
+        "fu-3fddc7d3f3ff",
+        "fu-c3e6cf58cac7"
+      ]
+    },
+    {
+      "code": "P-736",
+      "municipality": "Calima-El Darién",
+      "department": "Valle del Cauca",
+      "name": "Hospital de Calima El Darién · E.S.E. Hospital San Jorge · CL 11 # 3-04",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-529a6e09be6d",
+        "fu-7fb9ebdefa47",
+        "fu-85cf66def637",
+        "fu-c1c8613b0940",
+        "fu-e15225985601"
+      ]
+    },
+    {
+      "code": "P-737",
+      "municipality": "Ibagué",
+      "department": "Tolima",
+      "name": "Hospital Federico Lleras Acosta · sede Limonar",
+      "classification": "MODERADO",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-70ba80619e59",
+        "fu-c57506b24bfb"
+      ]
+    },
+    {
+      "code": "P-765",
+      "municipality": "Manizales",
+      "department": "Caldas",
+      "name": "Meintegral · Avenida Santander No. 39-28",
+      "classification": "GRAVE",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-f4b3cb0f4a63",
+        "fu-31bfc39c05e1",
+        "fu-6b28d47e75c3",
+        "fu-c39b80004399",
+        "fu-97191ae65235",
+        "fu-0350ced193be"
+      ]
+    },
+    {
+      "code": "P-766",
+      "municipality": "Manizales",
+      "department": "Caldas",
+      "name": "Clínica Ospedale · calle 51 n.º 24-50",
+      "classification": "GRAVE",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-31bfc39c05e1",
+        "fu-c39b80004399",
+        "fu-97191ae65235",
+        "fu-a6555a8951d0",
+        "fu-6b28d47e75c3"
+      ]
+    },
+    {
+      "code": "P-767",
+      "municipality": "Manizales",
+      "department": "Caldas",
+      "name": "Clínica Santillana",
+      "classification": "LEVE",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-31bfc39c05e1",
+        "fu-a6555a8951d0",
+        "fu-6b28d47e75c3",
+        "fu-c39b80004399"
+      ]
+    },
+    {
+      "code": "P-768",
+      "municipality": "Manizales",
+      "department": "Caldas",
+      "name": "SES Hospital Universitario de Caldas · Calle 48 No 25-71",
+      "classification": "LEVE",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-5ffa61722100",
+        "fu-ce0535fcab1d",
+        "fu-706072bc02ba",
+        "fu-95d05587eb40",
+        "fu-a6555a8951d0",
+        "fu-31bfc39c05e1",
+        "fu-6b28d47e75c3",
+        "fu-f5580633c864",
+        "fu-2c847c73a645",
+        "fu-c307e024046c",
+        "fu-c39b80004399",
+        "fu-c5b35ab85a14"
+      ]
+    },
+    {
+      "code": "P-799",
+      "municipality": "Chinchiná",
+      "department": "Caldas",
+      "name": "Hospital San Marcos",
+      "classification": "MODERADO",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-ce4f70c49ac6",
+        "fu-e8efcf12ed5d"
+      ]
+    },
+    {
+      "code": "P-818",
+      "municipality": "Pereira",
+      "department": "Risaralda",
+      "name": "Centro de Soluciones en Salud 30 de Agosto (Salud Total) · AV 30 DE AGOSTO NO 40-51",
+      "classification": "MODERADO",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-61a869452533"
+      ]
+    },
+    {
+      "code": "P-1026",
+      "municipality": "San José del Palmar",
+      "department": "Chocó",
+      "name": "Centro de Salud de San José del Palmar",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-cd3c24eb6101",
+        "fu-c9b8518bc285",
+        "fu-5507bd1a6870",
+        "fu-13d3f9661334"
+      ]
+    },
+    {
+      "code": "P-1027",
+      "municipality": "Alto Baudó",
+      "department": "Chocó",
+      "name": "Centro de Salud de Alto Baudó",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-cd3c24eb6101"
+      ]
+    },
+    {
+      "code": "P-1028",
+      "municipality": "El Carmen de Atrato",
+      "department": "Chocó",
+      "name": "Hospital San Roque · KILOMETRO 1 CARRETERA VIA A LA MINA",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-cd3c24eb6101"
+      ]
+    },
+    {
+      "code": "P-1029",
+      "municipality": "Nuquí",
+      "department": "Chocó",
+      "name": "Centros de Salud de Arusí y Tribugá",
+      "classification": "SIN_EVALUAR",
+      "status": "EN_VERIFICACION",
+      "evidence_ids": [
+        "fu-cd3c24eb6101"
+      ]
+    },
+    {
+      "code": "P-1030",
+      "municipality": "El Litoral del San Juan",
+      "department": "Chocó",
+      "name": "Centros de Salud de Durapdur y Palestina",
+      "classification": "SIN_EVALUAR",
+      "status": "EN_VERIFICACION",
+      "evidence_ids": [
+        "fu-cd3c24eb6101"
+      ]
+    },
+    {
+      "code": "P-1060",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Fundación Valle del Lili · sede Limonar",
+      "classification": "SIN_EVALUAR",
+      "status": "DESCARTADO",
+      "evidence_ids": [
+        "fu-c511fa24dff8"
+      ]
+    },
+    {
+      "code": "P-1061",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Fundación Valle del Lili · sede Avenida Estación · Calle 23 DN # 4N-21",
+      "classification": "SIN_EVALUAR",
+      "status": "DESCARTADO",
+      "evidence_ids": [
+        "fu-c511fa24dff8"
+      ]
+    },
+    {
+      "code": "P-1062",
+      "municipality": "Jamundí",
+      "department": "Valle del Cauca",
+      "name": "Fundación Valle del Lili · sede Alfaguara",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-c511fa24dff8"
+      ]
+    },
+    {
+      "code": "P-1063",
+      "municipality": "",
+      "department": "Valle del Cauca",
+      "name": "Hospital de La Higuera",
+      "classification": "GRAVE",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-6861e99251a5"
+      ]
+    },
+    {
+      "code": "P-1066",
+      "municipality": "Quimbaya",
+      "department": "Quindío",
+      "name": "Hospital Sagrado Corazón de Jesús de Quimbaya · sede transitoria en el coliseo del Club de Leones",
+      "classification": "COLAPSO",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-d0775184d46f",
+        "fu-aabae7722540",
+        "fu-025d26211d01"
+      ]
+    },
+    {
+      "code": "P-1089",
+      "municipality": "La Tebaida",
+      "department": "Quindío",
+      "name": "Hospital Pío X de La Tebaida",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-180dd9e609c4",
+        "fu-e3fc66a38ffa",
+        "fu-0f92cf0e1ddf"
+      ]
+    },
+    {
+      "code": "P-1090",
+      "municipality": "Salento",
+      "department": "Quindío",
+      "name": "Hospital San Vicente de Paúl de Salento",
+      "classification": "SIN_EVALUAR",
+      "status": "DESCARTADO",
+      "evidence_ids": [
+        "fu-28f8354bf772",
+        "fu-f811f1e2b295",
+        "fu-52a2239601bf",
+        "fu-223aadbaa564",
+        "fu-8d9b3df34cc9"
+      ]
+    },
+    {
+      "code": "P-1136",
+      "municipality": "Purificación",
+      "department": "Tolima",
+      "name": "Hospital de Purificación",
+      "classification": "MODERADO",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-70ba80619e59",
+        "fu-5afe2c3b2cc0"
+      ]
+    },
+    {
+      "code": "P-1137",
+      "municipality": "Líbano",
+      "department": "Tolima",
+      "name": "Hospital Regional Alfonso Jaramillo Salazar E.S.E. · Avenida Los Fundadores #2-111",
+      "classification": "MODERADO",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-70ba80619e59",
+        "fu-c57506b24bfb",
+        "fu-903bd4e5c773"
+      ]
+    },
+    {
+      "code": "P-1149",
+      "municipality": "Manizales",
+      "department": "Caldas",
+      "name": "Hospital Departamental Santa Sofía · obra nueva",
+      "classification": "SIN_EVALUAR",
+      "status": "DESCARTADO",
+      "evidence_ids": [
+        "fu-f853e2083f52"
+      ]
+    },
+    {
+      "code": "P-1186",
+      "municipality": "Pácora",
+      "department": "Caldas",
+      "name": "Hospital de Pácora · congestión tras el sismo · E.S.E. Hospital Santa Teresita · CARRERA 2 # 2-49",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-274b853f7ee4",
+        "fu-7e969ee6b10c"
+      ]
+    },
+    {
+      "code": "P-1219",
+      "municipality": "Manizales",
+      "department": "Caldas",
+      "name": "Hospital CES de Manizales",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-a68dd952681d",
+        "fu-59f15ca655e8"
+      ]
+    },
+    {
+      "code": "P-1226",
+      "municipality": "San Francisco",
+      "department": "Cundinamarca",
+      "name": "Centro de salud de San Francisco (la fuente no lo nombra) · E.S.E. Centro de Salud San Francisco de Sales · CL 5 KR 7 ESQ",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-8b416c3ec9f7"
+      ]
+    },
+    {
+      "code": "P-1260",
+      "municipality": "Bello",
+      "department": "Antioquia",
+      "name": "Clínica del Norte",
+      "classification": "SIN_EVALUAR",
+      "status": "EN_VERIFICACION",
+      "evidence_ids": [
+        "fu-b3f2d23ebca2"
+      ]
+    },
+    {
+      "code": "P-1315",
+      "municipality": "Tadó",
+      "department": "Chocó",
+      "name": "Hospital de Tadó",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-405af1cf6d60"
+      ]
+    },
+    {
+      "code": "P-1286",
+      "municipality": "Chaparral",
+      "department": "Tolima",
+      "name": "Hospital de Chaparral",
+      "classification": "LEVE",
+      "status": "EN_VERIFICACION",
+      "evidence_ids": [
+        "fu-c57506b24bfb",
+        "fu-70ba80619e59"
+      ]
+    },
+    {
+      "code": "P-1299",
+      "municipality": "Versalles",
+      "department": "Valle del Cauca",
+      "name": "Hospital Henry Valencia Orozco · CALLE 9 # 1-22",
+      "classification": "MODERADO",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-41d869a8fb1c",
+        "fu-49c463049891",
+        "fu-5c68c6931d73",
+        "fu-ed379e62e99b",
+        "fu-702520253b0e"
+      ]
+    },
+    {
+      "code": "P-1300",
+      "municipality": "Dagua",
+      "department": "Valle del Cauca",
+      "name": "Hospital José Rufino Vivas · CALLE 10 # 21-48",
+      "classification": "SIN_EVALUAR",
+      "status": "EN_VERIFICACION",
+      "evidence_ids": [
+        "fu-41d869a8fb1c"
+      ]
+    },
+    {
+      "code": "P-1301",
+      "municipality": "La Cumbre",
+      "department": "Valle del Cauca",
+      "name": "Hospital Santa Margarita de La Cumbre",
+      "classification": "SIN_EVALUAR",
+      "status": "EN_VERIFICACION",
+      "evidence_ids": [
+        "fu-41d869a8fb1c",
+        "fu-ae1d140d6ae6",
+        "fu-702520253b0e"
+      ]
+    },
+    {
+      "code": "P-1302",
+      "municipality": "Copacabana",
+      "department": "Antioquia",
+      "name": "E.S.E. Hospital Santa Margarita de Copacabana",
+      "classification": "LEVE",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-4ccbf73a96f7",
+        "fu-49e8712bfc2d",
+        "fu-7f9f1f0a56bc",
+        "fu-09b97c8e0c05"
+      ]
+    },
+    {
+      "code": "P-1306",
+      "municipality": "Ansermanuevo",
+      "department": "Valle del Cauca",
+      "name": "E.S.E. Hospital Santa Ana de los Caballeros · Carrera 8 # 8-57",
+      "classification": "GRAVE",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-d3f618358205",
+        "fu-2b74b4a44332",
+        "fu-d8e5758d1ce1",
+        "fu-702520253b0e"
+      ]
+    },
+    {
+      "code": "P-1627",
+      "municipality": "Armenia",
+      "department": "Quindío",
+      "name": "Clínica La Sagrada Familia · Armenia",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-d5cc330579d5",
+        "fu-16050f7658a4",
+        "fu-d4e6fb0b9ce7",
+        "fu-cb5ee37e7435"
+      ]
+    },
+    {
+      "code": "P-1633",
+      "municipality": "El Águila",
+      "department": "Valle del Cauca",
+      "name": "Antigua sede del primer centro de salud de El Águila · junto al parque principal, frente a la Alcaldía (Carrera 3 No. 9-02)",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-45b6767ad61e",
+        "fu-5d5bdb35f99a"
+      ]
+    },
+    {
+      "code": "P-1369",
+      "municipality": "Pereira",
+      "department": "Risaralda",
+      "name": "Hospital de Kennedy · ESE Salud Pereira",
+      "classification": "LEVE",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-ee7b5b240635",
+        "fu-27394205cba1",
+        "fu-ddebe2633963",
+        "fu-24e6e111bdf9"
+      ]
+    },
+    {
+      "code": "P-1370",
+      "municipality": "Pereira",
+      "department": "Risaralda",
+      "name": "Clínica Pinares Médica",
+      "classification": "LEVE",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-ee7b5b240635"
+      ]
+    },
+    {
+      "code": "P-1395",
+      "municipality": "Soacha",
+      "department": "Cundinamarca",
+      "name": "Centros de salud de Soacha con agrietamientos (la fuente no los nombra)",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-a3a999282ad1",
+        "fu-8b416c3ec9f7"
+      ]
+    },
+    {
+      "code": "P-1401",
+      "municipality": "La Ceja",
+      "department": "Antioquia",
+      "name": "Hospital de La Ceja",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-2892ccb0b17d",
+        "fu-717506e124bc"
+      ]
+    },
+    {
+      "code": "P-1415",
+      "municipality": "Palmira",
+      "department": "Valle del Cauca",
+      "name": "Hospital Raúl Orejuela Bueno",
+      "classification": "LEVE",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-41d869a8fb1c"
+      ]
+    },
+    {
+      "code": "P-1416",
+      "municipality": "Andalucía",
+      "department": "Valle del Cauca",
+      "name": "Hospital de Andalucía · E.S.E. Hospital San Vicente Ferrer · Carrera 4 # 13-31 (el registro lo nombraba «San José», nombre que el REPS no confirma)",
+      "classification": "LEVE",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-41d869a8fb1c"
+      ]
+    },
+    {
+      "code": "P-1417",
+      "municipality": "Bugalagrande",
+      "department": "Valle del Cauca",
+      "name": "E.S.E. Hospital San Bernabé · Calle 6 con carrera 7 esquina",
+      "classification": "LEVE",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-41d869a8fb1c",
+        "fu-819b1e1585a5"
+      ]
+    },
+    {
+      "code": "P-1418",
+      "municipality": "Florida",
+      "department": "Valle del Cauca",
+      "name": "Hospital Benjamín Barney Gasca · CALLE 11 CRA 8 ESQUINA",
+      "classification": "LEVE",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-41d869a8fb1c"
+      ]
+    },
+    {
+      "code": "P-1419",
+      "municipality": "Tuluá",
+      "department": "Valle del Cauca",
+      "name": "Hospital Rubén Cruz Vélez",
+      "classification": "LEVE",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-41d869a8fb1c"
+      ]
+    },
+    {
+      "code": "P-1420",
+      "municipality": "Restrepo",
+      "department": "Valle del Cauca",
+      "name": "Hospital San José de Restrepo · CALLE 9 # 15-10",
+      "classification": "LEVE",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-41d869a8fb1c"
+      ]
+    },
+    {
+      "code": "P-1421",
+      "municipality": "La Unión",
+      "department": "Valle del Cauca",
+      "name": "Hospital Gonzalo Contreras E.S.E. · Carrera 15 # 14B-135",
+      "classification": "LEVE",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-41d869a8fb1c"
+      ]
+    },
+    {
+      "code": "P-1422",
+      "municipality": "Yumbo",
+      "department": "Valle del Cauca",
+      "name": "Hospital Buena Esperanza",
+      "classification": "LEVE",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-41d869a8fb1c"
+      ]
+    },
+    {
+      "code": "P-1423",
+      "municipality": "Ginebra",
+      "department": "Valle del Cauca",
+      "name": "E.S.E. Hospital del Rosario de Ginebra · Calle 5 # 5-02 esquina",
+      "classification": "LEVE",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-41d869a8fb1c",
+        "fu-fb5008db22cc"
+      ]
+    },
+    {
+      "code": "P-1424",
+      "municipality": "El Cairo",
+      "department": "Valle del Cauca",
+      "name": "Hospital de El Cairo",
+      "classification": "LEVE",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-41d869a8fb1c"
+      ]
+    },
+    {
+      "code": "P-1425",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Colombiclínica Versalles",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-b55ac3ff9d6a",
+        "fu-c31e6306a66e"
+      ]
+    },
+    {
+      "code": "P-1426",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Clínica Los Andes",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-7cdafedbe6ba",
+        "fu-3fddc7d3f3ff"
+      ]
+    },
+    {
+      "code": "P-1494",
+      "municipality": "Buenaventura",
+      "department": "Valle del Cauca",
+      "name": "Centro asistencial «El Jorge»",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-7e2fe7ada566"
+      ]
+    },
+    {
+      "code": "P-1495",
+      "municipality": "Buenaventura",
+      "department": "Valle del Cauca",
+      "name": "Centro asistencial «Matías Mulumba» · Centro de Salud Matía Mulumba (E.S.E. Hospital Luis Ablanque de la Plata) · CALLE 1a CARRERA 74",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-7e2fe7ada566"
+      ]
+    },
+    {
+      "code": "P-1504",
+      "municipality": "Manizales",
+      "department": "Caldas",
+      "name": "Clínica Avidanti · CALLE 10 N° 2C-10 AVENIDA RESTREPO",
+      "classification": "SIN_EVALUAR",
+      "status": "DESCARTADO",
+      "evidence_ids": [
+        "fu-31bfc39c05e1",
+        "fu-a6555a8951d0",
+        "fu-6b28d47e75c3",
+        "fu-c39b80004399"
+      ]
+    },
+    {
+      "code": "P-1505",
+      "municipality": "Manizales",
+      "department": "Caldas",
+      "name": "Confamiliares · sede San Marcel",
+      "classification": "SIN_EVALUAR",
+      "status": "DESCARTADO",
+      "evidence_ids": [
+        "fu-31bfc39c05e1",
+        "fu-8483d4ef96a5",
+        "fu-c39b80004399",
+        "fu-c5b35ab85a14"
+      ]
+    },
+    {
+      "code": "P-1506",
+      "municipality": "Manizales",
+      "department": "Caldas",
+      "name": "Hospital General San Isidro ESE",
+      "classification": "SIN_EVALUAR",
+      "status": "DESCARTADO",
+      "evidence_ids": [
+        "fu-31bfc39c05e1",
+        "fu-c39b80004399"
+      ]
+    },
+    {
+      "code": "P-1507",
+      "municipality": "Manizales",
+      "department": "Caldas",
+      "name": "Oncólogos del Occidente SAS",
+      "classification": "SIN_EVALUAR",
+      "status": "DESCARTADO",
+      "evidence_ids": [
+        "fu-31bfc39c05e1",
+        "fu-c39b80004399"
+      ]
+    },
+    {
+      "code": "P-1508",
+      "municipality": "Manizales",
+      "department": "Caldas",
+      "name": "Assbasalud ESE",
+      "classification": "SIN_EVALUAR",
+      "status": "DESCARTADO",
+      "evidence_ids": [
+        "fu-31bfc39c05e1",
+        "fu-c39b80004399"
+      ]
+    },
+    {
+      "code": "P-1513",
+      "municipality": "Palestina",
+      "department": "Caldas",
+      "name": "Dos hospitales de Palestina con daños",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-d0a8e2dda4fd"
+      ]
+    },
+    {
+      "code": "P-1523",
+      "municipality": "San Luis",
+      "department": "Tolima",
+      "name": "Hospital de San Luis · Hospital Serafín Montaña Cuéllar E.S.E. · KRA 5 CALLE 5",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-5afe2c3b2cc0"
+      ]
+    },
+    {
+      "code": "P-1676",
+      "municipality": "Manizales",
+      "department": "Caldas",
+      "name": "Clínica La Presentación",
+      "classification": "SIN_EVALUAR",
+      "status": "DESCARTADO",
+      "evidence_ids": [
+        "fu-a6555a8951d0",
+        "fu-6b28d47e75c3"
+      ]
+    },
+    {
+      "code": "P-1709",
+      "municipality": "Roncesvalles",
+      "department": "Tolima",
+      "name": "Hospital de Roncesvalles · Hospital Santa Lucía E.S.E. · CALLE 8 #2-27",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-5afe2c3b2cc0",
+        "fu-7afe8222c5a2",
+        "fu-851164e41d17"
+      ]
+    },
+    {
+      "code": "P-1813",
+      "municipality": "Ibagué",
+      "department": "Tolima",
+      "name": "Clínica Medicadiz",
+      "classification": "SIN_EVALUAR",
+      "status": "EN_VERIFICACION",
+      "evidence_ids": [
+        "fu-0aabee7954f7",
+        "n9-cr-ibague"
+      ]
+    },
+    {
+      "code": "P-1819",
+      "municipality": "Manizales",
+      "department": "Caldas",
+      "name": "Clínica de Caldas",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-318aba1a0d58"
+      ]
+    },
+    {
+      "code": "P-1836",
+      "municipality": "Guataquí",
+      "department": "Cundinamarca",
+      "name": "Hospital o centro de salud de Guataquí (la fuente no publica el nombre de la sede) · Puesto de Salud de Guataquí (E.S.E. Hospital de Girardot) · CARRERA 3 N° 6-69",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-e9bb900a5699"
+      ]
+    },
+    {
+      "code": "P-1837",
+      "municipality": "Ricaurte",
+      "department": "Cundinamarca",
+      "name": "Hospital o centro de salud de Ricaurte (la fuente no publica el nombre de la sede) · CL 4 No. 14B-22",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-e9bb900a5699"
+      ]
+    },
+    {
+      "code": "P-1838",
+      "municipality": "Sasaima",
+      "department": "Cundinamarca",
+      "name": "Hospital o centro de salud de Sasaima (la fuente no publica el nombre de la sede)",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-e9bb900a5699"
+      ]
+    },
+    {
+      "code": "P-1839",
+      "municipality": "Guachetá",
+      "department": "Cundinamarca",
+      "name": "Hospital o centro de salud de Guachetá (la fuente no publica el nombre de la sede) · E.S.E. Hospital San José de Guachetá · CARRERA 2 No. 1 - 50",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-e9bb900a5699"
+      ]
+    },
+    {
+      "code": "P-1840",
+      "municipality": "Fúquene",
+      "department": "Cundinamarca",
+      "name": "Hospital o centro de salud de Fúquene (la fuente no publica el nombre de la sede) · Centro de Salud de Fúquene (E.S.E. Hospital El Salvador de Ubaté) · CRA 4 No. 4-10",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-e9bb900a5699",
+        "fu-42dca6489452"
+      ]
+    },
+    {
+      "code": "P-1959",
+      "municipality": "Andes",
+      "department": "Antioquia",
+      "name": "Sede hospitalaria afectada en Andes · E.S.E. Hospital San Rafael · Avenida Medellín # 48-20",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-84d1a65d79e1",
+        "fu-7f9f1f0a56bc",
+        "fu-09b97c8e0c05"
+      ]
+    },
+    {
+      "code": "P-2001",
+      "municipality": "Caldas",
+      "department": "Antioquia",
+      "name": "Sede hospitalaria afectada en Caldas (Antioquia) · E.S.E. Hospital San Vicente de Paúl · Carrera 48 # 135 Sur-41",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-84d1a65d79e1",
+        "fu-7f9f1f0a56bc",
+        "fu-09b97c8e0c05"
+      ]
+    },
+    {
+      "code": "P-2002",
+      "municipality": "Montebello",
+      "department": "Antioquia",
+      "name": "Sede hospitalaria afectada en Montebello · E.S.E. Hospital San Antonio · CL 18 # 18-85",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-84d1a65d79e1",
+        "fu-7f9f1f0a56bc",
+        "fu-09b97c8e0c05"
+      ]
+    },
+    {
+      "code": "P-2003",
+      "municipality": "Pueblorrico",
+      "department": "Antioquia",
+      "name": "Sede hospitalaria afectada en Pueblorrico · E.S.E. Hospital San Vicente de Paúl · CL 32 # 26A-38",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-84d1a65d79e1",
+        "fu-7f9f1f0a56bc",
+        "fu-09b97c8e0c05"
+      ]
+    },
+    {
+      "code": "P-2020",
+      "municipality": "Rionegro",
+      "department": "Antioquia",
+      "name": "Hospital Regional San Juan de Dios de Rionegro · KR 48 # 56-59",
+      "classification": "SIN_EVALUAR",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-2e83a6bf172b",
+        "fu-ad325aee216a"
+      ]
+    },
+    {
+      "code": "P-2021",
+      "municipality": "Rionegro",
+      "department": "Antioquia",
+      "name": "Hospital San Vicente Fundación · sede Rionegro",
+      "classification": "SIN_EVALUAR",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-ad325aee216a"
+      ]
+    },
+    {
+      "code": "P-2059",
+      "municipality": "Armenia",
+      "department": "Quindío",
+      "name": "Centro de Vacunación Comfenalco · carrera 15 # 8-43",
+      "classification": "SIN_EVALUAR",
+      "status": "DESCARTADO",
+      "evidence_ids": [
+        "fu-481730e833e6",
+        "fu-5e869614bd8d",
+        "fu-d8d14f8f8bcb"
+      ]
+    },
+    {
+      "code": "P-2120",
+      "municipality": "Popayán",
+      "department": "Cauca",
+      "name": "Hospital Universitario San José de Popayán",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-48067e579bf9",
+        "fu-73e91dcd4ec8"
+      ]
+    },
+    {
+      "code": "P-2131",
+      "municipality": "Medio San Juan",
+      "department": "Chocó",
+      "name": "Farmacia del hospital de Andagoya",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-f3904c796618"
+      ]
+    },
+    {
+      "code": "P-2217",
+      "municipality": "Cartago",
+      "department": "Valle del Cauca",
+      "name": "IPS Municipal de Cartago",
+      "classification": "MODERADO",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-416b0bf1a81b"
+      ]
+    },
+    {
+      "code": "P-2249",
+      "municipality": "Quimbaya",
+      "department": "Quindío",
+      "name": "Hospital Sagrado Corazón de Jesús de Quimbaya",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-6bdc4b77380f",
+        "fu-ef37b6f6f432",
+        "fu-025d26211d01",
+        "fu-ef9ed389a56f",
+        "fu-a34619352876"
+      ]
+    },
+    {
+      "code": "P-2288",
+      "municipality": "Pensilvania",
+      "department": "Caldas",
+      "name": "Centro de salud de San Daniel · corregimiento San Daniel, plaza principal",
+      "classification": "LEVE",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-b9a313b1707d"
+      ]
+    },
+    {
+      "code": "P-2289",
+      "municipality": "Pensilvania",
+      "department": "Caldas",
+      "name": "Centro de salud de Pueblo Nuevo",
+      "classification": "LEVE",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-b9a313b1707d"
+      ]
+    },
+    {
+      "code": "P-2297",
+      "municipality": "Buga",
+      "department": "Valle del Cauca",
+      "name": "IPS Comfandi · Buga · KR 17 # 5-18",
+      "classification": "MODERADO",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-1ecaa339ab95"
+      ]
+    },
+    {
+      "code": "P-2298",
+      "municipality": "Buga",
+      "department": "Valle del Cauca",
+      "name": "IPS Medic · Buga",
+      "classification": "MODERADO",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-1ecaa339ab95"
+      ]
+    },
+    {
+      "code": "P-2299",
+      "municipality": "Buga",
+      "department": "Valle del Cauca",
+      "name": "IPS Vivir · Buga · Carrera 14 # 9 - 42",
+      "classification": "SIN_EVALUAR",
+      "status": "EN_VERIFICACION",
+      "evidence_ids": [
+        "fu-1ecaa339ab95"
+      ]
+    },
+    {
+      "code": "P-2300",
+      "municipality": "Buga",
+      "department": "Valle del Cauca",
+      "name": "IPS Gesencro · Buga",
+      "classification": "SIN_EVALUAR",
+      "status": "DESCARTADO",
+      "evidence_ids": [
+        "fu-1ecaa339ab95"
+      ]
+    },
+    {
+      "code": "P-2301",
+      "municipality": "Buga",
+      "department": "Valle del Cauca",
+      "name": "Hospital Divino Niño · Buga",
+      "classification": "SIN_EVALUAR",
+      "status": "DESCARTADO",
+      "evidence_ids": [
+        "fu-1ecaa339ab95",
+        "fu-0d4215001f2e",
+        "fu-da33c7f1ca54"
+      ]
+    },
+    {
+      "code": "P-2355",
+      "municipality": "Dosquebradas",
+      "department": "Risaralda",
+      "name": "Coliseo Municipal de Dosquebradas · hospital de campaña · carrera 10 con calle 29, sector El Bosque",
+      "classification": "SIN_EVALUAR",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-ed82ec01c842",
+        "fu-0aa146a96f52",
+        "fu-5edf4eac54b7"
+      ]
+    },
+    {
+      "code": "P-2476",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "EPS Sanitas · sede de urgencias de la Avenida Roosevelt · Calle 6 # 42-50",
+      "classification": "SIN_EVALUAR",
+      "status": "DESCARTADO",
+      "evidence_ids": [
+        "fu-bcb82bacdb4a",
+        "fu-c6848b34260f",
+        "fu-288446d62b1e",
+        "fu-c3e6cf58cac7"
+      ]
+    },
+    {
+      "code": "P-2477",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Centro Médico EPS Sanitas Prados del Norte · Calle 38 Norte # 3CN-26",
+      "classification": "SIN_EVALUAR",
+      "status": "DESCARTADO",
+      "evidence_ids": [
+        "fu-bcb82bacdb4a",
+        "fu-c6848b34260f",
+        "fu-86fccc8c47bb"
+      ]
+    },
+    {
+      "code": "P-2478",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Centro Médico EPS Sanitas Flora Industrial · Carrera 5 Norte # 55N-39",
+      "classification": "SIN_EVALUAR",
+      "status": "DESCARTADO",
+      "evidence_ids": [
+        "fu-bcb82bacdb4a",
+        "fu-c6848b34260f"
+      ]
+    },
+    {
+      "code": "P-2479",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Centro Médico Colsanitas Medicina Prepagada · sede Ciudad Jardín · Calle 18 # 106-11",
+      "classification": "SIN_EVALUAR",
+      "status": "DESCARTADO",
+      "evidence_ids": [
+        "fu-bcb82bacdb4a",
+        "fu-c6848b34260f"
+      ]
+    },
+    {
+      "code": "P-2480",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Laboratorio clínico Colsanitas · Centro Comercial Centenario · Avenida 4 Norte # 7N-46, locales 137 a 139 y 220 a 222",
+      "classification": "SIN_EVALUAR",
+      "status": "DESCARTADO",
+      "evidence_ids": [
+        "fu-bcb82bacdb4a",
+        "fu-c6848b34260f"
+      ]
+    },
+    {
+      "code": "P-2481",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Clínica Dental Colsanitas · Ciudad Jardín · Carrera 106 # 18-60",
+      "classification": "SIN_EVALUAR",
+      "status": "DESCARTADO",
+      "evidence_ids": [
+        "fu-bcb82bacdb4a",
+        "fu-c6848b34260f"
+      ]
+    },
+    {
+      "code": "P-2482",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Clínica Dental Colsanitas · Centenario · Avenida 2 Norte # 5N-63",
+      "classification": "SIN_EVALUAR",
+      "status": "DESCARTADO",
+      "evidence_ids": [
+        "fu-bcb82bacdb4a",
+        "fu-c6848b34260f"
+      ]
+    },
+    {
+      "code": "P-2504",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Centro de Salud Desepaz · Red de Salud del Oriente E.S.E.",
+      "classification": "SIN_EVALUAR",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-f78c984c1224",
+        "fu-1073423fa163"
+      ]
+    },
+    {
+      "code": "P-2505",
+      "municipality": "Cisneros",
+      "department": "Antioquia",
+      "name": "E.S.E. Hospital San Antonio de Cisneros · CL 18 # 17 - 105",
+      "classification": "SIN_EVALUAR",
+      "status": "DESCARTADO",
+      "evidence_ids": [
+        "fu-c025de4821f8",
+        "fu-dd47fb838396"
+      ]
+    },
+    {
+      "code": "P-2506",
+      "municipality": "Manizales",
+      "department": "Caldas",
+      "name": "IDIME · sede Manizales",
+      "classification": "SIN_EVALUAR",
+      "status": "EN_VERIFICACION",
+      "evidence_ids": [
+        "fu-0b2e8e8f3d8c"
+      ]
+    },
+    {
+      "code": "P-2507",
+      "municipality": "Filadelfia",
+      "department": "Caldas",
+      "name": "E.S.E. Hospital San Bernardo de Filadelfia · CLL 9A ESQUINA",
+      "classification": "SIN_EVALUAR",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-0b2e8e8f3d8c"
+      ]
+    },
+    {
+      "code": "P-2592",
+      "municipality": "Alcalá",
+      "department": "Valle del Cauca",
+      "name": "E.S.E. Hospital San Vicente de Paúl · Alcalá",
+      "classification": "SIN_EVALUAR",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-a44e107ee0c3"
+      ]
+    },
+    {
+      "code": "P-2594",
+      "municipality": "Victoria",
+      "department": "Caldas",
+      "name": "E.S.E. Hospital Departamental San Simón · Carrera 4 # 8-23, Victoria",
+      "classification": "SIN_EVALUAR",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-0e23dfec480f",
+        "fu-73cfb37e7738"
+      ]
+    },
+    {
+      "code": "P-2595",
+      "municipality": "Pensilvania",
+      "department": "Caldas",
+      "name": "E.S.E. Hospital Local San Juan de Dios · Avenida La Salle, Pensilvania",
+      "classification": "SIN_EVALUAR",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-d823ddf3378d",
+        "fu-d566a8366c74",
+        "fu-d0e20591b1b7"
+      ]
+    },
+    {
+      "code": "P-2596",
+      "municipality": "Caucasia",
+      "department": "Antioquia",
+      "name": "E.S.E. Hospital César Uribe Piedrahita · Carrera 20 #1A-100, Caucasia",
+      "classification": "SIN_EVALUAR",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-b4bbf8bd50b0"
+      ]
+    },
+    {
+      "code": "P-2597",
+      "municipality": "Pácora",
+      "department": "Caldas",
+      "name": "E.S.E. Hospital Santa Teresita · sede del corregimiento de San Bartolomé (Calle Principal)",
+      "classification": "SIN_EVALUAR",
+      "status": "DESCARTADO",
+      "evidence_ids": [
+        "fu-7e969ee6b10c"
+      ]
+    },
+    {
+      "code": "P-2598",
+      "municipality": "Pácora",
+      "department": "Caldas",
+      "name": "E.S.E. Hospital Santa Teresita · sede del corregimiento de Castilla",
+      "classification": "SIN_EVALUAR",
+      "status": "DESCARTADO",
+      "evidence_ids": [
+        "fu-7e969ee6b10c"
+      ]
+    },
+    {
+      "code": "P-2599",
+      "municipality": "Pácora",
+      "department": "Caldas",
+      "name": "E.S.E. Hospital Santa Teresita · sede del corregimiento de Palocoposo",
+      "classification": "SIN_EVALUAR",
+      "status": "DESCARTADO",
+      "evidence_ids": [
+        "fu-7e969ee6b10c"
+      ]
+    },
+    {
+      "code": "P-2669",
+      "municipality": "Balboa",
+      "department": "Risaralda",
+      "name": "E.S.E. Hospital Cristo Rey · Carrera 9 # 8-17",
+      "classification": "LEVE",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-f4763c06d369"
+      ]
+    },
+    {
+      "code": "P-2670",
+      "municipality": "Honda",
+      "department": "Tolima",
+      "name": "Hospital San Juan de Dios de Honda E.S.E. · Calle 9 n.º 16-38, Avenida Centenario entre carreras 21 y 22",
+      "classification": "SIN_EVALUAR",
+      "status": "DESCARTADO",
+      "evidence_ids": [
+        "fu-e686a9474a88"
+      ]
+    },
+    {
+      "code": "P-2671",
+      "municipality": "Planadas",
+      "department": "Tolima",
+      "name": "Hospital Centro E.S.E. de Planadas · Calle 11 # 3-03",
+      "classification": "SIN_EVALUAR",
+      "status": "EN_VERIFICACION",
+      "evidence_ids": [
+        "fu-c2ee0ee25181"
+      ]
+    },
+    {
+      "code": "P-2687",
+      "municipality": "Génova",
+      "department": "Quindío",
+      "name": "Hospital San Vicente de Paúl de Génova",
+      "classification": "SIN_EVALUAR",
+      "status": "DESCARTADO",
+      "evidence_ids": [
+        "fu-928ca9bd08df"
+      ]
+    },
+    {
+      "code": "P-2693",
+      "municipality": "Armenia",
+      "department": "Quindío",
+      "name": "Clínica Santa Ana de Armenia · salida del barrio Los Kioscos hacia la vía a Montenegro",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-ba3f52e1b257"
+      ]
+    },
+    {
+      "code": "P-2716",
+      "municipality": "Bolívar",
+      "department": "Valle del Cauca",
+      "name": "Puesto de salud del corregimiento de La Tulia",
+      "classification": "COLAPSO",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-f51ec32b965d",
+        "fu-e7656b352ff6",
+        "fu-e635c73c7797"
+      ]
+    },
+    {
+      "code": "P-2718",
+      "municipality": "Bolívar",
+      "department": "Valle del Cauca",
+      "name": "Hospital central de Bolívar (Valle) · E.S.E. Hospital Santa Ana · Calle 8 # 5-09",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-f51ec32b965d"
+      ]
+    },
+    {
+      "code": "P-2754",
+      "municipality": "San José",
+      "department": "Caldas",
+      "name": "Hospital de San José (Caldas) · E.S.E. Hospital Departamental San José · Carrera 2 # 5-14",
+      "classification": "GRAVE",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-cdb781cee4a9",
+        "fu-dd9b387fba71",
+        "fu-d3b5ab1711ca",
+        "fu-f8a82e7c5716"
+      ]
+    },
+    {
+      "code": "P-2770",
+      "municipality": "San José del Palmar",
+      "department": "Chocó",
+      "name": "Puesto de salud de La Italia",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-fc267ee75967",
+        "fu-dd9b387fba71"
+      ]
+    },
+    {
+      "code": "P-2780",
+      "municipality": "Circasia",
+      "department": "Quindío",
+      "name": "E.S.E. Hospital San Vicente de Paúl de Circasia · Carrera 12 entre calles 10 y 11",
+      "classification": "MODERADO",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-3914ab1a9d81",
+        "fu-9c4050cc83d1"
+      ]
+    },
+    {
+      "code": "P-2800",
+      "municipality": "Sevilla",
+      "department": "Valle del Cauca",
+      "name": "Hospital Departamental Centenario",
+      "classification": "LEVE",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-4bebcc6eed5d",
+        "fu-4a795d10471d"
+      ]
+    },
+    {
+      "code": "P-2818",
+      "municipality": "Santander de Quilichao",
+      "department": "Cauca",
+      "name": "Centro de salud de Nariño · ESE Quilisalud",
+      "classification": "MODERADO",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-73e91dcd4ec8"
+      ]
+    },
+    {
+      "code": "P-2819",
+      "municipality": "Santander de Quilichao",
+      "department": "Cauca",
+      "name": "Sede de la IPS AIC en Santander de Quilichao",
+      "classification": "GRAVE",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-73e91dcd4ec8"
+      ]
+    },
+    {
+      "code": "P-2823",
+      "municipality": "Santander de Quilichao",
+      "department": "Cauca",
+      "name": "Hospital Francisco de Paula Santander",
+      "classification": "SIN_EVALUAR",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-73e91dcd4ec8"
+      ]
+    },
+    {
+      "code": "P-2866",
+      "municipality": "Armenia",
+      "department": "Quindío",
+      "name": "Laboratorio Departamental de Salud Pública del Quindío",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-b90cddeadd89"
+      ]
+    },
+    {
+      "code": "P-2903",
+      "municipality": "Sipí",
+      "department": "Chocó",
+      "name": "Hospital local de Sipí",
+      "classification": "GRAVE",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-fe1fa1cef1b5"
+      ]
+    },
+    {
+      "code": "P-2951",
+      "municipality": "Manizales",
+      "department": "Caldas",
+      "name": "EPS Sanitas · Centro Médico y Oficinas de Atención al Afiliado · Avenida Santander, carrera 23 No. 48-40 y No. 48-22",
+      "classification": "SIN_EVALUAR",
+      "status": "EN_VERIFICACION",
+      "evidence_ids": [
+        "fu-107940c99b8f"
+      ]
+    },
+    {
+      "code": "P-2952",
+      "municipality": "Manizales",
+      "department": "Caldas",
+      "name": "Óptica Keralty · carrera 24 No. 64-51, edificio Multiplaza El Cable, Manizales",
+      "classification": "SIN_EVALUAR",
+      "status": "EN_VERIFICACION",
+      "evidence_ids": [
+        "fu-107940c99b8f"
+      ]
+    },
+    {
+      "code": "P-2986",
+      "municipality": "El Águila",
+      "department": "Valle del Cauca",
+      "name": "Hospital temporal de El Águila · instalado en las instalaciones de un antiguo hostal",
+      "classification": "SIN_EVALUAR",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-e9fd3e1ab1e7"
+      ]
+    },
+    {
+      "code": "P-3218",
+      "municipality": "Armenia",
+      "department": "Quindío",
+      "name": "Hospital de campaña de Bogotá en Armenia · cuatro módulos, 40 camillas",
+      "classification": "SIN_EVALUAR",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-4e7c7d7d9b46",
+        "fu-e71872f588ee",
+        "fu-9fdd9d787eca",
+        "fu-8eded5ebf508"
+      ]
+    },
+    {
+      "code": "P-3219",
+      "municipality": "Medellín",
+      "department": "Antioquia",
+      "name": "Clínica Universitaria Bolivariana · sector de Robledo",
+      "classification": "SIN_EVALUAR",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-41edacba79be"
+      ]
+    },
+    {
+      "code": "P-3225",
+      "municipality": "Buenaventura",
+      "department": "Valle del Cauca",
+      "name": "Buque Hospital Benkos Biohó · muelle de Señalización Marítima del Pacífico",
+      "classification": "SIN_EVALUAR",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-9a65be997569",
+        "fu-dde84ef4d8da",
+        "fu-c0cbf086de61",
+        "fu-9476dfe7c5f9",
+        "fu-49bfdc0551ba",
+        "fu-71c1d7ebe333",
+        "fu-89002669144e",
+        "fu-3f23a3d53322"
+      ]
+    },
+    {
+      "code": "P-3235",
+      "municipality": "Quibdó",
+      "department": "Chocó",
+      "name": "Clínica de Profamilia en Quibdó",
+      "classification": "GRAVE",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-d46308b29fdb"
+      ]
+    },
+    {
+      "code": "P-3236",
+      "municipality": "Dosquebradas",
+      "department": "Risaralda",
+      "name": "Clínica de Profamilia en Dosquebradas",
+      "classification": "GRAVE",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-d46308b29fdb"
+      ]
+    },
+    {
+      "code": "P-3237",
+      "municipality": "Manizales",
+      "department": "Caldas",
+      "name": "Sede de Profamilia en Manizales",
+      "classification": "SIN_EVALUAR",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-d46308b29fdb"
+      ]
+    },
+    {
+      "code": "P-3238",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Profamilia · sede Tequendama, Cali",
+      "classification": "SIN_EVALUAR",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-d46308b29fdb"
+      ]
+    },
+    {
+      "code": "P-3239",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Profamilia Fertilidad · Cali",
+      "classification": "SIN_EVALUAR",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-d46308b29fdb"
+      ]
+    },
+    {
+      "code": "P-3267",
+      "municipality": "Pradera",
+      "department": "Valle del Cauca",
+      "name": "Hospital de Pradera (la fuente no da el nombre propio ni la dirección)",
+      "classification": "MODERADO",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-702520253b0e"
+      ]
+    },
+    {
+      "code": "P-3300",
+      "municipality": "Santa Rosa de Cabal",
+      "department": "Risaralda",
+      "name": "Centro de salud del corregimiento El Español (la fuente no lo nombra)",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-44ba30f92bbe"
+      ]
+    },
+    {
+      "code": "P-3347",
+      "municipality": "Rionegro",
+      "department": "Antioquia",
+      "name": "Sede hospitalaria afectada en Rionegro (la fuente no la nombra)",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-09b97c8e0c05"
+      ]
+    },
+    {
+      "code": "P-3470",
+      "municipality": "Guática",
+      "department": "Risaralda",
+      "name": "Hospital de Guática (la fuente no lo nombra)",
+      "classification": "GRAVE",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-452c950fdc99"
+      ]
+    },
+    {
+      "code": "P-3615",
+      "municipality": "Salamina",
+      "department": "Caldas",
+      "name": "Hospital Felipe Suárez de Salamina",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-4a313a90fbbf"
+      ]
+    },
+    {
+      "code": "P-3680",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Instituto para Niños Ciegos y Sordos del Valle del Cauca · Cali",
+      "classification": "GRAVE",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-f3aa593bdff2"
+      ]
+    },
+    {
+      "code": "P-3704",
+      "municipality": "Pereira",
+      "department": "Risaralda",
+      "name": "Centro de Salud de Boston · ESE Salud Pereira",
+      "classification": "GRAVE",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-24e6e111bdf9"
+      ]
+    },
+    {
+      "code": "P-3705",
+      "municipality": "Pereira",
+      "department": "Risaralda",
+      "name": "Puesto de salud de San Nicolás · ESE Salud Pereira",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-24e6e111bdf9"
+      ]
+    },
+    {
+      "code": "P-3706",
+      "municipality": "Pereira",
+      "department": "Risaralda",
+      "name": "Puesto de salud del corregimiento de Altagracia · ESE Salud Pereira",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-24e6e111bdf9"
+      ]
+    },
+    {
+      "code": "P-3734",
+      "municipality": "El Litoral del San Juan",
+      "department": "Chocó",
+      "name": "Centro de salud del Resguardo Chagpien Tordó · ribera del San Juan",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-90fa1dfd92b0",
+        "fu-c608a577c6f8"
+      ]
+    },
+    {
+      "code": "P-3745",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Puesto de Salud Mariano Ramos",
+      "classification": "SIN_EVALUAR",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-288446d62b1e",
+        "fu-c3e6cf58cac7",
+        "fu-a10812cbc9aa",
+        "fu-4a2cae4bcec2"
+      ]
+    },
+    {
+      "code": "P-3811",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Centro de salud de La Buitrera · zona rural de Cali",
+      "classification": "SIN_EVALUAR",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-c3e6cf58cac7",
+        "fu-4a2cae4bcec2"
+      ]
+    },
+    {
+      "code": "P-3812",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Centro de salud de Meléndez · Cali",
+      "classification": "GRAVE",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-c3e6cf58cac7",
+        "fu-4a2cae4bcec2"
+      ]
+    },
+    {
+      "code": "P-3816",
+      "municipality": "Buenaventura",
+      "department": "Valle del Cauca",
+      "name": "Hospital de campaña de la Fundación Cardiovascular de Bucaramanga · Buenaventura (la fuente no dice dónde está instalado)",
+      "classification": "SIN_EVALUAR",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-46b3d02c28cd"
+      ]
+    },
+    {
+      "code": "P-3863",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Centro Médico EPS Sanitas Carrera 43 · Cali (la fuente da el nombre de la sede, no su dirección completa)",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-ffc4c13e78f8"
+      ]
+    },
+    {
+      "code": "P-3864",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Centro Médico EPS Sanitas Versalles · Avenida 5A # 21 Norte-102, Cali",
+      "classification": "SIN_EVALUAR",
+      "status": "DESCARTADO",
+      "evidence_ids": [
+        "fu-ffc4c13e78f8"
+      ]
+    },
+    {
+      "code": "P-3865",
+      "municipality": "Armenia",
+      "department": "Quindío",
+      "name": "Centro Médico EPS Sanitas Parque Los Fundadores · Carrera 13A # 1A-117, Armenia",
+      "classification": "SIN_EVALUAR",
+      "status": "DESCARTADO",
+      "evidence_ids": [
+        "fu-ffc4c13e78f8"
+      ]
+    },
+    {
+      "code": "P-3866",
+      "municipality": "Palmira",
+      "department": "Valle del Cauca",
+      "name": "Centro Médico EPS Sanitas Palmira · Calle 27 # 29-39, barrio Nuevo, Palmira",
+      "classification": "SIN_EVALUAR",
+      "status": "DESCARTADO",
+      "evidence_ids": [
+        "fu-ffc4c13e78f8"
+      ]
+    },
+    {
+      "code": "P-3867",
+      "municipality": "Popayán",
+      "department": "Cauca",
+      "name": "Unidad de Urgencias Santa Clara de EPS Sanitas · Calle 12 Norte # 10-29, barrio Santa Clara, Popayán",
+      "classification": "SIN_EVALUAR",
+      "status": "DESCARTADO",
+      "evidence_ids": [
+        "fu-ffc4c13e78f8"
+      ]
+    },
+    {
+      "code": "P-3880",
+      "municipality": "Anserma",
+      "department": "Caldas",
+      "name": "Hospital San Vicente de Paúl de Anserma",
+      "classification": "MODERADO",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-e8f67b3a1924"
+      ]
+    },
+    {
+      "code": "P-3978",
+      "municipality": "Pereira",
+      "department": "Risaralda",
+      "name": "Clínica San Rafael Eje Cafetero · sede Pereira",
+      "classification": "SIN_EVALUAR",
+      "status": "DESCARTADO",
+      "evidence_ids": [
+        "fu-fe87c9938e4b"
+      ]
+    },
+    {
+      "code": "P-3985",
+      "municipality": "San José",
+      "department": "Caldas",
+      "name": "Sede transitoria del Hospital San José en dos carpas de la Defensa Civil · sector de La Piscina, San José (Caldas)",
+      "classification": "SIN_EVALUAR",
+      "status": "CONFIRMADO",
+      "evidence_ids": [
+        "fu-f8a82e7c5716"
+      ]
+    },
+    {
+      "code": "P-3986",
+      "municipality": "San José",
+      "department": "Caldas",
+      "name": "Obra del nuevo Hospital San José de San José (Caldas) · en construcción",
+      "classification": "SIN_EVALUAR",
+      "status": "DESCARTADO",
+      "evidence_ids": [
+        "fu-f8a82e7c5716"
+      ]
+    },
+    {
+      "code": "P-4009",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Hospital Joaquín Paz Borrero · red pública de salud de Cali",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-4a2cae4bcec2"
+      ]
+    },
+    {
+      "code": "P-4010",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Hospital Primitivo Iglesias · red pública de salud de Cali",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-4a2cae4bcec2"
+      ]
+    },
+    {
+      "code": "P-4011",
+      "municipality": "Cali",
+      "department": "Valle del Cauca",
+      "name": "Centro de salud Cañaveralejo · red pública de salud de Cali (la fuente solo publica el nombre corto «Cañaveralejo»)",
+      "classification": "SIN_EVALUAR",
+      "status": "REPORTADO",
+      "evidence_ids": [
+        "fu-4a2cae4bcec2"
+      ]
+    }
+  ]
+}
