@@ -17,9 +17,9 @@
     "decree": {
       "comparison": {
         "n": 286,
-        "r2": 0.3842924425893703,
-        "pearson": 0.6199132540842874,
-        "spearman": 0.827633517784976
+        "r2": 0.41972073618493505,
+        "pearson": 0.647858577302898,
+        "spearman": 0.7081553339122734
       },
       "reference": 509,
       "health_with_data": 77,
@@ -46,8 +46,8 @@
           "ratio": 14.25,
           "anchor": 14.25,
           "health": 100,
-          "global": 29.49442954598918,
-          "rank": 1,
+          "global": 31.200933893815268,
+          "rank": 2,
           "reason": ""
         },
         {
@@ -59,8 +59,8 @@
           "ratio": 12,
           "anchor": 14.25,
           "health": 84.21052631578947,
-          "global": 20.511627416157985,
-          "rank": 2,
+          "global": 31.954667416157985,
+          "rank": 1,
           "reason": ""
         },
         {
@@ -72,7 +72,7 @@
           "ratio": 8.222222222222221,
           "anchor": 14.25,
           "health": 57.69980506822612,
-          "global": 16.74403656385622,
+          "global": 26.00726856385622,
           "rank": 3,
           "reason": ""
         },
@@ -85,8 +85,8 @@
           "ratio": 7.25,
           "anchor": 14.25,
           "health": 50.877192982456144,
-          "global": 11.03402487025693,
-          "rank": 18,
+          "global": 12.904175981368041,
+          "rank": 29,
           "reason": ""
         },
         {
@@ -98,8 +98,8 @@
           "ratio": 7.125,
           "anchor": 14.25,
           "health": 50,
-          "global": 12.13371537919978,
-          "rank": 15,
+          "global": 20.158574326568203,
+          "rank": 9,
           "reason": ""
         },
         {
@@ -111,7 +111,7 @@
           "ratio": 5.142857142857143,
           "anchor": 14.25,
           "health": 36.090225563909776,
-          "global": 15.550963711646656,
+          "global": 24.206534443353974,
           "rank": 6,
           "reason": ""
         },
@@ -124,8 +124,8 @@
           "ratio": 4.538461538461538,
           "anchor": 14.25,
           "health": 31.84885290148448,
-          "global": 12.246905158281697,
-          "rank": 13,
+          "global": 21.98615364313018,
+          "rank": 7,
           "reason": ""
         },
         {
@@ -137,8 +137,8 @@
           "ratio": 4.428571428571429,
           "anchor": 14.25,
           "health": 31.077694235588975,
-          "global": 14.41327567604965,
-          "rank": 7,
+          "global": 19.01232263257139,
+          "rank": 13,
           "reason": ""
         },
         {
@@ -150,8 +150,8 @@
           "ratio": 4.363636363636363,
           "anchor": 14.25,
           "health": 30.62200956937799,
-          "global": 5.438209523012374,
-          "rank": 38,
+          "global": 6.52882490762776,
+          "rank": 75,
           "reason": ""
         },
         {
@@ -163,8 +163,8 @@
           "ratio": 4.181818181818182,
           "anchor": 14.25,
           "health": 29.346092503987244,
-          "global": 9.32152657055102,
-          "rank": 20,
+          "global": 13.661830570551022,
+          "rank": 25,
           "reason": ""
         }
       ],
@@ -178,8 +178,8 @@
           "ratio": 0.5311355311355311,
           "anchor": 14.25,
           "health": 3.7272668851616215,
-          "global": 7.513657679860375,
-          "rank": 28,
+          "global": 17.340332787774045,
+          "rank": 17,
           "reason": ""
         },
         {
@@ -191,8 +191,8 @@
           "ratio": 0.3,
           "anchor": 14.25,
           "health": 2.1052631578947367,
-          "global": 8.73536666046514,
-          "rank": 21,
+          "global": 15.011766660465142,
+          "rank": 22,
           "reason": ""
         },
         {
@@ -205,7 +205,7 @@
           "anchor": 14.25,
           "health": 2.807017543859649,
           "global": 5.227117483036369,
-          "rank": 39,
+          "rank": 95,
           "reason": ""
         },
         {
@@ -217,8 +217,8 @@
           "ratio": 0.2670103092783505,
           "anchor": 14.25,
           "health": 1.8737565563393017,
-          "global": 13.38915835629978,
-          "rank": 11,
+          "global": 19.32218001235073,
+          "rank": 12,
           "reason": ""
         },
         {
@@ -230,8 +230,8 @@
           "ratio": 0.4378066378066378,
           "anchor": 14.25,
           "health": 3.072327282853599,
-          "global": 1.7058717054133268,
-          "rank": 78,
+          "global": 4.205962967144297,
+          "rank": 118,
           "reason": ""
         },
         {
@@ -243,25 +243,12 @@
           "ratio": 5.142857142857143,
           "anchor": 14.25,
           "health": 36.090225563909776,
-          "global": 15.550963711646656,
+          "global": 24.206534443353974,
           "rank": 6,
           "reason": ""
         }
       ],
       "top_global": [
-        {
-          "code": "27073",
-          "name": "Bagadó",
-          "department": "Chocó",
-          "numerator": 57,
-          "denominator": 4,
-          "ratio": 14.25,
-          "anchor": 14.25,
-          "health": 100,
-          "global": 29.49442954598918,
-          "rank": 1,
-          "reason": ""
-        },
         {
           "code": "76606",
           "name": "Restrepo",
@@ -271,7 +258,20 @@
           "ratio": 12,
           "anchor": 14.25,
           "health": 84.21052631578947,
-          "global": 20.511627416157985,
+          "global": 31.954667416157985,
+          "rank": 1,
+          "reason": ""
+        },
+        {
+          "code": "27073",
+          "name": "Bagadó",
+          "department": "Chocó",
+          "numerator": 57,
+          "denominator": 4,
+          "ratio": 14.25,
+          "anchor": 14.25,
+          "health": 100,
+          "global": 31.200933893815268,
           "rank": 2,
           "reason": ""
         },
@@ -284,7 +284,7 @@
           "ratio": 8.222222222222221,
           "anchor": 14.25,
           "health": 57.69980506822612,
-          "global": 16.74403656385622,
+          "global": 26.00726856385622,
           "rank": 3,
           "reason": ""
         },
@@ -297,22 +297,22 @@
           "ratio": null,
           "anchor": 14.25,
           "health": null,
-          "global": 16.1789605115405,
+          "global": 25.7608405115405,
           "rank": 4,
           "reason": "Sin reporte de heridos comparable en esta captura"
         },
         {
-          "code": "27810",
-          "name": "Unión Panamericana",
-          "department": "Chocó",
-          "numerator": 5,
-          "denominator": null,
-          "ratio": null,
+          "code": "76020",
+          "name": "Alcalá",
+          "department": "Valle del Cauca",
+          "numerator": 20,
+          "denominator": 7,
+          "ratio": 2.857142857142857,
           "anchor": 14.25,
-          "health": null,
-          "global": 15.95218983789341,
+          "health": 20.05012531328321,
+          "global": 24.33582757945728,
           "rank": 5,
-          "reason": "Sin capacidad registrada: no se supone cero ni se imputa"
+          "reason": ""
         },
         {
           "code": "76828",
@@ -323,21 +323,47 @@
           "ratio": 5.142857142857143,
           "anchor": 14.25,
           "health": 36.090225563909776,
-          "global": 15.550963711646656,
+          "global": 24.206534443353974,
           "rank": 6,
           "reason": ""
         },
         {
-          "code": "76823",
-          "name": "Toro",
-          "department": "Valle del Cauca",
-          "numerator": 31,
-          "denominator": 7,
-          "ratio": 4.428571428571429,
+          "code": "63594",
+          "name": "Quimbaya",
+          "department": "Quindío",
+          "numerator": 59,
+          "denominator": 13,
+          "ratio": 4.538461538461538,
           "anchor": 14.25,
-          "health": 31.077694235588975,
-          "global": 14.41327567604965,
+          "health": 31.84885290148448,
+          "global": 21.98615364313018,
           "rank": 7,
+          "reason": ""
+        },
+        {
+          "code": "63111",
+          "name": "Buenavista",
+          "department": "Quindío",
+          "numerator": null,
+          "denominator": null,
+          "ratio": null,
+          "anchor": 14.25,
+          "health": null,
+          "global": 21.84706586475812,
+          "rank": 8,
+          "reason": "Sin capacidad registrada: no se supone cero ni se imputa"
+        },
+        {
+          "code": "76497",
+          "name": "Obando",
+          "department": "Valle del Cauca",
+          "numerator": 57,
+          "denominator": 8,
+          "ratio": 7.125,
+          "anchor": 14.25,
+          "health": 50,
+          "global": 20.158574326568203,
+          "rank": 9,
           "reason": ""
         },
         {
@@ -349,52 +375,26 @@
           "ratio": 4.166666666666667,
           "anchor": 14.25,
           "health": 29.23976608187135,
-          "global": 14.185018653421135,
-          "rank": 8,
-          "reason": ""
-        },
-        {
-          "code": "76863",
-          "name": "Versalles",
-          "department": "Valle del Cauca",
-          "numerator": 18,
-          "denominator": 7,
-          "ratio": 2.5714285714285716,
-          "anchor": 14.25,
-          "health": 18.045112781954888,
-          "global": 13.686876401700378,
-          "rank": 9,
-          "reason": ""
-        },
-        {
-          "code": "27787",
-          "name": "Tadó",
-          "department": "Chocó",
-          "numerator": 17,
-          "denominator": 15,
-          "ratio": 1.1333333333333333,
-          "anchor": 14.25,
-          "health": 7.953216374269005,
-          "global": 13.501933818366279,
+          "global": 19.899166021842184,
           "rank": 10,
           "reason": ""
         }
       ],
       "rank_changes": [
         {
-          "code": "27073",
+          "code": "76606",
           "new_rank": 1,
-          "previous_rank": 12
+          "previous_rank": 7
         },
         {
-          "code": "76606",
+          "code": "27073",
           "new_rank": 2,
-          "previous_rank": 23
+          "previous_rank": 26
         },
         {
           "code": "76126",
           "new_rank": 3,
-          "previous_rank": 20
+          "previous_rank": 11
         },
         {
           "code": "27745",
@@ -402,9 +402,9 @@
           "previous_rank": 2
         },
         {
-          "code": "27810",
+          "code": "76020",
           "new_rank": 5,
-          "previous_rank": 3
+          "previous_rank": 4
         },
         {
           "code": "76828",
@@ -412,33 +412,33 @@
           "previous_rank": 1
         },
         {
-          "code": "76823",
+          "code": "63594",
           "new_rank": 7,
-          "previous_rank": 14
+          "previous_rank": 9
+        },
+        {
+          "code": "63111",
+          "new_rank": 8,
+          "previous_rank": 3
+        },
+        {
+          "code": "76497",
+          "new_rank": 9,
+          "previous_rank": 24
         },
         {
           "code": "76243",
-          "new_rank": 8,
-          "previous_rank": 15
-        },
-        {
-          "code": "76863",
-          "new_rank": 9,
-          "previous_rank": 10
-        },
-        {
-          "code": "27787",
           "new_rank": 10,
-          "previous_rank": 6
+          "previous_rank": 14
         }
       ]
     },
     "all": {
       "comparison": {
         "n": 287,
-        "r2": 0.3846756714824362,
-        "pearson": 0.620222275867641,
-        "spearman": 0.8286279980948674
+        "r2": 0.4212224023140114,
+        "pearson": 0.6490164884762262,
+        "spearman": 0.7104109178765622
       },
       "reference": 631,
       "health_with_data": 77,
@@ -465,8 +465,8 @@
           "ratio": 14.25,
           "anchor": 14.25,
           "health": 100,
-          "global": 29.49442954598918,
-          "rank": 1,
+          "global": 31.200933893815268,
+          "rank": 2,
           "reason": ""
         },
         {
@@ -478,8 +478,8 @@
           "ratio": 12,
           "anchor": 14.25,
           "health": 84.21052631578947,
-          "global": 20.511627416157985,
-          "rank": 2,
+          "global": 31.954667416157985,
+          "rank": 1,
           "reason": ""
         },
         {
@@ -491,7 +491,7 @@
           "ratio": 8.222222222222221,
           "anchor": 14.25,
           "health": 57.69980506822612,
-          "global": 16.74403656385622,
+          "global": 26.00726856385622,
           "rank": 3,
           "reason": ""
         },
@@ -504,8 +504,8 @@
           "ratio": 7.25,
           "anchor": 14.25,
           "health": 50.877192982456144,
-          "global": 11.03402487025693,
-          "rank": 18,
+          "global": 12.904175981368041,
+          "rank": 29,
           "reason": ""
         },
         {
@@ -517,8 +517,8 @@
           "ratio": 7.125,
           "anchor": 14.25,
           "health": 50,
-          "global": 12.13371537919978,
-          "rank": 15,
+          "global": 20.158574326568203,
+          "rank": 9,
           "reason": ""
         },
         {
@@ -530,7 +530,7 @@
           "ratio": 5.142857142857143,
           "anchor": 14.25,
           "health": 36.090225563909776,
-          "global": 15.550963711646656,
+          "global": 24.206534443353974,
           "rank": 6,
           "reason": ""
         },
@@ -543,8 +543,8 @@
           "ratio": 4.538461538461538,
           "anchor": 14.25,
           "health": 31.84885290148448,
-          "global": 12.246905158281697,
-          "rank": 13,
+          "global": 21.98615364313018,
+          "rank": 7,
           "reason": ""
         },
         {
@@ -556,8 +556,8 @@
           "ratio": 4.428571428571429,
           "anchor": 14.25,
           "health": 31.077694235588975,
-          "global": 14.41327567604965,
-          "rank": 7,
+          "global": 19.01232263257139,
+          "rank": 13,
           "reason": ""
         },
         {
@@ -569,8 +569,8 @@
           "ratio": 4.363636363636363,
           "anchor": 14.25,
           "health": 30.62200956937799,
-          "global": 5.438209523012374,
-          "rank": 38,
+          "global": 6.52882490762776,
+          "rank": 75,
           "reason": ""
         },
         {
@@ -582,8 +582,8 @@
           "ratio": 4.181818181818182,
           "anchor": 14.25,
           "health": 29.346092503987244,
-          "global": 9.32152657055102,
-          "rank": 20,
+          "global": 13.661830570551022,
+          "rank": 25,
           "reason": ""
         }
       ],
@@ -597,8 +597,8 @@
           "ratio": 0.5311355311355311,
           "anchor": 14.25,
           "health": 3.7272668851616215,
-          "global": 7.513657679860375,
-          "rank": 28,
+          "global": 17.340332787774045,
+          "rank": 17,
           "reason": ""
         },
         {
@@ -610,8 +610,8 @@
           "ratio": 0.3,
           "anchor": 14.25,
           "health": 2.1052631578947367,
-          "global": 8.73536666046514,
-          "rank": 21,
+          "global": 15.011766660465142,
+          "rank": 22,
           "reason": ""
         },
         {
@@ -624,7 +624,7 @@
           "anchor": 14.25,
           "health": 2.807017543859649,
           "global": 5.227117483036369,
-          "rank": 39,
+          "rank": 95,
           "reason": ""
         },
         {
@@ -636,8 +636,8 @@
           "ratio": 0.2670103092783505,
           "anchor": 14.25,
           "health": 1.8737565563393017,
-          "global": 13.38915835629978,
-          "rank": 11,
+          "global": 19.32218001235073,
+          "rank": 12,
           "reason": ""
         },
         {
@@ -649,8 +649,8 @@
           "ratio": 0.4378066378066378,
           "anchor": 14.25,
           "health": 3.072327282853599,
-          "global": 1.7058717054133268,
-          "rank": 78,
+          "global": 4.205962967144297,
+          "rank": 118,
           "reason": ""
         },
         {
@@ -662,25 +662,12 @@
           "ratio": 5.142857142857143,
           "anchor": 14.25,
           "health": 36.090225563909776,
-          "global": 15.550963711646656,
+          "global": 24.206534443353974,
           "rank": 6,
           "reason": ""
         }
       ],
       "top_global": [
-        {
-          "code": "27073",
-          "name": "Bagadó",
-          "department": "Chocó",
-          "numerator": 57,
-          "denominator": 4,
-          "ratio": 14.25,
-          "anchor": 14.25,
-          "health": 100,
-          "global": 29.49442954598918,
-          "rank": 1,
-          "reason": ""
-        },
         {
           "code": "76606",
           "name": "Restrepo",
@@ -690,7 +677,20 @@
           "ratio": 12,
           "anchor": 14.25,
           "health": 84.21052631578947,
-          "global": 20.511627416157985,
+          "global": 31.954667416157985,
+          "rank": 1,
+          "reason": ""
+        },
+        {
+          "code": "27073",
+          "name": "Bagadó",
+          "department": "Chocó",
+          "numerator": 57,
+          "denominator": 4,
+          "ratio": 14.25,
+          "anchor": 14.25,
+          "health": 100,
+          "global": 31.200933893815268,
           "rank": 2,
           "reason": ""
         },
@@ -703,7 +703,7 @@
           "ratio": 8.222222222222221,
           "anchor": 14.25,
           "health": 57.69980506822612,
-          "global": 16.74403656385622,
+          "global": 26.00726856385622,
           "rank": 3,
           "reason": ""
         },
@@ -716,22 +716,22 @@
           "ratio": null,
           "anchor": 14.25,
           "health": null,
-          "global": 16.1789605115405,
+          "global": 25.7608405115405,
           "rank": 4,
           "reason": "Sin reporte de heridos comparable en esta captura"
         },
         {
-          "code": "27810",
-          "name": "Unión Panamericana",
-          "department": "Chocó",
-          "numerator": 5,
-          "denominator": null,
-          "ratio": null,
+          "code": "76020",
+          "name": "Alcalá",
+          "department": "Valle del Cauca",
+          "numerator": 20,
+          "denominator": 7,
+          "ratio": 2.857142857142857,
           "anchor": 14.25,
-          "health": null,
-          "global": 15.95218983789341,
+          "health": 20.05012531328321,
+          "global": 24.33582757945728,
           "rank": 5,
-          "reason": "Sin capacidad registrada: no se supone cero ni se imputa"
+          "reason": ""
         },
         {
           "code": "76828",
@@ -742,21 +742,47 @@
           "ratio": 5.142857142857143,
           "anchor": 14.25,
           "health": 36.090225563909776,
-          "global": 15.550963711646656,
+          "global": 24.206534443353974,
           "rank": 6,
           "reason": ""
         },
         {
-          "code": "76823",
-          "name": "Toro",
-          "department": "Valle del Cauca",
-          "numerator": 31,
-          "denominator": 7,
-          "ratio": 4.428571428571429,
+          "code": "63594",
+          "name": "Quimbaya",
+          "department": "Quindío",
+          "numerator": 59,
+          "denominator": 13,
+          "ratio": 4.538461538461538,
           "anchor": 14.25,
-          "health": 31.077694235588975,
-          "global": 14.41327567604965,
+          "health": 31.84885290148448,
+          "global": 21.98615364313018,
           "rank": 7,
+          "reason": ""
+        },
+        {
+          "code": "63111",
+          "name": "Buenavista",
+          "department": "Quindío",
+          "numerator": null,
+          "denominator": null,
+          "ratio": null,
+          "anchor": 14.25,
+          "health": null,
+          "global": 21.84706586475812,
+          "rank": 8,
+          "reason": "Sin capacidad registrada: no se supone cero ni se imputa"
+        },
+        {
+          "code": "76497",
+          "name": "Obando",
+          "department": "Valle del Cauca",
+          "numerator": 57,
+          "denominator": 8,
+          "ratio": 7.125,
+          "anchor": 14.25,
+          "health": 50,
+          "global": 20.158574326568203,
+          "rank": 9,
           "reason": ""
         },
         {
@@ -768,52 +794,26 @@
           "ratio": 4.166666666666667,
           "anchor": 14.25,
           "health": 29.23976608187135,
-          "global": 14.185018653421135,
-          "rank": 8,
-          "reason": ""
-        },
-        {
-          "code": "76863",
-          "name": "Versalles",
-          "department": "Valle del Cauca",
-          "numerator": 18,
-          "denominator": 7,
-          "ratio": 2.5714285714285716,
-          "anchor": 14.25,
-          "health": 18.045112781954888,
-          "global": 13.686876401700378,
-          "rank": 9,
-          "reason": ""
-        },
-        {
-          "code": "27787",
-          "name": "Tadó",
-          "department": "Chocó",
-          "numerator": 17,
-          "denominator": 15,
-          "ratio": 1.1333333333333333,
-          "anchor": 14.25,
-          "health": 7.953216374269005,
-          "global": 13.501933818366279,
+          "global": 19.899166021842184,
           "rank": 10,
           "reason": ""
         }
       ],
       "rank_changes": [
         {
-          "code": "27073",
+          "code": "76606",
           "new_rank": 1,
-          "previous_rank": 12
+          "previous_rank": 7
         },
         {
-          "code": "76606",
+          "code": "27073",
           "new_rank": 2,
-          "previous_rank": 23
+          "previous_rank": 26
         },
         {
           "code": "76126",
           "new_rank": 3,
-          "previous_rank": 20
+          "previous_rank": 11
         },
         {
           "code": "27745",
@@ -821,9 +821,9 @@
           "previous_rank": 2
         },
         {
-          "code": "27810",
+          "code": "76020",
           "new_rank": 5,
-          "previous_rank": 3
+          "previous_rank": 4
         },
         {
           "code": "76828",
@@ -831,24 +831,24 @@
           "previous_rank": 1
         },
         {
-          "code": "76823",
+          "code": "63594",
           "new_rank": 7,
-          "previous_rank": 14
+          "previous_rank": 9
+        },
+        {
+          "code": "63111",
+          "new_rank": 8,
+          "previous_rank": 3
+        },
+        {
+          "code": "76497",
+          "new_rank": 9,
+          "previous_rank": 24
         },
         {
           "code": "76243",
-          "new_rank": 8,
-          "previous_rank": 15
-        },
-        {
-          "code": "76863",
-          "new_rank": 9,
-          "previous_rank": 10
-        },
-        {
-          "code": "27787",
           "new_rank": 10,
-          "previous_rank": 6
+          "previous_rank": 14
         }
       ]
     }
