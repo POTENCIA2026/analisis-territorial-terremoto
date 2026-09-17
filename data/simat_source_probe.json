@@ -1,0 +1,363 @@
+{
+  "page": "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/",
+  "downloads": [
+    {
+      "url": "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-417663_recurso_1.csv",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://portalsineb.mineducacion.gov.co/1782/articles-417663_recurso_1.csv",
+      "actual": "https://portalsineb.mineducacion.gov.co/1782/articles-417663_recurso_1.csv",
+      "sha256": "30f8707f0914e123b71f6ae5cea582ad56b62e855ad0f7d60013122b29cadf73",
+      "bytes": 75758,
+      "encoding": "utf-8-sig",
+      "delimiter": ",",
+      "columns": [
+        "ANNO_INF",
+        "DPTO_CARGA",
+        "CODIGO_SED",
+        "DIVIPOLA_MUNICIPIO",
+        "CTE_ID_SECTOR",
+        "CTE_ID_ZONA",
+        "TOTAL_SEDES"
+      ],
+      "rows": 2890,
+      "samples": [
+        {
+          "CODIGO_SED": "3767",
+          "DIVIPOLA_MUNICIPIO": "13744",
+          "CTE_ID_SECTOR": "1",
+          "TOTAL_SEDES": "4"
+        },
+        {
+          "CODIGO_SED": "3767",
+          "DIVIPOLA_MUNICIPIO": "13760",
+          "CTE_ID_SECTOR": "1",
+          "TOTAL_SEDES": "5"
+        }
+      ]
+    },
+    {
+      "url": "https://portalsineb.mineducacion.gov.co/portal/articles-417663_recurso_1.csv",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://www.mineducacion.gov.co/1780/articles-417663_recurso_1.csv",
+      "error": "HTTP Error 404: Not Found"
+    }
+  ],
+  "apis": [
+    {
+      "id": "x5ay-984n",
+      "name": "MEN_SEDES_EDUCATIVAS_PREESCOLAR_BÁSICA_Y_MEDIA",
+      "description": "Contiene las sedes educativas de Preescolar, básica y Media en Colombia, con historia desde el 2019\n\nFUENTE: Sistema Integrado de Matrícula SIMAT- Directorio Unico de Establecimientos DUE- Ministerio Educación Nacional y DANE para los datos georreferenciados\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\nNOTA1: Información de matrícula definitiva 2019.\t\t\t\t\t\t\t\t\t\t\t\t\t\nNOTA2: Los códigos DANE de los establecimientos educativos (EE) y sedes educativas son asignados por el Departamento Nacional de Estadística – DANE; algunos EE y sedes  manejan otros códigos que no corresponden a los asignados por el DANE, razón por la cual desde el año 2016, se viene realizando depuración de la información. En sentido, para efectos de cruces de información de EE y sedes de otros cortes o años anteriores, se sugiere utilizar para las sedes el código único de sedes SEDE_ID y para los establecimientos, el código único EST_ID, los cuales se relacionan en este reporte.",
+      "publisher": "Ministerio de Educación Nacional - MinEducación, Bogotá D.C.",
+      "columns": [
+        [
+          "a_o",
+          "AÑO",
+          "number"
+        ],
+        [
+          "departamento",
+          "DEPARTAMENTO",
+          "text"
+        ],
+        [
+          "secretaria",
+          "SECRETARIA",
+          "text"
+        ],
+        [
+          "cod_dane_municipio",
+          "COD_DANE_MUNICIPIO",
+          "text"
+        ],
+        [
+          "municipio",
+          "MUNICIPIO",
+          "text"
+        ],
+        [
+          "codigo_dane",
+          "CODIGO_DANE",
+          "text"
+        ],
+        [
+          "est_id",
+          "EST_ID",
+          "number"
+        ],
+        [
+          "nombre_establecimiento",
+          "NOMBRE_ESTABLECIMIENTO",
+          "text"
+        ],
+        [
+          "cte_id_sector",
+          "CTE_ID_SECTOR",
+          "text"
+        ],
+        [
+          "cte_id_calendario",
+          "CTE_ID_CALENDARIO",
+          "text"
+        ],
+        [
+          "sede_id",
+          "SEDE_ID",
+          "number"
+        ],
+        [
+          "codigo_dane_sede",
+          "CODIGO_DANE_SEDE",
+          "number"
+        ],
+        [
+          "coordenada_y_sede",
+          "COORDENADA_Y_SEDE",
+          "number"
+        ],
+        [
+          "coordenada_x_sede",
+          "COORDENADA_X_SEDE",
+          "number"
+        ],
+        [
+          "nombre_sede",
+          "NOMBRE_SEDE",
+          "text"
+        ],
+        [
+          "zona",
+          "ZONA",
+          "text"
+        ],
+        [
+          "direccion",
+          "DIRECCION",
+          "text"
+        ],
+        [
+          "barrio_vereda",
+          "BARRIO_VEREDA",
+          "text"
+        ],
+        [
+          "telefono",
+          "TELEFONO",
+          "text"
+        ],
+        [
+          "fax",
+          "FAX",
+          "text"
+        ],
+        [
+          "email",
+          "EMAIL",
+          "text"
+        ],
+        [
+          "principal",
+          "PRINCIPAL",
+          "text"
+        ],
+        [
+          "total_matricula",
+          "TOTAL_MATRICULA",
+          "number"
+        ]
+      ]
+    },
+    {
+      "id": "j9sd-zau5",
+      "name": "MEN_SEDES_EDUCATIVAS_PREESCOLAR_BÁSICA_Y_MEDIA",
+      "description": "Contiene la información correspondiente a las sedes educativas de Preescolar, básica y Media en Colombia, inicialmente para la vigencia 2021.\n\nEste conjunto de datos contiene información desagregada hasta el nivel municipal.",
+      "publisher": "Alcaldía de Santa Rosa de Cabal, Risaralda",
+      "columns": [
+        [
+          "a_o",
+          "AÑO",
+          "number"
+        ],
+        [
+          "cod_dane_departamento",
+          "COD_DANE_DEPARTAMENTO",
+          "number"
+        ],
+        [
+          "departamento",
+          "DEPARTAMENTO",
+          "text"
+        ],
+        [
+          "cod_secretaria",
+          "COD_SECRETARIA",
+          "number"
+        ],
+        [
+          "secretaria",
+          "SECRETARIA",
+          "text"
+        ],
+        [
+          "cod_dane_municipio",
+          "COD_DANE_MUNICIPIO",
+          "number"
+        ],
+        [
+          "municipio",
+          "MUNICIPIO",
+          "text"
+        ],
+        [
+          "codigo_dane",
+          "CODIGO_DANE",
+          "number"
+        ],
+        [
+          "nombre_establecimiento",
+          "NOMBRE_ESTABLECIMIENTO",
+          "text"
+        ],
+        [
+          "codigo_dane_sede",
+          "CODIGO_DANE_SEDE",
+          "number"
+        ],
+        [
+          "nombre_sede",
+          "NOMBRE_SEDE",
+          "text"
+        ],
+        [
+          "cod_sector",
+          "COD_SECTOR",
+          "number"
+        ],
+        [
+          "sector",
+          "SECTOR",
+          "text"
+        ],
+        [
+          "cod_calendario",
+          "COD_CALENDARIO",
+          "number"
+        ],
+        [
+          "calendario",
+          "CALENDARIO",
+          "text"
+        ],
+        [
+          "direccion",
+          "DIRECCION",
+          "text"
+        ],
+        [
+          "barrio_vereda",
+          "BARRIO_VEREDA",
+          "text"
+        ],
+        [
+          "telefono",
+          "TELEFONO",
+          "text"
+        ],
+        [
+          "fax",
+          "FAX",
+          "number"
+        ],
+        [
+          "email",
+          "EMAIL",
+          "text"
+        ],
+        [
+          "total_matricula",
+          "TOTAL_MATRICULA",
+          "number"
+        ]
+      ]
+    }
+  ],
+  "csv_links": [
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-425124_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-425124_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-417666_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-417666_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-417665_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-417665_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-417664_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-417664_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-417663_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-417663_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-417503_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-417503_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412677_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412677_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412671_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412671_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412672_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412672_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412670_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412670_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412660_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412660_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412644_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412644_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412657_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412657_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412632_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412632_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412659_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412659_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412631_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412631_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412630_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412630_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412650_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412650_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412661_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412661_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412653_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412653_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412643_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412643_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412645_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412645_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412646_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412646_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412647_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412647_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412652_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412652_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412648_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412648_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412658_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412658_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412649_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412649_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412651_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412651_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412654_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412654_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412655_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412655_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412664_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412664_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412669_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412669_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412626_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412626_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412628_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412628_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412629_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412629_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412656_recurso_1.csv",
+    "https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/articles-412656_recurso_1.csv"
+  ]
+}

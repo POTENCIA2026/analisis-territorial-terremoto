@@ -1,0 +1,50 @@
+name: Preparar escenario REPS y SIMAT
+on:
+  push:
+    branches: [relativo-reps-simat-sin-comunitarios]
+    paths:
+      - '.github/workflows/reps-simat.yml'
+      - 'scripts/preparar_reps_simat.py'
+      - 'scripts/auditar_reps_simat.cjs'
+      - 'web/**'
+      - 'tests/**'
+      - 'generar_tablero_recuperacion.py'
+permissions:
+  contents: write
+concurrency:
+  group: reps-simat-${{ github.ref_name }}
+  cancel-in-progress: false
+jobs:
+  preparar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Preparar inventarios observados
+        run: python scripts/preparar_reps_simat.py
+      - name: Probar regresiones y cinco dimensiones
+        run: |
+          python -m unittest discover -s tests -v
+          node --test tests/*.test.js
+          for f in web/*.js; do node --check "$f"; done
+      - name: Generar tablero con datos de main conservados
+        run: |
+          python generar_tablero_recuperacion.py --eda-redirect index.html
+          node scripts/auditar_reps_simat.cjs
+      - name: Comprobar interfaz en Chromium
+        run: |
+          npm install --no-save --package-lock=false playwright
+          npx playwright install --with-deps chromium
+          node tests/reps_simat.browser.cjs
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          branch: ${{ github.ref_name }}
+          commit_message: 'Generar tablero REPS/SIMAT de cinco dimensiones'
+          file_pattern: 'index.html data/simat_sedes_2022.csv data/denominadores_reps_simat.json docs/verificacion_reps_simat.json'
