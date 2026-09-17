@@ -17,9 +17,9 @@
     "decree": {
       "comparison": {
         "n": 286,
-        "r2": 0.41972073618493505,
-        "pearson": 0.647858577302898,
-        "spearman": 0.7081553339122734
+        "r2": 0.40410882690662286,
+        "pearson": 0.6356955457659137,
+        "spearman": 0.6836974173839881
       },
       "reference": 509,
       "health_with_data": 77,
@@ -46,7 +46,7 @@
           "ratio": 14.25,
           "anchor": 14.25,
           "health": 100,
-          "global": 31.200933893815268,
+          "global": 32.00399476338048,
           "rank": 2,
           "reason": ""
         },
@@ -59,7 +59,7 @@
           "ratio": 12,
           "anchor": 14.25,
           "health": 84.21052631578947,
-          "global": 31.954667416157985,
+          "global": 37.33962741615798,
           "rank": 1,
           "reason": ""
         },
@@ -72,7 +72,7 @@
           "ratio": 8.222222222222221,
           "anchor": 14.25,
           "health": 57.69980506822612,
-          "global": 26.00726856385622,
+          "global": 30.366436563856222,
           "rank": 3,
           "reason": ""
         },
@@ -85,8 +85,8 @@
           "ratio": 7.25,
           "anchor": 14.25,
           "health": 50.877192982456144,
-          "global": 12.904175981368041,
-          "rank": 29,
+          "global": 13.784247092479152,
+          "rank": 40,
           "reason": ""
         },
         {
@@ -98,7 +98,7 @@
           "ratio": 7.125,
           "anchor": 14.25,
           "health": 50,
-          "global": 20.158574326568203,
+          "global": 23.934978537094516,
           "rank": 9,
           "reason": ""
         },
@@ -111,8 +111,8 @@
           "ratio": 5.142857142857143,
           "anchor": 14.25,
           "health": 36.090225563909776,
-          "global": 24.206534443353974,
-          "rank": 6,
+          "global": 28.279744199451535,
+          "rank": 5,
           "reason": ""
         },
         {
@@ -124,8 +124,8 @@
           "ratio": 4.538461538461538,
           "anchor": 14.25,
           "health": 31.84885290148448,
-          "global": 21.98615364313018,
-          "rank": 7,
+          "global": 26.569329400705936,
+          "rank": 6,
           "reason": ""
         },
         {
@@ -137,8 +137,8 @@
           "ratio": 4.428571428571429,
           "anchor": 14.25,
           "health": 31.077694235588975,
-          "global": 19.01232263257139,
-          "rank": 13,
+          "global": 21.176580023875736,
+          "rank": 17,
           "reason": ""
         },
         {
@@ -150,8 +150,8 @@
           "ratio": 4.363636363636363,
           "anchor": 14.25,
           "health": 30.62200956937799,
-          "global": 6.52882490762776,
-          "rank": 75,
+          "global": 7.04205567685853,
+          "rank": 96,
           "reason": ""
         },
         {
@@ -163,8 +163,8 @@
           "ratio": 4.181818181818182,
           "anchor": 14.25,
           "health": 29.346092503987244,
-          "global": 13.661830570551022,
-          "rank": 25,
+          "global": 15.704326570551022,
+          "rank": 31,
           "reason": ""
         }
       ],
@@ -178,8 +178,8 @@
           "ratio": 0.5311355311355311,
           "anchor": 14.25,
           "health": 3.7272668851616215,
-          "global": 17.340332787774045,
-          "rank": 17,
+          "global": 21.96465048561577,
+          "rank": 14,
           "reason": ""
         },
         {
@@ -191,7 +191,7 @@
           "ratio": 0.3,
           "anchor": 14.25,
           "health": 2.1052631578947367,
-          "global": 15.011766660465142,
+          "global": 17.96536666046514,
           "rank": 22,
           "reason": ""
         },
@@ -205,7 +205,7 @@
           "anchor": 14.25,
           "health": 2.807017543859649,
           "global": 5.227117483036369,
-          "rank": 95,
+          "rank": 122,
           "reason": ""
         },
         {
@@ -217,8 +217,8 @@
           "ratio": 0.2670103092783505,
           "anchor": 14.25,
           "health": 1.8737565563393017,
-          "global": 19.32218001235073,
-          "rank": 12,
+          "global": 22.114190203433537,
+          "rank": 13,
           "reason": ""
         },
         {
@@ -230,8 +230,8 @@
           "ratio": 0.4378066378066378,
           "anchor": 14.25,
           "health": 3.072327282853599,
-          "global": 4.205962967144297,
-          "rank": 118,
+          "global": 5.382476502076518,
+          "rank": 119,
           "reason": ""
         },
         {
@@ -243,8 +243,8 @@
           "ratio": 5.142857142857143,
           "anchor": 14.25,
           "health": 36.090225563909776,
-          "global": 24.206534443353974,
-          "rank": 6,
+          "global": 28.279744199451535,
+          "rank": 5,
           "reason": ""
         }
       ],
@@ -258,7 +258,7 @@
           "ratio": 12,
           "anchor": 14.25,
           "health": 84.21052631578947,
-          "global": 31.954667416157985,
+          "global": 37.33962741615798,
           "rank": 1,
           "reason": ""
         },
@@ -271,7 +271,7 @@
           "ratio": 14.25,
           "anchor": 14.25,
           "health": 100,
-          "global": 31.200933893815268,
+          "global": 32.00399476338048,
           "rank": 2,
           "reason": ""
         },
@@ -284,7 +284,7 @@
           "ratio": 8.222222222222221,
           "anchor": 14.25,
           "health": 57.69980506822612,
-          "global": 26.00726856385622,
+          "global": 30.366436563856222,
           "rank": 3,
           "reason": ""
         },
@@ -297,22 +297,9 @@
           "ratio": null,
           "anchor": 14.25,
           "health": null,
-          "global": 25.7608405115405,
+          "global": 30.2699605115405,
           "rank": 4,
           "reason": "Sin reporte de heridos comparable en esta captura"
-        },
-        {
-          "code": "76020",
-          "name": "Alcalá",
-          "department": "Valle del Cauca",
-          "numerator": 20,
-          "denominator": 7,
-          "ratio": 2.857142857142857,
-          "anchor": 14.25,
-          "health": 20.05012531328321,
-          "global": 24.33582757945728,
-          "rank": 5,
-          "reason": ""
         },
         {
           "code": "76828",
@@ -323,8 +310,8 @@
           "ratio": 5.142857142857143,
           "anchor": 14.25,
           "health": 36.090225563909776,
-          "global": 24.206534443353974,
-          "rank": 6,
+          "global": 28.279744199451535,
+          "rank": 5,
           "reason": ""
         },
         {
@@ -336,8 +323,8 @@
           "ratio": 4.538461538461538,
           "anchor": 14.25,
           "health": 31.84885290148448,
-          "global": 21.98615364313018,
-          "rank": 7,
+          "global": 26.569329400705936,
+          "rank": 6,
           "reason": ""
         },
         {
@@ -349,9 +336,22 @@
           "ratio": null,
           "anchor": 14.25,
           "health": null,
-          "global": 21.84706586475812,
-          "rank": 8,
+          "global": 25.21666586475812,
+          "rank": 7,
           "reason": "Sin capacidad registrada: no se supone cero ni se imputa"
+        },
+        {
+          "code": "76020",
+          "name": "Alcalá",
+          "department": "Valle del Cauca",
+          "numerator": 20,
+          "denominator": 7,
+          "ratio": 2.857142857142857,
+          "anchor": 14.25,
+          "health": 20.05012531328321,
+          "global": 24.33582757945728,
+          "rank": 8,
+          "reason": ""
         },
         {
           "code": "76497",
@@ -362,20 +362,20 @@
           "ratio": 7.125,
           "anchor": 14.25,
           "health": 50,
-          "global": 20.158574326568203,
+          "global": 23.934978537094516,
           "rank": 9,
           "reason": ""
         },
         {
-          "code": "76243",
-          "name": "El Águila",
+          "code": "76890",
+          "name": "Yotoco",
           "department": "Valle del Cauca",
-          "numerator": 25,
-          "denominator": 6,
-          "ratio": 4.166666666666667,
+          "numerator": 14,
+          "denominator": 5,
+          "ratio": 2.8,
           "anchor": 14.25,
-          "health": 29.23976608187135,
-          "global": 19.899166021842184,
+          "health": 19.649122807017545,
+          "global": 23.804204762481607,
           "rank": 10,
           "reason": ""
         }
@@ -384,12 +384,12 @@
         {
           "code": "76606",
           "new_rank": 1,
-          "previous_rank": 7
+          "previous_rank": 4
         },
         {
           "code": "27073",
           "new_rank": 2,
-          "previous_rank": 26
+          "previous_rank": 36
         },
         {
           "code": "76126",
@@ -402,43 +402,43 @@
           "previous_rank": 2
         },
         {
-          "code": "76020",
-          "new_rank": 5,
-          "previous_rank": 4
-        },
-        {
           "code": "76828",
-          "new_rank": 6,
+          "new_rank": 5,
           "previous_rank": 1
         },
         {
           "code": "63594",
-          "new_rank": 7,
-          "previous_rank": 9
+          "new_rank": 6,
+          "previous_rank": 7
         },
         {
           "code": "63111",
-          "new_rank": 8,
+          "new_rank": 7,
           "previous_rank": 3
+        },
+        {
+          "code": "76020",
+          "new_rank": 8,
+          "previous_rank": 12
         },
         {
           "code": "76497",
           "new_rank": 9,
-          "previous_rank": 24
+          "previous_rank": 20
         },
         {
-          "code": "76243",
+          "code": "76890",
           "new_rank": 10,
-          "previous_rank": 14
+          "previous_rank": 10
         }
       ]
     },
     "all": {
       "comparison": {
         "n": 287,
-        "r2": 0.4212224023140114,
-        "pearson": 0.6490164884762262,
-        "spearman": 0.7104109178765622
+        "r2": 0.4058468884640648,
+        "pearson": 0.637061134008397,
+        "spearman": 0.6861901601249155
       },
       "reference": 631,
       "health_with_data": 77,
@@ -465,7 +465,7 @@
           "ratio": 14.25,
           "anchor": 14.25,
           "health": 100,
-          "global": 31.200933893815268,
+          "global": 32.00399476338048,
           "rank": 2,
           "reason": ""
         },
@@ -478,7 +478,7 @@
           "ratio": 12,
           "anchor": 14.25,
           "health": 84.21052631578947,
-          "global": 31.954667416157985,
+          "global": 37.33962741615798,
           "rank": 1,
           "reason": ""
         },
@@ -491,7 +491,7 @@
           "ratio": 8.222222222222221,
           "anchor": 14.25,
           "health": 57.69980506822612,
-          "global": 26.00726856385622,
+          "global": 30.366436563856222,
           "rank": 3,
           "reason": ""
         },
@@ -504,8 +504,8 @@
           "ratio": 7.25,
           "anchor": 14.25,
           "health": 50.877192982456144,
-          "global": 12.904175981368041,
-          "rank": 29,
+          "global": 13.784247092479152,
+          "rank": 40,
           "reason": ""
         },
         {
@@ -517,7 +517,7 @@
           "ratio": 7.125,
           "anchor": 14.25,
           "health": 50,
-          "global": 20.158574326568203,
+          "global": 23.934978537094516,
           "rank": 9,
           "reason": ""
         },
@@ -530,8 +530,8 @@
           "ratio": 5.142857142857143,
           "anchor": 14.25,
           "health": 36.090225563909776,
-          "global": 24.206534443353974,
-          "rank": 6,
+          "global": 28.279744199451535,
+          "rank": 5,
           "reason": ""
         },
         {
@@ -543,8 +543,8 @@
           "ratio": 4.538461538461538,
           "anchor": 14.25,
           "health": 31.84885290148448,
-          "global": 21.98615364313018,
-          "rank": 7,
+          "global": 26.569329400705936,
+          "rank": 6,
           "reason": ""
         },
         {
@@ -556,8 +556,8 @@
           "ratio": 4.428571428571429,
           "anchor": 14.25,
           "health": 31.077694235588975,
-          "global": 19.01232263257139,
-          "rank": 13,
+          "global": 21.176580023875736,
+          "rank": 17,
           "reason": ""
         },
         {
@@ -569,8 +569,8 @@
           "ratio": 4.363636363636363,
           "anchor": 14.25,
           "health": 30.62200956937799,
-          "global": 6.52882490762776,
-          "rank": 75,
+          "global": 7.04205567685853,
+          "rank": 96,
           "reason": ""
         },
         {
@@ -582,8 +582,8 @@
           "ratio": 4.181818181818182,
           "anchor": 14.25,
           "health": 29.346092503987244,
-          "global": 13.661830570551022,
-          "rank": 25,
+          "global": 15.704326570551022,
+          "rank": 31,
           "reason": ""
         }
       ],
@@ -597,8 +597,8 @@
           "ratio": 0.5311355311355311,
           "anchor": 14.25,
           "health": 3.7272668851616215,
-          "global": 17.340332787774045,
-          "rank": 17,
+          "global": 21.96465048561577,
+          "rank": 14,
           "reason": ""
         },
         {
@@ -610,7 +610,7 @@
           "ratio": 0.3,
           "anchor": 14.25,
           "health": 2.1052631578947367,
-          "global": 15.011766660465142,
+          "global": 17.96536666046514,
           "rank": 22,
           "reason": ""
         },
@@ -624,7 +624,7 @@
           "anchor": 14.25,
           "health": 2.807017543859649,
           "global": 5.227117483036369,
-          "rank": 95,
+          "rank": 123,
           "reason": ""
         },
         {
@@ -636,8 +636,8 @@
           "ratio": 0.2670103092783505,
           "anchor": 14.25,
           "health": 1.8737565563393017,
-          "global": 19.32218001235073,
-          "rank": 12,
+          "global": 22.114190203433537,
+          "rank": 13,
           "reason": ""
         },
         {
@@ -649,8 +649,8 @@
           "ratio": 0.4378066378066378,
           "anchor": 14.25,
           "health": 3.072327282853599,
-          "global": 4.205962967144297,
-          "rank": 118,
+          "global": 5.382476502076518,
+          "rank": 120,
           "reason": ""
         },
         {
@@ -662,8 +662,8 @@
           "ratio": 5.142857142857143,
           "anchor": 14.25,
           "health": 36.090225563909776,
-          "global": 24.206534443353974,
-          "rank": 6,
+          "global": 28.279744199451535,
+          "rank": 5,
           "reason": ""
         }
       ],
@@ -677,7 +677,7 @@
           "ratio": 12,
           "anchor": 14.25,
           "health": 84.21052631578947,
-          "global": 31.954667416157985,
+          "global": 37.33962741615798,
           "rank": 1,
           "reason": ""
         },
@@ -690,7 +690,7 @@
           "ratio": 14.25,
           "anchor": 14.25,
           "health": 100,
-          "global": 31.200933893815268,
+          "global": 32.00399476338048,
           "rank": 2,
           "reason": ""
         },
@@ -703,7 +703,7 @@
           "ratio": 8.222222222222221,
           "anchor": 14.25,
           "health": 57.69980506822612,
-          "global": 26.00726856385622,
+          "global": 30.366436563856222,
           "rank": 3,
           "reason": ""
         },
@@ -716,22 +716,9 @@
           "ratio": null,
           "anchor": 14.25,
           "health": null,
-          "global": 25.7608405115405,
+          "global": 30.2699605115405,
           "rank": 4,
           "reason": "Sin reporte de heridos comparable en esta captura"
-        },
-        {
-          "code": "76020",
-          "name": "Alcalá",
-          "department": "Valle del Cauca",
-          "numerator": 20,
-          "denominator": 7,
-          "ratio": 2.857142857142857,
-          "anchor": 14.25,
-          "health": 20.05012531328321,
-          "global": 24.33582757945728,
-          "rank": 5,
-          "reason": ""
         },
         {
           "code": "76828",
@@ -742,8 +729,8 @@
           "ratio": 5.142857142857143,
           "anchor": 14.25,
           "health": 36.090225563909776,
-          "global": 24.206534443353974,
-          "rank": 6,
+          "global": 28.279744199451535,
+          "rank": 5,
           "reason": ""
         },
         {
@@ -755,8 +742,8 @@
           "ratio": 4.538461538461538,
           "anchor": 14.25,
           "health": 31.84885290148448,
-          "global": 21.98615364313018,
-          "rank": 7,
+          "global": 26.569329400705936,
+          "rank": 6,
           "reason": ""
         },
         {
@@ -768,9 +755,22 @@
           "ratio": null,
           "anchor": 14.25,
           "health": null,
-          "global": 21.84706586475812,
-          "rank": 8,
+          "global": 25.21666586475812,
+          "rank": 7,
           "reason": "Sin capacidad registrada: no se supone cero ni se imputa"
+        },
+        {
+          "code": "76020",
+          "name": "Alcalá",
+          "department": "Valle del Cauca",
+          "numerator": 20,
+          "denominator": 7,
+          "ratio": 2.857142857142857,
+          "anchor": 14.25,
+          "health": 20.05012531328321,
+          "global": 24.33582757945728,
+          "rank": 8,
+          "reason": ""
         },
         {
           "code": "76497",
@@ -781,20 +781,20 @@
           "ratio": 7.125,
           "anchor": 14.25,
           "health": 50,
-          "global": 20.158574326568203,
+          "global": 23.934978537094516,
           "rank": 9,
           "reason": ""
         },
         {
-          "code": "76243",
-          "name": "El Águila",
+          "code": "76890",
+          "name": "Yotoco",
           "department": "Valle del Cauca",
-          "numerator": 25,
-          "denominator": 6,
-          "ratio": 4.166666666666667,
+          "numerator": 14,
+          "denominator": 5,
+          "ratio": 2.8,
           "anchor": 14.25,
-          "health": 29.23976608187135,
-          "global": 19.899166021842184,
+          "health": 19.649122807017545,
+          "global": 23.804204762481607,
           "rank": 10,
           "reason": ""
         }
@@ -803,12 +803,12 @@
         {
           "code": "76606",
           "new_rank": 1,
-          "previous_rank": 7
+          "previous_rank": 4
         },
         {
           "code": "27073",
           "new_rank": 2,
-          "previous_rank": 26
+          "previous_rank": 36
         },
         {
           "code": "76126",
@@ -821,34 +821,34 @@
           "previous_rank": 2
         },
         {
-          "code": "76020",
-          "new_rank": 5,
-          "previous_rank": 4
-        },
-        {
           "code": "76828",
-          "new_rank": 6,
+          "new_rank": 5,
           "previous_rank": 1
         },
         {
           "code": "63594",
-          "new_rank": 7,
-          "previous_rank": 9
+          "new_rank": 6,
+          "previous_rank": 7
         },
         {
           "code": "63111",
-          "new_rank": 8,
+          "new_rank": 7,
           "previous_rank": 3
+        },
+        {
+          "code": "76020",
+          "new_rank": 8,
+          "previous_rank": 12
         },
         {
           "code": "76497",
           "new_rank": 9,
-          "previous_rank": 24
+          "previous_rank": 20
         },
         {
-          "code": "76243",
+          "code": "76890",
           "new_rank": 10,
-          "previous_rank": 14
+          "previous_rank": 10
         }
       ]
     }

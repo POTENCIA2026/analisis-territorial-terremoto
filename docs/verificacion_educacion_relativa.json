@@ -1,27 +1,116 @@
 {
-  "baseline_commit": "281d1b021afdbcacdd03f295b494bca0ca716287",
+  "baseline_commit": "f6f68992c6b551cb92549b9f3c5e4f5df46f80c6",
   "capture": "2026-09-16",
   "dimensions": 5,
   "fields": 10,
-  "policy": "Educación relativa reactivada; datos, Salud, absoluto y per cápita preservados",
+  "policy": "Educación = 100 × min(afectadas / registradas, 1); datos, Salud, absoluto y per cápita preservados",
   "scopes": {
     "decree": {
       "reference": 509,
       "relative_with_score": 468,
       "education_with_relative_score": 468,
-      "education_anchor": 1.4705882352941178,
+      "education_anchor": 1,
+      "education_observed_max": 1.4705882352941178,
+      "capped_above_one": 4,
       "health_with_data": 77,
       "absolute_percapita_equal_to_baseline": true,
-      "other_sectors_equal_to_baseline": true
+      "other_sectors_equal_to_baseline": true,
+      "examples": [
+        {
+          "municipality": "Alcalá",
+          "raw": 25,
+          "denominator": 17,
+          "ratio": 1.4705882352941178,
+          "old_score": 100,
+          "score": 100,
+          "global_score": 24.33582757945728,
+          "rank": 8
+        },
+        {
+          "municipality": "La Tebaida",
+          "raw": 14,
+          "denominator": 14,
+          "ratio": 1,
+          "old_score": 68,
+          "score": 100,
+          "global_score": 23.036450273958287,
+          "rank": 11
+        },
+        {
+          "municipality": "Atrato",
+          "raw": 8,
+          "denominator": 16,
+          "ratio": 0.5,
+          "old_score": 34,
+          "score": 50,
+          "global_score": 17.96536666046514,
+          "rank": 22
+        },
+        {
+          "municipality": "Pereira",
+          "raw": 165,
+          "denominator": 314,
+          "ratio": 0.5254777070063694,
+          "old_score": 35.73248407643312,
+          "score": 52.547770700636946,
+          "global_score": 22.114190203433537,
+          "rank": 13
+        }
+      ]
     },
     "all": {
       "reference": 631,
       "relative_with_score": 532,
       "education_with_relative_score": 532,
-      "education_anchor": 1.4705882352941178,
+      "education_anchor": 1,
+      "education_observed_max": 1.4705882352941178,
+      "capped_above_one": 4,
       "health_with_data": 77,
       "absolute_percapita_equal_to_baseline": true,
-      "other_sectors_equal_to_baseline": true
+      "other_sectors_equal_to_baseline": true,
+      "examples": [
+        {
+          "municipality": "Alcalá",
+          "raw": 25,
+          "denominator": 17,
+          "ratio": 1.4705882352941178,
+          "old_score": 100,
+          "score": 100,
+          "global_score": 24.33582757945728,
+          "rank": 8
+        },
+        {
+          "municipality": "La Tebaida",
+          "raw": 14,
+          "denominator": 14,
+          "ratio": 1,
+          "old_score": 68,
+          "score": 100,
+          "global_score": 23.036450273958287,
+          "rank": 11
+        },
+        {
+          "municipality": "Atrato",
+          "raw": 8,
+          "denominator": 16,
+          "ratio": 0.5,
+          "old_score": 34,
+          "score": 50,
+          "global_score": 17.96536666046514,
+          "rank": 22
+        },
+        {
+          "municipality": "Pereira",
+          "raw": 165,
+          "denominator": 314,
+          "ratio": 0.5254777070063694,
+          "old_score": 35.73248407643312,
+          "score": 52.547770700636946,
+          "global_score": 22.114190203433537,
+          "rank": 13
+        }
+      ]
     }
-  }
+  },
+  "education_score_independent_of_scope": true
 }
