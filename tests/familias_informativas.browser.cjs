@@ -38,7 +38,7 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),os=require('nod
   const text=await page.locator('#'+prefix+'-inspector').innerText();
   assert.match(text,/Familias afectadas/);
   assert.equal((text.match(/Peso interno = 0,5/g)||[]).length,2);
-  assert.match(text,/Peso interno = 0(?:;|\s|$)/);
+  assert.match(text,/Peso interno = 0(?![0-9,])/);
  }
  await page.locator('#relative-matrix [data-relative-geo]').click();
  assert.ok((await page.locator('#relative-detail').innerText()).includes(snapshots.find(r=>r.mode==='sectorial').available+'/9 campos'));
