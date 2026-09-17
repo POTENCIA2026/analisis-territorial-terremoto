@@ -1,0 +1,146 @@
+{
+  "capture": "2026-09-16",
+  "formula": "Impacto humano = (z_fallecidos + z_desaparecidos) / 2",
+  "displayed_fields": 10,
+  "scored_fields": 9,
+  "families_visible": true,
+  "families_weight": 0,
+  "scopes": {
+    "decree": {
+      "absolute": {
+        "reference": 509,
+        "with_score": 470,
+        "other_sectors_unchanged": true,
+        "individual_scores_unchanged": true,
+        "comparison": {
+          "n": 286,
+          "r2": 0.2013853830747418,
+          "rho": 0.7745586638690839
+        },
+        "pereira": {
+          "families": 42000,
+          "previous_human": 85.28881254351468,
+          "human": 81.41025641025641,
+          "previous_score": 61.72167475709305,
+          "score": 61.07767929672683,
+          "upper": 66.6123459633935,
+          "rank": 1,
+          "coverage": 0.9333333333333333,
+          "available": 8
+        }
+      },
+      "percapita": {
+        "reference": 509,
+        "with_score": 468,
+        "other_sectors_unchanged": true,
+        "individual_scores_unchanged": true,
+        "comparison": {
+          "n": 286,
+          "r2": 0.3233960953622728,
+          "rho": 0.7315660859911977
+        },
+        "pereira": {
+          "families": 42000,
+          "previous_human": 59.8221771329424,
+          "human": 73.47108906290572,
+          "previous_score": 18.95458464468235,
+          "score": 21.220849981533455,
+          "upper": 26.75551664820012,
+          "rank": 7,
+          "coverage": 0.9333333333333333,
+          "available": 8
+        }
+      },
+      "sectorial": {
+        "reference": 509,
+        "with_score": 468,
+        "other_sectors_unchanged": true,
+        "individual_scores_unchanged": true,
+        "comparison": {
+          "n": 286,
+          "r2": 0.39594488747407197,
+          "rho": 0.6752503149937972
+        },
+        "pereira": {
+          "families": 42000,
+          "previous_human": 48.98072604193714,
+          "human": 73.47108906290572,
+          "previous_score": 22.042791758677033,
+          "score": 26.109171634678653,
+          "upper": 42.71317163467865,
+          "rank": 8,
+          "coverage": 0.8,
+          "available": 6
+        }
+      }
+    },
+    "all": {
+      "absolute": {
+        "reference": 631,
+        "with_score": 534,
+        "other_sectors_unchanged": true,
+        "individual_scores_unchanged": true,
+        "comparison": {
+          "n": 287,
+          "r2": 0.2018724651942711,
+          "rho": 0.7760794515269832
+        },
+        "pereira": {
+          "families": 42000,
+          "previous_human": 85.28881254351468,
+          "human": 81.41025641025641,
+          "previous_score": 61.72167475709305,
+          "score": 61.07767929672683,
+          "upper": 66.6123459633935,
+          "rank": 1,
+          "coverage": 0.9333333333333333,
+          "available": 8
+        }
+      },
+      "percapita": {
+        "reference": 631,
+        "with_score": 532,
+        "other_sectors_unchanged": true,
+        "individual_scores_unchanged": true,
+        "comparison": {
+          "n": 287,
+          "r2": 0.3248102699175096,
+          "rho": 0.733790274272724
+        },
+        "pereira": {
+          "families": 42000,
+          "previous_human": 59.8221771329424,
+          "human": 73.47108906290572,
+          "previous_score": 18.95458464468235,
+          "score": 21.220849981533455,
+          "upper": 26.75551664820012,
+          "rank": 7,
+          "coverage": 0.9333333333333333,
+          "available": 8
+        }
+      },
+      "sectorial": {
+        "reference": 631,
+        "with_score": 532,
+        "other_sectors_unchanged": true,
+        "individual_scores_unchanged": true,
+        "comparison": {
+          "n": 287,
+          "r2": 0.3976453421256319,
+          "rho": 0.6778187433291777
+        },
+        "pereira": {
+          "families": 42000,
+          "previous_human": 48.98072604193714,
+          "human": 73.47108906290572,
+          "previous_score": 22.042791758677033,
+          "score": 26.109171634678653,
+          "upper": 42.71317163467865,
+          "rank": 8,
+          "coverage": 0.8,
+          "available": 6
+        }
+      }
+    }
+  }
+}
