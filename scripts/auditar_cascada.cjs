@@ -2,7 +2,9 @@ const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/st
 const {execFileSync}=require('node:child_process'),{createRequire}=require('node:module'),path=require('node:path');
 const P=require('../web/priorizacion.js'),T=require('../web/modelo.js');
 const parse=html=>JSON.parse(html.match(/const DATA=([\s\S]*?);<\/script>/)[1]);
-const data=parse(fs.readFileSync('index.html','utf8')),policy=data.healthPressure.source_cascade;
+const fullData=parse(fs.readFileSync('index.html','utf8'));
+// Isolate the earlier cascade change from subsequent sector exclusions.
+const data={...fullData,healthPressure:{...fullData.healthPressure,excluded_sectors:[]}},policy=data.healthPressure.source_cascade;
 assert.equal(policy.enabled,true);assert.match(policy.parent_commit,/^[a-f0-9]{40}$/);
 const git=p=>execFileSync('git',['show',policy.parent_commit+':'+p],{encoding:'utf8',maxBuffer:64*1024*1024});
 const oldData=parse(git('index.html'));
@@ -10,7 +12,7 @@ for(const key of ['rows','baseline','population','denominators','latest','dates'
 assert.deepEqual(data.healthPressure.capacity,oldData.healthPressure.capacity);
 const sandbox={module:{exports:{}},require:createRequire(path.resolve('web/priorizacion.js'))};vm.runInNewContext(git('web/priorizacion.js'),sandbox);
 const parent=sandbox.module.exports,clean=x=>JSON.parse(JSON.stringify(x)),close=(a,b)=>assert.ok(Math.abs(a-b)<1e-8);
-const output={parent_commit:policy.parent_commit,mode:data.healthPressure.mode,capture:data.latest,policy:'PNUD válido incluido 0; si falta/no utilizable, 3iS; nunca combinar ambos',scopes:{}};
+const output={audit_mode:'cascade_with_original_five_sectors',parent_commit:policy.parent_commit,mode:data.healthPressure.mode,capture:data.latest,policy:'PNUD válido incluido 0; si falta/no utilizable, 3iS; nunca combinar ambos',scopes:{}};
 for(const scope of ['decree','all']){
  const state={scope,date:data.latest,dept:''},raw=T.create(data).visible(state).filter(r=>r.lv==='municipal'),modes={};
  for(const mode of ['absolute','percapita','sectorial']){

@@ -1,3 +1,5 @@
+> Estado actual de esta rama: **Educación excluida del índice**. Son cuatro dimensiones y nueve variables; cada dimensión pesa 1/4. Véase [Índice sin Centros educativos](sin_centros_educativos.md). Las referencias a cinco dimensiones/diez campos abajo describen la etapa previa.
+
 # Una sola observación por variable: PNUD → 3iS
 
 Aplicado a las tres versiones del índice en las ramas de presión asistencial sin heridos en Impacto humano. No cambia las fuentes originales, no descarga otro corte ni altera main.

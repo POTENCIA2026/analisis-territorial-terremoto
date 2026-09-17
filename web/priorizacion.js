@@ -73,7 +73,8 @@
     const denominators=mode==='sectorial'?D.create(data):null;
     const pressure=H.create(data);
     const sourceCascade=data.healthPressure?.source_cascade?.enabled===true;
-    const definitions=sourceCascade?cascadedSectors():SECTORS;
+    const excluded=new Set(data.healthPressure?.excluded_sectors||[]);
+    const definitions=(sourceCascade?cascadedSectors():SECTORS).filter(s=>!excluded.has(s.id));
     const sectorDefs=mode==='sectorial'&&pressure.enabled?definitions.map(s=>s.id==='salud'?{...s,fields:[pressure.field]}:s):definitions;
     const fieldCount=sectorDefs.reduce((n,s)=>n+s.fields.length,0);
     const cache=new Map();

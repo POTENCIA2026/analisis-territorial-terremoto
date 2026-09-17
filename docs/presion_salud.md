@@ -1,3 +1,5 @@
+> Estado actual de esta rama: **Educación excluida del índice**. Son cuatro dimensiones y nueve variables; cada dimensión pesa 1/4. Véase [Índice sin Centros educativos](sin_centros_educativos.md). Las referencias a cinco dimensiones/diez campos abajo describen la etapa previa.
+
 > Actualización de esta rama: se usa la [cascada PNUD → 3iS](cascada_pnud_3is.md) por variable, con **10 campos únicos** en cada índice. Salud relativa conserva heridos/capacidad. Los conteos de 14/13 campos de la descripción histórica inferior corresponden al estado anterior a esta actualización.
 
 # Escenarios experimentales de presión sobre la atención

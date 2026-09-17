@@ -13,10 +13,10 @@ for(const scope of ['decree','all']){
  assert.equal(now.referenceN,old.referenceN);
  const original=new Map(old.all.map(r=>[r.geo,r]));
  for(const r of now.all){
-   const a=original.get(r.geo);assert.ok(a);assert.equal(r.fieldCount,data.healthPressure.source_cascade?.enabled?10:13);
-   assert.equal(r.sectors.length,5);
+   const a=original.get(r.geo);assert.ok(a);assert.equal(r.fieldCount,now.definitions.reduce((n,s)=>n+s.fields.length,0));
+   assert.equal(r.sectors.length,now.definitions.length);
    assert.equal(r.recovery,a.recovery);assert.equal(r.vulnerability,a.vulnerability);
-   for(let i=0;i<5;i++)if(r.sectors[i].id!=='salud')assert.deepEqual(r.sectors[i],a.sectors[i],'Solo cambia Salud: '+r.code);
+   for(let i=0;i<r.sectors.length;i++)if(r.sectors[i].id!=='salud')assert.deepEqual(r.sectors[i],a.sectors[i],'Solo cambia Salud: '+r.code);
    const s=r.sectors.find(s=>s.id==='salud');assert.equal(s.fields.length,1);
    assert.equal(s.fields[0].id,H.ID);
    const f=s.fields[0];
@@ -25,7 +25,7 @@ for(const scope of ['decree','all']){
      assert.ok(Math.abs(f.rate-f.row.v/f.denominator.value)<1e-10);
      assert.ok(Math.abs(f.score-(f.rate===0?0:100*f.rate/f.anchor))<1e-8);
    }
-   assert.ok(Math.abs(r.damageLower-r.sectors.reduce((n,s)=>n+s.lower,0)/5)<1e-8);
+   assert.ok(Math.abs(r.damageLower-r.sectors.reduce((n,s)=>n+s.lower,0)/r.sectors.length)<1e-8);
    assert.ok(r.lower>=0&&r.upper<=100+1e-8&&r.lower<=r.upper);
  }
  const select=scenario.sectorial.selection({...state,matrixSearch:'Pereira'});
