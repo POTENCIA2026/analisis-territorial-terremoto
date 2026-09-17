@@ -1,0 +1,23 @@
+{
+  "baseline_commit": "59bfbe780c91a8f79e9d6ab0fbc1b574b0095c07",
+  "capture": "2026-09-16",
+  "dimensions": 5,
+  "fields": 10,
+  "policy": "Solo Educación relativa sin cálculo; se restauran absoluto/per cápita y los cinco sectores",
+  "scopes": {
+    "decree": {
+      "reference": 509,
+      "relative_with_score": 468,
+      "education_with_relative_score": 0,
+      "health_with_data": 77,
+      "absolute_percapita_equal_to_baseline": true
+    },
+    "all": {
+      "reference": 631,
+      "relative_with_score": 532,
+      "education_with_relative_score": 0,
+      "health_with_data": 77,
+      "absolute_percapita_equal_to_baseline": true
+    }
+  }
+}
