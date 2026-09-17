@@ -1,3 +1,5 @@
+> Impacto humano vigente: [familias visibles, sin peso](familias_solo_consulta.md). Se promedian únicamente fallecidos y desaparecidos (1/2 cada uno). Hay nueve campos puntuables y diez mostrados en las tres versiones.
+
 > Actualización vigente: [Vivienda con doble peso para destruidas](pesos_vivienda.md): 2/3 destruidas y 1/3 averiadas, en las tres versiones. El sector conserva peso global 1/5. Educación relativa mantiene su tope fijo.
 
 > Política vigente: [PNUD como fuente principal y 3iS como respaldo](cascada_pnud_3is.md), una sola observación por variable, **10 campos en las tres vistas**. Se conserva Impacto humano sin heridos y Salud relativa de presión. La documentación histórica inferior describe etapas previas.

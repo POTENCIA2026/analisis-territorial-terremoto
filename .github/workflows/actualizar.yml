@@ -56,11 +56,18 @@ jobs:
       - name: Publicar interfaz principal con el inventario conservado
         if: github.event_name == 'push' && matrix.branch == 'main'
         run: python generar_tablero_recuperacion.py
+      - name: Verificar familias informativas e interfaz
+        if: matrix.branch == 'main'
+        run: |
+          node scripts/auditar_familias_informativas.cjs
+          npm install --no-save --package-lock=false playwright@1.55.0
+          npx playwright install --with-deps chromium
+          node tests/familias_informativas.browser.cjs
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           branch: ${{ matrix.branch }}
           commit_message: 'Actualización automática de datos y tableros'
-          file_pattern: '*.html *.csv'
+          file_pattern: '*.html *.csv docs/verificacion_familias_informativas.json'
           commit_user_name: tablero-terremoto-bot
           commit_user_email: actions@github.com
 

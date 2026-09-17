@@ -3,7 +3,7 @@ const {execFileSync}=require('node:child_process'),{createRequire}=require('node
 const P=require('../web/priorizacion.js'),T=require('../web/modelo.js');
 const parse=html=>JSON.parse(html.match(/const DATA=([\s\S]*?);<\/script>/)[1]);
 const fullData=parse(fs.readFileSync('index.html','utf8'));
-const data={...fullData,healthPressure:{...fullData.healthPressure,housing_weight_policy:{enabled:false},education_relative_policy:{...fullData.healthPressure.education_relative_policy,normalization:'observed_max'},disabled_relative_indicators:[]}},policy=data.healthPressure.source_cascade;
+const data={...fullData,healthPressure:{...fullData.healthPressure,human_impact_policy:{families_informational_only:false},housing_weight_policy:{enabled:false},education_relative_policy:{...fullData.healthPressure.education_relative_policy,normalization:'observed_max'},disabled_relative_indicators:[]}},policy=data.healthPressure.source_cascade;
 assert.equal(policy.enabled,true);assert.match(policy.parent_commit,/^[a-f0-9]{40}$/);
 const git=p=>execFileSync('git',['show',policy.parent_commit+':'+p],{encoding:'utf8',maxBuffer:64*1024*1024});
 const oldData=parse(git('index.html'));

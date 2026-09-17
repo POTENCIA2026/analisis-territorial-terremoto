@@ -2,7 +2,10 @@ const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/st
 const {execFileSync}=require('node:child_process'),{createRequire}=require('node:module'),path=require('node:path');
 const P=require('../web/priorizacion.js'),T=require('../web/modelo.js'),C=require('../web/comparacion.js');
 const parse=html=>JSON.parse(html.match(/const DATA=([\s\S]*?);<\/script>/)[1]);
-const data=parse(fs.readFileSync('index.html','utf8')),policy=data.healthPressure.housing_weight_policy;
+const fullData=parse(fs.readFileSync('index.html','utf8'));
+// Isolate the earlier housing-weight change from the later informational family field.
+const {human_impact_policy,...historicalPressure}=fullData.healthPressure;
+const data={...fullData,healthPressure:historicalPressure},policy=data.healthPressure.housing_weight_policy;
 assert.equal(policy.enabled,true);assert.equal(policy.destroyed,2);assert.equal(policy.damaged,1);assert.match(policy.baseline_commit,/^[a-f0-9]{40}$/);
 const git=p=>execFileSync('git',['show',policy.baseline_commit+':'+p],{encoding:'utf8',maxBuffer:64*1024*1024});
 const beforeData=parse(git('index.html'));
@@ -11,7 +14,7 @@ const oldP=sandbox.module.exports,clean=x=>JSON.parse(JSON.stringify(x)),close=(
 for(const key of ['rows','baseline','population','denominators','latest','dates'])assert.deepEqual(data[key],beforeData[key]);
 const {housing_weight_policy,...otherConfig}=data.healthPressure;assert.deepEqual(otherConfig,beforeData.healthPressure);
 const stripWeight=({share,contribution,...rest})=>rest;
-const output={baseline_commit:policy.baseline_commit,capture:data.latest,formula:'Vivienda = (2 × z_destruidas + z_averiadas) / 3',sector_weight:1/5,original_data_unchanged:true,scopes:{}};
+const output={audit_mode:'housing_weights_without_later_human_policy',baseline_commit:policy.baseline_commit,capture:data.latest,formula:'Vivienda = (2 × z_destruidas + z_averiadas) / 3',sector_weight:1/5,original_data_unchanged:true,scopes:{}};
 for(const scope of ['decree','all']){
  const state={scope,date:data.latest,dept:''},modes={};
  for(const mode of ['absolute','percapita','sectorial']){

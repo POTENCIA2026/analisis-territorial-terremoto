@@ -4,7 +4,7 @@ const P=require('../web/priorizacion.js');
 const parse=html=>JSON.parse(html.match(/const DATA=([\s\S]*?);<\/script>/)[1]);
 const fullData=parse(fs.readFileSync('index.html','utf8'));
 // Isolate the earlier education ceiling from the later housing weights.
-const data={...fullData,healthPressure:{...fullData.healthPressure,housing_weight_policy:{enabled:false}}},sha=data.healthPressure.education_relative_policy.baseline_commit;
+const data={...fullData,healthPressure:{...fullData.healthPressure,human_impact_policy:{families_informational_only:false},housing_weight_policy:{enabled:false}}},sha=data.healthPressure.education_relative_policy.baseline_commit;
 assert.match(sha,/^[a-f0-9]{40}$/);
 assert.deepEqual(data.healthPressure.disabled_relative_indicators,[]);
 assert.equal(data.healthPressure.education_relative_policy.enabled,true);

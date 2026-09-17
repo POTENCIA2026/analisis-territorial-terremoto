@@ -13,7 +13,7 @@ for(const scope of ['decree','all']){
  assert.equal(now.referenceN,old.referenceN);
  const original=new Map(old.all.map(r=>[r.geo,r]));
  for(const r of now.all){
-   const a=original.get(r.geo);assert.ok(a);assert.equal(r.fieldCount,data.healthPressure.source_cascade?.enabled?10:13);
+   const a=original.get(r.geo);assert.ok(a);assert.equal(r.fieldCount,(data.healthPressure.source_cascade?.enabled?10:13)-(data.healthPressure.human_impact_policy?.families_informational_only?1:0));
    assert.equal(r.sectors.length,5);
    assert.equal(r.recovery,a.recovery);assert.equal(r.vulnerability,a.vulnerability);
    for(let i=0;i<5;i++)if(r.sectors[i].id!=='salud')assert.deepEqual(r.sectors[i],a.sectors[i],'Solo cambia Salud: '+r.code);

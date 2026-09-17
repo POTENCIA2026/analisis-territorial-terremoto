@@ -87,9 +87,12 @@
     const denominators=mode==='sectorial'?D.create(data):null;
     const pressure=H.create(data);
     const sourceCascade=data.healthPressure?.source_cascade?.enabled===true;
-    const definitions=housingWeights(sourceCascade?cascadedSectors():SECTORS,data.healthPressure?.housing_weight_policy);
+    const familiesInformational=data.healthPressure?.human_impact_policy?.families_informational_only===true;
+    const definitions=housingWeights(sourceCascade?cascadedSectors():SECTORS,data.healthPressure?.housing_weight_policy).map(s=>
+      familiesInformational&&s.id==='impacto_humano'
+        ?{...s,fields:s.fields.map(f=>({...f,share:f.id==='3is_familias'?0:.5}))}:s);
     const sectorDefs=mode==='sectorial'&&pressure.enabled?definitions.map(s=>s.id==='salud'?{...s,fields:[pressure.field]}:s):definitions;
-    const fieldCount=sectorDefs.reduce((n,s)=>n+s.fields.length,0);
+    const fieldCount=sectorDefs.reduce((n,s)=>n+s.fields.filter(f=>f.share>0).length,0);
     const fixedEducation=mode==='sectorial'&&data.healthPressure?.education_relative_policy?.normalization==='fixed_inventory_cap_1';
     const scale=(f,values)=>{
       const observedMax=values.length?Math.max(...values):null;
@@ -156,7 +159,7 @@
           const fields=sector.fields.map(f=>{
             const c=calibrations.get(f.id),r=c.rows.get(place.geo),value=measure(r),score=normalize(value,c.anchor);
             return {...f,...(f.candidates?{source:r?.f||'PNUD → 3iS-Sheets',selectedIndicator:r?.id??null,cascadeFallback:r?.f==='3iS-Sheets'}:{}),row:r||null,score,rate:relative?value:null,...(relative?relativeMeasure(r,r?.id||f.id,place.code):{}),anchor:c.anchor,n:c.n,positive:c.positive,...(c.normalization?{normalization:c.normalization,observedMax:c.observedMax}:{}),
-              percentile:value!=null?T.percentile(c.values,value):null,contribution:score==null?null:score*f.share/sectorDefs.length};
+              percentile:value!=null?T.percentile(c.values,value):null,contribution:f.share===0?0:score==null?null:score*f.share/sectorDefs.length};
           });
           const lower=fields.reduce((s,f)=>s+(f.score??0)*f.share,0);
           const unknown=fields.filter(f=>f.score==null).reduce((s,f)=>s+100*f.share,0);
@@ -168,7 +171,7 @@
         const coverage=sectors.reduce((s,d)=>s+d.coverage/sectorDefs.length,0);
         const rec=recoveryRank.get(place.geo);
         return {...place,...score,sectors,fieldCount:fieldCount,coverage,baseline:baseline||null,vulnerability,population:populations.get(place.code)||null,relative,mode,
-          recovery:rec?.v??null,recoveryRank:rec?.rank??null,available:sectors.flatMap(s=>s.fields).filter(f=>f.score!=null).length,
+          recovery:rec?.v??null,recoveryRank:rec?.rank??null,available:sectors.flatMap(s=>s.fields).filter(f=>f.share>0&&f.score!=null).length,
           complete:coverage>1-EPS&&vulnerability!=null,rank:null,rankMin:null,rankMax:null};
       });
       const scored=items.filter(r=>r.coverage>EPS), ranked=ranks(scored);
