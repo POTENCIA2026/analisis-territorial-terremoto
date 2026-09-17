@@ -53,13 +53,20 @@ const education=await page.evaluate(()=>{
   return {mode,sectors:r.sectors.length,rate:s.fields[0].rate,score:s.fields[0].score,raw:s.fields[0].row.v,coverage:s.coverage};
  });
 });
-for(const e of education){assert.equal(e.sectors,5);assert.ok(e.raw>=0);if(e.mode==='sectorial'){assert.equal(e.score,null);assert.equal(e.rate,null);assert.equal(e.coverage,0);}else assert.ok(e.score>=0);}
+for(const e of education){assert.equal(e.sectors,5);assert.ok(e.raw>=0);assert.ok(e.score>=0);if(e.mode==='sectorial'){assert.ok(e.rate>0);assert.equal(e.coverage,1);}}
 for(const prefix of ['radar','radar-percapita','radar-relative']){
  const chart=page.locator('#'+prefix+'-chart');assert.match(await chart.innerText(),/Educación/);
  assert.equal(await chart.locator('polygon').first().evaluate(p=>p.getAttribute('points').trim().split(/\s+/).length),5);
 }
 const educationCell=page.locator('#relative-matrix tbody tr').first().locator('td').nth(4);
-assert.match(await educationCell.innerText(),/Sin datos relativos/);
+assert.doesNotMatch(await educationCell.innerText(),/Sin datos relativos/);
 assert.match(await educationCell.innerText(),/Original:/);
+await page.evaluate(()=>{
+ const s=document.getElementById('radar-relative-select-0');s.value='municipal:66001';s.dispatchEvent(new Event('change'));
+ const point=document.querySelector('#radar-relative-chart [data-radar-m="0"][data-radar-axis="3"]');
+ if(!point)throw new Error('Falta el punto educativo relativo');point.dispatchEvent(new Event('mouseenter'));
+});
+assert.match(await page.locator('#radar-relative-inspector').innerText(),/Centros educativos/);
+assert.doesNotMatch(await page.locator('#radar-relative-inspector').innerText(),/deshabilitado/);
 assert.deepEqual(errors,[]);await browser.close();console.log('UI pressure scenario OK',res);
 })().catch(e=>{console.error(e);process.exit(1);});

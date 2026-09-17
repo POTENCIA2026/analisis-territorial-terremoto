@@ -36,3 +36,30 @@ test('3iS de respaldo tampoco reactiva el cálculo relativo',()=>{
  const e=P.models(d).sectorial.compute(state).all.find(r=>r.code==='27050').sectors.find(s=>s.id==='educacion').fields[0];
  assert.equal(e.row.id,'3is_educativos');assert.equal(e.score,null);assert.equal(e.rate,null);
 });
+
+test('reactivar Educación recupera tasa y puntaje sin alterar absoluto, per cápita ni otros sectores',()=>{
+ const before=fixture(),d=structuredClone(before);d.healthPressure.disabled_relative_indicators=[];
+ for(const mode of ['absolute','percapita'])assert.deepEqual(P.models(d)[mode].compute(state),P.models(before)[mode].compute(state));
+ const after=P.models(d).sectorial.compute(state),previous=P.models(before).sectorial.compute(state);
+ for(const r of after.all){
+  const old=previous.all.find(x=>x.code===r.code),e=r.sectors.find(s=>s.id==='educacion'),f=e.fields[0];
+  assert.equal(r.fieldCount,10);assert.equal(r.sectors.length,5);
+  assert.equal(e.coverage,1);assert.equal(f.rate,f.row.v/f.denominator.value);
+  assert.equal(f.score,100*f.rate/.5);assert.equal(e.lower,e.upper);
+  assert.ok(!f.calculationDisabled);assert.equal(f.row.f,'PNUD');
+  for(const s of r.sectors)if(s.id!=='educacion')assert.deepEqual(s,old.sectors.find(x=>x.id===s.id));
+ }
+});
+test('reactivado conserva cero PNUD y aplica 3iS solo cuando falta PNUD',()=>{
+ const d=fixture();d.healthPressure.disabled_relative_indicators=[];d.rows[0].v=0;
+ const field=()=>P.models(d).sectorial.compute(state).all.find(r=>r.code==='27050').sectors.find(s=>s.id==='educacion').fields[0];
+ assert.equal(field().score,0);assert.equal(field().rate,0);assert.equal(field().row.f,'PNUD');
+ d.rows=d.rows.filter(r=>!(r.code==='27050'&&r.id==='pnud_cedu'));
+ assert.equal(field().row.f,'3iS-Sheets');assert.equal(field().rate,6/20);assert.equal(field().score,60);
+});
+test('reactivado no calcula Educación si falta el inventario municipal',()=>{
+ const d=fixture();d.healthPressure.disabled_relative_indicators=[];
+ d.denominators.registry_proxies.rows=d.denominators.registry_proxies.rows.filter(r=>r.code!=='27050');
+ const e=P.models(d).sectorial.compute(state).all.find(r=>r.code==='27050').sectors.find(s=>s.id==='educacion');
+ assert.equal(e.fields[0].score,null);assert.equal(e.coverage,0);
+});

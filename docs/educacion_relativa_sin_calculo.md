@@ -1,13 +1,30 @@
-# Corrección: solo se desactiva el cálculo educativo relativo
+# Educación relativa: indicador reactivado
 
-Rama salud-presion-hospitalizacion-sin-heridos-ih. Referencia previa a la eliminación equivocada: 59bfbe780c91a8f79e9d6ab0fbc1b574b0095c07.
+Estado actual (17 de septiembre de 2026): a petición del usuario, vuelve a calcularse Educación relativa en la rama salud-presion-hospitalizacion-sin-heridos-ih. El nombre de este archivo conserva la trazabilidad del retiro anterior.
 
-Se restablecen exactamente los índices absoluto y per cápita, con Educación incluida. Son cinco dimensiones y diez variables. Cada sector pesa 1/5.
+## Cálculo vigente
 
-Únicamente se desactiva la tasa/puntaje relativo de Centros educativos (PNUD y su respaldo 3iS). No se elimina la dimensión, ni el conteo original, ni SIMAT, ni la consulta del diagnóstico. Educación permanece como eje y columna, sin punto ni puntaje relativo. Se señala ausencia de cálculo; no un cero observado.
+- Centros educativos afectados: PNUD; 3iS únicamente si falta un valor válido PNUD. Un cero PNUD no activa el respaldo.
+- Denominador: sedes de preescolar, básica y media registradas en MEN/SINEB-SIMAT 2022, sectores oficial/no oficial y zonas urbana/rural.
+- Cociente = centros afectados / sedes registradas.
+- Puntaje = 100 × cociente / máximo del cociente en el ámbito y captura elegidos.
+- Sin inventario compatible o sin numerador, no hay puntaje; los faltantes no son ceros.
+- Se conservan los cinco sectores, cada uno con peso 1/5. Educación vuelve a aportar al índice relativo, la matriz, el radar y la comparación con necesidad de recuperación temprana.
 
-La dimensión relativa conserva el intervalo 0–100 por no tener puntaje. Su peso 1/5 no se redistribuye a las otras dimensiones. Por ello cambian el límite documentado global, cobertura y ranking relativo respecto del modelo con el cálculo educativo habilitado. Los puntajes y denominadores de Salud y de los otros sectores permanecen idénticos.
+No se modificaron Salud, sus camas históricas, el inventario educativo, los datos originales ni los índices absoluto y per cápita. Verificación contra el commit anterior: 281d1b021afdbcacdd03f295b494bca0ca716287. Resultado automático: docs/verificacion_educacion_relativa.json.
 
-El retiro completo de Educación y la ponderación 1/4 del cambio anterior se revierten. Se conserva la cascada PNUD → 3iS y heridos solo en Salud relativa.
+## Historia
 
-Verificación: igualdad exacta de absoluto y per cápita contra el commit de referencia, igualdad de los otros cuatro sectores relativos, conservación de inventario y cinco ejes en los tres radares. Informe: docs/verificacion_educacion_relativa.json.
+La modificación previa retiró únicamente el cálculo relativo educativo después de corregir una eliminación excesiva de toda la dimensión. Esta reactivación no altera el diseño del tablero ni elimina la opción técnica de desactivar indicadores en otra configuración.
+
+## Revisión de cortes disponibles
+
+El portal SINEB presenta cifras de sedes 2025 y un boletín hasta 2024, pero el catálogo de bases consolidadas consultado enlaza la descarga municipal de sedes hasta 2022. No se ha sustituido un inventario municipal por cifras nacionales.
+
+- https://portalsineb.mineducacion.gov.co/portal/
+- https://portalsineb.mineducacion.gov.co/portal/secciones/Informacion-Estadistica/Bases-consolidadas/
+
+Minsalud publica información de capacidad hospitalaria de 2026 y REPS ofrece consulta de capacidad vigente; eso acredita que existe información posterior a 2022, no que hayamos verificado un extracto nacional municipal de camas generales adultas y pediátricas anterior al evento. Se conserva REPS 2022 hasta verificar un reemplazo homogéneo.
+
+- https://www.minsalud.gov.co/Comunicaciones/noticias/2026/Paginas/cifras-oficiales-servicios-de-salud-valle-del-cauca.aspx
+- https://prestadores.minsalud.gov.co/habilitacion/
