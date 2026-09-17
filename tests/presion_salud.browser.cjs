@@ -82,5 +82,28 @@ assert.match(capped,/Conteo original: 25/);assert.match(capped,/17 Sedes/);asser
 assert.doesNotMatch(capped,/Máxima tasa comparable/);
 await page.locator('#relative-search').fill('Alcalá');
 assert.match(await page.locator('#relative-matrix tbody tr').first().locator('td').nth(4).innerText(),/100 \/100/);
+
+assert.match(await page.locator('#priority-method').innerText(),/Vivienda = \(2 × z destruidas \+ 1 × z averiadas\) \/ 3/);
+for(const prefix of ['radar','radar-percapita','radar-relative']){
+ await page.evaluate(prefix=>{
+  const select=document.getElementById(prefix+'-select-0');select.value='municipal:66001';select.dispatchEvent(new Event('change'));
+  document.querySelector('#'+prefix+'-chart [data-radar-m="0"][data-radar-axis="1"]').dispatchEvent(new Event('mouseenter'));
+ },prefix);
+ const inspector=await page.locator('#'+prefix+'-inspector').innerText();
+ assert.match(inspector,/Peso interno = 0,6667/);assert.match(inspector,/Peso interno = 0,3333/);
+}
+const housing=await page.evaluate(()=>{
+ const state={scope:'decree',date:DATA.latest,dept:''};
+ return ['absolute','percapita','sectorial'].map(mode=>{
+  const r=Priorizacion.models(DATA)[mode].compute(state).all.find(r=>r.code==='66001'),s=r.sectors[1];
+  return {mode,shares:s.fields.map(f=>f.share),score:s.lower,expected:(2*s.fields[0].score+s.fields[1].score)/3,global:r.lower};
+ });
+});
+for(const h of housing){assert.deepEqual(h.shares,[2/3,1/3]);assert.ok(Math.abs(h.score-h.expected)<1e-8);}
+await page.locator('#relative-search').fill('Pereira');
+assert.match(await page.locator('#relative-matrix tbody tr').first().locator('td').nth(2).innerText(),/29,35/);
+await page.locator('#relative-matrix [data-relative-geo]').click();
+assert.match(await page.locator('#relative-detail').innerText(),/66,6667%/);
+assert.match(await page.locator('#relative-detail').innerText(),/33,3333%/);
 assert.deepEqual(errors,[]);await browser.close();console.log('UI pressure scenario OK',res);
 })().catch(e=>{console.error(e);process.exit(1);});

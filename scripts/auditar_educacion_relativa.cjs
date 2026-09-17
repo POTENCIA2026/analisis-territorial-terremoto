@@ -2,7 +2,9 @@ const fs=require('node:fs'),assert=require('node:assert/strict');
 const {execFileSync}=require('node:child_process');
 const P=require('../web/priorizacion.js');
 const parse=html=>JSON.parse(html.match(/const DATA=([\s\S]*?);<\/script>/)[1]);
-const data=parse(fs.readFileSync('index.html','utf8')),sha=data.healthPressure.education_relative_policy.baseline_commit;
+const fullData=parse(fs.readFileSync('index.html','utf8'));
+// Isolate the earlier education ceiling from the later housing weights.
+const data={...fullData,healthPressure:{...fullData.healthPressure,housing_weight_policy:{enabled:false}}},sha=data.healthPressure.education_relative_policy.baseline_commit;
 assert.match(sha,/^[a-f0-9]{40}$/);
 assert.deepEqual(data.healthPressure.disabled_relative_indicators,[]);
 assert.equal(data.healthPressure.education_relative_policy.enabled,true);
@@ -14,7 +16,7 @@ assert.deepEqual(data.healthPressure.capacity,beforeData.healthPressure.capacity
 assert.deepEqual(beforeData.healthPressure.disabled_relative_indicators,[]);
 assert.notEqual(beforeData.healthPressure.education_relative_policy.normalization,'fixed_inventory_cap_1');
 const close=(a,b)=>assert.ok(Math.abs(a-b)<1e-8,a+' != '+b);
-const output={baseline_commit:sha,capture:data.latest,dimensions:5,fields:10,policy:'Educación = 100 × min(afectadas / registradas, 1); datos, Salud, absoluto y per cápita preservados',scopes:{}};
+const output={audit_mode:'education_ceiling_without_later_housing_weights',baseline_commit:sha,capture:data.latest,dimensions:5,fields:10,policy:'Educación = 100 × min(afectadas / registradas, 1); datos, Salud, absoluto y per cápita preservados',scopes:{}};
 for(const scope of ['decree','all']){
  const state={scope,date:data.latest,dept:''};
  for(const mode of ['absolute','percapita'])assert.deepEqual(P.models(data)[mode].compute(state),P.models(beforeData)[mode].compute(state),'Sin cambio '+mode);

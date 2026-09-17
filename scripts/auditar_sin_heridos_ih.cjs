@@ -4,7 +4,7 @@ const P=require('../web/priorizacion.js');
 const parse=html=>JSON.parse(html.match(/const DATA=([\s\S]*?);<\/script>/)[1]);
 const fullData=parse(fs.readFileSync('index.html','utf8'));
 // Isolate the earlier human-impact change from the later cascade policy.
-const data={...fullData,healthPressure:{...fullData.healthPressure,education_relative_policy:{...fullData.healthPressure.education_relative_policy,normalization:'observed_max'},disabled_relative_indicators:[],source_cascade:{enabled:false}}};
+const data={...fullData,healthPressure:{...fullData.healthPressure,housing_weight_policy:{enabled:false},education_relative_policy:{...fullData.healthPressure.education_relative_policy,normalization:'observed_max'},disabled_relative_indicators:[],source_cascade:{enabled:false}}};
 const variant=data.healthPressure.human_impact_variant;
 assert.equal(variant.id,'sin-heridos-ih');
 assert.match(variant.parent_commit,/^[a-f0-9]{40}$/);

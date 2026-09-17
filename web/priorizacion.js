@@ -26,6 +26,20 @@
       ...field(f.id,'PNUD',f.label,f.share),candidates:[{id:f.id,source:'PNUD'},{id:f.fallback,source:'3iS-Sheets'}]
     }))}:s);
   }
+  function housingWeights(sectors,policy){
+    if(policy?.enabled!==true)return sectors;
+    const {destroyed,damaged}=policy;
+    if(!Number.isFinite(destroyed)||!Number.isFinite(damaged)||destroyed<=0||damaged<=0)
+      throw new Error('Los pesos de vivienda deben ser positivos y finitos.');
+    const destroyedIds=new Set(['pnud_vd','3is_vivdestruidas']);
+    return sectors.map(s=>{
+      if(s.id!=='vivienda')return s;
+      // Normalize over the defined fields, never over the fields available in a municipality.
+      const weights=s.fields.map(f=>destroyedIds.has(f.id)?destroyed:damaged);
+      const total=weights.reduce((a,b)=>a+b,0);
+      return {...s,fields:s.fields.map((f,i)=>({...f,share:weights[i]/total}))};
+    });
+  }
   function chooseCascade(base,f){
     // Validate each source independently before crossing the declared equivalent indicators.
     const channels=f.candidates.map(source=>{
@@ -73,7 +87,7 @@
     const denominators=mode==='sectorial'?D.create(data):null;
     const pressure=H.create(data);
     const sourceCascade=data.healthPressure?.source_cascade?.enabled===true;
-    const definitions=sourceCascade?cascadedSectors():SECTORS;
+    const definitions=housingWeights(sourceCascade?cascadedSectors():SECTORS,data.healthPressure?.housing_weight_policy);
     const sectorDefs=mode==='sectorial'&&pressure.enabled?definitions.map(s=>s.id==='salud'?{...s,fields:[pressure.field]}:s):definitions;
     const fieldCount=sectorDefs.reduce((n,s)=>n+s.fields.length,0);
     const fixedEducation=mode==='sectorial'&&data.healthPressure?.education_relative_policy?.normalization==='fixed_inventory_cap_1';
