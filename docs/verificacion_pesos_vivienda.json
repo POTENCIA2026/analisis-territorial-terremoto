@@ -1,0 +1,433 @@
+{
+  "baseline_commit": "b8be4ad9c55a823b26841c405ef9cd3c85a78a54",
+  "capture": "2026-09-16",
+  "formula": "Vivienda = (2 × z_destruidas + z_averiadas) / 3",
+  "sector_weight": 0.2,
+  "original_data_unchanged": true,
+  "scopes": {
+    "decree": {
+      "absolute": {
+        "reference": 509,
+        "with_score": 470,
+        "other_sectors_unchanged": true,
+        "individual_scores_and_anchors_unchanged": true,
+        "comparison": {
+          "n": 286,
+          "r2": 0.2119053213641364,
+          "r": 0.4603317514186224,
+          "rho": 0.7811693947020671
+        },
+        "pereira": {
+          "code": "66001",
+          "name": "Pereira",
+          "previous_housing": 100,
+          "housing": 99.99999999999999,
+          "previous_score": 61.72167475709305,
+          "score": 61.72167475709305,
+          "previous_rank": 1,
+          "rank": 1,
+          "fields": [
+            {
+              "id": "pnud_vd",
+              "source": "PNUD",
+              "raw": 9134,
+              "score": 100,
+              "weight": 0.6666666666666666
+            },
+            {
+              "id": "pnud_va",
+              "source": "PNUD",
+              "raw": 29974,
+              "score": 100,
+              "weight": 0.3333333333333333
+            }
+          ]
+        },
+        "top": [
+          {
+            "name": "Pereira",
+            "department": "Risaralda",
+            "score": 61.72167475709305,
+            "rank": 1
+          },
+          {
+            "name": "Santiago de Cali",
+            "department": "Valle del Cauca",
+            "score": 39.27649773755656,
+            "rank": 2
+          },
+          {
+            "name": "Quibdó",
+            "department": "Chocó",
+            "score": 31.225137271901644,
+            "rank": 3
+          },
+          {
+            "name": "Dosquebradas",
+            "department": "Risaralda",
+            "score": 17.811341153840335,
+            "rank": 4
+          },
+          {
+            "name": "Trujillo",
+            "department": "Valle del Cauca",
+            "score": 12.594675284816933,
+            "rank": 5
+          }
+        ]
+      },
+      "percapita": {
+        "reference": 509,
+        "with_score": 468,
+        "other_sectors_unchanged": true,
+        "individual_scores_and_anchors_unchanged": true,
+        "comparison": {
+          "n": 286,
+          "r2": 0.33689375924614656,
+          "r": 0.5804254984458785,
+          "rho": 0.7453102709223778
+        },
+        "pereira": {
+          "code": "66001",
+          "name": "Pereira",
+          "previous_housing": 29.23265941913487,
+          "housing": 28.402462235189,
+          "previous_score": 19.09243058510472,
+          "score": 18.95458464468235,
+          "previous_rank": 17,
+          "rank": 16,
+          "fields": [
+            {
+              "id": "pnud_vd",
+              "source": "PNUD",
+              "raw": 9134,
+              "score": 26.742067867297266,
+              "weight": 0.6666666666666666
+            },
+            {
+              "id": "pnud_va",
+              "source": "PNUD",
+              "raw": 29974,
+              "score": 31.723250970972476,
+              "weight": 0.3333333333333333
+            }
+          ]
+        },
+        "top": [
+          {
+            "name": "Atrato",
+            "department": "Chocó",
+            "score": 43.67478168544477,
+            "rank": 1
+          },
+          {
+            "name": "Sipí",
+            "department": "Chocó",
+            "score": 43.198453262841284,
+            "rank": 2
+          },
+          {
+            "name": "El Águila",
+            "department": "Valle del Cauca",
+            "score": 30.641545335957822,
+            "rank": 3
+          },
+          {
+            "name": "Trujillo",
+            "department": "Valle del Cauca",
+            "score": 29.620033884021943,
+            "rank": 4
+          },
+          {
+            "name": "Buenavista",
+            "department": "Quindío",
+            "score": 27.81227173453408,
+            "rank": 5
+          }
+        ]
+      },
+      "sectorial": {
+        "reference": 509,
+        "with_score": 468,
+        "other_sectors_unchanged": true,
+        "individual_scores_and_anchors_unchanged": true,
+        "comparison": {
+          "n": 286,
+          "r2": 0.39315837060186604,
+          "r": 0.6270234210951502,
+          "rho": 0.6731829141294422
+        },
+        "pereira": {
+          "code": "66001",
+          "name": "Pereira",
+          "previous_housing": 29.783666981943867,
+          "housing": 29.353659485217147,
+          "previous_score": 22.114190203433537,
+          "score": 22.042791758677033,
+          "previous_rank": 13,
+          "rank": 14,
+          "fields": [
+            {
+              "id": "pnud_vd",
+              "source": "PNUD",
+              "raw": 9134,
+              "score": 28.49364449176371,
+              "weight": 0.6666666666666666
+            },
+            {
+              "id": "pnud_va",
+              "source": "PNUD",
+              "raw": 29974,
+              "score": 31.073689472124023,
+              "weight": 0.3333333333333333
+            }
+          ]
+        },
+        "top": [
+          {
+            "name": "Restrepo",
+            "department": "Valle del Cauca",
+            "score": 37.64566313979894,
+            "rank": 1
+          },
+          {
+            "name": "Calima",
+            "department": "Valle del Cauca",
+            "score": 31.1909163557723,
+            "rank": 2
+          },
+          {
+            "name": "Sipí",
+            "department": "Chocó",
+            "score": 29.863248889199195,
+            "rank": 3
+          },
+          {
+            "name": "Trujillo",
+            "department": "Valle del Cauca",
+            "score": 29.520229587648828,
+            "rank": 4
+          },
+          {
+            "name": "Bagadó",
+            "department": "Chocó",
+            "score": 29.00880461204354,
+            "rank": 5
+          }
+        ]
+      }
+    },
+    "all": {
+      "absolute": {
+        "reference": 631,
+        "with_score": 534,
+        "other_sectors_unchanged": true,
+        "individual_scores_and_anchors_unchanged": true,
+        "comparison": {
+          "n": 287,
+          "r2": 0.2123872888003689,
+          "r": 0.4608549541888086,
+          "rho": 0.7826259335315319
+        },
+        "pereira": {
+          "code": "66001",
+          "name": "Pereira",
+          "previous_housing": 100,
+          "housing": 99.99999999999999,
+          "previous_score": 61.72167475709305,
+          "score": 61.72167475709305,
+          "previous_rank": 1,
+          "rank": 1,
+          "fields": [
+            {
+              "id": "pnud_vd",
+              "source": "PNUD",
+              "raw": 9134,
+              "score": 100,
+              "weight": 0.6666666666666666
+            },
+            {
+              "id": "pnud_va",
+              "source": "PNUD",
+              "raw": 29974,
+              "score": 100,
+              "weight": 0.3333333333333333
+            }
+          ]
+        },
+        "top": [
+          {
+            "name": "Pereira",
+            "department": "Risaralda",
+            "score": 61.72167475709305,
+            "rank": 1
+          },
+          {
+            "name": "Santiago de Cali",
+            "department": "Valle del Cauca",
+            "score": 39.27649773755656,
+            "rank": 2
+          },
+          {
+            "name": "Quibdó",
+            "department": "Chocó",
+            "score": 31.225137271901644,
+            "rank": 3
+          },
+          {
+            "name": "Dosquebradas",
+            "department": "Risaralda",
+            "score": 17.811341153840335,
+            "rank": 4
+          },
+          {
+            "name": "Trujillo",
+            "department": "Valle del Cauca",
+            "score": 12.594675284816933,
+            "rank": 5
+          }
+        ]
+      },
+      "percapita": {
+        "reference": 631,
+        "with_score": 532,
+        "other_sectors_unchanged": true,
+        "individual_scores_and_anchors_unchanged": true,
+        "comparison": {
+          "n": 287,
+          "r2": 0.3382617860343679,
+          "r": 0.5816027734067023,
+          "rho": 0.7473974741899019
+        },
+        "pereira": {
+          "code": "66001",
+          "name": "Pereira",
+          "previous_housing": 29.23265941913487,
+          "housing": 28.402462235189,
+          "previous_score": 19.09243058510472,
+          "score": 18.95458464468235,
+          "previous_rank": 17,
+          "rank": 16,
+          "fields": [
+            {
+              "id": "pnud_vd",
+              "source": "PNUD",
+              "raw": 9134,
+              "score": 26.742067867297266,
+              "weight": 0.6666666666666666
+            },
+            {
+              "id": "pnud_va",
+              "source": "PNUD",
+              "raw": 29974,
+              "score": 31.723250970972476,
+              "weight": 0.3333333333333333
+            }
+          ]
+        },
+        "top": [
+          {
+            "name": "Atrato",
+            "department": "Chocó",
+            "score": 43.67478168544477,
+            "rank": 1
+          },
+          {
+            "name": "Sipí",
+            "department": "Chocó",
+            "score": 43.198453262841284,
+            "rank": 2
+          },
+          {
+            "name": "El Águila",
+            "department": "Valle del Cauca",
+            "score": 30.641545335957822,
+            "rank": 3
+          },
+          {
+            "name": "Trujillo",
+            "department": "Valle del Cauca",
+            "score": 29.620033884021943,
+            "rank": 4
+          },
+          {
+            "name": "Buenavista",
+            "department": "Quindío",
+            "score": 27.81227173453408,
+            "rank": 5
+          }
+        ]
+      },
+      "sectorial": {
+        "reference": 631,
+        "with_score": 532,
+        "other_sectors_unchanged": true,
+        "individual_scores_and_anchors_unchanged": true,
+        "comparison": {
+          "n": 287,
+          "r2": 0.3948841510887794,
+          "r": 0.6283980832949599,
+          "rho": 0.675771832927697
+        },
+        "pereira": {
+          "code": "66001",
+          "name": "Pereira",
+          "previous_housing": 29.783666981943867,
+          "housing": 29.353659485217147,
+          "previous_score": 22.114190203433537,
+          "score": 22.042791758677033,
+          "previous_rank": 13,
+          "rank": 14,
+          "fields": [
+            {
+              "id": "pnud_vd",
+              "source": "PNUD",
+              "raw": 9134,
+              "score": 28.49364449176371,
+              "weight": 0.6666666666666666
+            },
+            {
+              "id": "pnud_va",
+              "source": "PNUD",
+              "raw": 29974,
+              "score": 31.073689472124023,
+              "weight": 0.3333333333333333
+            }
+          ]
+        },
+        "top": [
+          {
+            "name": "Restrepo",
+            "department": "Valle del Cauca",
+            "score": 37.64566313979894,
+            "rank": 1
+          },
+          {
+            "name": "Calima",
+            "department": "Valle del Cauca",
+            "score": 31.1909163557723,
+            "rank": 2
+          },
+          {
+            "name": "Sipí",
+            "department": "Chocó",
+            "score": 29.863248889199195,
+            "rank": 3
+          },
+          {
+            "name": "Trujillo",
+            "department": "Valle del Cauca",
+            "score": 29.520229587648828,
+            "rank": 4
+          },
+          {
+            "name": "Bagadó",
+            "department": "Chocó",
+            "score": 29.00880461204354,
+            "rank": 5
+          }
+        ]
+      }
+    }
+  }
+}
