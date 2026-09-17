@@ -52,7 +52,7 @@ test('reactivar Educación recupera tasa y puntaje sin alterar absoluto, per cá
 });
 test('reactivado conserva cero PNUD y aplica 3iS solo cuando falta PNUD',()=>{
  const d=fixture();d.healthPressure.disabled_relative_indicators=[];d.rows[0].v=0;
- const field=()=>P.models(d).sectorial.compute(state).all.find(r=>r.code==='27050').sectors.find(s=>s.id==='educacion').fields[0];
+ const field=()=>P.models({...d}).sectorial.compute(state).all.find(r=>r.code==='27050').sectors.find(s=>s.id==='educacion').fields[0];
  assert.equal(field().score,0);assert.equal(field().rate,0);assert.equal(field().row.f,'PNUD');
  d.rows=d.rows.filter(r=>!(r.code==='27050'&&r.id==='pnud_cedu'));
  assert.equal(field().row.f,'3iS-Sheets');assert.equal(field().rate,6/20);assert.equal(field().score,60);
