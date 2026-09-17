@@ -76,6 +76,13 @@
     const definitions=sourceCascade?cascadedSectors():SECTORS;
     const sectorDefs=mode==='sectorial'&&pressure.enabled?definitions.map(s=>s.id==='salud'?{...s,fields:[pressure.field]}:s):definitions;
     const fieldCount=sectorDefs.reduce((n,s)=>n+s.fields.length,0);
+    const fixedEducation=mode==='sectorial'&&data.healthPressure?.education_relative_policy?.normalization==='fixed_inventory_cap_1';
+    const scale=(f,values)=>{
+      const observedMax=values.length?Math.max(...values):null;
+      // A fraction of the registered inventory uses a fixed ceiling, never the municipal maximum.
+      return fixedEducation&&['pnud_cedu','3is_educativos'].includes(f.id)
+        ?{anchor:1,normalization:'fixed_inventory_cap_1',observedMax}:{anchor:observedMax};
+    };
     const cache=new Map();
     function compute(state) {
       // Solo ámbito y captura definen referencias; buscar/filtrar departamento no renormaliza.
@@ -114,7 +121,7 @@
         if(f.candidates){
           const selected=chooseCascade(base,f),accepted=[...selected.rows.values()];
           const values=accepted.map(measure).filter(v=>Number.isFinite(v)&&v>=0);
-          calibrations.set(f.id,{...f,...selected,anchor:values.length?Math.max(...values):null,n:values.length,positive:values.filter(v=>v>0).length,values});
+          calibrations.set(f.id,{...f,...selected,...scale(f,values),n:values.length,positive:values.filter(v=>v>0).length,values});
           return;
         }
         const candidates=(f.id===H.ID&&mode==='sectorial'?pressure.rows(base):base).filter(r=>r.f===f.source&&r.id===f.id);
@@ -124,8 +131,8 @@
         if(coherent)candidates.forEach(r=>{if(!byGeo.has(r.geo))byGeo.set(r.geo,[]);byGeo.get(r.geo).push(r);});
         const accepted=[...byGeo.values()].filter(rs=>rs.every(r=>r.v===rs[0].v)).map(rs=>rs[0]);
         const values=accepted.map(measure).filter(v=>Number.isFinite(v)&&v>=0);
-        const positive=values.filter(v=>v>0),anchor=values.length?Math.max(...values):null;
-        calibrations.set(f.id,{...f,anchor,n:values.length,positive:positive.length,coherent,values,rows:new Map(accepted.map(r=>[r.geo,r]))});
+        const positive=values.filter(v=>v>0);
+        calibrations.set(f.id,{...f,...scale(f,values),n:values.length,positive:positive.length,coherent,values,rows:new Map(accepted.map(r=>[r.geo,r]))});
       });
       const recovery=territorial.strict(base,T.RECOVERY);
       const recoveryRank=new Map(territorial.ranked(recovery).map(r=>[r.geo,r]));
@@ -134,7 +141,7 @@
         const sectors=sectorDefs.map(sector=>{
           const fields=sector.fields.map(f=>{
             const c=calibrations.get(f.id),r=c.rows.get(place.geo),value=measure(r),score=normalize(value,c.anchor);
-            return {...f,...(f.candidates?{source:r?.f||'PNUD → 3iS-Sheets',selectedIndicator:r?.id??null,cascadeFallback:r?.f==='3iS-Sheets'}:{}),row:r||null,score,rate:relative?value:null,...(relative?relativeMeasure(r,r?.id||f.id,place.code):{}),anchor:c.anchor,n:c.n,positive:c.positive,
+            return {...f,...(f.candidates?{source:r?.f||'PNUD → 3iS-Sheets',selectedIndicator:r?.id??null,cascadeFallback:r?.f==='3iS-Sheets'}:{}),row:r||null,score,rate:relative?value:null,...(relative?relativeMeasure(r,r?.id||f.id,place.code):{}),anchor:c.anchor,n:c.n,positive:c.positive,...(c.normalization?{normalization:c.normalization,observedMax:c.observedMax}:{}),
               percentile:value!=null?T.percentile(c.values,value):null,contribution:score==null?null:score*f.share/sectorDefs.length};
           });
           const lower=fields.reduce((s,f)=>s+(f.score??0)*f.share,0);

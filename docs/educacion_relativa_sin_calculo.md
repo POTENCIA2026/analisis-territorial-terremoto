@@ -7,11 +7,13 @@ Estado actual (17 de septiembre de 2026): a petición del usuario, vuelve a calc
 - Centros educativos afectados: PNUD; 3iS únicamente si falta un valor válido PNUD. Un cero PNUD no activa el respaldo.
 - Denominador: sedes de preescolar, básica y media registradas en MEN/SINEB-SIMAT 2022, sectores oficial/no oficial y zonas urbana/rural.
 - Cociente = centros afectados / sedes registradas.
-- Puntaje = 100 × cociente / máximo del cociente en el ámbito y captura elegidos.
+- Puntaje = 100 × min(cociente, 1). El tope es fijo: no se divide por el máximo municipal. Un cociente de 0,5 da 50; 1 y los superiores a 1 dan 100.
+- Los valores originales y los cocientes superiores a 1 se conservan. El tope es una regla del puntaje: no demuestra que todas las sedes estén afectadas ni corrige diferencias entre registros.
+- Cambiar entre todos los municipios y los del decreto no cambia este puntaje educativo; las posiciones y otros componentes del índice sí pueden cambiar.
 - Sin inventario compatible o sin numerador, no hay puntaje; los faltantes no son ceros.
 - Se conservan los cinco sectores, cada uno con peso 1/5. Educación vuelve a aportar al índice relativo, la matriz, el radar y la comparación con necesidad de recuperación temprana.
 
-No se modificaron Salud, sus camas históricas, el inventario educativo, los datos originales ni los índices absoluto y per cápita. Verificación contra el commit anterior: 281d1b021afdbcacdd03f295b494bca0ca716287. Resultado automático: docs/verificacion_educacion_relativa.json.
+No se modificaron Salud, sus camas históricas, el inventario educativo, los datos originales ni los índices absoluto y per cápita. Verificación contra el commit anterior: f6f68992c6b551cb92549b9f3c5e4f5df46f80c6. Resultado automático: docs/verificacion_educacion_relativa.json.
 
 ## Historia
 

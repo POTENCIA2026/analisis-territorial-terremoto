@@ -68,5 +68,19 @@ await page.evaluate(()=>{
 });
 assert.match(await page.locator('#radar-relative-inspector').innerText(),/Centros educativos/);
 assert.doesNotMatch(await page.locator('#radar-relative-inspector').innerText(),/deshabilitado/);
+
+assert.match(await page.locator('#radar-relative-inspector').innerText(),/100 × min/);
+assert.match(await page.locator('#relative-detail').innerText(),/Tope fijo: 1/);
+assert.match(await page.locator('#relative-detail').innerText(),/Educación: z = 100 × min/);
+assert.match(await educationCell.innerText(),/52,55/);
+await page.evaluate(()=>{
+ const s=document.getElementById('radar-relative-select-0');s.value='municipal:76020';s.dispatchEvent(new Event('change'));
+ document.querySelector('#radar-relative-chart [data-radar-m="0"][data-radar-axis="3"]').dispatchEvent(new Event('mouseenter'));
+});
+const capped=await page.locator('#radar-relative-inspector').innerText();
+assert.match(capped,/Conteo original: 25/);assert.match(capped,/17 Sedes/);assert.match(capped,/100 × min\(1,4706, 1\) = 100/);
+assert.doesNotMatch(capped,/Máxima tasa comparable/);
+await page.locator('#relative-search').fill('Alcalá');
+assert.match(await page.locator('#relative-matrix tbody tr').first().locator('td').nth(4).innerText(),/100 \/100/);
 assert.deepEqual(errors,[]);await browser.close();console.log('UI pressure scenario OK',res);
 })().catch(e=>{console.error(e);process.exit(1);});

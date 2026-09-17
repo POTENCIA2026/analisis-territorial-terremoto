@@ -15028,8 +15028,9 @@
   },
   "disabled_relative_indicators": [],
   "education_relative_policy": {
-    "baseline_commit": "281d1b021afdbcacdd03f295b494bca0ca716287",
+    "baseline_commit": "f6f68992c6b551cb92549b9f3c5e4f5df46f80c6",
     "enabled": true,
-    "scope": "Educación relativa reactivada: centros afectados PNUD → 3iS / sedes MEN-SIMAT 2022. Sin cambios en Salud, absoluto o per cápita."
+    "scope": "Educación relativa: 100 × min(centros afectados / sedes registradas, 1). Tope fijo, sin máximo municipal; se preservan los cocientes originales. Sin cambios en Salud, absoluto o per cápita.",
+    "normalization": "fixed_inventory_cap_1"
   }
 }
