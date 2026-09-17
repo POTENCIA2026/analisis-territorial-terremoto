@@ -73,8 +73,7 @@
     const denominators=mode==='sectorial'?D.create(data):null;
     const pressure=H.create(data);
     const sourceCascade=data.healthPressure?.source_cascade?.enabled===true;
-    const excluded=new Set(data.healthPressure?.excluded_sectors||[]);
-    const definitions=(sourceCascade?cascadedSectors():SECTORS).filter(s=>!excluded.has(s.id));
+    const definitions=sourceCascade?cascadedSectors():SECTORS;
     const sectorDefs=mode==='sectorial'&&pressure.enabled?definitions.map(s=>s.id==='salud'?{...s,fields:[pressure.field]}:s):definitions;
     const fieldCount=sectorDefs.reduce((n,s)=>n+s.fields.length,0);
     const cache=new Map();
@@ -94,7 +93,12 @@
         if(rs.length===1&&Number.isFinite(rs[0].population)&&rs[0].population>0)populations.set(code,rs[0]);
       });
       const relativeMeasure=(r,id,code)=>{
-        if(mode==='sectorial')return denominators.measure(r,id,code,state.date);
+        if(mode==='sectorial'){
+          const result=denominators.measure(r,id,code,state.date);
+          if(data.healthPressure?.disabled_relative_indicators?.includes(id))
+            return {...result,rate:null,calculationDisabled:true,reason:'Cálculo relativo de centros educativos deshabilitado en esta rama.'};
+          return result;
+        }
         const p=populations.get(code),valid=!!r&&Number.isFinite(r.v)&&r.v>=0;
         return {rate:p&&valid?10000*r.v/p.population:null,multiplier:10000,relativeUnit:'/10.000 hab.',
           denominatorLabel:'Población municipal proyectada',

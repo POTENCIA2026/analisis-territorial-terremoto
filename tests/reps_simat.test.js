@@ -54,7 +54,7 @@ test('ausencia del escenario mantiene las reglas de main sin fallback a candidat
  const d=data();delete d.denominators.registry_proxies;
  assert.equal(D.create(d).measure(row(),'pnud_csalud','27050',date).rate,null);
 });
-test('radares usan ángulos uniformes según sus dimensiones activas',()=>{
+test('radares usan cinco ángulos uniformes en ambas coordenadas',()=>{
  const fs=require('node:fs'),s=fs.readFileSync(require('node:path').join(__dirname,'../web/radar.js'),'utf8');
- assert.ok(!s.includes('Math.PI/3'));assert.ok(s.includes('Math.sin(-Math.PI/2+i*2*Math.PI/activeSectors.length)'));
+ assert.ok(!s.includes('Math.PI/3'));assert.ok(s.includes('Math.sin(-Math.PI/2+i*2*Math.PI/Priorizacion.SECTORS.length)'));
 });

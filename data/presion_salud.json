@@ -15026,16 +15026,12 @@
     "policy": "pnud_then_3is",
     "parent_commit": "4a221fa01c4d3ff4d815b3c008c2ed83f9d62e29"
   },
-  "excluded_sectors": [
-    "educacion"
+  "disabled_relative_indicators": [
+    "pnud_cedu",
+    "3is_educativos"
   ],
-  "sector_exclusion": {
-    "parent_commit": "59bfbe780c91a8f79e9d6ab0fbc1b574b0095c07",
-    "reason": "Retirar centros educativos del índice; conservar inventario original",
-    "applies_to": [
-      "absolute",
-      "percapita",
-      "sectorial"
-    ]
+  "education_relative_policy": {
+    "baseline_commit": "59bfbe780c91a8f79e9d6ab0fbc1b574b0095c07",
+    "scope": "Solo cálculo relativo educativo; dimensión, conteos, absoluto y per cápita conservados"
   }
 }

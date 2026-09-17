@@ -1,5 +1,4 @@
 {
-  "audit_mode": "cascade_with_original_five_sectors",
   "parent_commit": "4a221fa01c4d3ff4d815b3c008c2ed83f9d62e29",
   "mode": "hospitalizacion",
   "capture": "2026-09-16",

@@ -9,15 +9,13 @@ const res=await page.evaluate(()=>{
  const r=result.items.find(m=>m.code==='66001'),h=r.sectors.find(s=>s.id==='salud').fields[0];
  return {human:r.sectors[0].fields.map(f=>f.id),fields:r.fieldCount,raw:h.row.v,base:h.denominator.value,ratio:h.rate,score:h.score,mode:DATA.healthPressure.mode,n:result.referenceN};
 });
-assert.equal(res.fields,9);assert.deepEqual(res.human,['3is_familias','3is_fallecidos','3is_desaparecidos']);assert.ok(res.ratio>=0);assert.ok(Math.abs(res.ratio-res.raw/res.base)<1e-8);
+assert.equal(res.fields,10);assert.deepEqual(res.human,['3is_familias','3is_fallecidos','3is_desaparecidos']);assert.ok(res.ratio>=0);assert.ok(Math.abs(res.ratio-res.raw/res.base)<1e-8);
 await page.locator('#relative-search').fill('Pereira');await page.waitForTimeout(100);
 assert.equal(await page.locator('#relative-matrix tbody tr').count(),1);
 assert.match(await page.locator('#relative-matrix').innerText(),/Heridos frente a/);
 await page.locator('#relative-matrix [data-relative-geo]').click();
 assert.match(await page.locator('#relative-detail').innerText(),/REPS/);
 for(const selector of ['#matrix','#percapita-matrix','#relative-matrix']){
- assert.equal(await page.locator(selector+' thead th').count(),5);
- assert.doesNotMatch(await page.locator(selector).innerText(),/Centros educativos|Puntos educativos|Educación/);
  const human=page.locator(selector+' tbody tr').first().locator('td').nth(1);
  assert.doesNotMatch(await human.innerText(),/Personas heridas/);
  assert.match(await human.innerText(),/Familias afectadas/);
@@ -41,19 +39,27 @@ const check=await page.evaluate(()=>{
   return {mode,fields:r.fieldCount,counts:r.sectors.map(s=>s.fields.length),sources:r.sectors[1].fields.map(f=>f.source)};
  });
 });
-for(const r of check){assert.equal(r.fields,9);assert.deepEqual(r.counts,[3,2,1,3]);assert.ok(r.sources.every(s=>s==='PNUD'||s==='3iS-Sheets'));}
+for(const r of check){assert.equal(r.fields,10);assert.deepEqual(r.counts,[3,2,1,1,3]);assert.ok(r.sources.every(s=>s==='PNUD'||s==='3iS-Sheets'));}
 assert.match(await page.locator('#priority-method').innerText(),/PNUD.*3iS/);
-const radars=await page.evaluate(()=>{
+for(const selector of ['#matrix','#percapita-matrix','#relative-matrix']){
+ assert.equal(await page.locator(selector+' thead th').count(),6);
+ assert.match(await page.locator(selector+' thead').innerText(),/Educación/);
+}
+const education=await page.evaluate(()=>{
  const state={scope:'decree',date:DATA.latest,dept:''},models=Priorizacion.models(DATA);
  MunicipalRadar.render(models.absolute,state);PerCapitaMunicipalRadar.render(null,state);RelativeMunicipalRadar.render(null,state);
- return ['radar','radar-percapita','radar-relative'].map(prefix=>{
-  const root=document.getElementById(prefix+'-chart'),polygon=root.querySelector('polygon'),texts=[...root.querySelectorAll('text')].map(n=>n.textContent);
-  return {prefix,aria:root.querySelector('svg').getAttribute('aria-label'),vertices:polygon.getAttribute('points').trim().split(/\s+/).length,texts};
+ return ['absolute','percapita','sectorial'].map(mode=>{
+  const r=models[mode].compute(state).all.find(r=>r.code==='66001'),s=r.sectors.find(s=>s.id==='educacion');
+  return {mode,sectors:r.sectors.length,rate:s.fields[0].rate,score:s.fields[0].score,raw:s.fields[0].row.v,coverage:s.coverage};
  });
 });
-for(const r of radars){assert.match(r.aria,/4 sectores/);assert.equal(r.vertices,4);assert.ok(!r.texts.includes('Educación'));}
-assert.doesNotMatch(await page.locator('#priority-method').innerText(),/Educación|Centros educativos/);
-assert.match(await page.locator('#priority-method').innerText(),/peso 1\/4/);
-assert.equal(await page.evaluate(()=>DATA.rows.some(r=>r.id==='pnud_cedu')),true);
+for(const e of education){assert.equal(e.sectors,5);assert.ok(e.raw>=0);if(e.mode==='sectorial'){assert.equal(e.score,null);assert.equal(e.rate,null);assert.equal(e.coverage,0);}else assert.ok(e.score>=0);}
+for(const prefix of ['radar','radar-percapita','radar-relative']){
+ const chart=page.locator('#'+prefix+'-chart');assert.match(await chart.innerText(),/Educación/);
+ assert.equal(await chart.locator('polygon').first().evaluate(p=>p.getAttribute('points').trim().split(/\s+/).length),5);
+}
+const educationCell=page.locator('#relative-matrix tbody tr').first().locator('td').nth(4);
+assert.match(await educationCell.innerText(),/Sin datos relativos/);
+assert.match(await educationCell.innerText(),/Original:/);
 assert.deepEqual(errors,[]);await browser.close();console.log('UI pressure scenario OK',res);
 })().catch(e=>{console.error(e);process.exit(1);});
