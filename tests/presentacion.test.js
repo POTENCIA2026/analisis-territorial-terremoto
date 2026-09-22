@@ -30,3 +30,41 @@ test('si falta el denominador, el conteo conocido sigue visible sin fabricar una
  const html=V.sector({lower:0,coverage:0,fields:[{label:'Familias afectadas',row:{v:42000},source:'3iS-Sheets',share:0,rate:null,score:null}]},true);
  assert.match(html,/sin dato relativo/);assert.match(html,/Reportado: 42.000/);assert.match(html,/<strong>Sin dato<\/strong>/);
 });
+
+const colors=['#07558a','#b95319','#724c9e'];
+const radarPlace=(m,fields,extra={})=>({geo:m,m,d:'Departamento',coverage:1,lower:61.0777,upper:66.6123,available:8,fieldCount:9,sectors:[{id:'impacto_humano',name:'Impacto humano',lower:40,upper:90,coverage:.5,fields}],...extra});
+test('resumen del radar separa puntaje, faltantes y cobertura, sin notación técnica',()=>{
+ const html=V.radarLegend([radarPlace('Pereira',[])],colors);
+ assert.match(html,/Puntaje documentado/);assert.match(html,/61,1 \/100/);assert.match(html,/hasta 66,6/);assert.match(html,/8 de 9 indicadores/);
+ assert.doesNotMatch(html,/61,0777|P:|campos/);
+ const missing=V.radarLegend([radarPlace('Sin datos',[],{coverage:0,lower:0,upper:100,available:0})],colors);
+ assert.match(missing,/Sin dato/);assert.doesNotMatch(missing,/0 \/100|hasta 100/);
+ const complete=V.radarLegend([radarPlace('Completo',[],{lower:50,upper:50})],colors);
+ assert.doesNotMatch(complete,/hasta|Con información faltante/);
+});
+test('comparación por indicador alinea municipios aun si cambia el orden de campos',()=>{
+ const field=(id,v)=>({id,label:id,share:.5,row:v==null?null:{v,u:'Número'},source:'PNUD'});
+ const a=radarPlace('Pereira',[field('fallecidos',98),field('desaparecidos',78)]);
+ const b=radarPlace('Cali',[field('desaparecidos',0),field('fallecidos',156)]);
+ const c=radarPlace('Tercero',[field('fallecidos',null)]);
+ const snapshot=JSON.stringify([a,b,c]),html=V.radarMatrix([a,b,c],colors,false);
+ const deaths=html.match(/data-indicator="fallecidos"[\s\S]*?<\/tr>/)[0];
+ assert.match(deaths,/<strong>98<\/strong>[\s\S]*?<strong>156<\/strong>[\s\S]*?Sin dato/);
+ const missing=html.match(/data-indicator="desaparecidos"[\s\S]*?<\/tr>/)[0];
+ assert.match(missing,/<strong>78<\/strong>[\s\S]*?<strong>0<\/strong>[\s\S]*?Sin dato/);
+ assert.equal((html.match(/data-indicator="desaparecidos"/g)||[]).length,1);
+ assert.equal(JSON.stringify([a,b,c]),snapshot,'El formato no modifica el modelo');
+});
+test('comparación relativa conserva tasa, unidad y dato original; no inventa bases',()=>{
+ const f={id:'salud',label:'Salud',share:1,row:{v:4},source:'3iS-Sheets',rate:2,relativeUnit:'/10.000 hab.',denominator:{value:20000,unit:'Habitantes',reference_date:'2026'}};
+ const a=radarPlace('A',[f]),b=radarPlace('B',[{...f,rate:null,denominator:null}]);
+ const html=V.radarMatrix([a,b],colors,true);
+ assert.match(html,/<strong>2<\/strong>/);assert.match(html,/\/10.000 hab./);assert.match(html,/Reportado: 4/);assert.match(html,/Sin dato relativo/);assert.match(html,/20.000 Habitantes/);
+ assert.equal(V.radarMatrix([],colors,true),'');
+});
+test('radar mantiene familias informativas y escapa todos los rótulos',()=>{
+ const r=radarPlace('<img onerror=1>',[{id:'f',label:'Familias <script>',share:0,row:{v:0,u:'Número'},source:'3iS-Sheets'}]);
+ for(const html of [V.radarLegend([r],colors),V.radarMatrix([r],colors,false),V.radarSelection(r,r.sectors[0],colors[0])])assert.doesNotMatch(html,/<img|<script>/);
+ assert.match(V.radarMatrix([r],colors,false),/Solo informativo/);
+ assert.match(V.radarSelection(r,r.sectors[0],colors[0]),/Cómo se calcula/);
+});

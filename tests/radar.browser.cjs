@@ -81,6 +81,7 @@ const path=require('node:path');
   assert.match(await page.locator('#radar-relative-inspector').innerText(),/Heridos frente a camas/);
   assert.match(await page.locator('#radar-relative-inspector').innerText(),/REPS/);
   assert.equal(await page.locator('#radar-inspector').innerText(),before);
+  await page.keyboard.press('Escape');
   await page.setViewportSize({width:390,height:844});
   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
   assert.deepEqual(errors,[]);

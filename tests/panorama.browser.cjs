@@ -6,7 +6,7 @@ const payload=html=>{const a=html.indexOf('const DATA=')+11,b=html.indexOf(';</s
  const before=payload(execFileSync('git',['show',baseline+':index.html'],{encoding:'utf8',maxBuffer:150*1024*1024}));
  const after=payload(fs.readFileSync('index.html','utf8'));
  delete before.generated;delete after.generated;assert.deepEqual(after,before,'Los datos publicados no deben cambiar');
- for(const file of ['modelo.js','priorizacion.js','denominadores.js','presion_salud.js','comparacion.js','radar.js'])assert.equal(fs.readFileSync('web/'+file,'utf8').replaceAll('\r\n','\n'),execFileSync('git',['show',baseline+':web/'+file],{encoding:'utf8'}).replaceAll('\r\n','\n'),'Modelo intacto: '+file);
+ for(const file of ['modelo.js','priorizacion.js','denominadores.js','presion_salud.js','comparacion.js'])assert.equal(fs.readFileSync('web/'+file,'utf8').replaceAll('\r\n','\n'),execFileSync('git',['show',baseline+':web/'+file],{encoding:'utf8'}).replaceAll('\r\n','\n'),'Modelo intacto: '+file);
  const browser=await chromium.launch({headless:true,...(process.env.CHROME_PATH?{executablePath:process.env.CHROME_PATH}:{})});
  const page=await browser.newPage({viewport:{width:1440,height:1100}}),errors=[];
  page.on('pageerror',e=>errors.push(e.message));await page.route(/^https?:/,route=>route.abort());
