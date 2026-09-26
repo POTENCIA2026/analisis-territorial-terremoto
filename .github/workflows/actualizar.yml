@@ -1,7 +1,10 @@
 name: Actualizar datos y tableros
 on:
-  schedule:
-    - cron: '17 */4 * * *'
+  # La actualización programada ahora la hace el contenedor Docker del tablero, en el servidor de Torre de
+  # Control (docs/despliegue_torre_de_control.md). Se deja comentada, no borrada: para volver a Netlify /
+  # GitHub Pages basta descomentar estas dos líneas.
+  # schedule:
+  #   - cron: '17 */4 * * *'
   workflow_dispatch: {}
   push:
     branches: [main, formato-largo, reestructuracion-recuperacion]
