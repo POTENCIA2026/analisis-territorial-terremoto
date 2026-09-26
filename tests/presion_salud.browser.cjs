@@ -3,6 +3,7 @@ const assert=require('node:assert/strict'),{chromium}=require('playwright'),path
 const browser=await chromium.launch({headless:true,...(process.env.CHROME_PATH?{executablePath:process.env.CHROME_PATH}:{})}),page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[];
 page.on('pageerror',e=>errors.push(e.message));
 await page.goto('file://'+path.resolve('index.html'),{waitUntil:'load'});
+await page.click('[data-density="detail"]');
 await page.selectOption('#affectation-mode','sectorial');
 await page.waitForSelector('#relative-matrix table');
 const res=await page.evaluate(()=>{

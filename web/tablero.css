@@ -105,3 +105,60 @@
 .radar-method-dialog::backdrop{background:rgba(15,30,34,.48)}.radar-dialog-head{display:flex;align-items:center;justify-content:space-between;gap:16px;position:sticky;top:0;padding:18px 24px;background:var(--surface);border-bottom:1px solid var(--border);z-index:2}
 .radar-dialog-head h2{font-size:18px;margin:0}.radar-method-dialog .radar-inspector{border:0;padding:8px 24px 24px}.radar-method-dialog .radar-inspector h3{font-size:21px}
 @media(max-width:850px){.radar-card .radar-layout{grid-template-columns:1fr;gap:20px;align-items:start}.radar-plot svg{max-height:450px}.radar-card{padding:18px}.radar-comparison table{min-width:620px}.radar-comparison th,.radar-comparison td{padding:9px 12px}.radar-summary dl>div{flex-wrap:wrap}.radar-card>h2{font-size:21px}.radar-dialog-head{padding:14px 16px}.radar-method-dialog .radar-inspector{padding:8px 16px 18px}}
+
+/* Experiencia de uso: cabecera compacta, navegación fija, vista resumen de la matriz y móvil. */
+.brandbar-in{padding-top:10px;padding-bottom:10px}.brand-logo{height:34px}
+.wrap{padding-top:22px}
+.hero{margin-bottom:14px}.hero h1{font-size:clamp(30px,3.4vw,42px);margin:8px 0 4px}.hero .subtitle{font-size:16px;margin:4px 0}
+.tab-nav{position:sticky;top:0;z-index:30;background:var(--bg);margin:12px 0 16px;box-shadow:0 0 0 100vmax var(--bg);clip-path:inset(0 -100vmax)}
+main [id]{scroll-margin-top:72px}
+.filters.global{margin-bottom:18px}
+#priority-kpis .tile{padding:14px 24px}#priority-kpis .tile-value{margin:6px 0 4px}
+.profile-card{padding:22px 24px 20px}.profile-intro{margin:6px 0 16px}.profile-controls{margin-bottom:12px}.scale-key{margin-bottom:10px}
+.matrix-card .table-scroll,#matrix,#percapita-matrix,#relative-matrix{max-height:clamp(440px,calc(100vh - 120px),960px);max-height:clamp(440px,calc(100dvh - 120px),960px)}
+#matrix tbody tr:hover>td,#percapita-matrix tbody tr:hover>td,#relative-matrix tbody tr:hover>td{background-color:var(--surface-2)!important}
+
+/* Selector de vista */
+.view-toggle{display:flex;flex-direction:column;gap:5px}
+.view-toggle-label{font-size:13px;font-weight:500;color:var(--ink)}
+.seg{display:inline-flex;border:1px solid var(--border-strong);border-radius:8px;overflow:hidden;min-height:44px}
+.seg button{border:0;background:var(--surface);color:var(--ink);padding:0 18px;font-weight:500;font-size:14px}
+.seg button+button{border-left:1px solid var(--border-strong)}
+.seg button:hover{background:var(--surface-2)}
+.seg button[aria-pressed="true"]{background:var(--action);color:var(--action-ink)}
+.seg button:focus-visible{outline-offset:-3px}
+@media(min-width:701px){.profile-controls{grid-template-columns:1fr 1fr auto;align-items:end}}
+
+/* Vista resumen: una línea por municipio, barra de puntaje por sector */
+.is-compact .matrix-card table{min-width:0!important;table-layout:auto}
+.is-compact .matrix-card th{padding:12px 10px}
+.is-compact .matrix-card th:first-child{width:250px!important;min-width:250px!important}
+.is-compact .matrix-card .municipal-cell,.is-compact #matrix .municipal-cell{min-width:250px;max-width:250px;padding:13px 82px 13px 14px!important;vertical-align:middle}
+.is-compact .matrix-card .municipal-cell .score-label{display:none}
+.is-compact .matrix-card .municipal-cell .priority-number{position:absolute;right:14px;top:50%;transform:translateY(-50%);margin:0;font-size:22px;line-height:1;text-align:right}
+.is-compact .matrix-card .municipal-cell .priority-number small{display:block;margin-top:3px;font-size:10px}
+.is-compact .matrix-card .municipality-name{font-size:15px;line-height:1.25}
+.is-compact .matrix-card .municipal-cell .rank-label,.is-compact .matrix-card .municipal-cell .coverage{display:inline;font-size:11px;color:var(--muted);margin:0}
+.is-compact .matrix-card .municipal-cell .coverage::before{content:"· "}
+.matrix-card .cov-short{display:none}.is-compact .matrix-card .cov-long{display:none}.is-compact .matrix-card .cov-short{display:inline}
+.is-compact .matrix-card .heat-cell,.is-compact #matrix .heat-cell{min-width:0!important;padding:12px 12px!important;vertical-align:middle}
+.is-compact .matrix-card .sector-result,.is-compact .matrix-card .sector-evidence,.is-compact .matrix-card .block-label{display:none}
+.is-compact .matrix-card .sector-score{border:0;padding:0;margin:0}
+.is-compact .matrix-card .sector-score strong{display:block;font-size:17px;line-height:1.2}
+.is-compact .matrix-card .sector-score::after{content:"";display:block;height:6px;margin-top:7px;border-radius:3px;background:linear-gradient(90deg,var(--brand-blue) calc(var(--score,0) * 1%),var(--surface-3) 0)}
+.is-compact .matrix-card .no-score .sector-score strong{font-size:14px;font-weight:400;color:var(--muted)}
+.is-compact .matrix-card .selected-sector{box-shadow:none;background:var(--accent-soft)}
+
+@media(max-width:700px){
+  .filters.global{grid-template-columns:1fr 1fr;gap:10px}
+  .filters.global label:first-child{grid-column:1/-1}
+  .hero .subtitle{font-size:15px}
+  .tab-nav{margin-top:8px}
+  .view-toggle .seg{width:100%}.seg button{flex:1}
+  .is-compact .matrix-card th:first-child{left:0;width:150px!important;min-width:150px!important}
+  .is-compact .matrix-card .municipal-cell,.is-compact #matrix .municipal-cell{position:sticky!important;left:0;min-width:150px;max-width:150px;width:150px;padding:10px!important;box-shadow:1px 0 0 var(--border)}
+  .is-compact .matrix-card .municipal-cell .priority-number{position:static;transform:none;display:block;margin-top:5px;font-size:20px;text-align:left}
+  .is-compact .matrix-card .municipal-cell .priority-number small{display:inline;margin:0 0 0 3px}
+  .is-compact .matrix-card .municipal-cell .coverage{display:none}
+  .is-compact .matrix-card .heat-cell,.is-compact #matrix .heat-cell{min-width:104px!important;padding:10px!important}
+}

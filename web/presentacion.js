@@ -5,9 +5,9 @@
   const number=(n,digits=2)=>Number.isFinite(n)?new Intl.NumberFormat('es-CO',{maximumFractionDigits:digits}).format(n):'—';
   const source=s=>String(s||'').replaceAll('3iS-Sheets','3iS');
   function municipality(r,attribute){
-    return '<td class="municipal-cell"><button class="link municipality-name" type="button" '+attribute+'="'+esc(r.geo)+'">'+esc(r.m)+'</button><div class="muted small">'+esc(r.d)+'</div>'+
+    return '<td class="municipal-cell" style="--score:'+(r.coverage>0?Math.min(100,Math.max(0,r.lower)):0)+'"><button class="link municipality-name" type="button" '+attribute+'="'+esc(r.geo)+'">'+esc(r.m)+'</button><div class="muted small">'+esc(r.d)+'</div>'+
       '<div class="score-label">Puntaje de afectación</div><div class="priority-number">'+(r.coverage>0?number(r.lower):'—')+'<small> /100</small></div>'+
-      '<div class="rank-label">Puesto global: '+(r.rank??'—')+'</div><div class="small muted">'+r.available+' de '+r.fieldCount+' indicadores con información</div></td>';
+      '<div class="rank-label">Puesto global: '+(r.rank??'—')+'</div> <div class="small muted coverage" title="'+r.available+' de '+r.fieldCount+' indicadores con información">'+r.available+' de '+r.fieldCount+'<span class="cov-long"> indicadores con información</span><span class="cov-short"> indic.</span></div></td>';
   }
   function field(f,relative){
     const has=relative?f.rate!=null:!!f.row;
@@ -21,7 +21,7 @@
   function sector(s,relative,selected=false){
     const sources=[...new Set(s.fields.filter(f=>f.row).map(f=>source(f.source)))];
     const bases=relative?[...new Set(s.fields.filter(f=>f.denominator).map(f=>source(f.denominatorSource?.label)).filter(Boolean))]:[];
-    return '<td class="heat-cell '+(selected?'selected-sector':'')+'"><div class="sector-block sector-score"><span class="block-label">Puntaje</span><strong>'+(s.coverage>0?number(s.lower)+' <small>/100</small>':'Sin dato')+'</strong></div>'+
+    return '<td class="heat-cell '+(selected?'selected-sector ':'')+(s.coverage>0?'':'no-score')+'" style="--score:'+(s.coverage>0?Math.min(100,Math.max(0,s.lower)):0)+'"><div class="sector-block sector-score"><span class="block-label">Puntaje</span><strong>'+(s.coverage>0?number(s.lower)+' <small>/100</small>':'Sin dato')+'</strong></div>'+
       '<div class="sector-block sector-result"><span class="block-label">Resultado</span>'+s.fields.map(f=>field(f,relative)).join('')+'</div>'+
       '<div class="sector-block sector-evidence"><span class="block-label">Evidencia</span>'+esc(sources.join(' · ')||'Sin reporte')+(bases.length?'<details><summary>Base de comparación</summary><span>'+esc(bases.join(' · '))+'</span></details>':'')+'</div></td>';
   }

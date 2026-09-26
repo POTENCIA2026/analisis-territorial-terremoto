@@ -83,6 +83,30 @@ La entrada anterior `python generar_eda_indicadores.py --out eda_indicadores.htm
 también genera el tablero unificado y su redirección, para no romper comandos
 locales existentes.
 
+## Identidad visual
+
+El tablero usa la identidad de Torre de Control (EFUSCOL): azul marino `#013A51`,
+azul `#008AEE`, tipografía National Park y el logo de la marca. Los tokens viven en
+`web/marca.css` y son los mismos de `ControlTower/frontend/src/index.css`; si cambian
+allá, se actualizan acá. La fuente y el logo (`web/brand/`) se incrustan en el HTML al
+generar, así que sigue siendo un solo archivo sin conexión. Dentro de un iframe (Torre de
+Control) se oculta el logo para no duplicar el encabezado de la plataforma.
+
+**Modo oscuro:** sigue el tema del sistema (`prefers-color-scheme`), igual que Torre de Control, sin
+interruptor. Usa los tonos de página y tarjeta de Torre; muted, enlaces y series se ajustaron para que el
+texto supere 4,5:1 (los de Torre llegan a 4,0:1 sobre tarjeta). Los colores de los gráficos son variables
+CSS (`--series-*`, `--brand-blue`), no constantes en el JS, y se redibujan al cambiar el tema.
+
+## Vistas de la matriz y navegación
+
+La matriz abre en **Resumen**: una línea por municipio con su puntaje global, el puesto y una
+barra de puntaje por sector (unos 85 px por fila, frente a 390 px del detalle). **Detalle**
+muestra los valores originales, la fuente y la evidencia de cada indicador. La elección se
+recuerda en el navegador. La barra de pestañas queda fija al desplazarse. En móvil el nombre
+del municipio permanece visible al deslizar en horizontal. Las pruebas de esta parte están en
+`tests/experiencia.browser.cjs` (no corre en CI, para que una prueba de interfaz no detenga la
+actualización de datos): `python generar_tablero_recuperacion.py && node tests/experiencia.browser.cjs`.
+
 ## Lectura
 
 - **Prioridades:** matriz de necesidades por municipio, orden del modelo

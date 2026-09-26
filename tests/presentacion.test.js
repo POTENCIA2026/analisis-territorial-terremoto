@@ -31,6 +31,22 @@ test('si falta el denominador, el conteo conocido sigue visible sin fabricar una
  assert.match(html,/sin dato relativo/);assert.match(html,/Reportado: 42.000/);assert.match(html,/<strong>Sin dato<\/strong>/);
 });
 
+test('la vista resumen recibe el puntaje como variable CSS y una cobertura abreviable',()=>{
+ const place=V.municipality({geo:'a',m:'A',d:'D',coverage:1,lower:25.5,rank:3,available:8,fieldCount:9},'data-priority-geo');
+ assert.match(place,/style="--score:25.5"/);assert.match(place,/class="small muted coverage"/);assert.match(place,/Puesto global: 3<\/div> <div class="small muted coverage"/);
+ assert.match(place,/cov-long"> indicadores con información/);assert.match(place,/cov-short"> indic\./);
+ const none=V.municipality({geo:'a',m:'A',d:'D',coverage:0,lower:0,rank:null,available:0,fieldCount:9},'data-priority-geo');
+ assert.match(none,/--score:0/);
+});
+test('el sector limita el puntaje a 0-100 y marca las celdas sin dato',()=>{
+ const sector=(s)=>V.sector({fields:[],...s},false);
+ assert.match(sector({lower:140,coverage:1}),/--score:100/);
+ assert.match(sector({lower:-5,coverage:1}),/--score:0/);
+ const missing=sector({lower:0,coverage:0});
+ assert.match(missing,/class="heat-cell no-score"/);assert.match(missing,/<strong>Sin dato<\/strong>/);
+ assert.doesNotMatch(sector({lower:40,coverage:1}),/no-score/);
+});
+
 const colors=['#07558a','#b95319','#724c9e'];
 const radarPlace=(m,fields,extra={})=>({geo:m,m,d:'Departamento',coverage:1,lower:61.0777,upper:66.6123,available:8,fieldCount:9,sectors:[{id:'impacto_humano',name:'Impacto humano',lower:40,upper:90,coverage:.5,fields}],...extra});
 test('resumen del radar separa puntaje, faltantes y cobertura, sin notación técnica',()=>{

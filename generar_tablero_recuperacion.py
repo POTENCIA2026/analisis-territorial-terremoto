@@ -5,6 +5,7 @@ Prepara observaciones y línea base para un compuesto con límites por faltantes
 La fecha del inventario nunca se presenta como fecha de observación del sismo.
 """
 import argparse
+import base64
 from collections import Counter, defaultdict
 import csv
 from datetime import date, datetime, timezone
@@ -163,11 +164,29 @@ def prepare_payload(current, history=()):
             "generated": datetime.now(timezone.utc).isoformat(timespec="seconds")}
 
 
+# Identidad de Torre de Control (EFUSCOL): fuente, logo e ícono viajan dentro del HTML
+# para que el tablero siga siendo un solo archivo que funciona sin conexión.
+BRAND_ASSETS = (
+    ("__FONT_REGULAR__", "NationalPark-Regular.ttf", "font/ttf"),
+    ("__FONT_MEDIUM__", "NationalPark-Medium.ttf", "font/ttf"),
+    ("__FONT_BOLD__", "NationalPark-Bold.ttf", "font/ttf"),
+    ("__LOGO__", "logo-linea-oscuro.webp", "image/webp"),
+    ("__ICONO__", "icono.webp", "image/webp"),
+)
+
+
+def data_uri(path, mime):
+    return f"data:{mime};base64," + base64.b64encode(path.read_bytes()).decode("ascii")
+
+
 def build_html(current, history=()):
     payload = prepare_payload(current, history)
     template = (ROOT / "web" / "tablero.html").read_text(encoding="utf-8")
     for marker, filename in (("__STYLE__", "tablero.css"), ("__PRESENTATION__", "presentacion.js"), ("__MODEL__", "modelo.js"), ("__HEALTH_PRESSURE__", "presion_salud.js"), ("__DENOMINATORS__", "denominadores.js"), ("__PRIORITY_MODEL__", "priorizacion.js"), ("__RADAR__", "radar.js"), ("__RELATIVE__", "relativo.js"), ("__COMPARISON__", "comparacion.js"), ("__APP__", "tablero.js")):
         template = template.replace(marker, (ROOT / "web" / filename).read_text(encoding="utf-8"))
+    template = template.replace("__BRAND__", (ROOT / "web" / "marca.css").read_text(encoding="utf-8"))
+    for marker, filename, mime in BRAND_ASSETS:
+        template = template.replace(marker, data_uri(ROOT / "web" / "brand" / filename, mime))
     data = json.dumps(payload, ensure_ascii=False, separators=(",", ":"), allow_nan=False)
     return template.replace("__DATA__", data.replace("<", "\\u003c"))
 

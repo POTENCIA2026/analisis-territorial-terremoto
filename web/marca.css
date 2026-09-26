@@ -1,0 +1,170 @@
+/* Identidad visual de Torre de Control (EFUSCOL — Empresas y Fundaciones Unidas por Colombia).
+   Tokens tomados de ControlTower/frontend/src/index.css para que este tablero se vea igual
+   dentro y fuera de la plataforma. Va al final del CSS: solo redefine, no toca la estructura.
+   Las fuentes se incrustan como data URI al generar (ver BRAND_ASSETS en generar_tablero_recuperacion.py). */
+@font-face{font-family:"National Park";font-weight:400;font-style:normal;font-display:swap;src:url(__FONT_REGULAR__) format("truetype")}
+@font-face{font-family:"National Park";font-weight:500;font-style:normal;font-display:swap;src:url(__FONT_MEDIUM__) format("truetype")}
+@font-face{font-family:"National Park";font-weight:700;font-style:normal;font-display:swap;src:url(__FONT_BOLD__) format("truetype")}
+
+:root{
+  --font:"National Park",Helvetica,"Helvetica Neue",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --bg:#fafcfc;--surface:#fff;--surface-2:#f2f8fa;--surface-3:#e8f3f8;
+  --ink:#003043;--muted:#166b8d;
+  --border:rgba(1,58,81,.12);--border-strong:rgba(1,58,81,.22);--radar-border:rgba(1,58,81,.14);
+  /* "Azul" de marca #008AEE tiene 3,4:1 sobre blanco: sirve para relleno y foco, no para texto.
+     El texto de enlaces y estados activos usa la variante fuerte (#0061a7, 6,6:1). */
+  --brand-blue:#008aee;--brand-yellow:#f8c300;--brand-red:#f43400;--navy:#013a51;--navy-raised:#0b4c68;
+  --accent:#0061a7;--accent-soft:#d9f6ff;
+  --ok:#0b8a0b;--warn:#d03b3b;
+  --warn-bg:#fbe2e2;--warn-ink:#8a2020;--warn-line:#f0c0c0;
+  --notice-bg:#fdf1da;--notice-ink:#5c3f00;--notice-line:#c98500;
+  --series-1:#0061a7;--series-2:#c92b00;--series-3:#8a6500;--highlight-stroke:#8f1f00;
+  --heat-rgb:0,138,238;--heat-k:.0016;--gridline:rgba(1,58,81,.08);--placeholder:#5f8fa3;
+  --action:#013a51;--action-ink:#fff;--chrome-accent:#008aee;
+  --shadow:0 1px 2px rgba(1,58,81,.05),0 8px 22px -14px rgba(1,58,81,.22);
+  --chrome-ink:#fff;--chrome-ink-muted:#9fc1d1;--chrome-border:rgba(255,255,255,.14);
+}
+html{color-scheme:light}
+/* Modo oscuro: mismo mecanismo que Torre de Control (prefers-color-scheme, sin interruptor).
+   Tonos de página y tarjeta de Torre; el resto de la rampa se ajustó para que el texto pequeño
+   supere 4,5:1 sobre las tarjetas (los valores de muted/enlace de Torre llegan a 4,0:1). */
+@media(prefers-color-scheme:dark){
+  :root{
+    color-scheme:dark;
+    --bg:#205265;--surface:#386475;--surface-2:#2f5b6c;--surface-3:#274f61;
+    --ink:#fff;--muted:#e3ebee;
+    --border:rgba(255,255,255,.14);--border-strong:rgba(255,255,255,.32);--radar-border:rgba(255,255,255,.2);
+    --brand-blue:#6bc4ff;--brand-red:#ff9d80;
+    --accent:#c4e5fc;--accent-soft:#0c3854;
+    --ok:#86e086;--warn:#ff9d80;
+    --warn-bg:#5a2a2a;--warn-ink:#ffd0d0;--warn-line:#8a4a4a;
+    --notice-bg:#4a3a12;--notice-ink:#ffe3a3;--notice-line:#fab219;
+    --series-1:#c4e5fc;--series-2:#ffcdbb;--series-3:#ffd97a;--highlight-stroke:#fff;
+    --heat-rgb:107,196,255;--heat-k:.0013;--gridline:rgba(255,255,255,.12);--placeholder:#d3dee1;
+    --action:#fff;--action-ink:#013a51;
+    --shadow:0 1px 2px rgba(0,0,0,.25),0 8px 22px -14px rgba(0,0,0,.55);
+  }
+}
+body{background:var(--bg);color:var(--ink);font-family:var(--font);-webkit-font-smoothing:antialiased}
+button,input,select,textarea{font-family:inherit}
+.chart text{font-family:var(--font)}
+
+/* Barra de marca: mismo azul marino fijo que el menú lateral de Torre de Control. */
+.brandbar{background:var(--navy);color:var(--chrome-ink);border-bottom:3px solid var(--chrome-accent)}
+.brandbar-in{max-width:1480px;margin:auto;padding:14px 36px;display:flex;align-items:center;justify-content:space-between;gap:12px 28px;flex-wrap:wrap}
+.brand-logo{display:block;height:38px;width:auto}
+.brandbar .statusbar{margin:0;box-shadow:none;background:none;border:0;padding:0;color:var(--chrome-ink-muted);gap:0;flex-wrap:wrap;row-gap:4px}
+.brandbar .statusbar>span{padding:0 16px;border-left:1px solid var(--chrome-border)}
+.brandbar .statusbar>span:first-child{border-left:0;padding-left:0;color:var(--chrome-ink);font-weight:500}
+.brandbar .statusbar>span:last-child{padding-right:0}
+.brandbar .statusbar .pill{background:none;border-radius:0;border-right:0;padding:0 16px;color:inherit}
+.brandbar .statusbar .pill:first-child{padding-left:0}
+.brandbar .muted{color:var(--chrome-ink-muted)}
+
+/* Dentro de Torre de Control el iframe ya está bajo su propio menú: sin logo duplicado. */
+.embedded .brandbar{background:none;color:var(--muted);border-bottom:1px solid var(--border)}
+.embedded .brandbar-in{padding:10px 36px}
+.embedded .brand-logo{display:none}
+.embedded .brandbar .statusbar{color:var(--muted)}
+.embedded .brandbar .statusbar>span{border-left-color:var(--border)}
+.embedded .brandbar .statusbar>span:first-child{color:var(--ink)}
+.embedded .brandbar .muted{color:var(--muted)}
+
+/* Encabezado */
+.hero h1{font-weight:700;letter-spacing:-.02em;color:var(--ink)}
+.kicker{color:var(--accent);font-weight:500;letter-spacing:.14em;display:flex;align-items:center;gap:12px}
+.kicker::before{content:"";width:30px;height:4px;border-radius:2px;flex:none;background:linear-gradient(90deg,var(--brand-yellow) 0 33.3%,var(--brand-blue) 33.3% 66.6%,var(--brand-red) 66.6%)}
+.subtitle{color:var(--muted)}
+
+/* Navegación por pestañas */
+.tab-nav{border-bottom-color:var(--border)}
+.tab-btn{color:var(--muted);font-weight:500;border-bottom-width:3px;transition:color .15s}
+.tab-btn:hover{color:var(--ink)}
+.tab-btn.active{color:var(--ink);font-weight:700;border-bottom-color:var(--brand-blue)}
+
+/* Foco visible con el azul de marca */
+button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--brand-blue);outline-offset:2px}
+
+/* Controles */
+select,input{border:1px solid var(--border-strong);border-radius:8px;background:var(--surface);color:var(--ink)}
+select:hover,input:hover{border-color:var(--accent)}
+.filters label,.search,.profile-picker{color:var(--ink);font-weight:500}
+input::placeholder{color:var(--placeholder);font-weight:400}
+.secondary{border:1px solid var(--border-strong);background:var(--surface);color:var(--ink);font-weight:500;border-radius:8px;transition:background .15s,border-color .15s}
+.secondary:hover{background:var(--surface-2);border-color:var(--accent)}
+.link,a{color:var(--accent)}
+
+/* Tarjetas y métricas */
+.card,.tile,.profile-card,.radar-card,#priority-kpis{border-color:var(--border);box-shadow:var(--shadow)}
+.card,.profile-card,.radar-card{border-radius:12px}
+#priority-kpis{border-radius:12px;background:var(--surface)}
+#priority-kpis .tile{box-shadow:none}
+#priority-kpis .tile-label,.tile-label{color:var(--muted);font-weight:500}
+.tile-value{color:var(--ink);font-weight:700}
+.profile-card h2,.radar-card>h2,h2,h3{color:var(--ink);font-weight:700}
+.badge,.pill{border-color:var(--border)}
+.badge.high{background:var(--warn-bg);color:var(--warn-ink);border-color:var(--warn-line)}
+.notice{border-left-color:var(--notice-line);background:var(--notice-bg);color:var(--notice-ink)}
+.formula{background:var(--accent-soft);color:var(--ink)}
+.profile-card #priority-detail{background:var(--surface-2)}
+.summary-secondary,.scale-key,.summary-definitions,.note,.muted{color:var(--muted)}
+footer{border-top-color:var(--border);color:var(--muted)}
+
+/* Tablas */
+th,.matrix-card th,.radar-comparison thead th{background:var(--surface-2);color:var(--muted);font-weight:700}
+.radar-comparison thead th{color:var(--ink)}
+.radar-comparison thead th:first-child{background:var(--surface-2)}
+.radar-comparison th:first-child{background:var(--surface)}
+.radar-comparison .radar-dimension-row th,.radar-comparison .radar-dimension-row td{background:var(--surface-3)}
+th,td{border-bottom-color:var(--border)}
+.matrix-card .table-scroll{border-top-color:var(--border)}
+.matrix-card .municipal-cell,#matrix .municipal-cell{background:var(--surface)}
+.priority-number,.matrix-card .priority-number,.sector-score{color:var(--ink)}
+.matrix-card .priority-number{font-weight:700}
+.matrix-card .municipality-name{color:var(--accent)}
+.matrix-card .field-name{color:var(--muted)}
+.block-label{color:var(--muted)}
+.matrix-card .heat-item,#matrix .heat-item{background:rgba(var(--heat-rgb),calc(.035 + var(--intensity,0) * var(--heat-k)));border-radius:4px}
+.matrix-card .heat-item.missing{background:var(--surface-2);border-color:var(--border-strong)}
+.selected-sector{box-shadow:inset 3px 0 var(--brand-blue);background:var(--accent-soft)}
+.column-sort:hover,.column-sort:focus-visible{color:var(--accent)}
+.radar-matrix-value{color:var(--accent)}
+.radar-matrix-value:hover,.radar-matrix-value[aria-pressed="true"]{border-color:var(--brand-blue);background:var(--surface)}
+
+/* Gráficos */
+.chart .point{fill:var(--brand-blue)}
+.chart .line{stroke:var(--brand-blue)}
+.chart .gridline{stroke:var(--gridline)}
+.chart .point{stroke:var(--surface)}
+.hist-bar{fill:var(--brand-blue)}
+.fit-line{stroke:var(--series-2)}
+.radar-grid{stroke:var(--radar-border)}
+.chart .axis{stroke:var(--border-strong)}
+.bar{background:var(--surface-3)}
+.bar i{background:var(--brand-blue)}
+.comparison-point{fill:var(--brand-blue)}
+.comparison-point.highlight{fill:var(--brand-red);stroke:var(--highlight-stroke)}
+.radar-plot svg text{fill:var(--ink)}
+.radar-plot svg text.radar-scale{fill:var(--muted)}
+.radar-point:hover,.radar-point:focus,.comparison-point:hover,.comparison-point:focus{stroke:var(--ink)}
+.radar-results button{background:var(--surface);color:var(--accent);border-bottom-color:var(--border)}
+.radar-results button:hover,.radar-results button:focus{background:var(--accent-soft)}
+.radar-inspector,.radar-results,.radar-comparison,.relative-detail,.radar-input{border-color:var(--radar-border)}
+
+/* Diálogos */
+.radar-method-dialog{border-color:var(--border-strong);box-shadow:0 18px 70px rgba(1,58,81,.28)}
+.radar-method-dialog::backdrop{background:rgba(1,30,45,.55)}
+
+@media(max-width:1050px){.brandbar-in{padding:12px 20px}.embedded .brandbar-in{padding:10px 20px}}
+@media(max-width:700px){
+  .brandbar-in{padding:12px 14px}.embedded .brandbar-in{padding:8px 14px}
+  .brand-logo{height:30px}
+  .brandbar .statusbar>span{padding:0 10px}
+  .kicker::before{width:22px}
+}
+.filters.global{margin-bottom:18px}
+
+/* Modo oscuro: las etiquetas pequeñas sobre celdas teñidas van en blanco (queda ≥ 4,5:1 en el tinte más fuerte). */
+@media(prefers-color-scheme:dark){
+  .matrix-card .heat-item .field-name,.matrix-card .heat-item .rate-base,.matrix-card .heat-item small{color:var(--ink)}
+}

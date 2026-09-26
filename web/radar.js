@@ -5,7 +5,9 @@
   const relative=mode!=='absolute',percapita=mode==='percapita';
   const get=id=>document.getElementById(id.replace(/^radar/,prefix));
   let relativeModel;
-  const colors=['#07558a','#b95319','#724c9e'];
+  // Colores de las series según el tema (variables CSS); se releen en cada dibujo.
+  const palette=()=>{const css=getComputedStyle(document.documentElement),v=(n,d)=>css.getPropertyValue(n).trim()||d;return {series:[v('--series-1','#0061a7'),v('--series-2','#c92b00'),v('--series-3','#8a6500')],surface:v('--surface','#fff')};};
+  let colors=palette().series,surfaceColor=palette().surface;
   const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const fmt=x=>x==null?'Sin dato':new Intl.NumberFormat('es-CO',{maximumFractionDigits:4}).format(x);
   const label=r=>`${r.m}, ${r.d}`;
@@ -29,6 +31,7 @@
     get('radar-inspector').innerHTML=`<h3 style="color:${colors[index]}">${esc(label(r))}</h3><h4>${esc(s.name)}: ${relative&&!s.coverage?'Sin datos relativos':fmt(s.lower)+'–'+fmt(s.upper)+' / 100'}</h4>${relative?(percapita?'<p>Por 10.000 habitantes.</p>':'<p>Base propia de cada indicador.</p>'):''}${s.fields.map(f=>relative?relativeField(f,r):`<div class="radar-input"><strong>${esc(f.label)}</strong><div class="small muted">${esc(f.source)} · ${esc(f.unit)} · N = ${f.n}</div>${f.row?`<div>Valor = ${fmt(f.row.v)}; máximo = ${fmt(f.anchor)}</div><div class="formula">z = ${f.row.v===0?'0 (cero explícito)':`100 × ${fmt(f.row.v)} / ${fmt(f.anchor)}`} = ${fmt(f.score)}<br>Peso interno = ${fmt(f.share)}<br>Aporte al sector = ${fmt(f.score)} × ${fmt(f.share)} = ${fmt(f.score*f.share)}</div>`:`<p><strong>Sin dato, no cero.</strong> Máximo de referencia = ${fmt(f.anchor)}. Peso interno = ${fmt(f.share)}. Aporte desconocido al sector: 0–${fmt(100*f.share)}.</p>`}</div>`).join('')}<p class="formula">Sector inferior = ${s.fields.filter(f=>f.share>0).map(f=>f.score==null?'0 [límite, no dato]':fmt(f.score*f.share)).join(' + ')} = ${fmt(s.lower)}<br>Sector superior = ${fmt(s.lower)} + ${fmt(s.upper-s.lower)} por faltantes = ${fmt(s.upper)}</p><h4>Cómo entra al índice global</h4><p>D = (${r.sectors.map(x=>fmt(x.lower)).join(' + ')}) / ${r.sectors.length} = ${fmt(r.damageLower)} · documentado.</p><p>IPM censal DANE 2018 = ${r.vulnerability==null?'Sin dato: intervalo 0–100':fmt(r.vulnerability)+'%'}.</p><p class="formula">P = D × (1 + 0,25 × IPM/100) / 1,25<br>P inferior = ${fmt(r.damageLower)} × ${fmt(loFactor)} = ${fmt(r.lower)}<br>P superior = ${fmt(r.damageUpper)} × ${fmt(hiFactor)} = ${fmt(r.upper)}</p><p>Aporte de este sector a P: ${fmt(s.lower/r.sectors.length*loFactor)}–${fmt(s.upper/r.sectors.length*hiFactor)} puntos · peso 1/${r.sectors.length}.</p>`;
   }
   function render(model,state,selected){
+    {const t=palette();colors=t.series;surfaceColor=t.surface;}
     if(relative){relativeModel=relativeModel||Priorizacion.models(DATA)[mode];model=relativeModel;}
     const host=get('radar-chart');if(!host)return;
     const p=model.compute(state), places=p.all.filter(r=>!state.dept||r.d===state.dept).slice().sort((a,b)=>label(a).localeCompare(label(b),'es'));
@@ -40,9 +43,9 @@
     dialog.querySelector('[data-radar-close]').onclick=()=>dialog.close();
     dialog.onclick=e=>{if(e.target!==dialog)return;const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();};
     let svg='<svg viewBox="0 0 660 540" aria-label="Radar de cinco sectores, escala de cero a cien" role="group">';
-    [20,40,60,80,100].forEach(v=>{svg+=`<polygon points="${polygon(Array(Priorizacion.SECTORS.length).fill(v))}" fill="none" stroke="#d5dfe8"/><text x="338" y="${270-190*v/100+4}" class="radar-scale">${v}</text>`;});
+    [20,40,60,80,100].forEach(v=>{svg+=`<polygon points="${polygon(Array(Priorizacion.SECTORS.length).fill(v))}" fill="none" class="radar-grid"/><text x="338" y="${270-190*v/100+4}" class="radar-scale">${v}</text>`;});
     const names=Priorizacion.SECTORS.map(s=>s.name==='Infraestructura y acceso'?'Infraestructura':s.name);
-    names.forEach((name,i)=>{const [x,y]=point(i,100),[tx,ty]=point(i,119);svg+=`<line x1="330" y1="270" x2="${x}" y2="${y}" stroke="#d5dfe8"/><text x="${tx}" y="${ty+5}" text-anchor="middle">${name}</text>`;});
+    names.forEach((name,i)=>{const [x,y]=point(i,100),[tx,ty]=point(i,119);svg+=`<line x1="330" y1="270" x2="${x}" y2="${y}" class="radar-grid"/><text x="${tx}" y="${ty+5}" text-anchor="middle">${name}</text>`;});
     current.forEach((r,k)=>{
       if(relative&&r.sectors.some(s=>!s.coverage)){
         // No polygon through invented zeros or across unknown axes.
@@ -58,7 +61,7 @@
     current.forEach((r,k)=>r.sectors.forEach((s,i)=>{
       if(relative&&!s.coverage)return;
       const values=s.upper-s.lower>1e-8?[s.lower,s.upper]:[s.lower];
-      values.forEach((v,j)=>{const [x,y]=point(i,v);svg+=`<circle class="radar-point" cx="${x}" cy="${y}" r="6" fill="${j?'white':colors[k]}" stroke="${colors[k]}" stroke-width="2" tabindex="0" role="button" data-radar-m="${k}" data-radar-axis="${i}" aria-label="${esc(label(r))}, ${esc(s.name)}. ${j?'Límite con información faltante':'Puntaje documentado'}: ${Presentacion.number(v,1)} de 100. Ver detalle"><title>${esc(label(r))} · ${esc(s.name)}: ${Presentacion.number(v,1)} /100${j?' · límite con información faltante':''}</title></circle>`;});
+      values.forEach((v,j)=>{const [x,y]=point(i,v);svg+=`<circle class="radar-point" cx="${x}" cy="${y}" r="6" fill="${j?surfaceColor:colors[k]}" stroke="${colors[k]}" stroke-width="2" tabindex="0" role="button" data-radar-m="${k}" data-radar-axis="${i}" aria-label="${esc(label(r))}, ${esc(s.name)}. ${j?'Límite con información faltante':'Puntaje documentado'}: ${Presentacion.number(v,1)} de 100. Ver detalle"><title>${esc(label(r))} · ${esc(s.name)}: ${Presentacion.number(v,1)} /100${j?' · límite con información faltante':''}</title></circle>`;});
     }));
     get('radar-chart').innerHTML=current.length?svg+'</svg>':'<p class="empty">Selecciona un municipio para comenzar.</p>';
     get('radar-legend').innerHTML=Presentacion.radarLegend(current,colors);

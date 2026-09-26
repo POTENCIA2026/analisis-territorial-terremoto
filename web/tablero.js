@@ -48,6 +48,12 @@ function activate(tab) {
   state.tab=tab;
   document.querySelectorAll('[data-tab]').forEach(b=>{const on=b.dataset.tab===tab;b.classList.toggle('active',on);b.setAttribute('aria-selected',String(on));});
   document.querySelectorAll('.tab-panel').forEach(p=>p.hidden=p.id!==tab);
+  // La barra de pestañas queda fija: centrar la activa (móvil) y, si se venía leyendo más abajo,
+  // volver al inicio del panel nuevo. Se usa el scroll propio de la página, no scrollIntoView,
+  // para no mover la página madre cuando el tablero va dentro de un iframe.
+  const nav=document.querySelector('.tab-nav'),button=$('tab-'+tab),panel=$(tab);
+  if(nav&&button)nav.scrollTo({left:Math.max(0,button.offsetLeft-(nav.clientWidth-button.offsetWidth)/2),behavior:'smooth'});
+  if(nav&&panel){const top=panel.getBoundingClientRect().top+window.scrollY-nav.offsetHeight-8;if(window.scrollY>top)window.scrollTo({top:Math.max(0,top)});}
 }
 function openProfile(geo,source) {
   const r = model.visible(state).find(x=>x.geo===geo);
@@ -145,7 +151,7 @@ function renderMatrix() {
   const scores=new Map(p.items.map(r=>[r.geo,r]));
   const withData=matrix.filter(r=>r.cells.some(s=>s.cells.some(Boolean))).length;
   $('matrix-count').textContent=`${matrix.length} ${municipal?'municipios':'departamentos'} visibles · ${withData} con datos de esta fuente. La búsqueda no cambia los colores ni el orden.`;
-  $('matrix').innerHTML=table([municipal?'Municipio y prioridad':'Departamento',...layout.map(s=>s.name)],matrix.map(r=>`<tr>${municipal?placeCell(scores.get(r.geo)):`<td>${geoButton(r,state.matrixSource)}</td>`}${r.cells.map(s=>`<td class="heat-cell">${s.cells.map(c=>c?`<span class="heat-item" style="background:rgba(31,95,174,${c.p==null?.04:.04+.2*c.p/100})" title="${esc(`${c.i}. ${c.u}${c.p==null?'':`. P${Math.round(c.p)}`}`)}"><span>${esc(c.i)}</span><br><b>${c.u==='COP'?short(c.v):fmt(c.v,c.u)}</b> <span>${esc(c.u)}</span></span>`:'<span class="heat-item muted">—</span>').join('')}</td>`).join('')}</tr>`));
+  $('matrix').innerHTML=table([municipal?'Municipio y prioridad':'Departamento',...layout.map(s=>s.name)],matrix.map(r=>`<tr>${municipal?placeCell(scores.get(r.geo)):`<td>${geoButton(r,state.matrixSource)}</td>`}${r.cells.map(s=>`<td class="heat-cell">${s.cells.map(c=>c?`<span class="heat-item" style="background:rgba(var(--heat-rgb),${c.p==null?.04:.04+.2*c.p/100})" title="${esc(`${c.i}. ${c.u}${c.p==null?'':`. P${Math.round(c.p)}`}`)}"><span>${esc(c.i)}</span><br><b>${c.u==='COP'?short(c.v):fmt(c.v,c.u)}</b> <span>${esc(c.u)}</span></span>`:'<span class="heat-item muted">—</span>').join('')}</td>`).join('')}</tr>`));
 }
 function renderPriorityDetail(geo,scroll=true){
   state.priorityGeo=geo;
@@ -167,7 +173,7 @@ function distribution(pool) {
   const vals=pool.map(r=>r.v),min=Math.min(...vals),max=Math.max(...vals),n=min===max?1:8;
   const bins=Array(n).fill(0);vals.forEach(v=>bins[min===max?0:Math.min(n-1,Math.floor((v-min)/(max-min)*n))]++);
   const W=540,H=240,L=45,R=18,B=50,U=24,step=(W-L-R)/n,top=Math.max(...bins);
-  return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Histograma de valores originales"><text x="${L}" y="15">Territorios</text>${bins.map((count,i)=>{const h=count/top*(H-B-U);return `<rect x="${L+i*step+2}" y="${H-B-h}" width="${step-4}" height="${h}" fill="#1f5fae"><title>${fmt(min+(max-min)*i/n)} a ${fmt(min+(max-min)*(i+1)/n)}: ${count} territorios</title></rect><text x="${L+(i+.5)*step}" y="${H-B-h-6}" text-anchor="middle">${count}</text>`;}).join('')}<text x="${L}" y="${H-24}">${fmt(min)}</text><text x="${W-R}" y="${H-24}" text-anchor="end">${fmt(max)}</text><text x="${W/2}" y="${H-5}" text-anchor="middle">Valor original del indicador</text></svg>`;
+  return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Histograma de valores originales"><text x="${L}" y="15">Territorios</text>${bins.map((count,i)=>{const h=count/top*(H-B-U);return `<rect x="${L+i*step+2}" y="${H-B-h}" width="${step-4}" height="${h}" class="hist-bar"><title>${fmt(min+(max-min)*i/n)} a ${fmt(min+(max-min)*(i+1)/n)}: ${count} territorios</title></rect><text x="${L+(i+.5)*step}" y="${H-B-h-6}" text-anchor="middle">${count}</text>`;}).join('')}<text x="${L}" y="${H-24}">${fmt(min)}</text><text x="${W-R}" y="${H-24}" text-anchor="end">${fmt(max)}</text><text x="${W/2}" y="${H-5}" text-anchor="middle">Valor original del indicador</text></svg>`;
 }
 function renderDiagnostic() {
   const s=model.sector({...state,search:$('sector-search').value}),meta=s.meta;
@@ -262,7 +268,7 @@ function renderComparison(){
       yticks.map(y=>'<line class="gridline" x1="'+L+'" x2="'+(W-R)+'" y1="'+sy(y)+'" y2="'+sy(y)+'"/><text x="'+(L-9)+'" y="'+(sy(y)+4)+'" text-anchor="end">'+precision(y)+'</text>').join('')+
       xticks.map(x=>'<text x="'+sx(x)+'" y="'+(H-B+24)+'" text-anchor="middle">'+x+'</text>').join('')+
       '<line class="axis" x1="'+L+'" x2="'+(W-R)+'" y1="'+(H-B)+'" y2="'+(H-B)+'"/>'+
-      (line?'<line clip-path="url(#comparison-clip)" x1="'+sx(lo)+'" x2="'+sx(hi)+'" y1="'+sy(line.intercept+line.slope*lo)+'" y2="'+sy(line.intercept+line.slope*hi)+'" stroke="#b95319" stroke-dasharray="7 5" stroke-width="2"><title>Ajuste lineal con intercepto</title></line>':'')+
+      (line?'<line clip-path="url(#comparison-clip)" x1="'+sx(lo)+'" x2="'+sx(hi)+'" y1="'+sy(line.intercept+line.slope*lo)+'" y2="'+sy(line.intercept+line.slope*hi)+'" class="fit-line" stroke-dasharray="7 5" stroke-width="2"><title>Ajuste lineal con intercepto</title></line>':'')+
       pairs.slice().sort((a,b)=>Number(!!search&&T.searchMatch({...a,lv:'municipal'},search))-Number(!!search&&T.searchMatch({...b,lv:'municipal'},search))).map(r=>{
         const hit=!!search&&T.searchMatch({...r,lv:'municipal'},search);
         return '<circle class="comparison-point '+(hit?'highlight':'')+'" cx="'+sx(r.x)+'" cy="'+sy(r.y)+'" r="'+(hit?7:4.5)+'" data-compare-geo="'+esc(r.geo)+'" tabindex="0" role="button" aria-label="'+esc(r.m+', '+r.d+'. Nuestro índice '+precision(r.x)+'. '+rankTitle+' '+precision(r.y)+'. Ver datos.')+'"><title>'+esc(r.m+', '+r.d)+' · '+precision(r.x)+' /100 · Necesidad de recuperación temprana '+precision(r.recovery)+' · puesto '+r.recoveryRank+'</title></circle>';
@@ -315,5 +321,14 @@ $('download').addEventListener('click',()=>{
   const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='seleccion-territorial.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
 });
 refresh();
-
-
+// Vista de la matriz: resumen (una línea por municipio) o detalle. Se recuerda por navegador.
+function setDensity(value,save){
+  document.querySelector('.profile-card').classList.toggle('is-compact',value==='compact');
+  document.querySelectorAll('[data-density]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.density===value)));
+  if(save)try{localStorage.setItem('tablero.densidad',value);}catch(e){}
+}
+let savedDensity='compact';try{savedDensity=localStorage.getItem('tablero.densidad')==='detail'?'detail':'compact';}catch(e){}
+setDensity(savedDensity,false);
+document.querySelectorAll('[data-density]').forEach(b=>b.addEventListener('click',()=>setDensity(b.dataset.density,true)));
+// El tema sigue al sistema (como Torre de Control): al cambiarlo, redibujar los gráficos que leen colores.
+try{matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>refresh());}catch(e){}

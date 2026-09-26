@@ -92,6 +92,31 @@ class PreparationTests(unittest.TestCase):
             self.assertNotIn(removed, source)
         self.assertNotIn("__DATA__", source)
 
+    def test_html_embeds_torre_de_control_brand_and_stays_offline(self):
+        source = tablero.build_html([sample()])
+        for marker in ("__BRAND__", "__LOGO__", "__ICONO__", "__FONT_REGULAR__", "__FONT_MEDIUM__", "__FONT_BOLD__"):
+            self.assertNotIn(marker, source)
+        self.assertEqual(source.count('font-family:"National Park"'), 3)
+        self.assertIn('class="brand-logo"', source)
+        self.assertIn('src="data:image/webp;base64,', source)
+        self.assertIn("--navy:#013a51", source)
+        self.assertNotRegex(source, r"(?:src|href)=[\"']https?://|url\(https?://|@import")
+
+    def test_html_supports_dark_mode_without_hardcoded_chart_colors(self):
+        source = tablero.build_html([sample()])
+        self.assertIn("@media(prefers-color-scheme:dark)", source)
+        self.assertIn("--series-1:", source)
+        # Los colores de gráficos salen de variables CSS, no de constantes fijas en el JS.
+        for fixed in ('stroke="#d5dfe8"', 'fill="#008aee"', 'stroke="#e03000"', "'#07558a','#b95319','#724c9e'"):
+            self.assertNotIn(fixed, source)
+
+    def test_html_offers_summary_and_detail_views_with_summary_default(self):
+        source = tablero.build_html([sample()])
+        self.assertIn('data-density="compact" aria-pressed="true"', source)
+        self.assertIn('data-density="detail" aria-pressed="false"', source)
+        self.assertIn("tablero.densidad", source)
+        self.assertIn(".is-compact .matrix-card", source)
+
     def test_generate_preserves_raw_input_and_history_by_default(self):
         import csv
         with tempfile.TemporaryDirectory() as tmp:
