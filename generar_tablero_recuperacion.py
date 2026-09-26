@@ -179,7 +179,33 @@ def data_uri(path, mime):
     return f"data:{mime};base64," + base64.b64encode(path.read_bytes()).decode("ascii")
 
 
+# El historial completo se conserva en disco, pero el HTML no puede crecer sin límite (cada captura
+# suma ~4-5 MB): se incrustan las últimas capturas y, de las anteriores, la última de cada semana.
+HISTORY_RECENT_CAPTURES = 30
+
+
+def thin_history(history, current=(), recent=HISTORY_RECENT_CAPTURES):
+    """Reduce el historial que se incrusta: `recent` capturas más recientes (contando la actual) y
+    la última captura de cada semana ISO anterior. Filas con fecha inválida se conservan para que
+    el control de integridad las siga reportando."""
+    def parsed(row):
+        try:
+            return date.fromisoformat(row.get("fecha_corte", ""))
+        except (TypeError, ValueError):
+            return None
+    days = {parsed(r) for r in history} | {parsed(r) for r in current}
+    days.discard(None)
+    newest_first = sorted(days, reverse=True)
+    keep = set(newest_first[:recent])
+    weeks = {}
+    for day in newest_first[recent:]:
+        weeks.setdefault(day.isocalendar()[:2], day)  # el primero visto es el más reciente de su semana
+    keep |= set(weeks.values())
+    return [r for r in history if parsed(r) is None or parsed(r) in keep]
+
+
 def build_html(current, history=()):
+    history = thin_history(history, current)
     payload = prepare_payload(current, history)
     template = (ROOT / "web" / "tablero.html").read_text(encoding="utf-8")
     for marker, filename in (("__STYLE__", "tablero.css"), ("__PRESENTATION__", "presentacion.js"), ("__MODEL__", "modelo.js"), ("__HEALTH_PRESSURE__", "presion_salud.js"), ("__DENOMINATORS__", "denominadores.js"), ("__PRIORITY_MODEL__", "priorizacion.js"), ("__RADAR__", "radar.js"), ("__RELATIVE__", "relativo.js"), ("__COMPARISON__", "comparacion.js"), ("__APP__", "tablero.js")):
