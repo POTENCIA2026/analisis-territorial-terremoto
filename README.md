@@ -97,6 +97,16 @@ interruptor. Usa los tonos de página y tarjeta de Torre; muted, enlaces y serie
 texto supere 4,5:1 (los de Torre llegan a 4,0:1 sobre tarjeta). Los colores de los gráficos son variables
 CSS (`--series-*`, `--brand-blue`), no constantes en el JS, y se redibujan al cambiar el tema.
 
+## Despliegue con Docker
+
+El tablero se publica desde un contenedor que se actualiza solo cada 4 horas (sin Netlify ni GitHub Actions):
+
+```sh
+docker compose up -d --build     # escucha en 127.0.0.1:8002; Nginx lo publica bajo /tablero-terremoto/
+```
+
+Detalle, seguridad, cambios necesarios en Torre de Control y operación: [docs/despliegue_torre_de_control.md](docs/despliegue_torre_de_control.md).
+
 ## Vistas de la matriz y navegación
 
 La matriz abre en **Resumen**: una línea por municipio con su puntaje global, el puesto y una

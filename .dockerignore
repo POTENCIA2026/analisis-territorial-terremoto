@@ -1,0 +1,14 @@
+# Lista permitida: solo lo que la imagen necesita (el resto del repositorio pesa cientos de MB).
+*
+!actualizar_indice_terremoto.py
+!generar_tablero_recuperacion.py
+!migrar_clasificacion_3is.py
+!web
+!data
+!docs
+!deploy/ejecutor.py
+!deploy/nginx.conf
+# Captura inicial del historial: solo se usa en el primer arranque, después manda el volumen.
+!historial_indicadores_no_calculo.csv
+!indicadores_largo_no_calculo.csv
+**/__pycache__
