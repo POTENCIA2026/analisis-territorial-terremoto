@@ -20,6 +20,48 @@ def sample(**changes):
     return {**row, **changes}
 
 
+class ThinHistoryTests(unittest.TestCase):
+    @staticmethod
+    def rows(*days):
+        return [sample(fecha_corte=d) for d in days]
+
+    def test_short_history_is_untouched(self):
+        history = self.rows("2026-09-01", "2026-09-02", "2026-09-03")
+        self.assertEqual(tablero.thin_history(history, self.rows("2026-09-04")), history)
+
+    def test_keeps_recent_captures_and_last_of_each_older_week(self):
+        from datetime import date, timedelta
+        start = date(2026, 1, 1)
+        days = [(start + timedelta(days=i)).isoformat() for i in range(120)]
+        kept = {r["fecha_corte"] for r in tablero.thin_history(self.rows(*days), self.rows(days[-1]), recent=10)}
+        self.assertTrue(set(days[-10:]) <= kept, "las 10 más recientes se conservan todas")
+        older = sorted(d for d in kept if d < days[-10])
+        weeks = [date.fromisoformat(d).isocalendar()[:2] for d in older]
+        self.assertEqual(len(weeks), len(set(weeks)), "una sola captura por semana en lo antiguo")
+        self.assertLess(len(kept), 45)
+        # la que se conserva de cada semana es la última de esa semana
+        for d in older:
+            week = date.fromisoformat(d).isocalendar()[:2]
+            same = [x for x in days if date.fromisoformat(x).isocalendar()[:2] == week and x < days[-10]]
+            self.assertEqual(d, max(same))
+
+    def test_current_capture_counts_and_invalid_dates_survive(self):
+        history = self.rows("2026-08-01", "sin-fecha", "2026-09-01")
+        kept = tablero.thin_history(history, self.rows("2026-09-02"), recent=1)
+        # con recent=1 la captura actual (09-02) ocupa el cupo; 09-01 y 08-01 se conservan como
+        # última de su semana, y la fila sin fecha nunca se descarta.
+        self.assertEqual({r["fecha_corte"] for r in kept}, {"2026-08-01", "2026-09-01", "sin-fecha"})
+
+    def test_build_html_embeds_thinned_history_only(self):
+        from datetime import date, timedelta
+        days = [(date(2026, 1, 1) + timedelta(days=i)).isoformat() for i in range(80)]
+        source = tablero.build_html([sample(fecha_corte=days[-1])], self.rows(*days[:-1]))
+        embedded = json.loads(re.search(r"const DATA=(.*?);</script>", source).group(1))["dates"]
+        self.assertLess(len(embedded), 45)
+        self.assertEqual(max(embedded), days[-1])
+        self.assertIn(days[-2], embedded)
+
+
 class PreparationTests(unittest.TestCase):
     def test_zero_is_retained_missing_and_invalid_excluded(self):
         result = tablero.prepare_payload([sample(valor="0"), sample(municipio="B", valor=""), sample(municipio="C", valor="nan")])
