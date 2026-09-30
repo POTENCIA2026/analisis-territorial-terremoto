@@ -4,6 +4,7 @@
   const T = typeof module !== 'undefined' && module.exports ? require('./modelo.js') : root.Territorial;
   const D = typeof module !== 'undefined' && module.exports ? require('./denominadores.js') : root.Denominadores;
   const H = typeof module !== 'undefined' && module.exports ? require('./presion_salud.js') : root.PresionSalud;
+  const E = typeof module !== 'undefined' && module.exports ? require('./matricula_critica.js') : root.MatriculaCritica;
   const field = (id, source, label, share) => ({id, source, label, share, unit:'Número'});
   const reported = (id, label, share=1) => field('3is_'+id, '3iS-Sheets', label, share);
   const estimated = (id, label, share=1) => field('pnud_'+id, 'PNUD', label, share);
@@ -86,12 +87,17 @@
     const relative=mode!=='absolute';
     const denominators=mode==='sectorial'?D.create(data):null;
     const pressure=H.create(data);
+    const education=E.create(data);
     const sourceCascade=data.healthPressure?.source_cascade?.enabled===true;
     const familiesInformational=data.healthPressure?.human_impact_policy?.families_informational_only===true;
     const definitions=housingWeights(sourceCascade?cascadedSectors():SECTORS,data.healthPressure?.housing_weight_policy).map(s=>
       familiesInformational&&s.id==='impacto_humano'
         ?{...s,fields:s.fields.map(f=>({...f,share:f.id==='3is_familias'?0:.5}))}:s);
-    const sectorDefs=mode==='sectorial'&&pressure.enabled?definitions.map(s=>s.id==='salud'?{...s,fields:[pressure.field]}:s):definitions;
+    const sectorDefs=definitions.map(s=>{
+      if(mode==='sectorial'&&pressure.enabled&&s.id==='salud')return {...s,fields:[pressure.field]};
+      if(education.enabled&&s.id==='educacion')return {...s,fields:[...s.fields.map(f=>({...f,share:f.share*.5})),E.field]};
+      return s;
+    });
     const fieldCount=sectorDefs.reduce((n,s)=>n+s.fields.filter(f=>f.share>0).length,0);
     const fixedEducation=mode==='sectorial'&&data.healthPressure?.education_relative_policy?.normalization==='fixed_inventory_cap_1';
     const scale=(f,values)=>{
@@ -107,6 +113,7 @@
       if(cache.has(key))return cache.get(key);
       const base=territorial.visible({...state,dept:''}).filter(r=>r.lv==='municipal');
       const places=[...new Map(base.map(r=>[r.geo,r])).values()];
+      const educationRows=education.rows(places,state.date);
       const baselines=new Map((data.baseline?.rows||[]).map(r=>[r.code,r]));
       const populationGroups=new Map(),populations=new Map();
       (data.population?.rows||[]).filter(r=>String(r.year)===String(state.date).slice(0,4)).forEach(r=>{
@@ -117,7 +124,9 @@
         if(rs.length===1&&Number.isFinite(rs[0].population)&&rs[0].population>0)populations.set(code,rs[0]);
       });
       const relativeMeasure=(r,id,code)=>{
-        if(mode==='sectorial'){
+        // Critical enrollment is a rate per resident in both population-based views,
+        // not a fraction of schools or a percentage of students without classes.
+        if(mode==='sectorial'&&id!==E.ID){
           const result=denominators.measure(r,id,code,state.date);
           if(data.healthPressure?.disabled_relative_indicators?.includes(id))
             return {...result,rate:null,calculationDisabled:true,reason:'Cálculo relativo de centros educativos deshabilitado en esta rama.'};
@@ -141,7 +150,7 @@
           calibrations.set(f.id,{...f,...selected,...scale(f,values),n:values.length,positive:values.filter(v=>v>0).length,values});
           return;
         }
-        const candidates=(f.id===H.ID&&mode==='sectorial'?pressure.rows(base):base).filter(r=>r.f===f.source&&r.id===f.id);
+        const candidates=(f.id===E.ID?educationRows:f.id===H.ID&&mode==='sectorial'?pressure.rows(base):base).filter(r=>r.f===f.source&&r.id===f.id);
         const cohorts=new Set(candidates.map(T.cohort));
         const coherent=cohorts.size<=1 && candidates.every(r=>r.u===f.unit);
         const byGeo=new Map();
