@@ -2,6 +2,7 @@
 (function(root){
   'use strict';
   const MODES=['absolute','percapita','sectorial'];
+  const P=typeof module!=='undefined'&&module.exports?require('./priorizacion.js'):root.Priorizacion;
   function midranks(values){
     const sorted=values.map((v,i)=>({v,i})).sort((a,b)=>a.v-b.v),out=[];
     for(let i=0;i<sorted.length;){
@@ -51,6 +52,30 @@
     return {pairs,...statistics(pairs),excluded,total:universe.length,referenceN:results[mode].referenceN,
       recoveryN:recovery.size,mode,panel,axis};
   }
-  const api={MODES,midranks,fit,statistics,compare};
+  // Exact additive decomposition, not a regression of the index against its own inputs.
+  // Removing a sector leaves its original weight unused: no reweighting or rescaling.
+  function contributions(models,state,{mode='absolute',included=null}={}){
+    if(!MODES.includes(mode))throw new Error('Modo desconocido');
+    const result=models[mode].compute(state),definitions=result.definitions;
+    const ids=definitions.map(s=>s.id),active=new Set(included===null?ids:included);
+    if([...active].some(id=>!ids.includes(id)))throw new Error('Dimensión desconocida');
+    const weights=definitions.map(()=>1),count=definitions.length;
+    const all=result.items.map(r=>{
+      const keep=predicate=>P.aggregate(r.sectors.map(s=>predicate(s)?s:{...s,lower:0,upper:0}),r.vulnerability,weights);
+      const sectors=r.sectors.map(s=>({id:s.id,name:s.name,coverage:s.coverage,
+        included:active.has(s.id),...keep(other=>other.id===s.id)}));
+      const selected=keep(s=>active.has(s.id));
+      const selectedKnown=r.sectors.some(s=>active.has(s.id)&&s.coverage>1e-8);
+      return {...r,contributions:sectors,selectedLower:selected.lower,selectedUpper:selected.upper,
+        selectedKnown,removed:r.lower-selected.lower,selectedRank:null};
+    });
+    // Both rankings use the whole territorial reference, never the text/department filter.
+    const selectedRanks=new Map(P.ranks(all.filter(r=>r.selectedKnown).map(r=>({...r,lower:r.selectedLower}))).map(r=>[r.geo,r.rank]));
+    const rows=all.filter(r=>!state.dept||r.d===state.dept).map(r=>({...r,selectedRank:selectedRanks.get(r.geo)??null}));
+    return {rows,definitions,active:[...active],mode,referenceN:result.referenceN,
+      excluded:result.missing.filter(r=>!state.dept||r.d===state.dept).length,
+      sectorWeight:count?1/count:0};
+  }
+  const api={MODES,midranks,fit,statistics,compare,contributions};
   if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.Comparacion=api;
 })(typeof globalThis!=='undefined'?globalThis:this);

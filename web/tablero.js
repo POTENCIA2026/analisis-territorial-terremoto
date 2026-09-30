@@ -8,6 +8,7 @@ const short = n => n == null ? '—' : new Intl.NumberFormat('es-CO', {notation:
 const sorted = a => [...new Set(a)].sort((x,y) => x.localeCompare(y,'es'));
 const state = {scope:'decree',dept:'',date:DATA.latest,level:'municipal',source:T.RAPIDA,dim:'Vivienda',metric:'',order:'desc',geo:'',tab:'prioridades',matrixSource:'integrated',priorityOrder:'integrated',priorityDimension:'',priorityGeo:''};
 let priorityLimit = 25, sectorLimit = 25, rapidaLimit=25, comparisonGeo='';
+let dimensionIncluded=null,dimensionGeo='';
 const table = (heads, rows) => rows.length ? `<table><thead><tr>${heads.map(h=>`<th scope="col">${esc(h)}</th>`).join('')}</tr></thead><tbody>${rows.join('')}</tbody></table>` : '<p class="empty">Sin datos para esta selección.</p>';
 const tile = (label, value, sub) => `<div class="tile"><div class="tile-label">${esc(label)}</div><div class="tile-value">${esc(value)}</div><div class="tile-sub">${esc(sub)}</div></div>`;
 const geoButton = (r, source = r.f) => `<button type="button" class="link" data-geo="${esc(r.geo)}" data-source="${esc(source)}">${esc(r.m || r.d)}</button>${r.m?`<div class="muted small">${esc(r.d)}</div>`:''}`;
@@ -236,6 +237,11 @@ function renderRapida(){
   renderComparison();
 }
 function renderComparison(){
+  const internal=$('comparison-target').value==='dimensions';
+  $('comparison-external').hidden=internal;$('dimension-effect').hidden=!internal;
+  $('comparison-title').textContent=internal?'Cómo se forma nuestro índice':'Nuestro índice frente a necesidad de recuperación temprana';
+  $('comparison-search-label').textContent=internal?'Filtrar municipios':'Resaltar municipio';
+  if(internal){renderDimensionEffect();return;}
   const mode=$('comparison-mode').value;
   const c=Comparacion.compare(priorityModels,model,state,{mode,axis:'value',panel:'available'}),pairs=c.pairs;
   const names={absolute:'Absoluto',percapita:'Per cápita',sectorial:'Relativo'};
@@ -280,6 +286,40 @@ function renderComparison(){
   $('comparison-fit').textContent=c.regression?'Recta discontinua: Y = '+precision(c.regression.intercept)+(c.regression.slope<0?' − ':' + ')+precision(Math.abs(c.regression.slope))+' × X. R² = '+precision(c.regression.r2)+'.':c.reason;
   $('comparison-table').innerHTML=table(['Municipio','Nuestro índice documentado','Posible','Puesto nuestro','Necesidad de recuperación temprana','Puesto de necesidad','Cobertura'],pairs.slice().sort((a,b)=>b.x-a.x).map(r=>'<tr><td>'+geoButton({...r,lv:'municipal'},T.RAPIDA)+'</td><td class="num">'+precision(r.x)+'</td><td class="num">'+precision(r.upper)+'</td><td class="num">'+r.ownRank+'</td><td class="num">'+precision(r.recovery)+'</td><td class="num">'+r.recoveryRank+'</td><td>'+r.available+'/'+r.fieldCount+' · '+fmt(100*r.coverage)+'%</td></tr>'));
 }
+function renderDimensionEffect(){
+  const mode=$('comparison-mode').value,c=Comparacion.contributions(priorityModels,state,{mode,included:dimensionIncluded});
+  const search=$('comparison-search').value,rows=c.rows.filter(r=>T.searchMatch({...r,lv:'municipal'},search));
+  const sameOptions=$('dimension-options').querySelectorAll('input').length===c.definitions.length;
+  if(!sameOptions)$('dimension-options').innerHTML=c.definitions.map(s=>'<label><input type="checkbox" value="'+esc(s.id)+'"><span>'+esc(s.name)+'</span></label>').join('');
+  $('dimension-options').querySelectorAll('input').forEach(input=>{input.checked=c.active.includes(input.value);});
+  $('dimension-note').textContent=rows.length+(rows.length===1?' municipio mostrado':' municipios mostrados')+' · '+T.scopeLabel(state.scope)+(state.dept?' · '+state.dept:'')+' · '+state.date+'.'+(c.excluded?' '+c.excluded+' sin puntaje en el ámbito y departamento elegidos.':'');
+  if(!c.active.length){
+    $('dimension-bars').innerHTML='<p class="empty">Selecciona al menos una dimensión.</p>';
+    $('dimension-table').innerHTML='';$('dimension-detail').innerHTML='<p>El índice completo permanece sin cambios.</p>';return;
+  }
+  if(!rows.length){
+    $('dimension-bars').innerHTML='<p class="empty">No hay municipios con puntaje para estos filtros.</p>';
+    $('dimension-table').innerHTML='';$('dimension-detail').innerHTML='';return;
+  }
+  const average=values=>values.reduce((a,b)=>a+b,0)/values.length;
+  $('dimension-bars').innerHTML=c.definitions.map(s=>{
+    const contributions=rows.map(r=>r.contributions.find(x=>x.id===s.id)),mean=average(contributions.map(x=>x.lower));
+    const available=contributions.filter(x=>x.coverage>0).length,included=c.active.includes(s.id);
+    return '<div class="dimension-summary '+(included?'':'excluded')+'"><div><span>'+esc(s.name)+(included?'':' · excluida')+'</span><strong>'+fmt(mean)+' puntos</strong></div><div class="dimension-bar" aria-hidden="true"><i style="width:'+Math.min(100,mean/(100*c.sectorWeight)*100)+'%"></i></div><small>'+available+' de '+rows.length+' con algún dato'+(available<rows.length?' · sin aporte documentado en los restantes':'')+'</small></div>';
+  }).join('');
+  const showDetail=geo=>{
+    const r=rows.find(x=>x.geo===geo)||rows[0];dimensionGeo=r.geo;
+    $('dimension-detail').innerHTML='<h3>'+esc(r.m)+', '+esc(r.d)+'</h3><div class="dimension-score"><span>Índice completo</span><strong>'+fmt(r.lower)+' <small>/100</small></strong></div><div class="dimension-score"><span>Con la selección</span><strong>'+(r.selectedKnown?fmt(r.selectedLower):'Sin dato')+'</strong></div><p class="note small">Hasta '+fmt(r.selectedUpper)+' con información faltante'+(r.vulnerability==null?' · IPM sin dato':'')+'.</p><dl class="dimension-breakdown">'+r.contributions.map(s=>'<div class="'+(s.included?'':'excluded')+'"><dt>'+esc(s.name)+(s.included?'':' · excluida')+'</dt><dd>'+(s.coverage>0?fmt(s.lower)+' puntos':'Sin dato')+(s.coverage>0&&s.coverage<1?' <small>· parcial</small>':'')+'</dd></div>').join('')+'</dl><p class="note small">'+fmt(r.removed)+' puntos documentados retirados. Los aportes conservan el IPM y los pesos originales.</p>';
+    $('dimension-table').querySelectorAll('[data-dimension-geo]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.dimensionGeo===r.geo)));
+  };
+  const sortedRows=rows.slice().sort((a,b)=>(a.selectedRank??Infinity)-(b.selectedRank??Infinity)||a.rank-b.rank);
+  $('dimension-table').innerHTML=table(['Municipio','Índice completo','Con la selección','Puntos retirados','Puesto original','Puesto con selección','Cambio de puesto'],sortedRows.map(r=>{
+    const change=r.selectedRank==null?null:r.rank-r.selectedRank;
+    return '<tr><td><button type="button" class="link" data-dimension-geo="'+esc(r.geo)+'" aria-pressed="false">'+esc(r.m)+'</button><div class="small muted">'+esc(r.d)+'</div></td><td class="num">'+fmt(r.lower)+'</td><td class="num">'+(r.selectedKnown?fmt(r.selectedLower):'Sin dato')+'</td><td class="num">'+fmt(r.removed)+'</td><td class="num">'+r.rank+'</td><td class="num">'+(r.selectedRank??'—')+'</td><td class="num">'+(change==null?'—':change===0?'Sin cambio':change>0?'Sube '+change:'Baja '+Math.abs(change))+'</td></tr>';
+  }));
+  $('dimension-table').querySelectorAll('[data-dimension-geo]').forEach(b=>b.onclick=()=>showDetail(b.dataset.dimensionGeo));
+  showDetail(dimensionGeo);
+}
 function refresh() {globalControls();diagnosticControls();renderPriorities();renderDiagnostic();renderMethod();MunicipalComparisons.render(priorityModel,state);PrioridadPerCapita.render(state);PrioridadRelativa.render(state);renderRapida();showMeasure();}
 document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>activate(b.dataset.tab)));
 document.querySelector('.tab-nav').addEventListener('keydown',event=>{
@@ -303,7 +343,12 @@ $('sector-search').addEventListener('input',()=>{sectorLimit=25;renderDiagnostic
 $('rapida-search').addEventListener('input',()=>{rapidaLimit=25;renderRapida();});
 $('rapida-more').addEventListener('click',()=>{rapidaLimit+=50;renderRapida();});
 $('comparison-mode').addEventListener('change',renderComparison);
+$('comparison-target').addEventListener('change',renderComparison);
 $('comparison-search').addEventListener('input',renderComparison);
+$('dimension-options').addEventListener('change',()=>{dimensionIncluded=[...$('dimension-options').querySelectorAll('input:checked')].map(el=>el.value);renderComparison();});
+$('dimension-reset').addEventListener('click',()=>{dimensionIncluded=null;renderComparison();});
+$('dimension-method-open').addEventListener('click',()=>$('dimension-method-dialog').showModal());
+$('dimension-method-close').addEventListener('click',()=>$('dimension-method-dialog').close());
 document.addEventListener('keydown',event=>{if((event.key==='Enter'||event.key===' ')&&event.target.matches('svg [data-geo]')){event.preventDefault();openProfile(event.target.dataset.geo,event.target.dataset.source);}});
 $('sector-more').addEventListener('click',()=>{sectorLimit+=50;renderDiagnostic();});
 document.addEventListener('click',event=>{const priority=event.target.closest('[data-priority-geo]');if(priority){renderPriorityDetail(priority.dataset.priorityGeo);return;}const item=event.target.closest('[data-geo]');if(item)openProfile(item.dataset.geo,item.dataset.source);});

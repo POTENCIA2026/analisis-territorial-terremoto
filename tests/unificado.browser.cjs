@@ -90,7 +90,51 @@ const {pathToFileURL}=require('node:url'),path=require('node:path');
   await page.locator('#rapida-search').fill('pereira');
   assert.equal(await page.locator('#rapida-table tbody tr').count(),1);
   if(process.env.UNIFIED_SCREENSHOT)await page.locator('#comparison-card').screenshot({path:process.env.UNIFIED_SCREENSHOT});
+  assert.doesNotMatch(await page.locator('#matrix-search').getAttribute('placeholder'),/lorica/i);
+  const unchangedModels=await page.evaluate(()=>JSON.stringify(Object.fromEntries(Comparacion.MODES.map(mode=>[mode,priorityModels[mode].compute(state).items.map(r=>[r.geo,r.lower,r.upper,r.rank])]))));
+  await page.locator('#comparison-target').selectOption('dimensions');
+  assert.equal(await page.locator('#comparison-external').isVisible(),false);
+  assert.equal(await page.locator('#dimension-effect').isVisible(),true);
+  assert.equal(await page.locator('#dimension-options input:checked').count(),5);
+  assert.equal(await page.locator('#dimension-table tbody tr').count(),1); // previous search preserved
+  const checkContributions=async()=>{
+    const expected=await page.evaluate(()=>{
+      const c=Comparacion.contributions(priorityModels,state,{mode:document.getElementById('comparison-mode').value,included:[...document.querySelectorAll('#dimension-options input:checked')].map(el=>el.value)});
+      return c.rows.filter(r=>Territorial.searchMatch({...r,lv:'municipal'},document.getElementById('comparison-search').value)).sort((a,b)=>(a.selectedRank??Infinity)-(b.selectedRank??Infinity)||a.rank-b.rank).map(r=>({geo:r.geo,full:fmt(r.lower),selected:r.selectedKnown?fmt(r.selectedLower):'Sin dato',removed:fmt(r.removed),rank:String(r.selectedRank??'—')}));
+    });
+    const actual=await page.locator('#dimension-table tbody tr').evaluateAll(trs=>trs.map(tr=>({geo:tr.querySelector('button').dataset.dimensionGeo,full:tr.cells[1].textContent,selected:tr.cells[2].textContent,removed:tr.cells[3].textContent,rank:tr.cells[5].textContent})));
+    assert.deepEqual(actual,expected);
+  };
+  await checkContributions();
+  await page.locator('#dimension-options input[value="vivienda"]').uncheck();
+  await checkContributions();
+  assert.match(await page.locator('#dimension-detail').innerText(),/Vivienda · excluida/);
+  for(const mode of ['percapita','sectorial','absolute']){
+    await page.locator('#comparison-mode').selectOption(mode);await checkContributions();
+    assert.equal(await page.locator('#dimension-options input:checked').count(),4);
+  }
+  assert.equal(await page.evaluate(()=>JSON.stringify(Object.fromEntries(Comparacion.MODES.map(mode=>[mode,priorityModels[mode].compute(state).items.map(r=>[r.geo,r.lower,r.upper,r.rank])])))),unchangedModels);
+  await page.locator('#scope').selectOption('simat5');
+  await page.locator('#comparison-search').fill('');await checkContributions();
+  await page.locator('#dept').selectOption('Risaralda');await checkContributions();
+  await page.locator('#comparison-search').fill('no-existe');
+  assert.match(await page.locator('#dimension-bars').innerText(),/No hay municipios/);
+  await page.locator('#comparison-search').fill('pereira');
+  for(const cb of await page.locator('#dimension-options input').all())await cb.uncheck();
+  assert.match(await page.locator('#dimension-bars').innerText(),/Selecciona al menos/);
+  assert.equal(await page.locator('#dimension-table tbody tr').count(),0);
+  await page.locator('#dimension-reset').click();await checkContributions();
+  assert.equal(await page.locator('#dimension-options input:checked').count(),5);
+  await page.locator('#dimension-method-open').click();
+  assert.equal(await page.locator('#dimension-method-dialog').isVisible(),true);
+  await page.keyboard.press('Escape');
+  assert.equal(await page.locator('#dimension-method-dialog').isVisible(),false);
+  if(process.env.DIMENSION_SCREENSHOT)await page.locator('#comparison-card').screenshot({path:process.env.DIMENSION_SCREENSHOT});
   await page.setViewportSize({width:390,height:844});
+  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'overflow aporte de dimensiones');
+  if(process.env.DIMENSION_MOBILE_SCREENSHOT)await page.locator('#comparison-card').screenshot({path:process.env.DIMENSION_MOBILE_SCREENSHOT});
+  await page.locator('#comparison-target').selectOption('pnud');
+  await checkPairs();
   for(const tab of ['rapida','radar','prioridades','diagnostico','metodo']){
     await page.locator('#tab-'+tab).click();
     assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'overflow '+tab);
@@ -100,6 +144,6 @@ const {pathToFileURL}=require('node:url'),path=require('node:path');
   assert.equal(await page.locator('#diagnostico').isVisible(),true);
   assert.match(await page.locator('#profile-note').innerText(),/Pereira/);
   assert.deepEqual(errors,[]);
-  console.log('Unified UI OK: 3 matrices, 3 synchronized radars, RAPIDA, paired comparison, readable coefficients, search, keyboard, mobile, diagnostic.');
+  console.log('Unified UI OK: matrices/radars unchanged, RAPIDA, comparison, exact dimension contributions in 3 modes, subset ranks, filters, empty/missing cases, reset, modal, keyboard, mobile, diagnostic.');
  }finally{await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});

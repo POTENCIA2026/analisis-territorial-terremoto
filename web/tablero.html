@@ -24,7 +24,7 @@
 <div class="card profile-card">
 <div class="section-head"><h2 id="profile-title">Perfil de afectaciones por municipio</h2></div>
 <p class="profile-intro">Compara la magnitud de las afectaciones documentadas en cada sector e identifica dónde se concentran las principales brechas.</p>
-<div class="filters profile-controls"><label>Buscar municipio<input id="matrix-search" type="search" placeholder="Cali, Lorica, Quibdó…" aria-controls="matrix percapita-matrix relative-matrix"></label><label>Medida de afectación<select id="affectation-mode" aria-controls="absolute-card percapita-card relative-card"><option value="absolute">Afectación total</option><option value="percapita">Afectación per cápita</option><option value="sectorial">Afectación relativa</option></select></label></div>
+<div class="filters profile-controls"><label>Buscar municipio<input id="matrix-search" type="search" placeholder="Pereira, Cali, Quibdó…" aria-controls="matrix percapita-matrix relative-matrix"></label><label>Medida de afectación<select id="affectation-mode" aria-controls="absolute-card percapita-card relative-card"><option value="absolute">Afectación total</option><option value="percapita">Afectación per cápita</option><option value="sectorial">Afectación relativa</option></select></label></div>
 <p class="scale-key">Puntajes de 0 a 100: un valor más alto indica mayor afectación en el índice, no un porcentaje de pérdidas. <button type="button" class="link" id="show-method">Cómo se calcula</button></p>
 <div class="matrix-card" id="absolute-card"><h3 id="matrix-title" class="sr-only">Afectación total</h3>
 <p id="priority-note" class="note"></p><details class="matrix-explanation"><summary>Fuentes y significado de los colores</summary><p id="matrix-caption" class="muted small"></p><p id="matrix-note" class="note"></p><p id="matrix-warning" class="note"></p></details><p id="matrix-count" class="note small" aria-live="polite"></p><div id="matrix" class="table-scroll" tabindex="0" role="region" aria-labelledby="matrix-title"></div></div>
@@ -64,16 +64,27 @@
 <div class="card"><div class="section-head"><h2>Ranking de necesidad de recuperación temprana</h2><label class="search">Buscar en la tabla<input id="rapida-search" type="search" placeholder="Municipio o departamento"></label></div><p id="rapida-note" class="note"></p><div id="rapida-table" class="table-scroll"></div><button type="button" id="rapida-more" class="secondary" hidden>Ver más municipios</button></div>
 <div class="card"><h2>Necesidad de recuperación temprana e IPM</h2><p class="note">IPM y necesidad de recuperación temprana de la misma fuente.</p><div id="scatter"></div><p class="note">Selecciona un punto para abrir su ficha.</p><p id="scatter-note" class="note small"></p></div>
 </div>
-<div class="card" id="comparison-card"><h2>Nuestro índice frente a necesidad de recuperación temprana</h2>
+<div class="card" id="comparison-card"><div class="section-head"><h2 id="comparison-title">Nuestro índice frente a necesidad de recuperación temprana</h2><label class="analysis-picker">Qué quieres ver<select id="comparison-target" aria-controls="comparison-external dimension-effect"><option value="pnud">Comparación con PNUD</option><option value="dimensions">Aporte de cada dimensión</option></select></label></div>
 <div class="filters comparison-controls">
 <label>Nuestro índice<select id="comparison-mode"><option value="absolute">Absoluto</option><option value="percapita">Per cápita</option><option value="sectorial">Relativo</option></select></label>
-<label>Resaltar municipio<input id="comparison-search" type="search" placeholder="Nombre o departamento"></label>
+<label><span id="comparison-search-label">Resaltar municipio</span><input id="comparison-search" type="search" placeholder="Nombre o departamento"></label>
 </div>
+<div id="comparison-external">
 <p id="comparison-note" class="note" aria-live="polite"></p><div id="comparison-kpis" class="tiles"></div>
 <div class="comparison-layout"><div id="comparison-chart"></div><section id="comparison-detail" class="radar-inspector" aria-label="Municipio seleccionado en la dispersión" aria-live="polite"></section></div>
 <p id="comparison-fit" class="formula"></p>
 <details><summary>Base de comparación</summary><p id="comparison-reference" class="note small"></p></details>
 <details><summary>Municipios y valores usados</summary><div id="comparison-table" class="table-scroll"></div></details>
+</div>
+<section id="dimension-effect" hidden aria-labelledby="dimension-effect-title">
+<h3 id="dimension-effect-title" class="sr-only">Aportes al índice y efecto de excluir dimensiones</h3>
+<div class="section-head"><fieldset id="dimension-toggles"><legend>Dimensiones incluidas</legend><div id="dimension-options"></div></fieldset><button type="button" class="secondary" id="dimension-reset">Restablecer todas</button></div>
+<p class="note small">Exploración: al desmarcar una dimensión se retira su aporte, sin repartir su peso. El índice del tablero no cambia. <button type="button" class="link" id="dimension-method-open">Cómo leerlo</button></p>
+<p id="dimension-note" class="note" aria-live="polite"></p>
+<div class="dimension-layout"><section><h3>Aporte documentado promedio</h3><p class="note small">Puntos del índice en los municipios mostrados, con el ajuste IPM aplicado.</p><div id="dimension-bars"></div></section><section id="dimension-detail" class="radar-inspector" aria-live="polite" aria-label="Aportes del municipio seleccionado"></section></div>
+<div id="dimension-table" class="table-scroll" tabindex="0" role="region" aria-label="Puntaje y puesto con las dimensiones seleccionadas"></div>
+<dialog id="dimension-method-dialog" class="radar-method-dialog" aria-labelledby="dimension-method-title"><header class="radar-dialog-head"><h2 id="dimension-method-title">Cómo leer el aporte de las dimensiones</h2><button type="button" class="secondary" id="dimension-method-close" autofocus>Cerrar</button></header><div class="radar-inspector"><p>El aporte es la cantidad de puntos que cada dimensión suma al índice. Los cinco aportes suman el puntaje documentado de cada municipio.</p><p>Cada dimensión conserva su peso de 1/5 y el mismo ajuste IPM. Por ejemplo: una dimensión con 50 puntos y un factor IPM de 0,9 aporta 50 × 1/5 × 0,9 = 9 puntos al índice.</p><p>Desmarcar una dimensión retira ese aporte, sin cambiar los máximos de referencia, los denominadores ni el peso de las otras dimensiones. Es una simulación, no una nueva versión oficial del índice.</p><p>Los puestos se recalculan en el universo territorial completo. Buscar un municipio o filtrar departamento no modifica su puntaje ni su puesto. Los promedios de las barras sí corresponden a los municipios mostrados.</p><p>«Sin dato» no significa ausencia de afectación. Se conservan los límites por información faltante. Si ninguna dimensión seleccionada tiene información, no se asigna un nuevo puesto. El límite superior no es una predicción ni un intervalo de confianza.</p><p>Esta descomposición explica la construcción del índice, no un efecto causal. Correlacionar el total con una dimensión que ya contiene no valida el modelo. La comparación con PNUD responde a otra pregunta: cuánto coinciden ambos índices.</p></div></dialog>
+</section>
 </div>
 <details class="card"><summary id="rapida-missing-title">Municipios sin necesidad de recuperación temprana evaluada</summary><p class="note">Su ausencia del ranking no significa necesidad baja.</p><div id="rapida-missing-table" class="table-scroll"></div></details>
 </section>
