@@ -69,7 +69,9 @@ Se exportan agregados municipales y huellas SHA-256 en
 | Valle del Cauca | 42 |
 | **Total** | **126** |
 
-Se selecciona como **Cinco departamentos SIMAT**. El padrón incluye municipios
+Se selecciona como **Cinco departamentos**. Su padrón procede de la referencia
+municipal DANE ya incorporada al tablero y coincide con los municipios del
+inventario SIMAT recibido. No depende del indicador MEN. Incluye municipios
 sin daño reportado; pertenecer al ámbito no se contabiliza como afectación.
 MEN aporta el nuevo indicador en 121. Acandí, Nuquí, San José del Palmar,
 Balboa (Risaralda) y Mistrató no tienen reporte MEN en este lote.

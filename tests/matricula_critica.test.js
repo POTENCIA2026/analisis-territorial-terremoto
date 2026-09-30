@@ -6,7 +6,7 @@ const school=(code,value)=>({geo:'municipal:'+code,code,lv:'municipal',m:code,d:
   id:'pnud_cedu',f:'PNUD',u:'Número',v:value,i:'Centros educativos',dim:'Educación',date});
 function fixture(){
   return {rows:[school('66001',10),school('66170',5),school('66075',0)],dates:[date],latest:date,
-    baseline:{rows:[]},population:{rows:[{code:'66001',year:2026,population:100000},{code:'66170',year:2026,population:10000},{code:'66075',year:2026,population:5000}]},
+    baseline:{rows:[]},population:{rows:[{code:'66001',d:'Risaralda',m:'Pereira',year:2026,population:100000},{code:'66170',d:'Risaralda',m:'Dosquebradas',year:2026,population:10000},{code:'66075',d:'Risaralda',m:'Balboa',year:2026,population:5000}]},
     healthPressure:{enabled:false,source_cascade:{enabled:true}},
     educationCritical:{enabled:true,report_date:'2026-09-21',roster:[{code:'66001',d:'Risaralda',m:'Pereira'},{code:'66170',d:'Risaralda',m:'Dosquebradas'},{code:'66075',d:'Risaralda',m:'Balboa'}],
       municipalities:[{code:'66001',reported_sites:10,critical_enrollment:1000},{code:'66170',reported_sites:5,critical_enrollment:0}]}};
