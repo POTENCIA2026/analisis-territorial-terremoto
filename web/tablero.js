@@ -239,8 +239,8 @@ function renderRapida(){
 function renderComparison(){
   const internal=$('comparison-target').value==='dimensions';
   $('comparison-external').hidden=internal;$('dimension-effect').hidden=!internal;
-  $('comparison-title').textContent=internal?'Cómo se forma nuestro índice':'Nuestro índice frente a necesidad de recuperación temprana';
-  $('comparison-search-label').textContent=internal?'Filtrar municipios':'Resaltar municipio';
+  $('comparison-title').textContent=internal?'Dimensiones frente a necesidad de recuperación temprana':'Nuestro índice frente a necesidad de recuperación temprana';
+  $('comparison-search-label').textContent='Resaltar municipio';
   if(internal){renderDimensionEffect();return;}
   const mode=$('comparison-mode').value;
   const c=Comparacion.compare(priorityModels,model,state,{mode,axis:'value',panel:'available'}),pairs=c.pairs;
@@ -287,38 +287,48 @@ function renderComparison(){
   $('comparison-table').innerHTML=table(['Municipio','Nuestro índice documentado','Posible','Puesto nuestro','Necesidad de recuperación temprana','Puesto de necesidad','Cobertura'],pairs.slice().sort((a,b)=>b.x-a.x).map(r=>'<tr><td>'+geoButton({...r,lv:'municipal'},T.RAPIDA)+'</td><td class="num">'+precision(r.x)+'</td><td class="num">'+precision(r.upper)+'</td><td class="num">'+r.ownRank+'</td><td class="num">'+precision(r.recovery)+'</td><td class="num">'+r.recoveryRank+'</td><td>'+r.available+'/'+r.fieldCount+' · '+fmt(100*r.coverage)+'%</td></tr>'));
 }
 function renderDimensionEffect(){
-  const mode=$('comparison-mode').value,c=Comparacion.contributions(priorityModels,state,{mode,included:dimensionIncluded});
-  const search=$('comparison-search').value,rows=c.rows.filter(r=>T.searchMatch({...r,lv:'municipal'},search));
+  const mode=$('comparison-mode').value,c=Comparacion.compareDimensions(priorityModels,model,state,{mode,included:dimensionIncluded});
+  const colors={impacto_humano:'#2166ac',vivienda:'#a44713',salud:'#16806c',educacion:'#8454b3',infraestructura:'#966919'};
+  const precision=n=>n==null?'—':new Intl.NumberFormat('es-CO',{maximumFractionDigits:4}).format(n);
+  const percent=n=>new Intl.NumberFormat('es-CO',{style:'percent',maximumFractionDigits:2}).format(n);
+  const search=$('comparison-search').value,series=c.series.filter(s=>s.visible),points=series.flatMap(s=>s.pairs);
+  const matches=r=>!!search&&T.searchMatch({...r,lv:'municipal'},search);
+  const key=r=>r.dimension+'|'+r.geo;
   const sameOptions=$('dimension-options').querySelectorAll('input').length===c.definitions.length;
-  if(!sameOptions)$('dimension-options').innerHTML=c.definitions.map(s=>'<label><input type="checkbox" value="'+esc(s.id)+'"><span>'+esc(s.name)+'</span></label>').join('');
+  if(!sameOptions)$('dimension-options').innerHTML=c.definitions.map(s=>'<label style="--series-color:'+colors[s.id]+'"><input type="checkbox" value="'+esc(s.id)+'"><span class="dimension-color" aria-hidden="true"></span><span>'+esc(s.name)+'</span></label>').join('');
   $('dimension-options').querySelectorAll('input').forEach(input=>{input.checked=c.active.includes(input.value);});
-  $('dimension-note').textContent=rows.length+(rows.length===1?' municipio mostrado':' municipios mostrados')+' · '+T.scopeLabel(state.scope)+(state.dept?' · '+state.dept:'')+' · '+state.date+'.'+(c.excluded?' '+c.excluded+' sin puntaje en el ámbito y departamento elegidos.':'');
+  $('dimension-note').textContent=new Set(points.map(r=>r.geo)).size+' municipios · '+points.length+' puntos en '+series.length+' dimensiones · '+T.scopeLabel(state.scope)+(state.dept?' · '+state.dept:'')+' · '+state.date+'.'+(search?' '+new Set(points.filter(matches).map(r=>r.geo)).size+' municipios resaltados.':'');
   if(!c.active.length){
-    $('dimension-bars').innerHTML='<p class="empty">Selecciona al menos una dimensión.</p>';
-    $('dimension-table').innerHTML='';$('dimension-detail').innerHTML='<p>El índice completo permanece sin cambios.</p>';return;
+    $('dimension-chart').innerHTML='<p class="empty">Selecciona al menos una dimensión.</p>';
+    $('dimension-stats').innerHTML='';$('dimension-table').innerHTML='';$('dimension-detail').innerHTML='';return;
   }
-  if(!rows.length){
-    $('dimension-bars').innerHTML='<p class="empty">No hay municipios con puntaje para estos filtros.</p>';
-    $('dimension-table').innerHTML='';$('dimension-detail').innerHTML='';return;
-  }
-  const average=values=>values.reduce((a,b)=>a+b,0)/values.length;
-  $('dimension-bars').innerHTML=c.definitions.map(s=>{
-    const contributions=rows.map(r=>r.contributions.find(x=>x.id===s.id)),mean=average(contributions.map(x=>x.lower));
-    const available=contributions.filter(x=>x.coverage>0).length,included=c.active.includes(s.id);
-    return '<div class="dimension-summary '+(included?'':'excluded')+'"><div><span>'+esc(s.name)+(included?'':' · excluida')+'</span><strong>'+fmt(mean)+' puntos</strong></div><div class="dimension-bar" aria-hidden="true"><i style="width:'+Math.min(100,mean/(100*c.sectorWeight)*100)+'%"></i></div><small>'+available+' de '+rows.length+' con algún dato'+(available<rows.length?' · sin aporte documentado en los restantes':'')+'</small></div>';
-  }).join('');
-  const showDetail=geo=>{
-    const r=rows.find(x=>x.geo===geo)||rows[0];dimensionGeo=r.geo;
-    $('dimension-detail').innerHTML='<h3>'+esc(r.m)+', '+esc(r.d)+'</h3><div class="dimension-score"><span>Índice completo</span><strong>'+fmt(r.lower)+' <small>/100</small></strong></div><div class="dimension-score"><span>Con la selección</span><strong>'+(r.selectedKnown?fmt(r.selectedLower):'Sin dato')+'</strong></div><p class="note small">Hasta '+fmt(r.selectedUpper)+' con información faltante'+(r.vulnerability==null?' · IPM sin dato':'')+'.</p><dl class="dimension-breakdown">'+r.contributions.map(s=>'<div class="'+(s.included?'':'excluded')+'"><dt>'+esc(s.name)+(s.included?'':' · excluida')+'</dt><dd>'+(s.coverage>0?fmt(s.lower)+' puntos':'Sin dato')+(s.coverage>0&&s.coverage<1?' <small>· parcial</small>':'')+'</dd></div>').join('')+'</dl><p class="note small">'+fmt(r.removed)+' puntos documentados retirados. Los aportes conservan el IPM y los pesos originales.</p>';
-    $('dimension-table').querySelectorAll('[data-dimension-geo]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.dimensionGeo===r.geo)));
+  $('dimension-stats').innerHTML=table(['Dimensión','Municipios comparables','Relación de puntajes — Pearson r','Ajuste lineal — R²','Coincidencia del orden — Spearman ρ'],series.map(s=>'<tr data-dimension-row="'+esc(s.id)+'"><td><span class="dimension-color" style="--series-color:'+colors[s.id]+'" aria-hidden="true"></span>'+esc(s.name)+(s.reason?'<div class="small muted">'+esc(s.reason)+'</div>':'')+'</td><td class="num">'+s.n+'<div class="small muted">'+s.partial+' parciales · '+s.missing+' sin dato sectorial</div></td><td class="num">'+precision(s.regression?.r)+'</td><td class="num">'+(s.regression?percent(s.regression.r2):'—')+'</td><td class="num">'+precision(s.rho)+'</td></tr>'));
+  const showDetail=r=>{
+    dimensionGeo=r?key(r):'';
+    $('dimension-detail').innerHTML=r?'<h3>'+esc(r.m)+', '+esc(r.d)+'</h3><p><span class="dimension-color" style="--series-color:'+colors[r.dimension]+'" aria-hidden="true"></span><b>'+esc(r.dimensionName)+'</b></p><p>Puntaje documentado de la dimensión<br><strong>'+fmt(r.x)+' /100</strong></p><p>Necesidad de recuperación temprana PNUD<br><strong>'+precision(r.y)+'</strong></p><p class="note small">Información de la dimensión: '+percent(r.sectorCoverage)+' de su peso'+(r.sectorCoverage<1-1e-8?' · puntaje parcial; hasta '+fmt(r.sectorUpper)+' por faltantes':'')+'.</p><p class="note small">Índice completo del municipio: '+fmt(r.lower)+' /100. No se modifica al ocultar dimensiones.</p>':'<p>Pasa el mouse, enfoca con Tab o toca un punto para ver el municipio y la dimensión.</p>';
+    $('dimension-chart').querySelectorAll('[data-dimension-key]').forEach(el=>el.classList.toggle('selected',el.dataset.dimensionKey===dimensionGeo));
   };
-  const sortedRows=rows.slice().sort((a,b)=>(a.selectedRank??Infinity)-(b.selectedRank??Infinity)||a.rank-b.rank);
-  $('dimension-table').innerHTML=table(['Municipio','Índice completo','Con la selección','Puntos retirados','Puesto original','Puesto con selección','Cambio de puesto'],sortedRows.map(r=>{
-    const change=r.selectedRank==null?null:r.rank-r.selectedRank;
-    return '<tr><td><button type="button" class="link" data-dimension-geo="'+esc(r.geo)+'" aria-pressed="false">'+esc(r.m)+'</button><div class="small muted">'+esc(r.d)+'</div></td><td class="num">'+fmt(r.lower)+'</td><td class="num">'+(r.selectedKnown?fmt(r.selectedLower):'Sin dato')+'</td><td class="num">'+fmt(r.removed)+'</td><td class="num">'+r.rank+'</td><td class="num">'+(r.selectedRank??'—')+'</td><td class="num">'+(change==null?'—':change===0?'Sin cambio':change>0?'Sube '+change:'Baja '+Math.abs(change))+'</td></tr>';
-  }));
-  $('dimension-table').querySelectorAll('[data-dimension-geo]').forEach(b=>b.onclick=()=>showDetail(b.dataset.dimensionGeo));
-  showDetail(dimensionGeo);
+  if(!points.length){$('dimension-chart').innerHTML='<p class="empty">No hay municipios con datos de las dimensiones seleccionadas y de PNUD en este ámbito.</p>';showDetail(null);}
+  else{
+    // Fixed axes across visibility toggles. No jitter: repeated Y values remain aligned.
+    const W=760,H=440,L=77,R=25,U=22,B=65,maxY=Math.max(.01,...c.comparison.pairs.map(r=>r.y))*1.06;
+    const sx=x=>L+x/100*(W-L-R),sy=y=>H-B-y/maxY*(H-U-B);
+    $('dimension-chart').innerHTML='<svg class="chart" viewBox="0 0 '+W+' '+H+'" role="group" aria-label="Puntaje documentado por dimensión frente a necesidad PNUD"><defs><clipPath id="dimension-clip"><rect x="'+L+'" y="'+U+'" width="'+(W-L-R)+'" height="'+(H-U-B)+'"/></clipPath></defs>'+
+      Array.from({length:5},(_,i)=>i*maxY/4).map(y=>'<line class="gridline" x1="'+L+'" x2="'+(W-R)+'" y1="'+sy(y)+'" y2="'+sy(y)+'"/><text x="'+(L-9)+'" y="'+(sy(y)+4)+'" text-anchor="end">'+precision(y)+'</text>').join('')+
+      [0,20,40,60,80,100].map(x=>'<text x="'+sx(x)+'" y="'+(H-B+24)+'" text-anchor="middle">'+x+'</text>').join('')+
+      '<line class="axis" x1="'+L+'" x2="'+(W-R)+'" y1="'+(H-B)+'" y2="'+(H-B)+'"/>'+
+      series.filter(s=>s.regression).map(s=>{const line=s.regression,lo=Math.min(...s.pairs.map(r=>r.x)),hi=Math.max(...s.pairs.map(r=>r.x));return '<line data-dimension-fit="'+esc(s.id)+'" clip-path="url(#dimension-clip)" x1="'+sx(lo)+'" x2="'+sx(hi)+'" y1="'+sy(line.intercept+line.slope*lo)+'" y2="'+sy(line.intercept+line.slope*hi)+'" stroke="'+colors[s.id]+'" stroke-dasharray="7 5" stroke-width="1.5"><title>'+esc(s.name)+' · ajuste lineal con intercepto</title></line>';}).join('')+
+      points.slice().sort((a,b)=>Number(matches(a))-Number(matches(b))).map(r=>'<circle class="dimension-point '+(matches(r)?'highlight':'')+'" style="--series-color:'+colors[r.dimension]+'" cx="'+sx(r.x)+'" cy="'+sy(r.y)+'" r="'+(matches(r)?6.5:4.5)+'" data-dimension="'+esc(r.dimension)+'" data-dimension-geo="'+esc(r.geo)+'" data-dimension-key="'+esc(key(r))+'" tabindex="0" role="button" aria-label="'+esc(r.m+', '+r.d+'. '+r.dimensionName+': '+precision(r.x)+'. Necesidad PNUD: '+precision(r.y)+(r.sectorCoverage<1-1e-8?'. Información sectorial parcial':'')+'. Ver datos.')+'"><title>'+esc(r.m+' · '+r.dimensionName)+' · '+precision(r.x)+' /100 · PNUD '+precision(r.y)+'</title></circle>').join('')+
+      '<text class="dimension-axis-desktop" x="'+(W/2)+'" y="'+(H-13)+'" text-anchor="middle">Puntaje documentado de la dimensión (0–100)</text><text class="dimension-axis-desktop" transform="translate(20 '+(H/2)+') rotate(-90)" text-anchor="middle">Puntaje de necesidad PNUD (escala original)</text><text class="dimension-axis-mobile" x="'+(W/2)+'" y="'+(H-13)+'" text-anchor="middle">Puntaje de dimensión (0–100)</text><text class="dimension-axis-mobile" x="'+L+'" y="18">Necesidad PNUD</text></svg>';
+    const byKey=new Map(points.map(r=>[key(r),r]));
+    $('dimension-chart').querySelectorAll('[data-dimension-key]').forEach(el=>{
+      const show=()=>showDetail(byKey.get(el.dataset.dimensionKey));
+      el.onmouseenter=show;el.onfocus=show;el.onclick=show;
+      el.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();show();}};
+    });
+    showDetail(points.find(r=>matches(r))||byKey.get(dimensionGeo)||null);
+  }
+  $('dimension-table').innerHTML=table(['Municipio','Dimensión','Puntaje documentado (X)','Necesidad PNUD (Y)','Información sectorial'],points.map(r=>'<tr><td>'+esc(r.m)+'<div class="small muted">'+esc(r.d)+'</div></td><td>'+esc(r.dimensionName)+'</td><td class="num">'+precision(r.x)+'</td><td class="num">'+precision(r.y)+'</td><td>'+percent(r.sectorCoverage)+(r.sectorCoverage<1-1e-8?' · parcial':'')+'</td></tr>'));
 }
 function refresh() {globalControls();diagnosticControls();renderPriorities();renderDiagnostic();renderMethod();MunicipalComparisons.render(priorityModel,state);PrioridadPerCapita.render(state);PrioridadRelativa.render(state);renderRapida();showMeasure();}
 document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>activate(b.dataset.tab)));

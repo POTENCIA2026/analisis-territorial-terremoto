@@ -52,6 +52,26 @@
     return {pairs,...statistics(pairs),excluded,total:universe.length,referenceN:results[mode].referenceN,
       recoveryN:recovery.size,mode,panel,axis};
   }
+  // Separate municipal pairs per dimension; missing scores are not observed zeroes.
+  // Visibility and the paired sample never recalibrate the underlying scores.
+  function compareDimensions(models,territorial,state,{mode='absolute',included=null}={}){
+    const comparison=compare(models,territorial,state,{mode,panel:'available',axis:'value'});
+    const result=models[mode].compute(state),definitions=result.definitions;
+    const ids=definitions.map(s=>s.id),active=new Set(included===null?ids:included);
+    if([...active].some(id=>!ids.includes(id)))throw new Error('Dimensión desconocida');
+    const own=new Map(result.items.map(r=>[r.geo,r]));
+    const series=definitions.map(def=>{
+      const pairs=comparison.pairs.flatMap(pair=>{
+        const sector=own.get(pair.geo).sectors.find(s=>s.id===def.id);
+        if(!sector||!(sector.coverage>1e-8)||!Number.isFinite(sector.lower))return [];
+        return [{...pair,x:sector.lower,dimension:def.id,dimensionName:def.name,
+          sectorUpper:sector.upper,sectorCoverage:sector.coverage}];
+      });
+      return {...def,pairs,...statistics(pairs),visible:active.has(def.id),
+        missing:comparison.n-pairs.length,partial:pairs.filter(p=>p.sectorCoverage<1-1e-8).length};
+    });
+    return {series,definitions,active:[...active],comparison,mode};
+  }
   // Exact additive decomposition, not a regression of the index against its own inputs.
   // Removing a sector leaves its original weight unused: no reweighting or rescaling.
   function contributions(models,state,{mode='absolute',included=null}={}){
@@ -76,6 +96,6 @@
       excluded:result.missing.filter(r=>!state.dept||r.d===state.dept).length,
       sectorWeight:count?1/count:0};
   }
-  const api={MODES,midranks,fit,statistics,compare,contributions};
+  const api={MODES,midranks,fit,statistics,compare,compareDimensions,contributions};
   if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.Comparacion=api;
 })(typeof globalThis!=='undefined'?globalThis:this);

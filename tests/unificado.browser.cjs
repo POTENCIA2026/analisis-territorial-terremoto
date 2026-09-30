@@ -96,39 +96,60 @@ const {pathToFileURL}=require('node:url'),path=require('node:path');
   assert.equal(await page.locator('#comparison-external').isVisible(),false);
   assert.equal(await page.locator('#dimension-effect').isVisible(),true);
   assert.equal(await page.locator('#dimension-options input:checked').count(),5);
-  assert.equal(await page.locator('#dimension-table tbody tr').count(),1); // previous search preserved
-  const checkContributions=async()=>{
+  assert.ok(await page.locator('#dimension-chart .highlight').count()>0); // preserved search highlights, not filters
+  const checkDimensions=async()=>{
     const expected=await page.evaluate(()=>{
-      const c=Comparacion.contributions(priorityModels,state,{mode:document.getElementById('comparison-mode').value,included:[...document.querySelectorAll('#dimension-options input:checked')].map(el=>el.value)});
-      return c.rows.filter(r=>Territorial.searchMatch({...r,lv:'municipal'},document.getElementById('comparison-search').value)).sort((a,b)=>(a.selectedRank??Infinity)-(b.selectedRank??Infinity)||a.rank-b.rank).map(r=>({geo:r.geo,full:fmt(r.lower),selected:r.selectedKnown?fmt(r.selectedLower):'Sin dato',removed:fmt(r.removed),rank:String(r.selectedRank??'—')}));
+      const c=Comparacion.compareDimensions(priorityModels,model,state,{mode:document.getElementById('comparison-mode').value,included:[...document.querySelectorAll('#dimension-options input:checked')].map(el=>el.value)});
+      const n=x=>x==null?'—':new Intl.NumberFormat('es-CO',{maximumFractionDigits:4}).format(x);
+      const percent=x=>new Intl.NumberFormat('es-CO',{style:'percent',maximumFractionDigits:2}).format(x);
+      const series=c.series.filter(s=>s.visible),maxY=Math.max(.01,...c.comparison.pairs.map(r=>r.y))*1.06;
+      return {points:series.flatMap(s=>s.pairs).map(r=>({key:r.dimension+'|'+r.geo,cx:77+r.x/100*(760-77-25),cy:440-65-r.y/maxY*(440-22-65)})).sort((a,b)=>a.key.localeCompare(b.key)),
+        rows:series.map(s=>({id:s.id,n:String(s.n),r:n(s.regression?.r),r2:s.regression?percent(s.regression.r2):'—',rho:n(s.rho)})),fits:series.filter(s=>s.regression).map(s=>s.id)};
     });
-    const actual=await page.locator('#dimension-table tbody tr').evaluateAll(trs=>trs.map(tr=>({geo:tr.querySelector('button').dataset.dimensionGeo,full:tr.cells[1].textContent,selected:tr.cells[2].textContent,removed:tr.cells[3].textContent,rank:tr.cells[5].textContent})));
-    assert.deepEqual(actual,expected);
+    const points=await page.locator('#dimension-chart circle').evaluateAll(xs=>xs.map(el=>({key:el.dataset.dimensionKey,cx:Number(el.getAttribute('cx')),cy:Number(el.getAttribute('cy'))})).sort((a,b)=>a.key.localeCompare(b.key)));
+    assert.deepEqual(points,expected.points);
+    const rows=await page.locator('#dimension-stats tbody tr').evaluateAll(trs=>trs.map(tr=>({id:tr.dataset.dimensionRow,n:tr.cells[1].firstChild.textContent,r:tr.cells[2].textContent,r2:tr.cells[3].textContent,rho:tr.cells[4].textContent})));
+    assert.deepEqual(rows,expected.rows);
+    assert.deepEqual(await page.locator('[data-dimension-fit]').evaluateAll(xs=>xs.map(x=>x.dataset.dimensionFit)),expected.fits);
+    assert.equal(await page.locator('#dimension-table tbody tr').count(),points.length);
+    if(points.length)assert.match(await page.locator('#dimension-chart').textContent(),/Puntaje documentado de la dimensión/);
   };
-  await checkContributions();
+  await checkDimensions();
+  const dimensionStats=await page.locator('#dimension-stats').innerText();
+  await page.locator('#comparison-search').fill('');await checkDimensions();
+  assert.equal(await page.locator('#dimension-stats').innerText(),dimensionStats);
+  await page.locator('#comparison-search').fill('pereira');
+  await page.locator('#dimension-chart .highlight').first().focus();await page.keyboard.press('Enter');
+  assert.match(await page.locator('#dimension-detail').innerText(),/Pereira/);
+  const positions=await page.locator('#dimension-chart circle:not([data-dimension="vivienda"])').evaluateAll(xs=>xs.map(el=>[el.dataset.dimensionKey,el.getAttribute('cx'),el.getAttribute('cy')]));
   await page.locator('#dimension-options input[value="vivienda"]').uncheck();
-  await checkContributions();
-  assert.match(await page.locator('#dimension-detail').innerText(),/Vivienda · excluida/);
+  await checkDimensions();
+  assert.equal(await page.locator('#dimension-chart [data-dimension="vivienda"]').count(),0);
+  assert.deepEqual(await page.locator('#dimension-chart circle').evaluateAll(xs=>xs.map(el=>[el.dataset.dimensionKey,el.getAttribute('cx'),el.getAttribute('cy')])),positions);
   for(const mode of ['percapita','sectorial','absolute']){
-    await page.locator('#comparison-mode').selectOption(mode);await checkContributions();
+    await page.locator('#comparison-mode').selectOption(mode);await checkDimensions();
     assert.equal(await page.locator('#dimension-options input:checked').count(),4);
   }
   assert.equal(await page.evaluate(()=>JSON.stringify(Object.fromEntries(Comparacion.MODES.map(mode=>[mode,priorityModels[mode].compute(state).items.map(r=>[r.geo,r.lower,r.upper,r.rank])])))),unchangedModels);
   await page.locator('#scope').selectOption('simat5');
-  await page.locator('#comparison-search').fill('');await checkContributions();
-  await page.locator('#dept').selectOption('Risaralda');await checkContributions();
+  await page.locator('#comparison-search').fill('');await checkDimensions();
+  await page.locator('#dept').selectOption('Risaralda');await checkDimensions();
   await page.locator('#comparison-search').fill('no-existe');
-  assert.match(await page.locator('#dimension-bars').innerText(),/No hay municipios/);
+  assert.equal(await page.locator('#dimension-chart .highlight').count(),0);
+  assert.ok(await page.locator('#dimension-chart circle').count()>0);await checkDimensions();
   await page.locator('#comparison-search').fill('pereira');
   for(const cb of await page.locator('#dimension-options input').all())await cb.uncheck();
-  assert.match(await page.locator('#dimension-bars').innerText(),/Selecciona al menos/);
+  assert.match(await page.locator('#dimension-chart').innerText(),/Selecciona al menos/);
   assert.equal(await page.locator('#dimension-table tbody tr').count(),0);
-  await page.locator('#dimension-reset').click();await checkContributions();
+  assert.equal(await page.locator('#dimension-stats tbody tr').count(),0);
+  await page.locator('#dimension-reset').click();await checkDimensions();
   assert.equal(await page.locator('#dimension-options input:checked').count(),5);
   await page.locator('#dimension-method-open').click();
   assert.equal(await page.locator('#dimension-method-dialog').isVisible(),true);
   await page.keyboard.press('Escape');
   assert.equal(await page.locator('#dimension-method-dialog').isVisible(),false);
+  await page.locator('#dept').selectOption('');
+  await page.locator('#comparison-mode').selectOption('sectorial');await checkDimensions();
   if(process.env.DIMENSION_SCREENSHOT)await page.locator('#comparison-card').screenshot({path:process.env.DIMENSION_SCREENSHOT});
   await page.setViewportSize({width:390,height:844});
   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'overflow aporte de dimensiones');
@@ -144,6 +165,6 @@ const {pathToFileURL}=require('node:url'),path=require('node:path');
   assert.equal(await page.locator('#diagnostico').isVisible(),true);
   assert.match(await page.locator('#profile-note').innerText(),/Pereira/);
   assert.deepEqual(errors,[]);
-  console.log('Unified UI OK: matrices/radars unchanged, RAPIDA, comparison, exact dimension contributions in 3 modes, subset ranks, filters, empty/missing cases, reset, modal, keyboard, mobile, diagnostic.');
+  console.log('Unified UI OK: matrices/radars unchanged, RAPIDA, comparison, dimension scatter in 3 modes, per-series fits, fixed axes, highlight-only search, visibility, empty cases, reset, modal, keyboard, mobile, diagnostic.');
  }finally{await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});
