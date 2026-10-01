@@ -112,6 +112,67 @@ JSON de resumen a mano con la hoja "Resumen" nueva.
   `indicadores_largo.csv` -- 1 si el departamento está en la lista, 0 si
   no. Solo referencia/trazabilidad, el script no lee el PDF directamente.
 
+### Rama `educacion-matricula-critica`
+
+Fuentes crudas entregadas por aliados y entidades, guardadas tal cual se
+recibieron. **Ninguna alimenta todavía el índice ni ningún cálculo**: están
+aquí para quedar versionadas y trazables mientras se decide qué hacer con
+ellas. El `sha256` permite verificar que el archivo no cambió.
+
+- **`men_sedes_escolares_afectadas_20260921.xlsx`** — Ministerio de
+  Educación Nacional. Una hoja (`Sheet1`), 5.537 sedes escolares oficiales,
+  52 columnas: códigos DANE de municipio, institución y sede; matrícula
+  desagregada por grado; estado físico de la infraestructura; continuidad
+  del servicio educativo y estrategia de prestación; georreferenciación;
+  tutores PTAFI afectados. El corte (21 sep 2026) se infiere del nombre del
+  archivo, no viene declarado dentro. Es la **misma fuente** que ya consume
+  `matricula_critica.json`, cuyo `sources.men.sha256` coincide con este
+  archivo; hasta ahora solo existía el JSON derivado, no el original.
+  `sha256 eaa1342470b270fd3e5880da44378f24a673947d3657fb628bec2ad7d105d781`
+- **`icbf_base_afectaciones_aliados.xlsx`** — ICBF, nueve hojas. Las tres con
+  datos de afectación: `PRIMERA INFANCIA` (3.448 unidades de servicio, con
+  número de beneficiarios, modalidad y estado de afectación de la
+  infraestructura en LEVE / MODERADO / SEVERA — 70 severas), `SEDES ADM`
+  (62 sedes administrativas con grado de afectación, estado del seguro y
+  valor estimado de intervención) e `INFANCIAS Y ADOLESCENCIAS` (4 casas).
+  Las otras hojas son costeo de personal, transporte y materiales.
+  **Dos salvedades para quien la use:** no trae código DIVIPOLA, solo
+  nombres de municipio (73 distintos), así que cruzarla exige homologación
+  previa; y la columna `REGIONAL` de `SEDES ADM` trae 29 celdas con el error
+  `#VALUE!`. Cubre un ámbito —primera infancia— que ningún sector del
+  modelo mide hoy.
+  `sha256 c3eed6d7bdcb665333ca4666fce18d654e5359e3aeb795ab4641545638971a88`
+- **`pereira_fuente_unica_v2_dane.xlsx`** — consolidado de un solo
+  municipio, Pereira. Cinco hojas; la útil es `Matriz_maestra`: 102
+  registros (101 con código DANE de institución, 63 códigos de sede
+  distintos) con prioridad por matrícula, categoría de afectación, estado de
+  cobertura, matrícula 2025 y 2026 por sede, y matrícula movilizada como
+  respuesta al terremoto. La hoja `Resumen y validación` declara 54.835 de
+  matrícula sumada y 13 sedes en categoría "Colapso"; `Por_confirmar` lista
+  los casos sin resolver. Fuentes declaradas en el propio archivo:
+  Secretaría de Educación (cobertura y retorno) y ExE (priorización y
+  aliados). Los 63 códigos de sede ya están en
+  `sedes_educativas_afectadas_ago2026.csv`; lo nuevo son las variables de
+  priorización, no las sedes.
+  `sha256 516d7d34a067d89acc1d02ec4c281ae61384752e80fadf83b953028f68d22f55`
+- **`fundacion_plan_sedes.xlsx`** — Fundación PLAN, una hoja con el
+  encabezado en la fila 3. 16 filas, 12 códigos DANE de sede distintos en
+  cuatro municipios (Unión Panamericana y Condoto en Chocó, Dosquebradas en
+  Risaralda, Buenaventura en Valle del Cauca). Dos tipos de intervención:
+  adecuación menor de infraestructura (4) y acompañamiento para el
+  establecimiento de espacios protectores (12). Fundación PLAN **no figura**
+  entre las 232 organizaciones aliadas de
+  `sedes_educativas_afectadas_ago2026.csv`.
+  `sha256 123dfcd1b6359df94f7d0bc27790b18310e9e6341464535ee3bf69e4219e6497`
+- **`sedes_afectadas_filtradas_pei_dqdas.xlsx`** — tres hojas:
+  `sedes_proyecto` (35 sedes), `sedes_afectadas` (172 sedes con matrícula
+  por nivel, docentes, estado físico y prestación del servicio) y
+  `Clasificacion de afectación` (7 categorías con su descripción y la
+  decisión asociada). 168 de los 172 códigos de sede ya están en
+  `sedes_educativas_afectadas_ago2026.csv`, así que el aporte marginal es
+  bajo salvo por la tabla de clasificación.
+  `sha256 83e89ab20ad35c311b58520ba7f65366e083954c380d3995073f80e0cbca90f5`
+
 ## Salidas automáticas (no van en esta carpeta)
 
 - **`indicadores_largo_no_calculo.csv`** (raíz del repo, junto a
