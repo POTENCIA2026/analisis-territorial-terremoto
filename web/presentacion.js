@@ -14,7 +14,7 @@
     const value=has?number(relative?f.rate:f.row.v,relative?4:2):'—';
     const unit=relative?f.relativeUnit:(f.row?.u==='Número'?'':f.row?.u);
     const explanation=f.share===0?'Solo consulta; no suma al índice.':has?'Puntaje de la variable: '+number(f.score)+'/100.':'Sin dato; no equivale a cero.';
-    const title=[f.label,explanation,relative&&f.row?'Valor original: '+number(f.row.v):'',relative&&f.denominator?'Base: '+number(f.denominator.value)+' '+f.denominator.unit+' · '+f.denominator.reference_date:'',f.reason||''].filter(Boolean).join('. ');
+    const title=[f.label,explanation,f.note||'',relative&&f.row?'Valor original: '+number(f.row.v):'',relative&&f.denominator?'Base: '+number(f.denominator.value)+' '+f.denominator.unit+' · '+f.denominator.reference_date:'',f.reason||''].filter(Boolean).join('. ');
     const base=relative&&has&&f.denominator?'<small class="rate-base">'+number(f.row.v)+' / '+number(f.denominator.value)+' '+esc(f.denominator.unit.toLowerCase())+'</small>':relative&&f.row?'<small class="rate-base">Reportado: '+number(f.row.v)+'</small>':'';
     return '<span class="heat-item '+(has?'':'missing')+'" title="'+esc(title)+'" style="--intensity:'+ (f.score==null?0:Math.min(100,Math.max(0,f.score)))+'"><span class="field-name">'+esc(f.label.replace(/ · (3iS|PNUD)$/,''))+'</span><span class="field-value"><b>'+value+'</b>'+ (has&&unit?' <small>'+esc(unit)+'</small>':has?'':relative&&f.row?' <small>sin dato relativo</small>':' <small>sin dato</small>')+'</span>'+base+'</span>';
   }
@@ -33,6 +33,9 @@
     const rows=data.rows.filter(r=>r.date===state.date&&r.lv==='municipal'&&places.has(r.geo));
     const gravity=rows.filter(r=>r.f==='Naboo/UNGRD'&&r.id==='gravedad_oficial');
     const affected=new Set(rows.filter(r=>r.v>0&&ids.has(r.id)&&['PNUD','3iS-Sheets'].includes(r.f)).map(r=>r.geo));
+    // The new MEN observation is computed from the dated aggregate, not the raw history.
+    absolute.items.filter(r=>r.sectors?.some(s=>s.fields.some(f=>f.id==='men_matricula_critica'&&f.row?.v>0)))
+      .forEach(r=>affected.add(r.geo));
     gravity.filter(r=>r.v>0).forEach(r=>affected.add(r.geo));
     function population(geos){
       const observed=[...geos].map(geo=>places.get(geo)?.population?.population).filter(n=>Number.isFinite(n)&&n>0);
@@ -57,7 +60,7 @@
   function radarValue(f,relative){
     if(!f)return '<span class="muted">Sin dato</span>';
     const has=relative?f.rate!=null:!!f.row;
-    const title=[f.row?'Fuente: '+source(f.source):'Sin reporte',relative&&f.denominator?'Base: '+number(f.denominator.value)+' '+f.denominator.unit+' · '+f.denominator.reference_date:'',f.reason||''].filter(Boolean).join('. ');
+    const title=[f.row?'Fuente: '+source(f.source):'Sin reporte',f.note||'',relative&&f.denominator?'Base: '+number(f.denominator.value)+' '+f.denominator.unit+' · '+f.denominator.reference_date:'',f.reason||''].filter(Boolean).join('. ');
     if(!has)return '<span class="radar-data" title="'+esc(title)+'"><span class="muted">'+(relative&&f.row?'Sin dato relativo':'Sin dato')+'</span>'+(f.row?'<small>Reportado: '+number(f.row.v)+'</small>':'')+'</span>';
     return '<span class="radar-data" title="'+esc(title)+'"><strong>'+number(relative?f.rate:f.row.v,relative?4:2)+'</strong>'+
       (relative?'<small>'+esc(f.relativeUnit)+'</small><small>Reportado: '+number(f.row.v)+'</small>':f.row.u&&f.row.u!=='Número'?'<small>'+esc(f.row.u)+'</small>':'')+'</span>';

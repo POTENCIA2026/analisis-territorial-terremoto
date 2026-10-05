@@ -17,7 +17,7 @@
 <button type="button" id="tab-metodo" class="tab-btn" role="tab" aria-selected="false" aria-controls="metodo" data-tab="metodo">Fuentes y método</button>
 </nav>
 <div class="filters global">
-<label>Universo territorial<select id="scope"><option value="decree">Departamentos del Decreto 1171</option><option value="all">Todos los departamentos reportados</option></select></label>
+<label>Universo territorial<select id="scope"><option value="decree">Departamentos del Decreto 1171</option><option value="all">Todos los departamentos reportados</option><option value="simat5">Cinco departamentos</option></select></label>
 <label>Departamento<select id="dept"></select></label>
 <label title="Fecha de incorporación al tablero; no necesariamente fecha del hecho ni del reporte original.">Fecha de reporte<select id="date"></select></label>
 </div>
@@ -28,7 +28,7 @@
 <div class="card profile-card">
 <div class="section-head"><h2 id="profile-title">Perfil de afectaciones por municipio</h2></div>
 <p class="profile-intro">Compara la magnitud de las afectaciones documentadas en cada sector e identifica dónde se concentran las principales brechas.</p>
-<div class="filters profile-controls"><label>Buscar municipio<input id="matrix-search" type="search" placeholder="Cali, Lorica, Quibdó…" aria-controls="matrix percapita-matrix relative-matrix"></label><label>Medida de afectación<select id="affectation-mode" aria-controls="absolute-card percapita-card relative-card"><option value="absolute">Afectación total</option><option value="percapita">Afectación per cápita</option><option value="sectorial">Afectación relativa</option></select></label><div class="view-toggle" role="group" aria-label="Densidad de la tabla"><span class="view-toggle-label">Vista</span><span class="seg"><button type="button" data-density="compact" aria-pressed="true" title="Una línea por municipio, con la barra de puntaje de cada sector">Resumen</button><button type="button" data-density="detail" aria-pressed="false" title="Valores originales, fuente y evidencia de cada indicador">Detalle</button></span></div></div>
+<div class="filters profile-controls"><label>Buscar municipio<input id="matrix-search" type="search" placeholder="Pereira, Cali, Quibdó…" aria-controls="matrix percapita-matrix relative-matrix"></label><label>Medida de afectación<select id="affectation-mode" aria-controls="absolute-card percapita-card relative-card"><option value="absolute">Afectación total</option><option value="percapita">Afectación per cápita</option><option value="sectorial">Afectación relativa</option></select></label><div class="view-toggle" role="group" aria-label="Densidad de la tabla"><span class="view-toggle-label">Vista</span><span class="seg"><button type="button" data-density="compact" aria-pressed="true" title="Una línea por municipio, con la barra de puntaje de cada sector">Resumen</button><button type="button" data-density="detail" aria-pressed="false" title="Valores originales, fuente y evidencia de cada indicador">Detalle</button></span></div></div>
 <p class="scale-key">Puntajes de 0 a 100: un valor más alto indica mayor afectación en el índice, no un porcentaje de pérdidas. <button type="button" class="link" id="show-method">Cómo se calcula</button></p>
 <div class="matrix-card" id="absolute-card"><h3 id="matrix-title" class="sr-only">Afectación total</h3>
 <p id="priority-note" class="note"></p><details class="matrix-explanation"><summary>Fuentes y significado de los colores</summary><p id="matrix-caption" class="muted small"></p><p id="matrix-note" class="note"></p><p id="matrix-warning" class="note"></p></details><p id="matrix-count" class="note small" aria-live="polite"></p><div id="matrix" class="table-scroll" tabindex="0" role="region" aria-labelledby="matrix-title"></div></div>
@@ -68,16 +68,28 @@
 <div class="card"><div class="section-head"><h2>Ranking de necesidad de recuperación temprana</h2><label class="search">Buscar en la tabla<input id="rapida-search" type="search" placeholder="Municipio o departamento"></label></div><p id="rapida-note" class="note"></p><div id="rapida-table" class="table-scroll"></div><button type="button" id="rapida-more" class="secondary" hidden>Ver más municipios</button></div>
 <div class="card"><h2>Necesidad de recuperación temprana e IPM</h2><p class="note">IPM y necesidad de recuperación temprana de la misma fuente.</p><div id="scatter"></div><p class="note">Selecciona un punto para abrir su ficha.</p><p id="scatter-note" class="note small"></p></div>
 </div>
-<div class="card" id="comparison-card"><h2>Nuestro índice frente a necesidad de recuperación temprana</h2>
+<div class="card" id="comparison-card"><div class="section-head"><h2 id="comparison-title">Nuestro índice frente a necesidad de recuperación temprana</h2><label class="analysis-picker">Qué quieres ver<select id="comparison-target" aria-controls="comparison-external dimension-effect"><option value="pnud">Índice completo frente a PNUD</option><option value="dimensions">Dimensiones frente a PNUD</option></select></label></div>
 <div class="filters comparison-controls">
 <label>Nuestro índice<select id="comparison-mode"><option value="absolute">Absoluto</option><option value="percapita">Per cápita</option><option value="sectorial">Relativo</option></select></label>
-<label>Resaltar municipio<input id="comparison-search" type="search" placeholder="Nombre o departamento"></label>
+<label><span id="comparison-search-label">Resaltar municipio</span><input id="comparison-search" type="search" placeholder="Nombre o departamento"></label>
 </div>
+<div id="comparison-external">
 <p id="comparison-note" class="note" aria-live="polite"></p><div id="comparison-kpis" class="tiles"></div>
 <div class="comparison-layout"><div id="comparison-chart"></div><section id="comparison-detail" class="radar-inspector" aria-label="Municipio seleccionado en la dispersión" aria-live="polite"></section></div>
 <p id="comparison-fit" class="formula"></p>
 <details><summary>Base de comparación</summary><p id="comparison-reference" class="note small"></p></details>
 <details><summary>Municipios y valores usados</summary><div id="comparison-table" class="table-scroll"></div></details>
+</div>
+<section id="dimension-effect" hidden aria-labelledby="dimension-effect-title">
+<h3 id="dimension-effect-title" class="sr-only">Puntajes de cada dimensión frente a PNUD</h3>
+<div class="section-head"><fieldset id="dimension-toggles"><legend>Dimensiones visibles</legend><div id="dimension-options"></div></fieldset><button type="button" class="secondary" id="dimension-reset">Mostrar todas</button></div>
+<p class="note small">Cada punto es un municipio en una dimensión. Desmarca colores para aislar la comparación. <button type="button" class="link" id="dimension-method-open">Cómo leerlo</button></p>
+<p id="dimension-note" class="note" aria-live="polite"></p>
+<div class="dimension-layout"><div id="dimension-chart"></div><section id="dimension-detail" class="radar-inspector" aria-live="polite" aria-label="Municipio y dimensión seleccionados en la dispersión"></section></div>
+<div id="dimension-stats" class="table-scroll" tabindex="0" role="region" aria-label="Correlaciones de cada dimensión con PNUD"></div>
+<details><summary>Municipios y valores usados</summary><div id="dimension-table" class="table-scroll"></div></details>
+<dialog id="dimension-method-dialog" class="radar-method-dialog" aria-labelledby="dimension-method-title"><header class="radar-dialog-head"><h2 id="dimension-method-title">Cómo leer las dimensiones frente a PNUD</h2><button type="button" class="secondary" id="dimension-method-close" autofocus>Cerrar</button></header><div class="radar-inspector"><p><b>Eje horizontal:</b> puntaje documentado de la dimensión, entre 0 y 100, en la versión absoluta, per cápita o relativa seleccionada. Es el puntaje sectorial antes de aplicar el peso de 1/5 y el IPM al índice global; no es su aporte en puntos al total.</p><p><b>Eje vertical:</b> puntaje de necesidad de recuperación temprana de PNUD, en su escala original. Un municipio puede aparecer en varios colores, siempre con el mismo valor vertical.</p><p>Cada color tiene su propia recta de ajuste, Pearson r, R² y Spearman. No se mezclan los puntos de las cinco dimensiones para calcular una única correlación. R² es la proporción de variación recogida por el ajuste lineal con intercepto; no es un porcentaje de aciertos. La asociación no mide un efecto causal.</p><p>Se usan los pares disponibles de cada dimensión. Sus cantidades y municipios pueden diferir: una correlación mayor con pocos casos no es una comparación equivalente. Sin dato sectorial no se dibuja un cero; un cero documentado sí aparece. Los puntajes parciales conservan su valor documentado, sin redistribuir pesos, y se identifican al seleccionar el punto y en la tabla.</p><p>Las casillas solo ocultan o muestran series. No cambian los puntajes, los pesos ni el ranking del tablero. El departamento y el universo delimitan los municipios del análisis; la búsqueda solo resalta puntos y no cambia las correlaciones. Los máximos de referencia permanecen fijados por el modelo.</p></div></dialog>
+</section>
 </div>
 <details class="card"><summary id="rapida-missing-title">Municipios sin necesidad de recuperación temprana evaluada</summary><p class="note">Su ausencia del ranking no significa necesidad baja.</p><div id="rapida-missing-table" class="table-scroll"></div></details>
 </section>
@@ -106,7 +118,7 @@
 </section>
 <footer><span id="footer-capture"></span><span>Sin dato no significa cero. <a href="docs/notas_metodologicas.docx" download>Guía metodológica</a></span></footer>
 <noscript><p>Activa JavaScript para filtrar y consultar el tablero. Los datos originales están en <a href="indicadores_largo_no_calculo.csv">el inventario CSV</a>.</p></noscript>
-</main><script>__PRESENTATION__</script><script>__MODEL__</script><script>__HEALTH_PRESSURE__
+</main><script>__PRESENTATION__</script><script>__MODEL__</script><script>__CRITICAL_ENROLLMENT__</script><script>__HEALTH_PRESSURE__
 __DENOMINATORS__</script><script>__PRIORITY_MODEL__</script><script>const DATA=__DATA__;</script><script>__RADAR__</script><script>__RELATIVE__</script><script>__COMPARISON__</script><script>__APP__</script></body></html>
 
 

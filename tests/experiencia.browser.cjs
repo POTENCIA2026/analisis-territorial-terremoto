@@ -7,6 +7,10 @@ const assert=require('node:assert/strict'),{chromium}=require('playwright'),path
  async function open(width,height){const p=await browser.newPage({viewport:{width,height}});p.on('pageerror',e=>errors.push(e.message));await p.goto(url,{waitUntil:'load',timeout:120000});await p.waitForSelector('#matrix tbody tr');return p;}
 
  const desktop=await open(1440,900);
+ assert.equal(await desktop.locator('.brand-logo').evaluate(e=>e.complete&&e.naturalWidth>0),true,'el logotipo de la Alianza carga');
+ await desktop.evaluate(()=>document.fonts.ready);
+ assert.equal(await desktop.evaluate(()=>document.fonts.check('16px "National Park"')),true,'la fuente de marca está incrustada');
+ if(process.env.BRAND_SCREENSHOT)await desktop.screenshot({path:process.env.BRAND_SCREENSHOT});
  assert.equal(await desktop.locator('.profile-card').evaluate(e=>e.classList.contains('is-compact')),true,'la vista resumen es la predeterminada');
  const row=await desktop.locator('#matrix tbody tr').first().evaluate(e=>e.getBoundingClientRect().height);
  assert.ok(row<130,'una fila resumen debe ser corta, no '+row+'px');
@@ -60,6 +64,20 @@ const assert=require('node:assert/strict'),{chromium}=require('playwright'),path
  await dark.emulateMedia({colorScheme:'light'});await dark.waitForTimeout(600);
  const lightSeries=await dark.locator('#radar-chart svg line, #radar-chart svg polygon[stroke]').evaluateAll(n=>n.map(e=>e.getAttribute('stroke')).filter(Boolean));
  assert.ok(lightSeries.some(c=>c==='#0061a7'),'al pasar a claro, el radar se redibuja con su paleta clara');
+ // La integración conserva educación y la comparación por dimensiones bajo la marca.
+ await dark.click('#tab-rapida');await dark.selectOption('#comparison-target','dimensions');
+ await dark.selectOption('#scope','simat5');
+ const lightPoint=await dark.locator('.dimension-point[data-dimension="educacion"]').first().evaluate(e=>getComputedStyle(e).fill);
+ const originalCount=await dark.locator('.dimension-point').count();
+ assert.ok(originalCount>0);
+ await dark.emulateMedia({colorScheme:'dark'});await dark.waitForTimeout(600);
+ const darkPoint=await dark.locator('.dimension-point[data-dimension="educacion"]').first().evaluate(e=>getComputedStyle(e).fill);
+ assert.notEqual(darkPoint,lightPoint,'el scatter nuevo también adapta su paleta al modo oscuro');
+ assert.equal(await dark.locator('.dimension-point').count(),originalCount,'el cambio de tema no cambia datos');
+ const legendColor=await dark.locator('#dimension-options input[value="educacion"]').evaluate(e=>getComputedStyle(e.closest('label')).getPropertyValue('--series-color').trim());
+ const pointColor=await dark.locator('.dimension-point[data-dimension="educacion"]').first().evaluate(e=>e.style.getPropertyValue('--series-color'));
+ assert.equal(legendColor,pointColor,'leyenda y puntos mantienen el mismo color al cambiar de tema');
+ if(process.env.BRAND_DARK_SCREENSHOT)await dark.locator('#comparison-card').screenshot({path:process.env.BRAND_DARK_SCREENSHOT});
  await darkCtx.close();
 
  assert.deepEqual(errors,[]);
