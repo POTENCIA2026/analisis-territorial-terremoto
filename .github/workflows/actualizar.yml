@@ -10,6 +10,7 @@ on:
       - '*.py'
       - 'web/**'
       - 'tests/**'
+      - 'scripts/auditar_familias_informativas.cjs'
       - 'data/**'
 permissions:
   contents: write
