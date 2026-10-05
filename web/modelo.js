@@ -21,6 +21,7 @@
     100 * (values.filter(x => x < v).length + .5 * values.filter(x => x === v).length) / values.length;
   const label = r => r.lv === 'municipal' ? `${r.m}, ${r.d}` : r.d;
   const byName = (a, b) => label(a).localeCompare(label(b), 'es');
+  const scopeLabel = scope => scope==='simat5'?'cinco departamentos':scope==='decree'?'departamentos del decreto':'todos los departamentos reportados';
   const searchMatch = (r, search = '') => label(r).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
     .includes(search.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase());
   function create(data) {
@@ -29,10 +30,25 @@
     function decree(date) {
       return new Set(rows.filter(r => r.date === date && r.id === 'en_decreto_1171' && r.f === 'Decreto1171' && r.v === 1).map(r => r.d));
     }
-    function inScope(r, state) { return state.scope !== 'decree' || decree(state.date).has(r.d); }
+    // Independent of Education: use the municipal DANE reference already in the dashboard.
+    const departmentCodes=new Set(['17','27','63','66','76']);
+    const roster=[...new Map((data.population?.rows||[])
+      .filter(r=>/^\d{5}$/.test(r.code||'')&&departmentCodes.has(r.code.slice(0,2)))
+      .map(({code,d,m})=>[code,{code,d,m}])).values()];
+    const scopeCodes=new Set(roster.map(r=>r.code)),scopeDepartments=new Set(roster.map(r=>r.d));
+    function inScope(r, state) {
+      if(state.scope==='simat5')return r.lv==='municipal'?scopeCodes.has(r.code):scopeDepartments.has(r.d);
+      return state.scope !== 'decree' || decree(state.date).has(r.d);
+    }
     function visible(state, date = state.date, ignoreDept = false) {
-      const deps = decree(state.date); // Same geographic boundary for historical comparisons.
-      return rows.filter(r => r.date === date && (state.scope !== 'decree' || deps.has(r.d)) && (ignoreDept || !state.dept || r.d === state.dept));
+      // Same geographic boundary for historical comparisons; a roster is not a damage report.
+      const deps=state.scope==='decree'?decree(state.date):null;
+      const found=rows.filter(r => r.date === date && (deps?deps.has(r.d):state.scope==='simat5'?inScope(r,state):true) && (ignoreDept || !state.dept || r.d === state.dept));
+      if(state.scope!=='simat5')return found;
+      const seen=new Set(found.filter(r=>r.lv==='municipal').map(r=>r.code));
+      return found.concat(roster.filter(r=>!seen.has(r.code)&&(ignoreDept||!state.dept||r.d===state.dept)).map(r=>({...r,
+        geo:'municipal:'+r.code,lv:'municipal',date,join:'DIVIPOLA',f:'Ámbito de cinco departamentos',id:'roster_simat5',
+        i:'Municipio de la referencia DANE',dim:'Territorio',u:'Registro',v:null})));
     }
     function strict(base, id, source = RAPIDA) {
       const found = base.filter(r => r.lv === 'municipal' && r.f === source && r.id === id);
@@ -136,7 +152,7 @@
     }
     return {catalog, decree, inScope, visible, strict, ranked, priorities, sector, profile, history, matrix, matrixLayout};
   }
-  const api = {create, cohort, quantile, percentile, label, searchMatch, sectors, RECOVERY, IPM, RAPIDA};
+  const api = {create, cohort, quantile, percentile, label, searchMatch, sectors, scopeLabel, RECOVERY, IPM, RAPIDA};
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.Territorial = api;
 })(typeof globalThis !== 'undefined' ? globalThis : this);

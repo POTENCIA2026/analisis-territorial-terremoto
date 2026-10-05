@@ -28,6 +28,20 @@
 .column-sort:hover,.column-sort:focus-visible { color:#07558a; text-decoration:underline; }
 @media(max-width:850px) { .radar-layout, #radar-pickers { grid-template-columns:1fr; }.radar-controls{padding:18px} }
 .comparison-controls {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.analysis-picker{display:block;min-width:230px;max-width:100%;font-size:13px;color:var(--muted)}
+#comparison-card>.section-head{margin-bottom:18px}#comparison-card .comparison-controls{margin-bottom:18px}
+#dimension-toggles{border:0;padding:0;margin:12px 0;min-width:0}#dimension-toggles legend{font-size:13px;color:var(--muted);margin-bottom:8px}
+#dimension-options{display:flex;flex-wrap:wrap;gap:8px 18px}#dimension-options label{display:flex;align-items:center;gap:7px;font-size:13px;cursor:pointer;min-height:40px}
+#dimension-options input{width:18px;height:18px;min-height:18px;padding:0;margin:0;accent-color:var(--series-color)}
+.dimension-layout{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(240px,1fr);gap:24px;align-items:start;margin:20px 0 28px}
+.dimension-point{cursor:pointer;opacity:.6;stroke:white;stroke-width:.8;fill:var(--series-color)}
+.dimension-point.highlight{opacity:1;stroke:var(--series-color);stroke-width:2}
+.dimension-point:hover,.dimension-point:focus,.dimension-point.selected{opacity:1;stroke:#111;stroke-width:2.5;outline:none}
+.dimension-color{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--series-color);margin-right:7px}
+#dimension-table table{min-width:700px}#dimension-stats table{min-width:650px}#dimension-stats th{white-space:normal}
+@media(max-width:850px){.dimension-layout{grid-template-columns:1fr}.analysis-picker{width:100%}}
+.dimension-axis-mobile{display:none}
+@media(max-width:600px){#dimension-chart .chart text{font-size:22px}.dimension-axis-desktop{display:none}.dimension-axis-mobile{display:initial}}
 .comparison-layout {display:grid;grid-template-columns:minmax(0,1.7fr) minmax(240px,1fr);gap:24px;align-items:start}
 .comparison-point {cursor:pointer;fill:#1f5fae;opacity:.65}
 .comparison-point.highlight {fill:#c55220;opacity:1;stroke:#732700;stroke-width:2}
