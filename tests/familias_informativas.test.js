@@ -44,3 +44,21 @@ test('política ausente conserva la configuración histórica de tres pesos igua
  const d=fixture();delete d.healthPressure.human_impact_policy;
  const r=P.models(d).absolute.compute(state).all[0];assert.equal(r.fieldCount,10);assert.deepEqual(r.sectors[0].fields.map(f=>f.share),[1/3,1/3,1/3]);
 });
+
+test('MEN añade un indicador activo sin reintroducir familias en el cálculo',()=>{
+ const d=fixture(),currentDate='2026-09-28',currentState={scope:'all',date:currentDate};
+ d.rows.forEach(r=>r.date=currentDate);d.latest=currentDate;d.dates=[currentDate];
+ d.educationCritical={enabled:true,report_date:'2026-09-21',municipalities:[{code:codes[0],reported_sites:1,critical_enrollment:40}]};
+ const altered=structuredClone(d);altered.rows.filter(r=>r.id==='3is_familias').forEach(r=>r.v=1e12);
+ for(const mode of modes){
+  const result=P.models(d)[mode].compute(currentState);
+  assert.deepEqual(result.items.map(projection),P.models(altered)[mode].compute(currentState).items.map(projection));
+  for(const r of result.all){
+   assert.equal(r.fieldCount,10);assert.equal(r.sectors.flatMap(s=>s.fields).length,11);
+   assert.deepEqual(r.sectors[0].fields.map(f=>f.share),[0,.5,.5]);assert.equal(r.sectors[0].fields[0].contribution,0);
+   const men=r.sectors.find(s=>s.id==='educacion').fields.find(f=>f.id==='men_matricula_critica');
+   assert.equal(men.share,.5);
+   if(r.code===codes[0])assert.equal(men.row.v,40);else assert.equal(men.row,null);
+  }
+ }
+});
