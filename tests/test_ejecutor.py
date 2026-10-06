@@ -6,6 +6,7 @@ import sys
 import tempfile
 import unittest
 from datetime import datetime, timedelta, timezone
+from unittest.mock import patch
 
 try:
     import fcntl
@@ -125,6 +126,49 @@ class RunnerTests(unittest.TestCase):
     def test_status_is_valid_json_after_every_state(self):
         ej.run_once(update=True)
         json.loads((ej.PUBLIC / "status.json").read_text(encoding="utf-8"))
+
+    def test_run_now_forces_an_update_without_starting_nginx(self):
+        # Simula un `docker compose exec tablero python /app/ejecutor.py --run-now`: el proceso principal
+        # (y su nginx) ya está corriendo; este flag solo debe disparar una corrida y salir, nunca arrancar
+        # un segundo nginx ni entrar al bucle programado. subprocess.Popen también lo usa run_command()
+        # para cada paso del pipeline, así que se deja pasar de verdad (real_popen) y solo se registra qué
+        # se invocó, en vez de reemplazarlo por un mock que rompería la corrida misma.
+        self.addCleanup(setattr, sys, "argv", sys.argv)
+        sys.argv = ["ejecutor.py", "--run-now"]
+        real_popen, calls = ej.subprocess.Popen, []
+
+        def tracking_popen(argv, *a, **kw):
+            calls.append(argv)
+            return real_popen(argv, *a, **kw)
+
+        with patch.object(ej.subprocess, "Popen", side_effect=tracking_popen):
+            with self.assertRaises(SystemExit) as ctx:
+                ej.main()
+        self.assertEqual(ctx.exception.code, 0)
+        self.assertFalse(any(c and c[0] == "nginx" for c in calls), f"no debía arrancar nginx: {calls}")
+        status = ej.read_status()
+        self.assertTrue(status["ok"])
+        self.assertEqual(status["mode"], "actualización")
+        self.assertIsNotNone(status["last_success"])
+
+    def test_run_now_exits_nonzero_when_the_run_fails(self):
+        self.addCleanup(setattr, sys, "argv", sys.argv)
+        sys.argv = ["ejecutor.py", "--run-now"]
+        self.step("import sys;print('fuente caída');sys.exit(3)")
+        with self.assertRaises(SystemExit) as ctx:
+            ej.main()
+        self.assertEqual(ctx.exception.code, 1)
+        self.assertFalse((ej.PUBLIC / "index.html").exists())
+
+    def test_run_now_respects_the_lock_like_a_scheduled_run(self):
+        self.addCleanup(setattr, sys, "argv", sys.argv)
+        sys.argv = ["ejecutor.py", "--run-now"]
+        ej.DATA.mkdir(exist_ok=True)
+        with (ej.DATA / ".lock").open("w") as held:
+            fcntl.flock(held, fcntl.LOCK_EX)
+            with self.assertRaises(SystemExit) as ctx:
+                ej.main()
+        self.assertEqual(ctx.exception.code, 1, "una corrida ya en marcha no se pisa, pero sigue siendo un fallo para el script")
 
 
 if __name__ == "__main__":

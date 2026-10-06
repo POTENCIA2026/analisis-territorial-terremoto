@@ -95,8 +95,17 @@ docker compose ps                              # estado y salud
 docker compose logs --tail 60 tablero          # qué hizo la última corrida
 curl -s http://127.0.0.1:8002/status.json      # last_success, capture_date, error si falló
 git pull && docker compose up -d --build       # actualizar a una versión nueva (el historial se conserva)
+./deploy/actualizar_ahora.sh                   # forzar una actualización ya, sin esperar el ciclo de 4h
 ./deploy/respaldar.sh /ruta/de/backups         # respaldo del historial (añadir al cron del backup de Torre)
 ```
+
+**`git pull && docker compose up -d --build` por sí solo no actualiza la página.** El contenedor arranca
+sirviendo lo que ya estaba publicado en el volumen y espera a su próximo ciclo de `UPDATE_INTERVAL_HOURS`
+antes de regenerar — a propósito, para no volver a descargar todo en cada reinicio. Después de desplegar
+código nuevo, corre `./deploy/actualizar_ahora.sh` para publicar de inmediato (equivale a
+`docker compose exec tablero python /app/ejecutor.py --run-now`: no reinicia nginx ni el contenedor, y si
+ya hay una corrida en marcha simplemente desiste en vez de pisarla). Los visitantes siguen viendo la página
+anterior durante la corrida; solo cambia si la nueva pasa sus validaciones.
 
 `status.json`: `ok`, `last_success` (última descarga correcta), `last_attempt`, `capture_date` (fecha de la
 captura publicada), `embedded_captures`, `history_rows`, `html_bytes` y, si falló, `error` (la causa va en

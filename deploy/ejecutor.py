@@ -244,6 +244,18 @@ def wait(seconds, nginx=None):
 def main():
     if "--healthcheck" in sys.argv:
         sys.exit(0 if healthy() else 1)
+    if "--run-now" in sys.argv:
+        # Fuerza una actualización inmediata, para correr contra un contenedor YA levantado
+        # (`docker compose exec tablero python /app/ejecutor.py --run-now`, o `deploy/actualizar_ahora.sh`).
+        # Un `docker compose up -d --build` por sí solo no alcanza para publicar código nuevo: si ya había
+        # una página publicada en el volumen, el proceso principal la sigue sirviendo tal cual hasta el
+        # próximo ciclo de `UPDATE_INTERVAL_HOURS` (a propósito, para no volver a descargar todo en cada
+        # reinicio) — este flag es la forma explícita de saltarse esa espera. No toca nginx (ya corre en el
+        # proceso principal del contenedor) ni el bucle programado: es la misma `run_once()` de siempre, con
+        # el mismo candado de archivo, así que si ya hay una corrida en marcha, se desiste en vez de pisarla.
+        PUBLIC.mkdir(parents=True, exist_ok=True)
+        seed_state()
+        sys.exit(0 if run_once(update=True) else 1)
     signal.signal(signal.SIGTERM, lambda *_: STOP.set())
     signal.signal(signal.SIGINT, lambda *_: STOP.set())
     PUBLIC.mkdir(parents=True, exist_ok=True)
