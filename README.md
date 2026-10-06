@@ -99,11 +99,15 @@ CSS (`--series-*`, `--brand-blue`), no constantes en el JS, y se redibujan al ca
 
 ## Despliegue con Docker
 
-El tablero se publica desde un contenedor que se actualiza solo cada 4 horas (sin Netlify ni GitHub Actions):
+El tablero se publica desde un contenedor que se actualiza solo cada 4 horas (sin Netlify):
 
 ```sh
 docker compose up -d --build     # escucha en 127.0.0.1:8002; Nginx lo publica bajo /tablero-terremoto/
 ```
+
+Un push a `main` despliega esto solo, vía `.github/workflows/desplegar.yml` (pruebas primero, luego el
+despliegue en un runner propio instalado en el servidor). Detalle y configuración:
+[docs/despliegue_torre_de_control.md](docs/despliegue_torre_de_control.md).
 
 Detalle, seguridad, cambios necesarios en Torre de Control y operación: [docs/despliegue_torre_de_control.md](docs/despliegue_torre_de_control.md).
 

@@ -120,3 +120,106 @@ la primera línea). El contenedor se marca *unhealthy* si pasan más de tres int
 Restaurar un respaldo: `docker compose down`, extraer el `.tar.gz` en `/data/state` del volumen
 (`docker run --rm -v tablero-terremoto_tablero_data:/data -v "$PWD":/b alpine sh -c "cd /data/state && tar -xzf /b/<archivo>"`)
 y `docker compose up -d`.
+
+## Despliegue automático (GitHub Actions)
+
+Cada push a `main` que toque código o datos (ver el filtro `paths` de
+[`.github/workflows/desplegar.yml`](../.github/workflows/desplegar.yml)) corre las pruebas en un runner de
+GitHub y, solo si pasan, hace exactamente los mismos pasos manuales de arriba: `git pull` + `docker compose
+up -d --build` + forzar la actualización.
+
+**El job de despliegue corre en un runner propio, instalado en el servidor mismo** (`runs-on:
+[self-hosted, tablero-terremoto-prod]`), no en la infraestructura de GitHub. El servidor solo es
+alcanzable por Azure Bastion -- no acepta SSH entrante desde internet -- así que un runner de GitHub no
+tendría ninguna ruta de red hasta él. El runner propio lo resuelve al revés: es él quien abre una conexión
+saliente hacia GitHub para pedir trabajo, lo que funciona a través de cualquier firewall/NAT sin abrir
+ningún puerto entrante. No hace falta Bastion, ni una app de Azure AD, ni credenciales de Azure en GitHub.
+
+**Por qué esto es razonable acá, y cuándo dejaría de serlo:** un runner propio ejecuta el código que le
+mande el workflow que lo invoca, así que normalmente es más seguro conectarse por SSH desde un runner de
+GitHub que instalar uno propio en una máquina con secretos de producción. Esto se evalúa distinto porque
+`desplegar.yml` **solo** escucha `push` a `main` y `workflow_dispatch` -- nunca `pull_request` -- así que
+solo puede dispararse con código que ya pasó por algo que exigía permiso de escritura sobre el repositorio
+(un push directo, o un PR que alguien con permiso de fusión aprobó). Si este repositorio se vuelve público,
+o si algún día se agrega un trigger de `pull_request` a cualquier workflow de este repo, hay que revisar
+esto de nuevo: un fork malicioso podría entonces alcanzar un runner con acceso real al servidor.
+
+### Preparar el servidor (una sola vez)
+
+1. **Créale primero un usuario propio, de privilegios mínimos** -- no tu usuario, no root. Su única
+   capacidad debe ser correr `docker compose` y leer el checkout del repo (registra el runner bajo esta
+   cuenta, no bajo tu propio login):
+   ```bash
+   sudo useradd -m -s /bin/bash github-runner
+   sudo usermod -aG docker github-runner
+   ```
+
+2. **Registra el runner.** El registro a nivel de repositorio (Settings del repo → Actions → Runners →
+   «New self-hosted runner», con `--url https://github.com/POTENCIA2026/analisis-territorial-terremoto`)
+   puede no funcionar según la política de esta organización -- si da `404 Not Found` incluso con un token
+   recién generado, usa el registro a **nivel de organización** en su lugar: Settings de la organización
+   → Actions → Runners → «New self-hosted runner» (`--url https://github.com/POTENCIA2026`, sin ruta de
+   repo). La sintaxis es la misma; solo cambia el alcance del `--url` y de dónde sale el token:
+   El registro en sí (`./config.sh`) no necesita privilegios -- se corre como `github-runner`, no como
+   root/tu usuario, para que los archivos de credenciales del runner queden de ese dueño:
+   ```bash
+   sudo -u github-runner -i
+   mkdir actions-runner && cd actions-runner
+   # pega aquí el curl/tar que te dé la página de GitHub (cambia con cada versión del runner)
+   ./config.sh --url <url-del-paso-anterior> --token <el-token-que-dio-github> \
+     --labels tablero-terremoto-prod --unattended
+   exit   # vuelve a tu propio usuario
+   ```
+   Instalar el servicio sí necesita privilegios, así que esto corre con `sudo` desde tu propia sesión, no
+   dentro de la de `github-runner` (y especifica a qué usuario correrlo):
+   ```bash
+   cd /home/github-runner/actions-runner
+   sudo ./svc.sh install github-runner
+   sudo ./svc.sh start
+   ```
+   **Si registraste a nivel de organización, hay un paso extra obligatorio.** Un runner de organización
+   es visible para *todos* los repositorios de la organización por defecto -- no solo este. En Settings
+   de la organización → Actions → Runner groups → el grupo donde quedó este runner (`Default` si no
+   elegiste otro al registrarlo): restringe su acceso a solo `analisis-territorial-terremoto`, a menos que
+   otro runner ya dependa de que ese grupo esté abierto a todos los repos (en ese caso, créale un grupo
+   nuevo y exclusivo a este runner). Sin este paso, cualquier otro repositorio de la organización -- con
+   su propio nivel de confianza, no necesariamente el mismo que este -- podría apuntar a la misma etiqueta
+   (`tablero-terremoto-prod`, o incluso solo `self-hosted`) y ejecutar código en este runner, en el mismo
+   servidor de producción. Esto es lo único que hace que el razonamiento de más arriba (nadie ajeno puede
+   alcanzar este runner sin permiso de escritura) siga siendo cierto con un runner de organización.
+
+3. **Confirma que `github-runner` puede correr `docker compose` sin `sudo`** (ya cubierto por el
+   paso 1 -- una sesión de servicio no puede responder a un prompt de contraseña):
+   ```bash
+   sudo -u github-runner docker ps
+   ```
+
+### Configurar el repositorio en GitHub
+
+`Settings → Secrets and variables → Actions → Variables` (esto es configuración, no secretos -- nada
+sensible viaja en este despliegue, por eso no hace falta la pestaña Secrets):
+
+| Nombre | Valor |
+| --- | --- |
+| `DEPLOY_PATH` | ruta absoluta del repo en el servidor (ej. `/home/info/analisis-territorial-terremoto`) -- el checkout persistente, el mismo que ya usan los comandos manuales de arriba, no uno nuevo creado por el runner |
+| `TABLERO_PUBLIC_URL` | opcional, por defecto `https://torre.potencia.com.co/tablero-terremoto` -- usada solo para el chequeo final, que sí corre en un runner de GitHub (es HTTPS público normal, ajeno al problema de SSH/Bastion) |
+
+### Verificar
+
+Dispara el workflow a mano antes de confiar en que el próximo push lo haga bien: pestaña **Actions** →
+«Desplegar en el servidor» → **Run workflow**. Si el job `desplegar` nunca arranca (se queda «Queued»),
+el runner no está corriendo o su etiqueta no coincide (`sudo ./svc.sh status`, en la carpeta donde se
+instaló). Si falla en «Verificar el tablero públicamente», el despliegue en sí probablemente funcionó pero
+Nginx/el dominio público tienen un problema aparte (ver «Problemas comunes» más abajo, o la configuración
+de Torre en la sección anterior de este documento).
+
+### Qué pasa si falla
+
+- **Las pruebas fallan (`probar`):** no se toca el servidor en absoluto. El servidor sigue sirviendo lo
+  que ya tenía publicado.
+- **`git merge --ff-only` o `docker compose up -d --build` fallan:** el paso se detiene ahí (el shell de
+  `run:` corta en el primer error), el servidor queda con el contenedor viejo corriendo sin interrupciones
+  -- un `--ff-only` nunca reescribe nada, así que esto no puede dejar el checkout a medias.
+- **Solo falla forzar la actualización de datos (`--run-now`):** el despliegue se considera exitoso de
+  todas formas (código nuevo corriendo) y queda un aviso (`::warning::`) visible en el resumen del job; el
+  propio contenedor reintenta esa actualización cada 30 minutos sin intervención.
