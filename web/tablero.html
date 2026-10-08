@@ -12,11 +12,12 @@
 <nav class="tab-nav" role="tablist" aria-label="Vistas del tablero">
 <button type="button" id="tab-prioridades" class="tab-btn active" role="tab" aria-selected="true" aria-controls="prioridades" data-tab="prioridades">Índice</button>
 <button type="button" id="tab-radar" class="tab-btn" role="tab" aria-selected="false" aria-controls="radar" data-tab="radar">Comparar municipios</button>
-<button type="button" id="tab-rapida" class="tab-btn" role="tab" aria-selected="false" aria-controls="rapida" data-tab="rapida">Necesidad de recuperación temprana</button>
-<button type="button" id="tab-diagnostico" class="tab-btn" role="tab" aria-selected="false" aria-controls="diagnostico" data-tab="diagnostico">Diagnóstico territorial</button>
+<button type="button" id="tab-inversion" class="tab-btn" role="tab" aria-selected="false" aria-controls="inversion" data-tab="inversion">Prioridad de inversión</button>
+<button type="button" id="tab-rapida" class="tab-btn" role="tab" aria-selected="false" aria-controls="rapida" data-tab="rapida" hidden>Necesidad de recuperación temprana</button>
+<button type="button" id="tab-diagnostico" class="tab-btn" role="tab" aria-selected="false" aria-controls="diagnostico" data-tab="diagnostico" hidden>Diagnóstico territorial</button>
 <button type="button" id="tab-metodo" class="tab-btn" role="tab" aria-selected="false" aria-controls="metodo" data-tab="metodo">Fuentes y método</button>
 </nav>
-<div class="filters global">
+<div id="global-filters" class="filters global">
 <label>Universo territorial<select id="scope"><option value="decree">Departamentos del Decreto 1171</option><option value="all">Todos los departamentos reportados</option><option value="simat5">Cinco departamentos</option></select></label>
 <label>Departamento<select id="dept"></select></label>
 <label title="Fecha de incorporación al tablero; no necesariamente fecha del hecho ni del reporte original.">Fecha de reporte<select id="date"></select></label>
@@ -60,6 +61,21 @@
 <div class="radar-layout"><div class="radar-plot"><div id="radar-relative-chart"></div><p class="radar-line-key"><span>Continua: puntaje documentado</span><span>Discontinua: límite por información faltante</span></p></div><div class="radar-sidebar"><div id="radar-relative-legend"></div><section id="radar-relative-selection" class="radar-selection" aria-label="Punto relativo seleccionado" aria-live="polite"></section></div></div>
 <p class="radar-table-hint">Compara cada indicador en la misma fila. Pulsa un puntaje de dimensión para consultar su cálculo.</p><div id="radar-relative-sectors" class="radar-comparison table-scroll" tabindex="0" role="region" aria-label="Comparación de dimensiones e indicadores, afectación relativa"></div>
 <dialog id="radar-relative-method-dialog" class="radar-method-dialog" aria-labelledby="radar-relative-method-title"><header class="radar-dialog-head"><h2 id="radar-relative-method-title">Cómo se calcula · afectación relativa</h2><button type="button" class="secondary" data-radar-close autofocus>Cerrar</button></header><section id="radar-relative-inspector" class="radar-inspector" aria-label="Cálculo relativo con denominador propio del punto seleccionado"></section></dialog></div>
+</section>
+<section id="inversion" class="tab-panel" role="tabpanel" aria-labelledby="tab-inversion" hidden>
+<div class="card inv-intro">
+<div><div class="kicker">Municipios · Exploración por dimensión</div>
+<h2>Primero, conozcamos el municipio</h2>
+<p>Cuatro sectores —educación, vivienda, salud e infraestructura— y un bloque de vulnerabilidad territorial para conocer el municipio antes de priorizar inversiones.</p>
+<p class="note">Sin puntajes ni ponderaciones. Los gráficos describen los datos disponibles.</p></div>
+<div class="inv-picker" id="investment-picker">
+<label for="investment-search">Buscar municipio</label>
+<div class="inv-search-wrap"><input id="investment-search" type="text" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="investment-options" autocomplete="off" placeholder="Nombre, departamento o código DANE"><button type="button" id="investment-toggle" aria-label="Mostrar municipios" aria-controls="investment-options" aria-expanded="false">▾</button></div>
+<div id="investment-dropdown" class="inv-dropdown" hidden><div id="investment-options" role="listbox" aria-label="Municipios"></div><p id="investment-search-status" class="small" role="status"></p></div>
+</div></div>
+<div id="investment-heading" class="inv-heading" aria-live="polite" aria-atomic="true"></div>
+<div id="investment-cards" class="inv-grid"></div>
+<div class="card inv-sources"><details><summary>Fuentes, alcance y lectura de los datos</summary><div id="investment-sources"></div></details></div>
 </section>
 <section id="rapida" class="tab-panel" role="tabpanel" aria-labelledby="tab-rapida" hidden>
 <p class="note">Puntaje original de PNUD/UNGRD.</p>
@@ -119,6 +135,6 @@
 <footer><span id="footer-capture"></span><span>Sin dato no significa cero. <a href="docs/notas_metodologicas.docx" download>Guía metodológica</a></span></footer>
 <noscript><p>Activa JavaScript para filtrar y consultar el tablero. Los datos originales están en <a href="indicadores_largo_no_calculo.csv">el inventario CSV</a>.</p></noscript>
 </main><script>__PRESENTATION__</script><script>__MODEL__</script><script>__CRITICAL_ENROLLMENT__</script><script>__HEALTH_PRESSURE__
-__DENOMINATORS__</script><script>__PRIORITY_MODEL__</script><script>const DATA=__DATA__;</script><script>__RADAR__</script><script>__RELATIVE__</script><script>__COMPARISON__</script><script>__APP__</script></body></html>
+__DENOMINATORS__</script><script>__PRIORITY_MODEL__</script><script>const DATA=__DATA__;</script><script>__RADAR__</script><script>__RELATIVE__</script><script>__COMPARISON__</script><script>__INVESTMENT__</script><script>__APP__</script></body></html>
 
 

@@ -126,8 +126,11 @@ class PreparationTests(unittest.TestCase):
         data = json.loads(re.search(r"const DATA=(.*?);</script>", source).group(1))
         self.assertEqual(len(data["rows"]), 1)
         self.assertNotIn("<script>alert(1)", source)
-        self.assertEqual(source.count('role="tabpanel"'), 5)
-        self.assertIn('id="tab-rapida"', source)
+        # Cuenta las vistas principales; las fichas pueden tener pestañas internas.
+        self.assertEqual(len(re.findall(r'<section\b[^>]*class="tab-panel"[^>]*role="tabpanel"', source)), 6)
+        self.assertIn('id="tab-inversion"', source)
+        for tab in ('rapida', 'diagnostico'):
+            self.assertRegex(source, rf'<button[^>]*id="tab-{tab}"[^>]*\bhidden>')
         self.assertIn('id="percapita-matrix"', source)
         self.assertIn('>Necesidad de recuperación temprana</button>', source)
         for removed in ('id="comparison-axis"', 'id="comparison-panel"', 'id="comparison-warning"'):
@@ -142,7 +145,8 @@ class PreparationTests(unittest.TestCase):
         self.assertIn('class="brand-logo"', source)
         self.assertIn('src="data:image/webp;base64,', source)
         self.assertIn("--navy:#013a51", source)
-        self.assertNotRegex(source, r"(?:src|href)=[\"']https?://|url\(https?://|@import")
+        # Los enlaces de consulta a fuentes no cargan recursos al abrir el tablero.
+        self.assertNotRegex(source, r"src=[\"']https?://|<link\b[^>]*href=[\"']https?://|url\(https?://|@import")
 
     def test_html_supports_dark_mode_without_hardcoded_chart_colors(self):
         source = tablero.build_html([sample()])

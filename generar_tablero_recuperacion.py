@@ -72,6 +72,10 @@ def prepare_payload(current, history=()):
     pressure = json.loads(pressure_path.read_text(encoding='utf-8')) if pressure_path.exists() else None
     education_path = ROOT / 'data/matricula_critica.json'
     education = json.loads(education_path.read_text(encoding='utf-8')) if education_path.exists() else None
+    investment_path = ROOT / 'data/inversion_educativa.json'
+    investment = json.loads(investment_path.read_text(encoding='utf-8')) if investment_path.exists() else None
+    universe_path = ROOT / 'data/men_universo.json'
+    universe = json.loads(universe_path.read_text(encoding='utf-8')) if universe_path.exists() else None
     reference_names = defaultdict(set)
     reference_codes = {r['code']: r for r in baseline['rows']}
     for r in baseline['rows']:
@@ -162,6 +166,8 @@ def prepare_payload(current, history=()):
     dates = sorted(capture_dates)
     latest = max((d for d in current_dates if d in dates), default=dates[-1] if dates else "")
     return {"rows": rows, "dates": dates, "latest": latest, "sources": SOURCES, "baseline": baseline, "population": population, "denominators": denominators, "healthPressure": pressure, "educationCritical": education,
+            "educationInvestment": investment,
+            "educationUniverse": universe,
             "issues": [{"label": k, "n": v} for k, v in sorted(issues.items()) if v],
             "generated": datetime.now(timezone.utc).isoformat(timespec="seconds")}
 
@@ -211,6 +217,7 @@ def build_html(current, history=()):
     payload = prepare_payload(current, history)
     template = (ROOT / "web" / "tablero.html").read_text(encoding="utf-8")
     template = template.replace('__CRITICAL_ENROLLMENT__', (ROOT / 'web/matricula_critica.js').read_text(encoding='utf-8'))
+    template = template.replace('__INVESTMENT__', (ROOT / 'web/inversion_educativa.js').read_text(encoding='utf-8'))
     for marker, filename in (("__STYLE__", "tablero.css"), ("__PRESENTATION__", "presentacion.js"), ("__MODEL__", "modelo.js"), ("__HEALTH_PRESSURE__", "presion_salud.js"), ("__DENOMINATORS__", "denominadores.js"), ("__PRIORITY_MODEL__", "priorizacion.js"), ("__RADAR__", "radar.js"), ("__RELATIVE__", "relativo.js"), ("__COMPARISON__", "comparacion.js"), ("__APP__", "tablero.js")):
         template = template.replace(marker, (ROOT / "web" / filename).read_text(encoding="utf-8"))
     template = template.replace("__BRAND__", (ROOT / "web" / "marca.css").read_text(encoding="utf-8"))

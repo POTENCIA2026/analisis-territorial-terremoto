@@ -46,9 +46,13 @@ function diagnosticControls() {
   state.geo = setOptions('territory',places.map(r=>({value:r.geo,label:T.label(r)})),state.geo);
 }
 function activate(tab) {
+  const target=$('tab-'+tab);
+  if(!target||target.hidden)return;
   state.tab=tab;
   document.querySelectorAll('[data-tab]').forEach(b=>{const on=b.dataset.tab===tab;b.classList.toggle('active',on);b.setAttribute('aria-selected',String(on));});
   document.querySelectorAll('.tab-panel').forEach(p=>p.hidden=p.id!==tab);
+  $('global-filters').hidden=tab==='inversion';
+  $('scope-note').hidden=tab==='inversion';
   // La barra de pestañas queda fija: centrar la activa (móvil) y, si se venía leyendo más abajo,
   // volver al inicio del panel nuevo. Se usa el scroll propio de la página, no scrollIntoView,
   // para no mover la página madre cuando el tablero va dentro de un iframe.
@@ -57,6 +61,7 @@ function activate(tab) {
   if(nav&&panel){const top=panel.getBoundingClientRect().top+window.scrollY-nav.offsetHeight-8;if(window.scrollY>top)window.scrollTo({top:Math.max(0,top)});}
 }
 function openProfile(geo,source) {
+  if($('tab-diagnostico').hidden)return;
   const r = model.visible(state).find(x=>x.geo===geo);
   if(!r)return;
   state.level=r.lv; $('level').value=r.lv;
@@ -341,7 +346,7 @@ function refresh() {globalControls();diagnosticControls();renderPriorities();ren
 document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>activate(b.dataset.tab)));
 document.querySelector('.tab-nav').addEventListener('keydown',event=>{
   if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;
-  const tabs=[...document.querySelectorAll('[data-tab]')],i=tabs.indexOf(document.activeElement);
+  const tabs=[...document.querySelectorAll('[data-tab]:not([hidden])')],i=tabs.indexOf(document.activeElement);
   if(i<0)return; event.preventDefault();
   const j=event.key==='Home'?0:event.key==='End'?tabs.length-1:(i+(event.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length;
   tabs[j].focus();activate(tabs[j].dataset.tab);
@@ -378,7 +383,9 @@ $('download').addEventListener('click',()=>{
   const blob=new Blob(['\ufeff'+lines.map(row=>row.map(quote).join(',')).join('\r\n')],{type:'text/csv;charset=utf-8'});
   const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='seleccion-territorial.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
 });
+EducacionMunicipal.mount(DATA);
 refresh();
+if(location.hash==='#inversion')activate('inversion');
 // Vista de la matriz: resumen (una línea por municipio) o detalle. Se recuerda por navegador.
 function setDensity(value,save){
   document.querySelector('.profile-card').classList.toggle('is-compact',value==='compact');
