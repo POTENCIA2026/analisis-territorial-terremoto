@@ -143,6 +143,7 @@
 #priority-kpis .tile{padding:18px 24px}.summary-definitions{margin-bottom:20px}.profile-intro{margin-bottom:18px}.scale-key{margin-bottom:14px}
 .matrix-card>.matrix-explanation{display:inline-block;margin:0 0 10px}.matrix-card>p[id$="count"]{float:right;margin:0 0 10px!important}.matrix-card>.table-scroll{clear:both}
 .field-value small,.rate-base,.sector-evidence details>span,.sector-evidence summary{font-size:11px}.block-label{font-size:11px}
+.matrix-card .education-percent,.radar-data .education-percent{font-size:13px;font-weight:600;color:var(--ink)}
 #priority-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
 @media(max-width:700px){#priority-kpis{grid-template-columns:1fr}}
 

@@ -2,8 +2,17 @@
 (function(root){
   'use strict';
   const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const number=(n,digits=2)=>Number.isFinite(n)?new Intl.NumberFormat('es-CO',{maximumFractionDigits:digits}).format(n):'—';
+  const number=(n,digits=2)=>Number.isFinite(n)?new Intl.NumberFormat('es-CO',{maximumFractionDigits:Math.min(2,digits)}).format(n):'—';
+  const humanCounts=new Set(['3is_familias','3is_fallecidos','3is_desaparecidos','3is_heridos','men_matricula_critica']);
+  const countUnits=new Set(['personas','habitantes','estudiantes','familias']);
+  // Solo presentación: las tasas y los puntajes no son conteos de personas.
+  const original=(f,value=f.row?.v)=>number(value,humanCounts.has(f.id||f.row?.id)||countUnits.has(String(f.row?.u||f.unit||'').toLowerCase())?0:2);
   const source=s=>String(s||'').replaceAll('3iS-Sheets','3iS');
+  function educationShare(f){
+    if(f.relativeKind!=='sedes_educativas'||!Number.isFinite(f.rate)||!Number.isFinite(f.row?.v)||!Number.isFinite(f.denominator?.value)||f.denominator.value<=0)return null;
+    // El porcentaje representa el cociente original, no el puntaje normalizado.
+    return {ratio:original(f)+'/'+number(f.denominator.value),percent:number(100*f.row.v/f.denominator.value)+'%'};
+  }
   function municipality(r,attribute){
     return '<td class="municipal-cell" style="--score:'+(r.coverage>0?Math.min(100,Math.max(0,r.lower)):0)+'"><button class="link municipality-name" type="button" '+attribute+'="'+esc(r.geo)+'">'+esc(r.m)+'</button><div class="muted small">'+esc(r.d)+'</div>'+
       '<div class="score-label">Puntaje de afectación</div><div class="priority-number">'+(r.coverage>0?number(r.lower):'—')+'<small> /100</small></div>'+
@@ -11,11 +20,12 @@
   }
   function field(f,relative){
     const has=relative?f.rate!=null:!!f.row;
-    const value=has?number(relative?f.rate:f.row.v,relative?4:2):'—';
-    const unit=relative?f.relativeUnit:(f.row?.u==='Número'?'':f.row?.u);
+    const education=relative?educationShare(f):null;
+    const value=education?education.ratio:has?(relative?number(f.rate):original(f)):'—';
+    const unit=education?'sedes educativas':relative?f.relativeUnit:(f.row?.u==='Número'?'':f.row?.u);
     const explanation=f.share===0?'Solo consulta; no suma al índice.':has?'Puntaje de la variable: '+number(f.score)+'/100.':'Sin dato; no equivale a cero.';
-    const title=[f.label,explanation,f.note||'',relative&&f.row?'Valor original: '+number(f.row.v):'',relative&&f.denominator?'Base: '+number(f.denominator.value)+' '+f.denominator.unit+' · '+f.denominator.reference_date:'',f.reason||''].filter(Boolean).join('. ');
-    const base=relative&&has&&f.denominator?'<small class="rate-base">'+number(f.row.v)+' / '+number(f.denominator.value)+' '+esc(f.denominator.unit.toLowerCase())+'</small>':relative&&f.row?'<small class="rate-base">Reportado: '+number(f.row.v)+'</small>':'';
+    const title=[f.label,explanation,f.note||'',f.proxyNote||'',relative&&f.row?'Valor original: '+original(f):'',relative&&f.denominator?'Base: '+original({unit:f.denominator.unit},f.denominator.value)+' '+f.denominator.unit+' · '+f.denominator.reference_date:'',f.reason||''].filter(Boolean).join('. ');
+    const base=education?'<small class="rate-base education-percent">'+education.percent+'</small>':relative&&has&&f.denominator?'<small class="rate-base">'+original(f)+' / '+original({unit:f.denominator.unit},f.denominator.value)+' '+esc(f.denominator.unit.toLowerCase())+'</small>':relative&&f.row?'<small class="rate-base">Reportado: '+original(f)+'</small>':'';
     return '<span class="heat-item '+(has?'':'missing')+'" title="'+esc(title)+'" style="--intensity:'+ (f.score==null?0:Math.min(100,Math.max(0,f.score)))+'"><span class="field-name">'+esc(f.label.replace(/ · (3iS|PNUD)$/,''))+'</span><span class="field-value"><b>'+value+'</b>'+ (has&&unit?' <small>'+esc(unit)+'</small>':has?'':relative&&f.row?' <small>sin dato relativo</small>':' <small>sin dato</small>')+'</span>'+base+'</span>';
   }
   function sector(s,relative,selected=false){
@@ -60,10 +70,12 @@
   function radarValue(f,relative){
     if(!f)return '<span class="muted">Sin dato</span>';
     const has=relative?f.rate!=null:!!f.row;
-    const title=[f.row?'Fuente: '+source(f.source):'Sin reporte',f.note||'',relative&&f.denominator?'Base: '+number(f.denominator.value)+' '+f.denominator.unit+' · '+f.denominator.reference_date:'',f.reason||''].filter(Boolean).join('. ');
-    if(!has)return '<span class="radar-data" title="'+esc(title)+'"><span class="muted">'+(relative&&f.row?'Sin dato relativo':'Sin dato')+'</span>'+(f.row?'<small>Reportado: '+number(f.row.v)+'</small>':'')+'</span>';
-    return '<span class="radar-data" title="'+esc(title)+'"><strong>'+number(relative?f.rate:f.row.v,relative?4:2)+'</strong>'+
-      (relative?'<small>'+esc(f.relativeUnit)+'</small><small>Reportado: '+number(f.row.v)+'</small>':f.row.u&&f.row.u!=='Número'?'<small>'+esc(f.row.u)+'</small>':'')+'</span>';
+    const title=[f.row?'Fuente: '+source(f.source):'Sin reporte',f.note||'',f.proxyNote||'',relative&&f.denominator?'Base: '+original({unit:f.denominator.unit},f.denominator.value)+' '+f.denominator.unit+' · '+f.denominator.reference_date:'',f.reason||''].filter(Boolean).join('. ');
+    if(!has)return '<span class="radar-data" title="'+esc(title)+'"><span class="muted">'+(relative&&f.row?'Sin dato relativo':'Sin dato')+'</span>'+(f.row?'<small>Reportado: '+original(f)+'</small>':'')+'</span>';
+    const education=relative?educationShare(f):null;
+    if(education)return '<span class="radar-data" title="'+esc(title)+'"><strong>'+education.ratio+' <small>sedes educativas</small></strong><small class="education-percent">'+education.percent+'</small></span>';
+    return '<span class="radar-data" title="'+esc(title)+'"><strong>'+(relative?number(f.rate):original(f))+'</strong>'+
+      (relative?'<small>'+esc(f.relativeUnit)+'</small><small>Reportado: '+original(f)+'</small>':f.row.u&&f.row.u!=='Número'?'<small>'+esc(f.row.u)+'</small>':'')+'</span>';
   }
   function radarMatrix(items,colors,relative){
     if(!items.length)return '';
@@ -84,6 +96,6 @@
     return '<div class="radar-selection-heading"><div><span class="small muted">Punto seleccionado</span><h3>'+esc(s.name)+'</h3><p style="color:'+color+'">'+esc(r.m)+', '+esc(r.d)+'</p></div><strong>'+(s.coverage>0?number(s.lower,1)+' <small>/100</small>':'Sin dato')+'</strong></div>'+
       '<button type="button" class="secondary" data-radar-method>Cómo se calcula</button>';
   }
-  const api={municipality,sector,summary,number,esc,radarLegend,radarMatrix,radarSelection};
+  const api={municipality,sector,summary,number,original,esc,radarLegend,radarMatrix,radarSelection};
   if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.Presentacion=api;
 })(globalThis);

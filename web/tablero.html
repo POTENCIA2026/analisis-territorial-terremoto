@@ -10,7 +10,7 @@
 <main class="wrap">
 <header class="hero"><div class="kicker">Respuesta al terremoto · Colombia</div><h1>Panorama territorial</h1><p class="subtitle">Afectaciones y necesidades de recuperación por municipio.</p></header>
 <nav class="tab-nav" role="tablist" aria-label="Vistas del tablero">
-<button type="button" id="tab-prioridades" class="tab-btn active" role="tab" aria-selected="true" aria-controls="prioridades" data-tab="prioridades">Índice</button>
+<button type="button" id="tab-prioridades" class="tab-btn active" role="tab" aria-selected="true" aria-controls="prioridades" data-tab="prioridades">Afectación</button>
 <button type="button" id="tab-radar" class="tab-btn" role="tab" aria-selected="false" aria-controls="radar" data-tab="radar">Comparar municipios</button>
 <button type="button" id="tab-inversion" class="tab-btn" role="tab" aria-selected="false" aria-controls="inversion" data-tab="inversion">Prioridad de inversión</button>
 <button type="button" id="tab-rapida" class="tab-btn" role="tab" aria-selected="false" aria-controls="rapida" data-tab="rapida" hidden>Necesidad de recuperación temprana</button>
@@ -30,7 +30,6 @@
 <div class="section-head"><h2 id="profile-title">Perfil de afectaciones por municipio</h2></div>
 <p class="profile-intro">Compara la magnitud de las afectaciones documentadas en cada sector e identifica dónde se concentran las principales brechas.</p>
 <div class="filters profile-controls"><label>Buscar municipio<input id="matrix-search" type="search" placeholder="Pereira, Cali, Quibdó…" aria-controls="matrix percapita-matrix relative-matrix"></label><label>Medida de afectación<select id="affectation-mode" aria-controls="absolute-card percapita-card relative-card"><option value="absolute">Afectación total</option><option value="percapita">Afectación per cápita</option><option value="sectorial">Afectación relativa</option></select></label><div class="view-toggle" role="group" aria-label="Densidad de la tabla"><span class="view-toggle-label">Vista</span><span class="seg"><button type="button" data-density="compact" aria-pressed="true" title="Una línea por municipio, con la barra de puntaje de cada sector">Resumen</button><button type="button" data-density="detail" aria-pressed="false" title="Valores originales, fuente y evidencia de cada indicador">Detalle</button></span></div></div>
-<p class="scale-key">Puntajes de 0 a 100: un valor más alto indica mayor afectación en el índice, no un porcentaje de pérdidas. <button type="button" class="link" id="show-method">Cómo se calcula</button></p>
 <div class="matrix-card" id="absolute-card"><h3 id="matrix-title" class="sr-only">Afectación total</h3>
 <p id="priority-note" class="note"></p><details class="matrix-explanation"><summary>Fuentes y significado de los colores</summary><p id="matrix-caption" class="muted small"></p><p id="matrix-note" class="note"></p><p id="matrix-warning" class="note"></p></details><p id="matrix-count" class="note small" aria-live="polite"></p><div id="matrix" class="table-scroll" tabindex="0" role="region" aria-labelledby="matrix-title"></div></div>
 <section class="card" id="priority-detail" hidden aria-live="polite" aria-label="Descomposición de la prioridad municipal"></section>
@@ -125,6 +124,7 @@
 <div class="card" id="profile-card"><div class="section-head"><h2>Ficha territorial</h2><label class="profile-picker">Territorio<select id="territory"></select></label></div><p id="profile-note" class="note"></p><div id="profile-kpis" class="tiles compact"></div><div id="profile-table" class="table-scroll"></div><details><summary>Historial del indicador en este territorio</summary><div id="profile-trend"></div></details></div>
 </section>
 <section id="metodo" class="tab-panel" role="tabpanel" aria-labelledby="tab-metodo" hidden>
+<p class="scale-key">Puntajes de 0 a 100: un valor más alto indica mayor afectación en el índice, no un porcentaje de pérdidas.</p>
 <div id="priority-method" class="card"></div>
 <div class="card"><h2>Guía metodológica</h2><p>Definiciones, denominadores, límites, fuentes y lectura de los gráficos.</p><p><a href="docs/notas_metodologicas.docx" download>Descargar documento Word</a> · <a href="docs/notas_metodologicas.md" target="_blank" rel="noopener">Leer las notas</a></p></div>
 <div class="card"><h2>Cobertura de las fuentes</h2><div id="coverage-table" class="table-scroll"></div></div>
