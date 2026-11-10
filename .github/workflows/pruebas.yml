@@ -1,7 +1,6 @@
 name: Pruebas
-# Solo verifica: no descarga fuentes, no hace commits y no despliega.
-# Los workflows del repositorio original (actualización con commit automático y despliegue en el
-# servidor de Torre de Control) están guardados, sin ejecutarse, en docs/workflows_originales/.
+# Este flujo solo verifica; desplegar.yml publica main después de sus propias pruebas.
+# Los antiguos workflows de actualización con commits automáticos permanecen archivados.
 on:
   push:
     branches: [main]

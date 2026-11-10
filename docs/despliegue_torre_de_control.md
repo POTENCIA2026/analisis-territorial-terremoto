@@ -1,5 +1,19 @@
 # Despliegue en el servidor de Torre de Control
 
+## Publicación vigente: Panorama compacto y proyectos GTRT
+
+`main` vuelve a desplegar mediante `.github/workflows/desplegar.yml`. Primero pasan las pruebas,
+la comprobación del HTML generado, el manifiesto y la construcción de la imagen. El servidor avanza
+al commit exacto que se probó y ejecuta `python /app/ejecutor.py --render-now`: regenera inmediatamente
+con el inventario e historial que ya conserva producción, sin depender de descargas externas.
+`status.json` registra `revision` y `rendered_at`; `last_success` sigue siendo la fecha de la última
+actualización real de fuentes. El ciclo de cuatro horas y `--run-now` conservan la actualización completa.
+La comprobación final exige la misma revisión y el mismo inventario de proyectos que se probó,
+sin identificadores repetidos. El historial del volumen no se reemplaza por la captura del repositorio.
+
+Lo que sigue documenta la instalación y la operación original; la publicación inmediata descrita
+arriba sustituye el paso de descarga forzada que figura en las instrucciones anteriores.
+
 El tablero corre en un contenedor Docker propio, en el mismo servidor que Torre de Control, y Nginx lo
 publica en el mismo dominio bajo `/tablero-terremoto/`. Sustituye al sitio de Netlify: la sección
 «Análisis Territorial» de la plataforma lo embebe en un iframe del mismo origen.

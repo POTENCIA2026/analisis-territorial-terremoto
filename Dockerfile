@@ -15,6 +15,8 @@ COPY docs ./docs
 COPY historial_indicadores_no_calculo.csv indicadores_largo_no_calculo.csv /seed/
 COPY deploy/nginx.conf /etc/nginx/nginx.conf
 
+ARG APP_REVISION=unknown
+ENV APP_REVISION=$APP_REVISION
 ENV PYTHONUNBUFFERED=1 PYTHONDONTWRITEBYTECODE=1 UPDATE_INTERVAL_HOURS=4 TZ=America/Bogota
 USER tablero
 EXPOSE 8080

@@ -15,6 +15,7 @@ import math
 from pathlib import Path
 import re
 import unicodedata
+from urllib.parse import parse_qs, urlsplit
 
 ROOT = Path(__file__).resolve().parent
 CURRENT = "indicadores_largo_no_calculo.csv"
@@ -299,24 +300,77 @@ def embedded_json(value):
     return json.dumps(value, ensure_ascii=False, separators=(",", ":"), allow_nan=False)
 
 
-def projects_snapshot():
-    """Proyectos de Torre de Control más, si existe la captura, las iniciativas del GTRT.
+def project_source_key(project, position):
+    """Identidad acreditada por fuente; nunca se agrupa por similitud del título."""
+    record = str(project.get("sourceRecordId") or "").strip().casefold()
+    source = urlsplit(project.get("sourceUrl") or "")
+    host = (source.hostname or "").casefold()
+    notice = ""
+    if host == "secop.gov.co" or host.endswith(".secop.gov.co"):
+        notice = parse_qs(source.query).get("noticeUID", [""])[0].strip().casefold()
+    if re.fullmatch(r"co1\.ntc\.\d+", record):
+        if notice and notice != record:
+            raise ValueError(f"Referencia SECOP distinta de su enlace: {project.get('id')}")
+        return ("secop", record)
+    if notice:
+        return ("secop", notice)
+    if record and host:
+        return ("source", host, record)
+    return ("local", project["id"]) if project.get("id") else ("unidentified", position)
 
-    Se entregan en una sola lista porque el apartado Proyectos las muestra con la misma tarjeta; la
-    procedencia de las del GTRT queda en `additionalSources` y en cada registro (`sourceUrl`, `id`).
-    """
+
+def unique_projects(projects):
+    """Una ficha por referencia; originales y montos discrepantes quedan en trazabilidad."""
+    groups = {}
+    for position, project in enumerate(projects):
+        groups.setdefault(project_source_key(project, position), []).append(project)
+    result = []
+    for records in groups.values():
+        if len(records) == 1:
+            result.append(records[0])
+            continue
+        merged = dict(records[0])
+        for field in ("mission", "territories"):
+            values = {}
+            for project in records:
+                for value in project.get(field) or []:
+                    values.setdefault(embedded_json(value), value)
+            merged[field] = list(values.values())
+        for field in ("valueText", "beneficiaries"):
+            values = {}
+            for project in records:
+                value = project.get(field)
+                if value is not None and str(value).strip():
+                    values.setdefault(normalized(str(value)), value)
+            merged[field] = next(iter(values.values())) if len(values) == 1 else "Por confirmar"
+            if field == "valueText":
+                merged["valueConflict"] = len(values) > 1
+        merged["deduplicatedRecords"] = records
+        result.append(merged)
+    return result
+
+
+def projects_snapshot():
+    """Torre de Control y GTRT, con una sola ficha por identificador de origen."""
     snapshot = json.loads(PROJECTS.read_text(encoding="utf-8"))
-    if not PROJECTS_GTRT.exists():
-        return snapshot
-    gtrt = json.loads(PROJECTS_GTRT.read_text(encoding="utf-8"))
-    repeated = {p["id"] for p in snapshot["projects"]} & {p["id"] for p in gtrt["projects"]}
-    if repeated:
-        raise ValueError(f"Identificadores de proyecto repetidos entre fuentes: {sorted(repeated)[:5]}")
-    cut = gtrt.get("cut") or {}
-    source = {"label": "Tablero GTRT (PNUD)", "url": gtrt.get("sourceUrl"), "capturedAt": gtrt.get("capturedAt"),
-              "cut": ", ".join(part for part in (cut.get("label"), cut.get("dateText")) if part),
-              "records": len(gtrt["projects"])}
-    return {**snapshot, "projects": snapshot["projects"] + gtrt["projects"], "additionalSources": [source]}
+    projects = list(snapshot["projects"])
+    sources = list(snapshot.get("additionalSources") or [])
+    if PROJECTS_GTRT.exists():
+        gtrt = json.loads(PROJECTS_GTRT.read_text(encoding="utf-8"))
+        repeated = {p["id"] for p in projects} & {p["id"] for p in gtrt["projects"]}
+        if repeated:
+            raise ValueError(f"Identificadores de proyecto repetidos entre fuentes: {sorted(repeated)[:5]}")
+        cut = gtrt.get("cut") or {}
+        sources.append({"label": "Tablero GTRT (PNUD)", "url": gtrt.get("sourceUrl"),
+                        "capturedAt": gtrt.get("capturedAt"),
+                        "cut": ", ".join(part for part in (cut.get("label"), cut.get("dateText")) if part),
+                        "records": len(gtrt["projects"])})
+        projects += gtrt["projects"]
+    unique = unique_projects(projects)
+    return {**snapshot, "projects": unique, "additionalSources": sources,
+            "deduplication": {"sourceRecords": len(projects), "uniqueProjects": len(unique),
+                              "removedRecords": len(projects) - len(unique),
+                              "valueConflicts": sum(bool(p.get("valueConflict")) for p in unique)}}
 
 
 def build_html(current, history=(), embed_history=False):

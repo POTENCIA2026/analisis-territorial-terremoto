@@ -131,8 +131,10 @@ class PublishedCaptureTests(unittest.TestCase):
     def test_snapshot_merges_both_sources(self):
         torre = json.loads(tablero.PROJECTS.read_text(encoding="utf-8"))
         merged = tablero.projects_snapshot()
-        self.assertEqual(len(merged["projects"]), len(torre["projects"]) + len(self.data["projects"]))
-        self.assertEqual(merged["projects"][:len(torre["projects"])], torre["projects"])
+        unique_torre = tablero.unique_projects(torre["projects"])
+        self.assertEqual(len(merged["projects"]), len(unique_torre) + len(self.data["projects"]))
+        self.assertEqual(merged["projects"][:len(unique_torre)], unique_torre)
+        self.assertEqual(merged["projects"][len(unique_torre):], self.data["projects"])
         self.assertEqual(merged["capturedAt"], torre["capturedAt"])
         source = merged["additionalSources"][0]
         self.assertEqual(source["records"], len(self.data["projects"]))

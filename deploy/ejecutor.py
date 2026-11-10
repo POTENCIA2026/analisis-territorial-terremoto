@@ -202,7 +202,8 @@ def run_once(update=True):
         # Solo una actualización real cuenta como éxito: el arranque sin descarga (captura incluida en la
         # imagen) publica algo útil, pero no debe retrasar la primera descarga verdadera.
         write_status(state="idle", ok=True, error=None, duration_seconds=round(time.monotonic() - started, 1),
-                     mode="actualización" if update else "arranque sin descarga", **({"last_success": now()} if update else {}), **info)
+                     mode="actualización" if update else "arranque sin descarga",
+                     revision=os.environ.get("APP_REVISION", "unknown"), rendered_at=now(), **({"last_success": now()} if update else {}), **info)
         log(f"Publicado: captura {info['capture_date']}, {info['html_bytes'] / 1e6:.1f} MB, {info['embedded_captures']} capturas incrustadas")
         return True
     except Exception as error:  # noqa: BLE001 -- cualquier fallo deja intacta la versión publicada
@@ -244,8 +245,10 @@ def wait(seconds, nginx=None):
 def main():
     if "--healthcheck" in sys.argv:
         sys.exit(0 if healthy() else 1)
-    if "--run-now" in sys.argv:
-        # Fuerza una actualización inmediata, para correr contra un contenedor YA levantado
+    if "--run-now" in sys.argv or "--render-now" in sys.argv:
+        # --render-now publica el código nuevo desde el estado conservado, sin descargar fuentes.
+        # No cambia last_success: regenerar la interfaz no acredita una nueva actualización de datos.
+        # --run-now fuerza una actualización completa contra un contenedor YA levantado
         # (`docker compose exec tablero python /app/ejecutor.py --run-now`, o `deploy/actualizar_ahora.sh`).
         # Un `docker compose up -d --build` por sí solo no alcanza para publicar código nuevo: si ya había
         # una página publicada en el volumen, el proceso principal la sigue sirviendo tal cual hasta el
@@ -255,7 +258,7 @@ def main():
         # el mismo candado de archivo, así que si ya hay una corrida en marcha, se desiste en vez de pisarla.
         PUBLIC.mkdir(parents=True, exist_ok=True)
         seed_state()
-        sys.exit(0 if run_once(update=True) else 1)
+        sys.exit(0 if run_once(update="--render-now" not in sys.argv) else 1)
     signal.signal(signal.SIGTERM, lambda *_: STOP.set())
     signal.signal(signal.SIGINT, lambda *_: STOP.set())
     PUBLIC.mkdir(parents=True, exist_ok=True)

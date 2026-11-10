@@ -17,8 +17,8 @@ Parte de una copia de [POTENCIA2026/analisis-territorial-terremoto](https://gith
    del territorio, el indicador, la fuente y la fecha: cada texto se guarda una vez y la fila lleva
    solo su posición y el valor. El navegador reconstruye las filas completas al abrir la página.
    Detalle: [docs/formato_compacto.md](docs/formato_compacto.md).
-3. **Git deja de ser el almacén de resultados.** No hay commits automáticos de un bot ni despliegue
-   desde este repositorio; `node_modules` ya no se versiona; `data/` tiene un inventario verificable
+3. **Git deja de ser el almacén de resultados.** No hay commits automáticos de resultados; main despliega
+   al servidor después de pasar las pruebas; `node_modules` ya no se versiona; `data/` tiene un inventario verificable
    (`data/MANIFIESTO.json`).
 
 | | Repositorio original | Este repositorio |
@@ -43,7 +43,7 @@ anteriores (las últimas 30 y una por semana de las más antiguas). El historial
 Para descargar las fuentes y actualizar la captura: `python actualizar_indice_terremoto.py --out index.html`
 seguido de `python generar_tablero_recuperacion.py`.
 
-### Proyectos: iniciativas del Tablero GTRT (rama `proyectos-pnud`)
+### Proyectos: iniciativas del Tablero GTRT (PNUD)
 
 El apartado Proyectos reúne dos fuentes con la misma tarjeta: los contratos capturados de Torre de
 Control (`data/proyectos_torre_control.json`) y las iniciativas del
@@ -61,13 +61,24 @@ costo de implementación va en «Trazabilidad del registro», no como valor del 
 muestra únicamente las iniciativas que el GTRT marca «Validada por la organización», igual que ya
 hacía con los terceros confirmados; las demás quedan en el archivo de datos sin mostrarse.
 
+### Proyectos sin repeticiones
+
+El generador entrega una ficha por identificador de origen (referencia SECOP o identificador dentro
+de su fuente). No combina iniciativas por compartir título. La captura original permanece íntegra
+en los archivos de datos; las filas consolidadas quedan en la trazabilidad de su ficha.
+Si una referencia tiene montos distintos, su valor queda «Por confirmar» y se excluye de la suma:
+no se elige una cifra ni se suman las variantes. En el corte incluido se consolidan siete filas de
+Torre de Control en dos fichas (cinco repeticiones menos); se conservan las 129 iniciativas
+GTRT validadas y quedan 152 fichas visibles.
+
 ## Pendiente
 
 - **Fuentes fuera de Git.** Los archivos de `data/` y el historial (48 MB) siguen en el repositorio.
   Moverlos a un almacenamiento externo requiere decidir cuál; el manifiesto ya registra tamaño,
   huella y uso de cada archivo para hacerlo sin perder trazabilidad.
-- **Actualización y despliegue automáticos.** Los workflows originales están guardados, sin
-  ejecutarse, en `docs/workflows_originales/`. Aquí solo corre `pruebas.yml`.
+- **Actualización de fuentes.** Los workflows que hacían commits automáticos siguen archivados en
+  `docs/workflows_originales/`. `pruebas.yml` verifica el código y `desplegar.yml` publica main.
+  El contenedor conserva su ciclo de actualización de datos cada cuatro horas.
 - **Auditorías históricas.** `scripts/auditar_cascada.cjs`, `auditar_educacion_relativa.cjs`,
   `auditar_pesos_vivienda.cjs` y `auditar_sin_heridos_ih.cjs` comparan contra commits del repositorio
   original y no funcionan con este historial; `auditar_presion_salud.cjs` y `auditar_reps_simat.cjs`

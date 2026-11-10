@@ -1,0 +1,68 @@
+name: Desplegar en el servidor
+# Solo main o una ejecución manual: las solicitudes externas nunca usan el runner de producción.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+permissions:
+  contents: read
+concurrency:
+  group: desplegar-produccion
+  cancel-in-progress: false
+jobs:
+  probar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verificar código, datos y HTML
+        run: |
+          python -m unittest discover -s tests
+          node --test tests/*.test.js
+          node --check web/tablero.js
+          node --check web/proyectos.js
+          python scripts/verificar_index.py
+          python scripts/generar_manifiesto_datos.py --check
+      - name: Construir y comprobar la imagen
+        run: |
+          docker build -t tablero-terremoto:ci .
+          docker run --rm --entrypoint python tablero-terremoto:ci -c "import generar_tablero_recuperacion as t; s=t.projects_snapshot(); assert s['deduplication']['removedRecords']==5; assert len(s['projects'])==208"
+  desplegar:
+    needs: probar
+    if: github.ref == 'refs/heads/main'
+    runs-on: [self-hosted, tablero-terremoto-prod]
+    env:
+      DEPLOY_PATH: ${{ vars.DEPLOY_PATH }}
+      DEPLOY_SHA: ${{ github.sha }}
+    steps:
+      - name: Actualizar al commit probado y reconstruir
+        run: |
+          set -eu
+          cd "$DEPLOY_PATH"
+          git fetch origin
+          git merge --ff-only "$DEPLOY_SHA"
+          test "$(git rev-parse HEAD)" = "$DEPLOY_SHA"
+          APP_REVISION="$DEPLOY_SHA" docker compose up -d --build
+      - name: Publicar ahora desde el inventario conservado
+        run: |
+          set -eu
+          cd "$DEPLOY_PATH"
+          docker compose exec -T tablero python /app/ejecutor.py --render-now
+  verificar:
+    needs: desplegar
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Comprobar revisión e inventario publicado
+        env:
+          PUBLIC_URL: ${{ vars.TABLERO_PUBLIC_URL || 'https://torre.potencia.com.co/tablero-terremoto' }}
+          EXPECTED_REVISION: ${{ github.sha }}
+        run: python scripts/verificar_publicacion.py "$PUBLIC_URL" "$EXPECTED_REVISION"

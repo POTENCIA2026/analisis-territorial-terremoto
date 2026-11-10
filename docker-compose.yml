@@ -4,7 +4,10 @@
 # (ver docs/despliegue_torre_de_control.md). Cambia solo el número de la izquierda si 8002 está ocupado.
 services:
   tablero:
-    build: .
+    build:
+      context: .
+      args:
+        APP_REVISION: ${APP_REVISION:-unknown}
     image: tablero-terremoto:latest
     restart: unless-stopped
     ports:

@@ -58,3 +58,35 @@ test('el gráfico y los filtros aceptan las dos fuentes juntas',()=>{
   assert.equal(onlyPending.length,shown(gtrt.projects).length);
   assert.equal(P.select(all,{mission:'Salud'}).length,P.select(shown(torre.projects),{mission:'Salud'}).length);
 });
+
+
+test('el tablero publicado contiene 152 fichas y ninguna referencia repetida',()=>{
+  const html=fs.readFileSync(path.join(__dirname,'..','index.html'),'utf8');
+  const snapshot=JSON.parse(html.match(/const PROJECTS_DATA=([^\r\n]+);/)[1]);
+  const visible=shown(snapshot.projects);
+  assert.equal(visible.length,152);
+  assert.equal(P.duplicates(visible).size,0);
+  assert.equal(snapshot.deduplication.removedRecords,5);
+  assert.equal(visible.filter(p=>p.id.startsWith('gtrt-')).length,129);
+  const before=P.summaryStats(shown([...torre.projects,...gtrt.projects]));
+  const after=P.summaryStats(visible);
+  assert.equal(after.thirdPesos,before.thirdPesos-16300000000);
+  assert.equal(after.thirdWithValue,before.thirdWithValue-7);
+});
+
+test('los dos montos en conflicto quedan fuera del total y sus variantes son consultables',()=>{
+  const html=fs.readFileSync(path.join(__dirname,'..','index.html'),'utf8');
+  const snapshot=JSON.parse(html.match(/const PROJECTS_DATA=([^\r\n]+);/)[1]);
+  const conflicts=shown(snapshot.projects).filter(p=>p.valueConflict);
+  assert.equal(conflicts.length,2);
+  for(const p of conflicts){
+    assert.equal(P.reportedPesos(p),null);
+    const card=P.renderCard(p);
+    assert.ok(card.includes('excluido del total'));
+    assert.ok(card.includes('Se cuenta una sola vez'));
+    for(const row of p.deduplicatedRecords){
+      assert.ok(card.includes(P.esc(row.id)));
+      assert.ok(card.includes(P.esc(row.valueText)));
+    }
+  }
+});

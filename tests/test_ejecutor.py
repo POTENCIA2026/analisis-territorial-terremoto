@@ -151,6 +151,24 @@ class RunnerTests(unittest.TestCase):
         self.assertEqual(status["mode"], "actualización")
         self.assertIsNotNone(status["last_success"])
 
+    def test_render_now_publishes_without_downloading_or_resetting_source_freshness(self):
+        self.addCleanup(setattr, sys, "argv", sys.argv)
+        sys.argv = ["ejecutor.py", "--render-now"]
+        previous = "2026-11-09T12:00:00+00:00"
+        ej.write_status(last_success=previous)
+        real_pipeline = ej.pipeline_commands
+        with patch.object(ej, "pipeline_commands", side_effect=real_pipeline) as commands:
+            with patch.dict(ej.os.environ, {"APP_REVISION": "tested-commit"}):
+                with self.assertRaises(SystemExit) as ctx:
+                    ej.main()
+        self.assertEqual(ctx.exception.code, 0)
+        commands.assert_called_once_with(False)
+        status = ej.read_status()
+        self.assertTrue(status["ok"])
+        self.assertEqual(status["last_success"], previous)
+        self.assertEqual(status["revision"], "tested-commit")
+        self.assertTrue((ej.PUBLIC / "index.html").exists())
+
     def test_run_now_exits_nonzero_when_the_run_fails(self):
         self.addCleanup(setattr, sys, "argv", sys.argv)
         sys.argv = ["ejecutor.py", "--run-now"]
