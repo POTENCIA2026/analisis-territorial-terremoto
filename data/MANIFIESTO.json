@@ -4,7 +4,7 @@
  "resumen": {
   "derivado": {
    "archivos": 17,
-   "bytes": 7442503
+   "bytes": 7366144
   },
   "fuente original": {
    "archivos": 8,
@@ -12,7 +12,7 @@
   },
   "captura": {
    "archivos": 3,
-   "bytes": 456729
+   "bytes": 456171
   }
  },
  "archivos": [
@@ -48,8 +48,8 @@
   {
    "archivo": "data/denominadores_reps_simat.json",
    "clase": "derivado",
-   "bytes": 1255906,
-   "sha256": "c477a5f00bf87e5e7dc23c69a70b50e71ea7e9c9869477bf62fd6933ba919d98",
+   "bytes": 1209342,
+   "sha256": "6d4569e6561146b7ebfa1f34d6cdf0f01b9b07e4bb16b41f1ff2179e687104b1",
    "nombrado_en_generador": true,
    "usado_por": [
     "generar_tablero_recuperacion.py",
@@ -87,16 +87,16 @@
   {
    "archivo": "data/indicadores_largo_solo_fuentes_crudas_snapshot.csv",
    "clase": "captura",
-   "bytes": 69110,
-   "sha256": "3bae3135928df2a71a840449c2778e430d7981a1f74e6f43b4c6a058f098f289",
+   "bytes": 68552,
+   "sha256": "de80e90dd1096be9b397536c89bf11d202e6f89ddf45256be24e893aa0fd124d",
    "nombrado_en_generador": false,
    "usado_por": []
   },
   {
    "archivo": "data/inversion_educativa.json",
    "clase": "derivado",
-   "bytes": 269814,
-   "sha256": "1fc7e1b69aede4a488575e52b833d64ac0520f6c3fe655ebc56c104c36de4392",
+   "bytes": 269813,
+   "sha256": "855080c1ba068f30fe6dc86df04f3fe364310c3ac498c242d93cccd6af444da3",
    "nombrado_en_generador": true,
    "usado_por": [
     "generar_tablero_recuperacion.py",
@@ -117,8 +117,8 @@
   {
    "archivo": "data/matricula_critica.json",
    "clase": "derivado",
-   "bytes": 121492,
-   "sha256": "009d2b3b4a6dedda27e2b52520e3d5f0bb55d90014ac9fdf7e3be103d8dec950",
+   "bytes": 116476,
+   "sha256": "f2f7fcb0d9c601a9743fac2de8cc5963a32771777e06128af53a7969257f7d00",
    "nombrado_en_generador": true,
    "usado_por": [
     "generar_tablero_recuperacion.py",
@@ -128,8 +128,8 @@
   {
    "archivo": "data/men_abierto/cobertura.json",
    "clase": "derivado",
-   "bytes": 1228285,
-   "sha256": "73060c776a08aa874631c2937b52a369609e00861c097c376fad2d205faaf3ef",
+   "bytes": 1228284,
+   "sha256": "26448e3a652c295617bd9e5ac389a954e6c3067327e83a9b44aaec0f8c0e5691",
    "nombrado_en_generador": false,
    "usado_por": [
     "scripts/preparar_men_abierto.py"
@@ -138,8 +138,8 @@
   {
    "archivo": "data/men_abierto/fuentes.json",
    "clase": "derivado",
-   "bytes": 1002,
-   "sha256": "b4298621471cba44b3020801b231f313f8e43dd01f55ae2b322cf4e395c552bc",
+   "bytes": 1001,
+   "sha256": "cad41d50cac396ccd677c9ac0de2a3766a094c7dc3d48da259d133637ba777b9",
    "nombrado_en_generador": false,
    "usado_por": [
     "scripts/preparar_men_abierto.py"
@@ -169,8 +169,8 @@
   {
    "archivo": "data/men_universo.json",
    "clase": "derivado",
-   "bytes": 465877,
-   "sha256": "9a881d597f07c77aa41d84ec3e93bdba2b63f79b7736776f5b07108343800623",
+   "bytes": 465876,
+   "sha256": "203472bc752097243fd5c3e9a568c0f06dfc143801d2bfc62a8a2092574926b0",
    "nombrado_en_generador": true,
    "usado_por": [
     "generar_tablero_recuperacion.py",
@@ -180,8 +180,8 @@
   {
    "archivo": "data/municipios_afectados_terremoto_colombia_ago2026.csv",
    "clase": "derivado",
-   "bytes": 30837,
-   "sha256": "c8a59f17b43443fc51e8cff5e0f389f6d87c994b04445f97967663bd0271f4f8",
+   "bytes": 30404,
+   "sha256": "ded671bfbc995b90da132c13da5c39c7fa9b40652be9597eddff6dd531d492d6",
    "nombrado_en_generador": true,
    "usado_por": [
     "actualizar_indice_terremoto.py",
@@ -222,8 +222,8 @@
   {
    "archivo": "data/presion_salud.json",
    "clase": "derivado",
-   "bytes": 428434,
-   "sha256": "8b0e137f02827bb78c90f684f0a766f1df0945b064123accd072dc96abcef388",
+   "bytes": 413386,
+   "sha256": "d0eecdcacb0e8154abc284503a8775ee584809a5333ed051460efdf4db1794cf",
    "nombrado_en_generador": true,
    "usado_por": [
     "generar_tablero_recuperacion.py",
@@ -245,8 +245,8 @@
   {
    "archivo": "data/resumen_ungrd_ago2026.json",
    "clase": "derivado",
-   "bytes": 726,
-   "sha256": "6666b7271d55c90bdb9f9ce05bf3f27579028743d1a97ea93a8f9eb65c9911f2",
+   "bytes": 713,
+   "sha256": "8e2d733a570da6fb6de1bf0f3ee0bb777997b36ea3881bda2bf01db2dcaf4273",
    "nombrado_en_generador": false,
    "usado_por": [
     "actualizar_indice_terremoto.py"
@@ -263,8 +263,8 @@
   {
    "archivo": "data/sedes_educativas_afectadas_ago2026.csv",
    "clase": "derivado",
-   "bytes": 779486,
-   "sha256": "a790f48ae2f60b1b43528883db9b529fc0a2070cbc4a5fa83de4b65a0d7fef82",
+   "bytes": 773458,
+   "sha256": "7ebde2d9dab64a962688d2cf9fc1a68d45f653c0dba7500bfc5bca76c02724a7",
    "nombrado_en_generador": true,
    "usado_por": [
     "actualizar_indice_terremoto.py",
@@ -274,8 +274,8 @@
   {
    "archivo": "data/simat_sedes_2022.csv",
    "clase": "derivado",
-   "bytes": 75758,
-   "sha256": "30f8707f0914e123b71f6ae5cea582ad56b62e855ad0f7d60013122b29cadf73",
+   "bytes": 72867,
+   "sha256": "d22dbfb4864d14d9ae6a2f6022de7056df68729a5bf253b9bcfce5100b4e9bfa",
    "nombrado_en_generador": false,
    "usado_por": [
     "scripts/preparar_reps_simat.py"
@@ -284,8 +284,8 @@
   {
    "archivo": "data/simat_source_probe.json",
    "clase": "derivado",
-   "bytes": 17678,
-   "sha256": "e190012565c835181ff37f3b7992b9f0d539f148cbe9cb95d95ee6860f0a8de7",
+   "bytes": 17316,
+   "sha256": "3bccb3499cd3bf8e11a8d4c9a23bffd6d15360d0cea7996ff73638311d278723",
    "nombrado_en_generador": false,
    "usado_por": [
     "scripts/inspeccionar_simat.py"
