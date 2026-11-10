@@ -1,0 +1,281 @@
+import json
+from pathlib import Path
+import re
+import tempfile
+import unittest
+from unittest.mock import patch
+from contextlib import ExitStack, redirect_stdout, redirect_stderr
+import io
+import os
+
+import actualizar_indice_terremoto as updater
+
+import generar_tablero_recuperacion as tablero
+
+
+def sample(**changes):
+    row = dict(nivel="municipal", departamento="Chocó", municipio="Quibdó", divipola="27001",
+               dimension="Recuperación", indicador_id=tablero.RECOVERY, indicador="Recuperación",
+               fuente=tablero.RAPIDA, unidad="Índice", valor="0.6", fecha_corte="2026-09-07")
+    return {**row, **changes}
+
+
+class ThinHistoryTests(unittest.TestCase):
+    @staticmethod
+    def rows(*days):
+        return [sample(fecha_corte=d) for d in days]
+
+    def test_short_history_is_untouched(self):
+        history = self.rows("2026-09-01", "2026-09-02", "2026-09-03")
+        self.assertEqual(tablero.thin_history(history, self.rows("2026-09-04")), history)
+
+    def test_keeps_recent_captures_and_last_of_each_older_week(self):
+        from datetime import date, timedelta
+        start = date(2026, 1, 1)
+        days = [(start + timedelta(days=i)).isoformat() for i in range(120)]
+        kept = {r["fecha_corte"] for r in tablero.thin_history(self.rows(*days), self.rows(days[-1]), recent=10)}
+        self.assertTrue(set(days[-10:]) <= kept, "las 10 más recientes se conservan todas")
+        older = sorted(d for d in kept if d < days[-10])
+        weeks = [date.fromisoformat(d).isocalendar()[:2] for d in older]
+        self.assertEqual(len(weeks), len(set(weeks)), "una sola captura por semana en lo antiguo")
+        self.assertLess(len(kept), 45)
+        # la que se conserva de cada semana es la última de esa semana
+        for d in older:
+            week = date.fromisoformat(d).isocalendar()[:2]
+            same = [x for x in days if date.fromisoformat(x).isocalendar()[:2] == week and x < days[-10]]
+            self.assertEqual(d, max(same))
+
+    def test_current_capture_counts_and_invalid_dates_survive(self):
+        history = self.rows("2026-08-01", "sin-fecha", "2026-09-01")
+        kept = tablero.thin_history(history, self.rows("2026-09-02"), recent=1)
+        # con recent=1 la captura actual (09-02) ocupa el cupo; 09-01 y 08-01 se conservan como
+        # última de su semana, y la fila sin fecha nunca se descarta.
+        self.assertEqual({r["fecha_corte"] for r in kept}, {"2026-08-01", "2026-09-01", "sin-fecha"})
+
+    def test_build_html_embeds_thinned_history_only(self):
+        from datetime import date, timedelta
+        days = [(date(2026, 1, 1) + timedelta(days=i)).isoformat() for i in range(80)]
+        source = tablero.build_html([sample(fecha_corte=days[-1])], self.rows(*days[:-1]), embed_history=True)
+        embedded = tablero.read_embedded_data(source)["dates"]
+        self.assertLess(len(embedded), 45)
+        self.assertEqual(max(embedded), days[-1])
+        self.assertIn(days[-2], embedded)
+
+    def test_build_html_embeds_only_current_capture_by_default(self):
+        days = ["2026-09-05", "2026-09-06", "2026-09-07"]
+        source = tablero.build_html([sample(fecha_corte=days[-1])], self.rows(*days[:-1]))
+        data = tablero.read_embedded_data(source)
+        self.assertEqual(data["dates"], [days[-1]])
+        self.assertEqual({r["date"] for r in data["rows"]}, {days[-1]})
+
+
+class CompactRowsTests(unittest.TestCase):
+    """El formato compacto no puede perder ni alterar nada: se reconstruye la fila exacta."""
+
+    def payload_rows(self):
+        current = [sample(), sample(municipio="Istmina", divipola="27361", valor="0.25"),
+                   sample(indicador_id="3is_colapsos", indicador="Colapsos", fuente="3iS-Sheets", unidad="Número", valor="0"),
+                   sample(nivel="departamental", municipio="", divipola="27", valor="3")]
+        history = [sample(fecha_corte="2026-09-06"), sample(fecha_corte="2026-09-05", valor="0.1")]
+        return tablero.prepare_payload(current, history)["rows"]
+
+    def test_round_trip_is_exact_and_keeps_column_order(self):
+        rows = self.payload_rows()
+        self.assertGreaterEqual(len(rows), 5)
+        compact = tablero.compact_rows(rows)
+        restored = tablero.expand_rows(json.loads(json.dumps(compact)))
+        self.assertEqual(restored, rows)
+        self.assertEqual([list(r) for r in restored], [list(r) for r in rows])
+
+    def test_each_text_is_stored_once(self):
+        rows = self.payload_rows()
+        compact = tablero.compact_rows(rows)
+        self.assertEqual(compact["formato"], tablero.COMPACT_FORMAT)
+        self.assertEqual(len(compact["fechas"]), len({r["date"] for r in rows}))
+        self.assertEqual(len(compact["fuentes"]), len({r["f"] for r in rows}))
+        self.assertEqual(len(compact["territorios"]), len({r["geo"] for r in rows}))
+        for column in "tifdv":
+            self.assertEqual(len(compact[column]), len(rows))
+
+    def test_unexpected_columns_and_formats_are_rejected(self):
+        rows = self.payload_rows()
+        with self.assertRaises(ValueError):
+            tablero.compact_rows([{**rows[0], "extra": 1}])
+        with self.assertRaises(ValueError):
+            tablero.expand_rows({"formato": "otro"})
+        self.assertEqual(tablero.expand_rows(rows), rows)
+
+    def test_html_carries_compact_rows_and_the_decoder(self):
+        source = tablero.build_html([sample(), sample(municipio="Istmina", divipola="27361")])
+        self.assertEqual(source.count(tablero.DATA_START), 1)
+        # assertTrue y no assertIn: un fallo no debe volcar varios MB de HTML en la consola.
+        self.assertTrue(source[source.index(tablero.DATA_START) + len(tablero.DATA_START):].startswith('{"rows":{"formato":"filas-compactas/v1"'))
+        self.assertLess(source.index("root.Datos=api"), source.index(tablero.DATA_START))
+        data = tablero.read_embedded_data(source)
+        self.assertEqual([r["m"] for r in data["rows"]], ["Quibdó", "Istmina"])  # orden por código DIVIPOLA
+
+    def test_javascript_decoder_matches_python(self):
+        import shutil
+        import subprocess
+        node = shutil.which("node")
+        if not node:
+            self.skipTest("node no está disponible")
+        rows = self.payload_rows()
+        script = ("const D=require('./web/datos.js');let s='';process.stdin.on('data',c=>s+=c).on('end',()=>{"
+                  "const c=JSON.parse(s);const rows=D.expandirFilas(c);"
+                  "process.stdout.write(JSON.stringify({rows,again:D.compactarFilas(rows)}));});")
+        result = subprocess.run([node, "-e", script], input=json.dumps(tablero.compact_rows(rows)), text=True,
+                                capture_output=True, cwd=tablero.ROOT, encoding="utf-8", check=True)
+        output = json.loads(result.stdout)
+        self.assertEqual(output["rows"], rows)
+        self.assertEqual([list(r) for r in output["rows"]], [list(r) for r in rows])
+        self.assertEqual(output["again"], json.loads(json.dumps(tablero.compact_rows(rows))))
+
+
+class PreparationTests(unittest.TestCase):
+    def test_zero_is_retained_missing_and_invalid_excluded(self):
+        result = tablero.prepare_payload([sample(valor="0"), sample(municipio="B", valor=""), sample(municipio="C", valor="nan")])
+        self.assertEqual([r["v"] for r in result["rows"]], [0])
+        self.assertTrue(result["issues"])
+
+    def test_capture_replaces_whole_snapshot_without_resurrecting_source(self):
+        history = [sample(fuente="PNUD"), sample(fecha_corte="2026-09-06", fuente="PNUD")]
+        result = tablero.prepare_payload([sample()], history)
+        self.assertEqual({r["f"] for r in result["rows"] if r["date"] == "2026-09-07"}, {tablero.RAPIDA})
+        self.assertEqual(len(result["dates"]), 2)
+
+    def test_conflicting_duplicate_is_excluded_not_selected_or_summed(self):
+        result = tablero.prepare_payload([sample(), sample(valor="0.8")])
+        self.assertEqual(result["rows"], [])
+
+    def test_exact_duplicate_is_counted_once(self):
+        result = tablero.prepare_payload([sample(), sample()])
+        self.assertEqual(len(result["rows"]), 1)
+
+    def test_distinct_units_are_not_merged(self):
+        result = tablero.prepare_payload([sample(), sample(unidad="Porcentaje")])
+        self.assertEqual(result["rows"], [])
+
+    def test_homonyms_remain_distinct(self):
+        result = tablero.prepare_payload([sample(divipola="", municipio="Armenia"), sample(divipola="", municipio="Armenia", departamento="Quindío")])
+        self.assertEqual(len({r["geo"] for r in result["rows"]}), 2)
+
+    def test_accent_normalization_uses_unambiguous_code(self):
+        result = tablero.prepare_payload([sample(), sample(municipio="QUIBDO", divipola="", fuente="PNUD")])
+        self.assertEqual(len({r["geo"] for r in result["rows"]}), 1)
+        self.assertTrue(all(r["code"] == "27001" for r in result["rows"]))
+
+    def test_ambiguous_identity_is_not_joined(self):
+        result = tablero.prepare_payload([sample(), sample(divipola="27002", fuente="PNUD")])
+        self.assertEqual(result["rows"], [])
+
+    def test_missing_date_does_not_become_today(self):
+        self.assertEqual(tablero.prepare_payload([sample(fecha_corte="")])["rows"], [])
+
+    def test_cali_alias_joins_reports_and_rapida_without_changing_values(self):
+        result = tablero.prepare_payload([
+            sample(departamento='Valle del Cauca', municipio='Cali', divipola='',
+                   fuente='3iS-Sheets', indicador_id='3is_colapsos', dimension='Infraestructura',
+                   indicador='Colapsos de edificaciones', unidad='Número', valor='515'),
+            sample(departamento='Valle del Cauca', municipio='Santiago de Cali', divipola='76001')])
+        self.assertEqual({r['geo'] for r in result['rows']}, {'municipal:76001'})
+        self.assertEqual(next(r['v'] for r in result['rows'] if r['id']=='3is_colapsos'),515)
+
+    def test_baseline_only_territories_do_not_expand_damage_universe(self):
+        result=tablero.prepare_payload([sample()])
+        self.assertEqual(len({r['geo'] for r in result['rows']}),1)
+        self.assertGreater(len(result['baseline']['rows']),1000)
+
+    def test_invalid_current_snapshot_is_not_replaced_by_older_valid_values(self):
+        result = tablero.prepare_payload([sample(valor="nan")], [sample(fecha_corte="2026-09-06")])
+        self.assertEqual(result["latest"], "2026-09-07")
+        self.assertFalse(any(r["date"] == result["latest"] for r in result["rows"]))
+
+    def test_html_escapes_script_content_and_excludes_legacy_scores(self):
+        source = tablero.build_html([sample(indicador="</script><script>alert(1)</script>"), sample(fuente="Calculo", indicador_id="indice_compuesto")])
+        data = tablero.read_embedded_data(source)
+        self.assertEqual(len(data["rows"]), 1)
+        self.assertNotIn("<script>alert(1)", source)
+        # Cuenta las vistas principales; las fichas pueden tener pestañas internas.
+        self.assertEqual(len(re.findall(r'<section\b[^>]*class="tab-panel"[^>]*role="tabpanel"', source)), 8)
+        for tab in ('prioridades', 'vulnerabilidad', 'radar', 'inversion', 'proyectos', 'metodo'):
+            self.assertTrue(f'id="tab-{tab}"' in source, tab)
+        for tab in ('rapida', 'diagnostico'):
+            self.assertRegex(source, rf'<button[^>]*id="tab-{tab}"[^>]*\bhidden>')
+        self.assertIn('id="percapita-matrix"', source)
+        self.assertIn('>Necesidad de recuperación temprana</button>', source)
+        for removed in ('id="comparison-axis"', 'id="comparison-panel"', 'id="comparison-warning"'):
+            self.assertNotIn(removed, source)
+        self.assertNotIn("__DATA__", source)
+
+    def test_html_embeds_torre_de_control_brand_and_stays_offline(self):
+        source = tablero.build_html([sample()])
+        for marker in ("__BRAND__", "__LOGO__", "__ICONO__", "__FONT_REGULAR__", "__FONT_MEDIUM__", "__FONT_BOLD__"):
+            self.assertNotIn(marker, source)
+        self.assertEqual(source.count('font-family:"National Park"'), 3)
+        self.assertIn('class="brand-logo"', source)
+        self.assertIn('src="data:image/webp;base64,', source)
+        self.assertIn("--navy:#013a51", source)
+        # Los enlaces de consulta a fuentes no cargan recursos al abrir el tablero.
+        self.assertNotRegex(source, r"src=[\"']https?://|<link\b[^>]*href=[\"']https?://|url\(https?://|@import")
+
+    def test_html_supports_dark_mode_without_hardcoded_chart_colors(self):
+        source = tablero.build_html([sample()])
+        self.assertIn("@media(prefers-color-scheme:dark)", source)
+        self.assertIn("--series-1:", source)
+        # Los colores de gráficos salen de variables CSS, no de constantes fijas en el JS.
+        for fixed in ('stroke="#d5dfe8"', 'fill="#008aee"', 'stroke="#e03000"', "'#07558a','#b95319','#724c9e'"):
+            self.assertNotIn(fixed, source)
+
+    def test_html_offers_summary_and_detail_views_with_summary_default(self):
+        source = tablero.build_html([sample()])
+        self.assertIn('data-density="compact" aria-pressed="true"', source)
+        self.assertIn('data-density="detail" aria-pressed="false"', source)
+        self.assertIn("tablero.densidad", source)
+        self.assertIn(".is-compact .matrix-card", source)
+
+    def test_generate_preserves_raw_input_and_history_by_default(self):
+        import csv
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            for name in ("input.csv", "history.csv"):
+                with (root / name).open("w", encoding="utf-8", newline="") as f:
+                    writer = csv.DictWriter(f, fieldnames=list(sample()))
+                    writer.writeheader()
+                    writer.writerow(sample())
+            before = [(root / name).read_bytes() for name in ("input.csv", "history.csv")]
+            tablero.generate(root / "input.csv", root / "history.csv", root / "index.html", root / "eda_indicadores.html")
+            self.assertEqual(before, [(root / name).read_bytes() for name in ("input.csv", "history.csv")])
+            self.assertIn('url=index.html', (root / "eda_indicadores.html").read_text(encoding="utf-8"))
+
+    def test_default_update_generates_unified_dashboard_without_cascade_or_naboo(self):
+        mocks = {
+            "load_dep_population": {"Chocó": 1000}, "load_municipios": [], "load_resumen_meta": {},
+            "load_historial_previo": (None, {}), "load_empresarios_afectados": {},
+            "load_3is_datos_territoriales": (None, {}, None, {}), "load_sedes_educativas_afectadas": {},
+            "load_pnud_perdidas_economicas": ({}, {}),
+            "load_undp_geosmart_rapida": ({}, {("Chocó", "Quibdó"): {"recovery_needs": .6, "mpi": 12, "_divipola": "27001"}}),
+        }
+        with tempfile.TemporaryDirectory() as tmp, ExitStack() as stack:
+            previous = os.getcwd()
+            os.chdir(tmp)
+            stack.callback(os.chdir, previous)
+            for name, value in mocks.items():
+                stack.enter_context(patch.object(updater, name, return_value=value))
+            stack.enter_context(patch.object(updater, "load_registro", side_effect=OSError("offline")))
+            cascade = stack.enter_context(patch.object(updater, "compute_indice_ajustado", side_effect=AssertionError("Cascada inesperada")))
+            stack.enter_context(patch("sys.argv", ["actualizar_indice_terremoto.py"]))
+            with redirect_stdout(io.StringIO()), redirect_stderr(io.StringIO()):
+                updater.main()
+            cascade.assert_not_called()
+            source = Path("index.html").read_text(encoding="utf-8")
+            self.assertIn('id="prioridades"', source)
+            raw = tablero.read_rows(tablero.CURRENT)
+            self.assertTrue(any(r["indicador_id"] == tablero.RECOVERY for r in raw))
+            self.assertFalse(any(r["fuente"] == "Naboo" for r in raw))
+            self.assertFalse(Path("indice_ajustado_municipio.csv").exists())
+            self.assertFalse(Path("historial_indice.csv").exists())
+
+
+if __name__ == "__main__":
+    unittest.main()

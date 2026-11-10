@@ -1,0 +1,239 @@
+diff -ruN a/deploy/nginx/controltower.conf b/deploy/nginx/controltower.conf
+--- a/deploy/nginx/controltower.conf
++++ b/deploy/nginx/controltower.conf
+@@ -163,6 +163,30 @@
+         proxy_set_header X-Forwarded-Proto $scheme;
+     }
+ 
++    # --- Tablero territorial del terremoto (contenedor `tablero`, ver DEPLOYMENT.md sección 14) ---
++    # Reemplaza al sitio externo de Netlify: mismo dominio, sin CORS. El 8002 debe ser IDÉNTICO al lado
++    # izquierdo de `ports` en el docker-compose.yml del repo analisis-territorial-terremoto (solo escucha
++    # en 127.0.0.1). La barra final en `location ^~ /tablero-terremoto/` y en `proxy_pass .../` quita el
++    # prefijo, igual que /api/. `^~` gana sobre las reglas de regex de más abajo.
++    #
++    # Este location define su PROPIO add_header a propósito: por la herencia de Nginx (ver
++    # security-headers.conf), con al menos uno propio deja de heredar los del server{}, que aquí romperían el
++    # tablero (X-Frame-Options DENY impide el iframe y script-src 'self' bloquea sus scripts en línea).
++    # La CSP y el marco permitido (frame-ancestors 'self') los fija el propio contenedor.
++    location = /tablero-terremoto {
++        return 301 /tablero-terremoto/;
++    }
++    location ^~ /tablero-terremoto/ {
++        proxy_pass http://127.0.0.1:8002/;
++        proxy_http_version 1.1;
++        proxy_set_header Host $host;
++        proxy_set_header X-Real-IP $remote_addr;
++        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
++        proxy_set_header X-Forwarded-Proto $scheme;
++        proxy_read_timeout 120s;
++        add_header Strict-Transport-Security "max-age=63072000; includeSubDomains; preload" always;
++    }
++
+     # --- Frontend (SPA React/Vite, build estático — ver DEPLOYMENT.md) ---
+     root /var/www/controltower/frontend;
+     index index.html;
+diff -ruN a/deploy/nginx/security-headers.conf b/deploy/nginx/security-headers.conf
+--- a/deploy/nginx/security-headers.conf
++++ b/deploy/nginx/security-headers.conf
+@@ -64,14 +64,18 @@
+ #     no sea su propia API (todas las llamadas a Anthropic/Meta/etc. las hace
+ #     el backend, nunca el navegador).
+ #   - frame-ancestors 'none': nada de esta app se embebe en otro sitio.
+-#   - frame-src permite embeber el tablero externo del terremoto
+-#     (tablero-terremoto.netlify.app, módulo "Análisis Territorial") en un
+-#     iframe dentro de la plataforma — sin esto, `default-src 'self'` bloquea
+-#     el iframe en silencio (mismo tipo de bug ya documentado para
+-#     img-src/connect-src en otros módulos: se ve roto recién al desplegar,
+-#     no en desarrollo).
++#   - frame-src 'self' permite embeber el tablero territorial del terremoto
++#     (módulo "Análisis Territorial") en un iframe dentro de la plataforma.
++#     Ya no es un sitio externo: lo sirve el contenedor `tablero` de este mismo
++#     servidor bajo /tablero-terremoto/ (ver controltower.conf y DEPLOYMENT.md
++#     sección 14). Sin esto, `default-src 'self'` bloquea el iframe en silencio
++#     (mismo tipo de bug ya documentado para img-src/connect-src en otros
++#     módulos: se ve roto recién al desplegar, no en desarrollo). Ojo: estos
++#     encabezados NO deben aplicarse a la respuesta del tablero (X-Frame-Options
++#     DENY y script-src 'self' lo romperían); por eso su location en
++#     controltower.conf define sus propios add_header.
+ #   - object-src 'none': sin plugins.
+ # Si algo se ve roto tras desplegar y la consola del navegador marca una
+ # violación de CSP, ese mensaje te dice EXACTAMENTE qué directiva aflojar —
+ # no borres el header entero, ajusta solo esa directiva.
+-add_header Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.basemaps.cartocdn.com; connect-src 'self'; font-src 'self' data:; frame-src https://tablero-terremoto.netlify.app; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests" always;
++add_header Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.basemaps.cartocdn.com; connect-src 'self'; font-src 'self' data:; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests" always;
+diff -ruN a/DEPLOYMENT.md b/DEPLOYMENT.md
+--- a/DEPLOYMENT.md
++++ b/DEPLOYMENT.md
+@@ -303,3 +303,68 @@
+ - **`app` crash-loopea con `FileNotFoundError: ... alembic/data/municipios_colombia.csv`**: las migraciones `0013`/`0021` necesitan ese archivo (catálogo oficial DIVIPOLA/DANE de municipios, versionado en git) en tiempo de ejecución. Si falta, algo se lo saltó al clonar/copiar el repo — confirma con `git ls-files alembic/data/` que sigue trackeado y no se excluyó por accidente en algún `.gitignore`/`.dockerignore` nuevo, y reconstruye la imagen (`docker compose build app`).
+ - **Recordatorio general sobre migraciones fallidas**: Alembic marca "aplicada" (o no) por base de datos, vía la tabla `alembic_version` dentro de esa misma base — no es un estado global del repo. Si `alembic upgrade head` falla en un ambiente pero "ya había corrido antes", confirma que apunta a la base de datos que crees (`DATABASE_URL`) y no a un volumen de Postgres nuevo/distinto (ej. tras un `docker compose down -v` o un volumen recién creado en un servidor nuevo).
+ - **Algo se ve visualmente roto y la consola del navegador marca una violación de `Content-Security-Policy`**: el mensaje de la consola indica exactamente qué directiva está bloqueando qué recurso — ajusta esa directiva puntual en `deploy/nginx/security-headers.conf` (y vuelve a copiarla a `/etc/nginx/snippets/` + `nginx -t && systemctl reload nginx`), no borres el encabezado completo.
++
++## 14. Tablero territorial del terremoto (contenedor propio)
++
++La sección «Análisis Territorial» de la plataforma embebe un tablero (repo `analisis-territorial-terremoto`) que ya **no** vive en Netlify: corre en su propio contenedor, en este mismo servidor, y Nginx lo publica en el mismo dominio bajo `/tablero-terremoto/`.
++
++```
++Internet ──HTTPS──▶ Nginx (host) ──┬──▶ /api/*               ──▶ 127.0.0.1:8001 (contenedor `app`)
++                                   ├──▶ /tablero-terremoto/  ──▶ 127.0.0.1:8002 (contenedor `tablero`)
++                                   └──▶ resto                ──▶ build estático del frontend
++```
++
++El contenedor `tablero` sirve la página y, cada 4 horas, descarga las fuentes, regenera el HTML y lo publica. Solo publica versiones que pasaron sus validaciones: si una descarga falla, el sitio sigue mostrando la anterior. Su estado (historial de capturas) vive en el volumen Docker `tablero_data`. Es independiente de la Torre: si se cae, la plataforma sigue funcionando (el iframe se ve vacío).
++
++### Instalar
++
++```bash
++git clone <url-del-repo-analisis-territorial-terremoto> /opt/tablero-terremoto
++cd /opt/tablero-terremoto
++docker compose up -d --build
++curl -s http://127.0.0.1:8002/status.json     # "ok": true tras la primera descarga (~1-2 min)
++```
++
++Si 8002 está ocupado, cambia solo el número de la izquierda en `ports:` de su `docker-compose.yml` **y** `proxy_pass http://127.0.0.1:8002/;` en `deploy/nginx/controltower.conf`.
++
++### Nginx
++
++El bloque `location ^~ /tablero-terremoto/` ya está en `deploy/nginx/controltower.conf` y `frame-src 'self'` en `security-headers.conf` (el snippet se copia a `/etc/nginx/snippets/`, como en el paso 6). Después de actualizarlos:
++
++```bash
++sudo cp deploy/nginx/security-headers.conf /etc/nginx/snippets/controltower-security-headers.conf
++sudo nginx -t && sudo systemctl reload nginx
++```
++
++Ese `location` define sus propios `add_header` a propósito: los encabezados de seguridad de la Torre (`X-Frame-Options: DENY`, `script-src 'self'`) impedirían enmarcar el tablero y bloquearían sus scripts en línea. La política de seguridad de esa página (`frame-ancestors 'self'`, sin ninguna petición de red permitida) la fija el propio contenedor.
++
++### Verificar
++
++```bash
++curl -sI https://torre.tu-dominio.org/tablero-terremoto/ | grep -iE "^HTTP|content-encoding|x-frame|content-security"
++#   200, content-encoding: gzip (95 MB → ~7 MB), x-frame-options: SAMEORIGIN, CSP del contenedor
++```
++
++Luego abre «Análisis Territorial» en la plataforma: el tablero debe verse dentro del marco. Si se ve en blanco, la consola del navegador dice qué directiva de CSP lo bloquea.
++
++### Actualizar a una versión nueva del tablero
++
++```bash
++cd /opt/tablero-terremoto && git pull && docker compose up -d --build   # el historial (volumen) se conserva
++```
++
++### Backup
++
++El volumen guarda el historial acumulado; el resto se regenera. Añade esto al mismo cron y a la misma copia externa del paso 11:
++
++```bash
++cd /opt/tablero-terremoto && docker compose exec -T tablero tar -C /data/state -cf - . | gzip > tablero-estado-$(date +%F).tar.gz
++```
++
++Restaurar: `docker compose down`, `docker run --rm -v tablero-terremoto_tablero_data:/data -v "$PWD":/b alpine sh -c "cd /data/state && tar -xzf /b/<archivo>.tar.gz"`, `docker compose up -d`.
++
++### Problemas comunes
++
++- **502 en `/tablero-terremoto/`**: contenedor caído. `docker compose ps` y `docker compose logs --tail 50 tablero` en `/opt/tablero-terremoto`.
++- **Datos viejos**: `curl -s http://127.0.0.1:8002/status.json` muestra `last_success` y, si la última descarga falló, `error` con la causa. El contenedor reintenta cada 30 minutos.
++- **Marco en blanco**: casi siempre es CSP (`frame-src` en `security-headers.conf` sin recargar Nginx) o un `add_header` heredado por error en el location del tablero.
+diff -ruN a/frontend/src/pages/AnalisisTerritorialPage.tsx b/frontend/src/pages/AnalisisTerritorialPage.tsx
+--- a/frontend/src/pages/AnalisisTerritorialPage.tsx
++++ b/frontend/src/pages/AnalisisTerritorialPage.tsx
+@@ -4,17 +4,17 @@
+ import { Card, CardBody } from "@/components/ui/Card";
+ import { Button } from "@/components/ui/Button";
+ 
+-// Tablero externo (Netlify), fuera de esta plataforma — mantenido y actualizado de forma
+-// independiente. Solo se embebe acá vía iframe, no hay integración de datos entre los dos
+-// sistemas. El sitio no envía X-Frame-Options ni frame-ancestors (verificado en vivo), así que
+-// permite ser embebido; requiere que el CSP de despliegue (deploy/nginx/security-headers.conf)
+-// incluya este dominio en frame-src.
+-const URL_ANALISIS_TERRITORIAL = "https://tablero-terremoto.netlify.app/";
++// Tablero territorial del terremoto: corre en su propio contenedor (repo analisis-territorial-terremoto,
++// que se actualiza solo cada 4 h) y Nginx lo publica bajo /tablero-terremoto/ en este mismo dominio. Acá solo
++// se embebe vía iframe, no hay integración de datos entre los dos sistemas. Al ser del mismo origen, el CSP
++// de despliegue solo necesita frame-src 'self' (deploy/nginx/security-headers.conf). En desarrollo, Vite
++// reenvía esa ruta al contenedor (ver vite.config.ts); VITE_TABLERO_URL permite apuntar a otra dirección.
++const URL_ANALISIS_TERRITORIAL = import.meta.env.VITE_TABLERO_URL ?? "/tablero-terremoto/";
+ 
+ export function AnalisisTerritorialPage() {
+   const [copiado, setCopiado] = useState(false);
+   // Enlace público separado del de Torre de control (módulo 13) — pedido explícito del usuario.
+-  // Sin token: el propio tablero de Netlify ya es público sin autenticación, así que no hay ningún
++  // Sin token: el tablero ya es público (datos abiertos) sin autenticación, así que no hay ningún
+   // dato real que un token proteja acá; esta URL solo envuelve el mismo iframe con la identidad de
+   // la plataforma, para no tener que compartir el link de Netlify a secas.
+   const urlPublica = `${window.location.origin}/analisis-territorial-publico`;
+@@ -23,7 +23,7 @@
+     <div className="flex h-full flex-col">
+       <PageHeader
+         title="Análisis Territorial"
+-        description="Tablero externo del terremoto — se actualiza de forma independiente a esta plataforma."
++        description="Tablero del terremoto — se actualiza solo cada 4 horas, de forma independiente a esta plataforma."
+         actions={
+           <div className="flex items-center gap-2">
+             <Button
+@@ -47,7 +47,7 @@
+         <CardBody>
+           <iframe
+             src={URL_ANALISIS_TERRITORIAL}
+-            title="Análisis Territorial — tablero externo del terremoto"
++            title="Análisis Territorial — tablero del terremoto"
+             className="h-[75vh] w-full rounded-lg border border-border"
+             loading="lazy"
+           />
+diff -ruN a/frontend/src/pages/AnalisisTerritorialPublicoPage.tsx b/frontend/src/pages/AnalisisTerritorialPublicoPage.tsx
+--- a/frontend/src/pages/AnalisisTerritorialPublicoPage.tsx
++++ b/frontend/src/pages/AnalisisTerritorialPublicoPage.tsx
+@@ -1,14 +1,14 @@
+ import icono from "@/assets/brand/icono.webp";
+ 
+-// Tablero externo (Netlify), fuera de esta plataforma — mismo componente/URL que la versión
++// Tablero territorial (contenedor propio, publicado bajo /tablero-terremoto/) — mismo componente/URL que la versión
+ // interna (`AnalisisTerritorialPage.tsx`, `/app/analisis-territorial`), acá sin sesión: el usuario
+ // pidió explícitamente un enlace público SEPARADO solo para esto (distinto del enlace público de
+ // Torre de control, módulo 13, que sigue mostrando el resumen operativo interno sin cambios). Sin
+-// token ni generación desde el panel de admin -- el propio tablero de Netlify ya es público y sin
++// token ni generación desde el panel de admin -- el propio tablero ya es público y sin
+ // autenticación por sí solo, así que un mecanismo de token/revocación acá no protegería ningún dato
+ // real; esta página solo le da una URL propia, con la identidad de la plataforma, para compartir en
+-// vez del link de Netlify a secas.
+-const URL_ANALISIS_TERRITORIAL = "https://tablero-terremoto.netlify.app/";
++// vez del enlace directo al tablero.
++const URL_ANALISIS_TERRITORIAL = import.meta.env.VITE_TABLERO_URL ?? "/tablero-terremoto/";
+ 
+ export function AnalisisTerritorialPublicoPage() {
+   return (
+@@ -26,7 +26,7 @@
+       <main className="mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:px-10 lg:py-10">
+         <iframe
+           src={URL_ANALISIS_TERRITORIAL}
+-          title="Análisis Territorial — tablero externo del terremoto"
++          title="Análisis Territorial — tablero del terremoto"
+           className="h-[80vh] w-full rounded-xl border border-border bg-surface"
+           loading="lazy"
+         />
+diff -ruN a/frontend/vite.config.ts b/frontend/vite.config.ts
+--- a/frontend/vite.config.ts
++++ b/frontend/vite.config.ts
+@@ -3,6 +3,11 @@
+ import react from "@vitejs/plugin-react";
+ import tailwindcss from "@tailwindcss/vite";
+ 
++// Tablero territorial (contenedor del repo analisis-territorial-terremoto, publicado en el puerto 8002 del host).
++// En producción lo sirve Nginx bajo /tablero-terremoto/; en desarrollo Vite reenvía esa ruta. Si Vite corre
++// dentro de Docker, define TABLERO_PROXY_TARGET=http://host.docker.internal:8002.
++const tableroTarget = process.env.TABLERO_PROXY_TARGET ?? "http://localhost:8002";
++
+ export default defineConfig({
+   plugins: [react(), tailwindcss()],
+   resolve: {
+@@ -12,5 +17,11 @@
+   },
+   server: {
+     port: 5173,
++    proxy: {
++      "/tablero-terremoto": {
++        target: tableroTarget,
++        rewrite: (p) => p.replace(/^\/tablero-terremoto/, ""),
++      },
++    },
+   },
+ });

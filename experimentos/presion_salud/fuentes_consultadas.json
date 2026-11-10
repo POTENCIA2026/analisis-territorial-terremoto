@@ -1,0 +1,62 @@
+{
+  "checked": "2026-09-16T21:43:47.743880+00:00",
+  "sources": {
+    "naboo": {
+      "url": "https://www.mapadelterremoto.com/datos/registro.json",
+      "bytes": 12253226,
+      "sha256": "b8fc37d6ca7a74f54129cb32c6fcc5a9013e0aba534b7e2b8833c2340b0a2d9f",
+      "keys": [
+        "puntos",
+        "fuentes",
+        "evento",
+        "usuario",
+        "actualizado",
+        "exportado",
+        "version"
+      ],
+      "points": 3857,
+      "health_points": 239
+    },
+    "reps_metadata": {
+      "url": "https://www.datos.gov.co/api/views/s2ru-bqt6.json",
+      "bytes": 36066,
+      "sha256": "deae473cf4254c1ee96723f569646c55ad76e71571a5c92b82b5aaf4b26fab75",
+      "name": "Relación de IPS públicas y privadas según el nivel de atención y capacidad instalada",
+      "columns": [
+        "departamento",
+        "municipio",
+        "c_digo_prestador",
+        "nombre_prestador",
+        "nit_ips",
+        "num_digito_verificion",
+        "naturaleza",
+        "num_nivel_atencion",
+        "c_digo_sede",
+        "n_mero_sede",
+        "nom_sede_ips",
+        "gerente",
+        "direcci_n",
+        "email",
+        "tel_fono",
+        "nom_grupo_capacidad",
+        "nom_descripcion_capacidad",
+        "num_cantidad_capacidad_instalada",
+        "fecha_corte",
+        "fuente"
+      ],
+      "modified": 1669070228
+    },
+    "reps_occupancy": {
+      "url": "https://prestadores.minsalud.gov.co/habilitacion/capacidad_instalada_ocupacion.aspx",
+      "bytes": 11335,
+      "sha256": "5ccdde543a5920425b96ae2deb43cd1c56ce33647f3819729eedf2568cc07fa1",
+      "login_required": true
+    },
+    "ops_sitrep8": {
+      "url": "https://www.paho.org/sites/default/files/2026/09/sitrep-8-colombia-sismo-11092026.pdf",
+      "bytes": 1218952,
+      "sha256": "8feb41df9ed7b62d990a7760761cc9bb728646596557882d22aa798902d3ded1",
+      "finding": "Densidad de ocupación localizada: alojamientos temporales, no hospitales; no utilizada."
+    }
+  }
+}

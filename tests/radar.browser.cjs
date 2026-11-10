@@ -1,0 +1,90 @@
+// Run after generating index.html. Requires Playwright; BROWSER_PATH is optional.
+const {chromium}=require('playwright');
+const assert=require('node:assert/strict');
+const {pathToFileURL}=require('node:url');
+const path=require('node:path');
+(async()=>{
+ const browser=await chromium.launch({headless:true,...(process.env.BROWSER_PATH?{executablePath:process.env.BROWSER_PATH}:{})});
+ try {
+  const page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[];
+  page.on('pageerror',e=>errors.push(String(e)));
+  await page.goto(pathToFileURL(path.resolve(__dirname,'../index.html')).href);
+  const order=()=>page.locator('#matrix [data-priority-geo]').evaluateAll(xs=>xs.map(x=>x.dataset.priorityGeo));
+  const normal=await order(),header=page.locator('[data-sort-sector="educacion"]');
+  await header.click();
+  assert.equal(await header.locator('..').getAttribute('aria-sort'),'descending');
+  const descending=await order();
+  await header.click();
+  assert.equal(await header.locator('..').getAttribute('aria-sort'),'ascending');
+  assert.notDeepEqual(await order(),descending);
+  await header.click();
+  assert.deepEqual(await order(),normal);
+  assert.equal(await page.locator('#priority-download, #matrix-source, #priority-dimension').count(),0);
+  await page.locator('#tab-radar').click();
+  await page.locator('#radar-search-0').fill('quibdo');
+  const result=page.locator('#radar-results-0 button');
+  assert.equal(await result.count(),1);assert.equal(await result.isVisible(),true);
+  await result.click();assert.equal(await page.locator('#radar-select-0').inputValue(),'municipal:27001');
+  assert.match(await page.locator('#radar-legend').innerText(),/Quibdó/);
+  await page.locator('#radar-search-2').fill('armenia');
+  await page.locator('#radar-results-2 button').filter({hasText:'Quindío'}).click();
+  const third=await page.locator('#radar-select-2').inputValue();
+  await page.locator('#radar-select-1').selectOption('');
+  assert.equal(await page.locator('#radar-select-2').inputValue(),third);
+  await page.locator('#radar-search-1').fill('zzzz-no-existe');
+  assert.equal(await page.locator('#radar-results-1 button').count(),0);
+  assert.match(await page.locator('#radar-results-1').innerText(),/Sin coincidencias/);
+  await page.locator('#radar-search-1').fill('buenaventura');
+  await page.locator('#radar-search-1').press('ArrowDown');await page.keyboard.press('Enter');
+  assert.equal(await page.locator('#radar-select-1').inputValue(),'municipal:76109');
+  await page.locator('#radar-sectors [data-radar-m="2"][data-radar-axis="4"]').focus();
+  assert.match(await page.locator('#radar-inspector').innerText(),/Sin dato, no cero/);
+  await page.locator('#scope').selectOption('all');
+  assert.equal(await page.locator('#radar-select-2').inputValue(),third);
+  await page.setViewportSize({width:390,height:844});
+  await page.locator('#radar-search-0').fill('lorica');
+  await page.locator('#radar-results-0 button').click();
+  assert.equal(await page.locator('#radar-select-0').inputValue(),'municipal:23417');
+  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+  assert.deepEqual(errors,[]);
+  await page.setViewportSize({width:1440,height:1000});
+  await page.locator('#radar-search-0').fill('pereira');
+  assert.equal(await page.locator('#radar-results-0').getAttribute('class'),'radar-results');
+  assert.equal(await page.locator('#radar-results-0 button').evaluate(el=>getComputedStyle(el).display),'block');
+  const relativeOptionWidth=await page.locator('#radar-results-0 button').evaluate(el=>el.getBoundingClientRect().width);
+  const relativeMenuInnerWidth=await page.locator('#radar-results-0').evaluate(el=>el.clientWidth);
+  assert.ok(Math.abs(relativeOptionWidth-relativeMenuInnerWidth)<=1);
+  await page.locator('#radar-results-0 button').click();
+  assert.match(await page.locator('#radar-relative-legend').innerText(),/Pereira/);
+  await page.locator('#radar-relative-sectors [data-radar-m="0"][data-radar-axis="0"]').focus();
+  const inspector=await page.locator('#radar-relative-inspector').innerText();
+  assert.match(inspector,/487[.,]820/);
+  assert.match(inspector,/Tasa =/);
+  // La versión actual excluye heridos de impacto humano; verificar sus tasas
+  // activas, no la constante de heridos de una captura histórica.
+  const humanRates=await page.evaluate(()=>Priorizacion.models(DATA).sectorial.compute(state).all.find(r=>r.code==='66001').sectors[0].fields.filter(f=>f.share>0&&f.rate!=null).map(f=>new Intl.NumberFormat('es-CO',{maximumFractionDigits:4}).format(f.rate)));
+  for(const rate of humanRates)assert.ok(inspector.includes('= '+rate+' /10.000'));
+  assert.doesNotMatch(inspector,/Personas heridas/);
+  assert.match(inspector,/Sin dato relativo/);
+  assert.match(await page.locator('#radar-legend').innerText(),/Pereira/);
+  // Los puntos de municipios con puntajes similares pueden superponerse.
+  // Seleccionar solo Pereira permite comprobar el hover sin otro punto encima.
+  await page.selectOption('#radar-select-1','');
+  await page.selectOption('#radar-select-2','');
+  const before=await page.locator('#radar-inspector').innerText();
+  await page.locator('#radar-relative-chart [data-radar-m="0"][data-radar-axis="1"]').first().hover();
+  assert.match(await page.locator('#radar-relative-inspector').innerText(),/Vivienda/);
+  assert.match(await page.locator('#radar-relative-inspector').innerText(),/Total de viviendas/);
+  assert.ok(await page.locator('#radar-relative-chart [data-radar-axis="2"]').count()>0);
+  await page.locator('#radar-relative-sectors [data-radar-m="0"][data-radar-axis="2"]').click();
+  assert.match(await page.locator('#radar-relative-inspector').innerText(),/Heridos frente a camas/);
+  assert.match(await page.locator('#radar-relative-inspector').innerText(),/REPS/);
+  assert.equal(await page.locator('#radar-inspector').innerText(),before);
+  await page.keyboard.press('Escape');
+  await page.setViewportSize({width:390,height:844});
+  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+  assert.deepEqual(errors,[]);
+  console.log('Radar OK: visible search, accents, keyboard, empty results, stable slots, scope, mobile, inspector.');
+ } finally {await browser.close();}
+})().catch(e=>{console.error(e);process.exitCode=1;});
+

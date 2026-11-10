@@ -1,0 +1,305 @@
+{
+ "esquema": "manifiesto-datos/v1",
+ "nota": "Generado por scripts/generar_manifiesto_datos.py. No editar a mano.",
+ "resumen": {
+  "derivado": {
+   "archivos": 17,
+   "bytes": 7442503
+  },
+  "fuente original": {
+   "archivos": 8,
+   "bytes": 2787982
+  },
+  "captura": {
+   "archivos": 3,
+   "bytes": 456729
+  }
+ },
+ "archivos": [
+  {
+   "archivo": "data/camaras_comercio_empresarios_afectados_ago2026.csv",
+   "clase": "derivado",
+   "bytes": 7204,
+   "sha256": "5903cfbdf1ee650b93d84133c074aca17087cccdbe9570c5abc110f44cc080ca",
+   "nombrado_en_generador": true,
+   "usado_por": [
+    "actualizar_indice_terremoto.py",
+    "generar_tablero_recuperacion.py"
+   ]
+  },
+  {
+   "archivo": "data/camaras_comercio_empresarios_afectados_ago2026.xlsx",
+   "clase": "fuente original",
+   "bytes": 30768,
+   "sha256": "c4631c32c771505d7957412a4e067ffafeddee170d95c579fb985ad8e62c7b7b",
+   "nombrado_en_generador": false,
+   "usado_por": []
+  },
+  {
+   "archivo": "data/decreto_1171_11ago2026.pdf",
+   "clase": "fuente original",
+   "bytes": 762724,
+   "sha256": "44fca15bf644771ade88465469ca1ea834c728d163fcf670fcee6b0103f11084",
+   "nombrado_en_generador": true,
+   "usado_por": [
+    "generar_tablero_recuperacion.py"
+   ]
+  },
+  {
+   "archivo": "data/denominadores_reps_simat.json",
+   "clase": "derivado",
+   "bytes": 1255906,
+   "sha256": "c477a5f00bf87e5e7dc23c69a70b50e71ea7e9c9869477bf62fd6933ba919d98",
+   "nombrado_en_generador": true,
+   "usado_por": [
+    "generar_tablero_recuperacion.py",
+    "scripts/preparar_reps_simat.py"
+   ]
+  },
+  {
+   "archivo": "data/denominadores_sectoriales.json",
+   "clase": "derivado",
+   "bytes": 966241,
+   "sha256": "62126f2f6c71a506ba5c3a0f9abb14c01a931ef769dcc016e6e902b3863ffa78",
+   "nombrado_en_generador": true,
+   "usado_por": [
+    "generar_tablero_recuperacion.py",
+    "preparar_denominadores_sectoriales.py",
+    "scripts/preparar_reps_simat.py"
+   ]
+  },
+  {
+   "archivo": "data/fundacion_plan_sedes.xlsx",
+   "clase": "fuente original",
+   "bytes": 17221,
+   "sha256": "123dfcd1b6359df94f7d0bc27790b18310e9e6341464535ee3bf69e4219e6497",
+   "nombrado_en_generador": false,
+   "usado_por": []
+  },
+  {
+   "archivo": "data/icbf_base_afectaciones_aliados.xlsx",
+   "clase": "fuente original",
+   "bytes": 318686,
+   "sha256": "c3eed6d7bdcb665333ca4666fce18d654e5359e3aeb795ab4641545638971a88",
+   "nombrado_en_generador": false,
+   "usado_por": []
+  },
+  {
+   "archivo": "data/indicadores_largo_solo_fuentes_crudas_snapshot.csv",
+   "clase": "captura",
+   "bytes": 69110,
+   "sha256": "3bae3135928df2a71a840449c2778e430d7981a1f74e6f43b4c6a058f098f289",
+   "nombrado_en_generador": false,
+   "usado_por": []
+  },
+  {
+   "archivo": "data/inversion_educativa.json",
+   "clase": "derivado",
+   "bytes": 269814,
+   "sha256": "1fc7e1b69aede4a488575e52b833d64ac0520f6c3fe655ebc56c104c36de4392",
+   "nombrado_en_generador": true,
+   "usado_por": [
+    "generar_tablero_recuperacion.py",
+    "scripts/preparar_inversion_educativa.py"
+   ]
+  },
+  {
+   "archivo": "data/linea_base_priorizacion.json",
+   "clase": "derivado",
+   "bytes": 292815,
+   "sha256": "9fcfbe9aafe4e44b780d7c4c0bdc1579d3e9eff9400df9908a33860c05a3edf5",
+   "nombrado_en_generador": true,
+   "usado_por": [
+    "generar_tablero_recuperacion.py",
+    "preparar_linea_base_priorizacion.py"
+   ]
+  },
+  {
+   "archivo": "data/matricula_critica.json",
+   "clase": "derivado",
+   "bytes": 121492,
+   "sha256": "009d2b3b4a6dedda27e2b52520e3d5f0bb55d90014ac9fdf7e3be103d8dec950",
+   "nombrado_en_generador": true,
+   "usado_por": [
+    "generar_tablero_recuperacion.py",
+    "scripts/preparar_matricula_critica.py"
+   ]
+  },
+  {
+   "archivo": "data/men_abierto/cobertura.json",
+   "clase": "derivado",
+   "bytes": 1228285,
+   "sha256": "73060c776a08aa874631c2937b52a369609e00861c097c376fad2d205faaf3ef",
+   "nombrado_en_generador": false,
+   "usado_por": [
+    "scripts/preparar_men_abierto.py"
+   ]
+  },
+  {
+   "archivo": "data/men_abierto/fuentes.json",
+   "clase": "derivado",
+   "bytes": 1002,
+   "sha256": "b4298621471cba44b3020801b231f313f8e43dd01f55ae2b322cf4e395c552bc",
+   "nombrado_en_generador": false,
+   "usado_por": [
+    "scripts/preparar_men_abierto.py"
+   ]
+  },
+  {
+   "archivo": "data/men_abierto/sedes.json.gz",
+   "clase": "derivado",
+   "bytes": 1360441,
+   "sha256": "a038f40210f882c582d21942ec864014974cea601cbb1a8d64120db42dfc0f44",
+   "nombrado_en_generador": false,
+   "usado_por": [
+    "scripts/preparar_men_abierto.py"
+   ]
+  },
+  {
+   "archivo": "data/men_sedes_escolares_afectadas_20260921.xlsx",
+   "clase": "fuente original",
+   "bytes": 1547096,
+   "sha256": "eaa1342470b270fd3e5880da44378f24a673947d3657fb628bec2ad7d105d781",
+   "nombrado_en_generador": false,
+   "usado_por": [
+    "scripts/preparar_inversion_educativa.py",
+    "scripts/preparar_men_abierto.py"
+   ]
+  },
+  {
+   "archivo": "data/men_universo.json",
+   "clase": "derivado",
+   "bytes": 465877,
+   "sha256": "9a881d597f07c77aa41d84ec3e93bdba2b63f79b7736776f5b07108343800623",
+   "nombrado_en_generador": true,
+   "usado_por": [
+    "generar_tablero_recuperacion.py",
+    "scripts/preparar_men_abierto.py"
+   ]
+  },
+  {
+   "archivo": "data/municipios_afectados_terremoto_colombia_ago2026.csv",
+   "clase": "derivado",
+   "bytes": 30837,
+   "sha256": "c8a59f17b43443fc51e8cff5e0f389f6d87c994b04445f97967663bd0271f4f8",
+   "nombrado_en_generador": true,
+   "usado_por": [
+    "actualizar_indice_terremoto.py",
+    "generar_tablero_recuperacion.py"
+   ]
+  },
+  {
+   "archivo": "data/municipios_afectados_terremoto_colombia_ago2026.xlsx",
+   "clase": "fuente original",
+   "bytes": 27179,
+   "sha256": "799f99cf8e1d10d48b3815b18163ca923da4a600f59370daa1e2fd786b18aea6",
+   "nombrado_en_generador": false,
+   "usado_por": []
+  },
+  {
+   "archivo": "data/pereira_fuente_unica_v2_dane.xlsx",
+   "clase": "fuente original",
+   "bytes": 38461,
+   "sha256": "516d7d34a067d89acc1d02ec4c281ae61384752e80fadf83b953028f68d22f55",
+   "nombrado_en_generador": false,
+   "usado_por": []
+  },
+  {
+   "archivo": "data/poblacion_relativa.json",
+   "clase": "derivado",
+   "bytes": 140507,
+   "sha256": "e27c04577a2729b28829631735833fc3d45208f8841d401b272a4837aba84250",
+   "nombrado_en_generador": true,
+   "usado_por": [
+    "generar_tablero_recuperacion.py",
+    "preparar_denominadores_sectoriales.py",
+    "preparar_poblacion_relativa.py",
+    "scripts/preparar_inversion_educativa.py",
+    "scripts/preparar_matricula_critica.py",
+    "scripts/preparar_men_abierto.py"
+   ]
+  },
+  {
+   "archivo": "data/presion_salud.json",
+   "clase": "derivado",
+   "bytes": 428434,
+   "sha256": "8b0e137f02827bb78c90f684f0a766f1df0945b064123accd072dc96abcef388",
+   "nombrado_en_generador": true,
+   "usado_por": [
+    "generar_tablero_recuperacion.py",
+    "scripts/reconstruir_capacidad_presion.py",
+    "scripts/auditar_presion_salud.cjs"
+   ]
+  },
+  {
+   "archivo": "data/proyectos_torre_control.json",
+   "clase": "captura",
+   "bytes": 49230,
+   "sha256": "5df6b65fe2181001f41741e715e30119ca3cd1b4043ce31eee78dfdf4a409f97",
+   "nombrado_en_generador": true,
+   "usado_por": [
+    "generar_tablero_recuperacion.py"
+   ],
+   "restringido": "Captura de la interfaz autenticada de Torre de Control."
+  },
+  {
+   "archivo": "data/resumen_ungrd_ago2026.json",
+   "clase": "derivado",
+   "bytes": 726,
+   "sha256": "6666b7271d55c90bdb9f9ce05bf3f27579028743d1a97ea93a8f9eb65c9911f2",
+   "nombrado_en_generador": false,
+   "usado_por": [
+    "actualizar_indice_terremoto.py"
+   ]
+  },
+  {
+   "archivo": "data/sedes_afectadas_filtradas_pei_dqdas.xlsx",
+   "clase": "fuente original",
+   "bytes": 45847,
+   "sha256": "83e89ab20ad35c311b58520ba7f65366e083954c380d3995073f80e0cbca90f5",
+   "nombrado_en_generador": false,
+   "usado_por": []
+  },
+  {
+   "archivo": "data/sedes_educativas_afectadas_ago2026.csv",
+   "clase": "derivado",
+   "bytes": 779486,
+   "sha256": "a790f48ae2f60b1b43528883db9b529fc0a2070cbc4a5fa83de4b65a0d7fef82",
+   "nombrado_en_generador": true,
+   "usado_por": [
+    "actualizar_indice_terremoto.py",
+    "generar_tablero_recuperacion.py"
+   ]
+  },
+  {
+   "archivo": "data/simat_sedes_2022.csv",
+   "clase": "derivado",
+   "bytes": 75758,
+   "sha256": "30f8707f0914e123b71f6ae5cea582ad56b62e855ad0f7d60013122b29cadf73",
+   "nombrado_en_generador": false,
+   "usado_por": [
+    "scripts/preparar_reps_simat.py"
+   ]
+  },
+  {
+   "archivo": "data/simat_source_probe.json",
+   "clase": "derivado",
+   "bytes": 17678,
+   "sha256": "e190012565c835181ff37f3b7992b9f0d539f148cbe9cb95d95ee6860f0a8de7",
+   "nombrado_en_generador": false,
+   "usado_por": [
+    "scripts/inspeccionar_simat.py"
+   ]
+  },
+  {
+   "archivo": "data/vulnerabilidad_municipal_2018.json",
+   "clase": "captura",
+   "bytes": 338389,
+   "sha256": "539c7d2649ce2f390ea0e3ea99a4318c18c21ef05202c0015f7df11e9a661c52",
+   "nombrado_en_generador": true,
+   "usado_por": [
+    "generar_tablero_recuperacion.py"
+   ]
+  }
+ ]
+}

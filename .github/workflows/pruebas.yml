@@ -1,0 +1,33 @@
+name: Pruebas
+# Solo verifica: no descarga fuentes, no hace commits y no despliega.
+# Los workflows del repositorio original (actualización con commit automático y despliegue en el
+# servidor de Torre de Control) están guardados, sin ejecutarse, en docs/workflows_originales/.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch: {}
+permissions:
+  contents: read
+jobs:
+  pruebas:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Pruebas de Python
+        run: python -m unittest discover -s tests
+      - name: Pruebas de JavaScript
+        run: |
+          node --test tests/*.test.js
+          node --check web/tablero.js
+          node --check web/datos.js
+      - name: index.html corresponde al código y va en formato compacto
+        run: python scripts/verificar_index.py
+      - name: Manifiesto de datos al día
+        run: python scripts/generar_manifiesto_datos.py --check

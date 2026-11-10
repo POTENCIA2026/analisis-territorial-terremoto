@@ -1,0 +1,7 @@
+* text=auto eol=lf
+*.ttf binary
+*.webp binary
+*.xlsx binary
+*.pdf binary
+*.gz binary
+*.docx binary

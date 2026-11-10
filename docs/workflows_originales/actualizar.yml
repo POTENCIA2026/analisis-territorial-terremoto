@@ -1,0 +1,78 @@
+name: Actualizar datos y tableros
+on:
+  # La actualización programada ahora la hace el contenedor Docker del tablero, en el servidor de Torre de
+  # Control (docs/despliegue_torre_de_control.md). Se deja comentada, no borrada: para volver a Netlify /
+  # GitHub Pages basta descomentar estas dos líneas.
+  # schedule:
+  #   - cron: '17 */4 * * *'
+  workflow_dispatch: {}
+  push:
+    branches: [main, formato-largo, reestructuracion-recuperacion]
+    paths:
+      - '.github/workflows/actualizar.yml'
+      - '*.py'
+      - 'web/**'
+      - 'tests/**'
+      - 'scripts/auditar_familias_informativas.cjs'
+      - 'data/**'
+permissions:
+  contents: write
+jobs:
+  actualizar:
+    strategy:
+      fail-fast: false
+      matrix:
+        branch: ${{ github.event_name == 'schedule' && fromJSON('["main","formato-largo","reestructuracion-recuperacion"]') || fromJSON(format('["{0}"]', github.ref_name)) }}
+    runs-on: ubuntu-latest
+    concurrency:
+      group: actualizar-datos-${{ matrix.branch }}
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ matrix.branch }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verificar importación y cálculos
+        run: |
+          python -m unittest discover -s tests -v
+          if [ -f tests/modelo.test.js ]; then
+            node --test tests/*.test.js
+            node --check web/tablero.js
+          fi
+      - name: Descargar datos y regenerar vistas de esta rama
+        # Publicar cambios de interfaz en main no depende de fuentes externas.
+        # Las descargas conservan su ejecución programada y manual.
+        if: github.event_name != 'push' || matrix.branch != 'main'
+        run: |
+          python actualizar_indice_terremoto.py --out index.html --csv indice_impacto_departamento.csv
+          python migrar_clasificacion_3is.py
+          if [ -f generar_tablero_recuperacion.py ]; then
+            python generar_tablero_recuperacion.py
+          else
+            python generar_eda_indicadores.py --out eda_indicadores.html
+            python generar_indice_educacion.py --out indice_educacion.html
+          fi
+      - name: Publicar interfaz principal con el inventario conservado
+        if: github.event_name == 'push' && matrix.branch == 'main'
+        run: python generar_tablero_recuperacion.py
+      - name: Verificar familias informativas e interfaz
+        if: matrix.branch == 'main'
+        run: |
+          node scripts/auditar_familias_informativas.cjs
+          npm install --no-save --package-lock=false playwright@1.55.0
+          npx playwright install --with-deps chromium
+          node tests/familias_informativas.browser.cjs
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          branch: ${{ matrix.branch }}
+          commit_message: 'Actualización automática de datos y tableros'
+          file_pattern: '*.html *.csv docs/verificacion_familias_informativas.json'
+          commit_user_name: tablero-terremoto-bot
+          commit_user_email: actions@github.com
+
+

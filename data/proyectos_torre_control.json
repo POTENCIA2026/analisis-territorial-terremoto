@@ -1,0 +1,880 @@
+{
+ "capturedAt": "2026-10-19T15:23:40Z",
+ "source": "Torre de Control · captura de interfaz autenticada",
+ "sourceUrl": "https://torre.potencia.com.co/app/portafolio",
+ "coverage": {
+  "complete": true,
+  "note": "Captura de 28 registros de terceros confirmados. Alianza incluye únicamente proyectos en ejecución en su resumen separado; actualmente no hay registros con ese estado."
+ },
+ "projects": [
+  {
+   "id": "snapshot-confirmed-1-3b6517430c61eb07276f",
+   "idType": "local_capture_row",
+   "origin": "tercero",
+   "title": "Contrato para demolición, cargue y transporte de RCD en edificaciones colapsadas",
+   "mission": [
+    "Vivienda y hábitat"
+   ],
+   "stage": null,
+   "status": "En ejecución",
+   "type": "Contrato",
+   "reviewStatus": "confirmed",
+   "territories": [
+    {
+     "department": "Valle del Cauca",
+     "municipality": "Cali"
+    }
+   ],
+   "territoryText": "Cali (Valle del Cauca)",
+   "valueText": "$ 515.216.559",
+   "beneficiaries": null,
+   "description": "Ejecución de actividades de demolición; cargue y transporte de residuos de construcción y demolición (RCD) para edificaciones colapsadas en Cali, tras el sismo del 10 de agosto de 2026.",
+   "sourceUrl": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.11004776&isFromPublicArea=True&isModal=true&asPopupView=true",
+   "detailUrl": "https://torre.potencia.com.co/app/proyectos-terceros",
+   "updatedAt": null,
+   "sourceDateText": "05 de oct de 2026",
+   "sourceHeader": "SANTIAGO DE CALI DISTRITO ESPECIAL - SECRETARÍA DE GESTIÓN DEL RIESGO DE EMERGENCIAS Y DESASTRE · SECOP II · 05 de oct de 2026",
+   "rawText": "SANTIAGO DE CALI DISTRITO ESPECIAL - SECRETARÍA DE GESTIÓN DEL RIESGO DE EMERGENCIAS Y DESASTRE · SECOP II · 05 de oct de 2026\nEjecución de actividades de demolición; cargue y transporte de residuos de construcción y demolición (RCD) para edificaciones colapsadas en Cali, tras el sismo del 10 de agosto de 2026.\n Cali (Valle del Cauca)\nMonto: $ 515.216.559",
+   "sourceRecordId": "CO1.NTC.11004776",
+   "territoryUnresolved": false
+  },
+  {
+   "id": "snapshot-confirmed-2-62d2db4b101d84fcd541",
+   "idType": "local_capture_row",
+   "origin": "tercero",
+   "title": "Contrato de prestación de servicios para fortalecimiento de unidades productivas afectadas por el sismo del 10 de agosto de 2026",
+   "mission": [
+    "Productividad y recuperación económica"
+   ],
+   "stage": null,
+   "status": "En ejecución",
+   "type": "Contrato",
+   "reviewStatus": "confirmed",
+   "territories": [
+    {
+     "department": "Valle del Cauca",
+     "municipality": "Tuluá"
+    }
+   ],
+   "territoryText": "Tuluá (Valle del Cauca)",
+   "valueText": "$ 100.132.000",
+   "beneficiaries": null,
+   "description": "Contratación de servicios profesionales para identificación, caracterización, diagnóstico, fortalecimiento, acompañamiento y seguimiento a 35 unidades productivas de emprendedores y comerciantes de la Mesa de Víctimas del municipio de Tuluá afectadas por el sismo.",
+   "sourceUrl": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.11003904&isFromPublicArea=True&isModal=true&asPopupView=true",
+   "detailUrl": "https://torre.potencia.com.co/app/proyectos-terceros",
+   "updatedAt": null,
+   "sourceDateText": "05 de oct de 2026",
+   "sourceHeader": "Departamento Administrativo de Planeación - Alcaldía de Tuluá · SECOP II · 05 de oct de 2026",
+   "rawText": "Departamento Administrativo de Planeación - Alcaldía de Tuluá · SECOP II · 05 de oct de 2026\nContratación de servicios profesionales para identificación, caracterización, diagnóstico, fortalecimiento, acompañamiento y seguimiento a 35 unidades productivas de emprendedores y comerciantes de la Mesa de Víctimas del municipio de Tuluá afectadas por el sismo.\n Tuluá (Valle del Cauca)\nMonto: $ 100.132.000",
+   "sourceRecordId": "CO1.NTC.11003904",
+   "territoryUnresolved": false
+  },
+  {
+   "id": "snapshot-confirmed-3-0188103270ee2d3acab5",
+   "idType": "local_capture_row",
+   "origin": "tercero",
+   "title": "Contrato para la gestión catastral multipropósito en Pereira",
+   "mission": [
+    "Fortalecimiento institucional"
+   ],
+   "stage": null,
+   "status": "Anunciado",
+   "type": "Contrato",
+   "reviewStatus": "confirmed",
+   "territories": [
+    {
+     "department": "Risaralda",
+     "municipality": "Pereira"
+    }
+   ],
+   "territoryText": "Pereira (Risaralda)",
+   "valueText": "$ 3.000.000.000",
+   "beneficiaries": null,
+   "description": "Prestación del servicio público de gestión catastral para la conservación y difusión de la información catastral del municipio, enfocado en predios priorizados tras el sismo del 10 de agosto de 2026.",
+   "sourceUrl": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10998315&isFromPublicArea=True&isModal=true&asPopupView=true",
+   "detailUrl": "https://torre.potencia.com.co/app/proyectos-terceros",
+   "updatedAt": null,
+   "sourceDateText": "02 de oct de 2026",
+   "sourceHeader": "MUNICIPIO DE PEREIRA- OFICIAL · SECOP II · 02 de oct de 2026",
+   "rawText": "MUNICIPIO DE PEREIRA- OFICIAL · SECOP II · 02 de oct de 2026\nPrestación del servicio público de gestión catastral para la conservación y difusión de la información catastral del municipio, enfocado en predios priorizados tras el sismo del 10 de agosto de 2026.\n Pereira (Risaralda)\nMonto: $ 3.000.000.000\nIncluye enfoque en predios afectados por el terremoto para fortalecer la toma de decisiones de la Secretaría de Hacienda.",
+   "sourceRecordId": "CO1.NTC.10998315",
+   "territoryUnresolved": false
+  },
+  {
+   "id": "snapshot-confirmed-4-bed286e32b9af623c89a",
+   "idType": "local_capture_row",
+   "origin": "tercero",
+   "title": "Contrato de prestación de servicios para atención, mitigación y reconstrucción por sismo del 10/08/2026",
+   "mission": [
+    "Vivienda y hábitat",
+    "Fortalecimiento institucional"
+   ],
+   "stage": null,
+   "status": "En ejecución",
+   "type": "Contrato",
+   "reviewStatus": "confirmed",
+   "territories": [
+    {
+     "department": "Caldas",
+     "municipality": "Anserma"
+    }
+   ],
+   "territoryText": "Anserma (Caldas)",
+   "valueText": "$ 490.000.000",
+   "beneficiaries": null,
+   "description": "Realizar obras para adelantar las acciones de atención, mitigación y reconstrucción de las zonas afectadas por el sismo ocurrido el 10 de agosto de 2026 en el marco del plan de acción de la declaratoria de calamidad pública y urgencia manifiesta.",
+   "sourceUrl": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10997145&isFromPublicArea=True&isModal=true&asPopupView=true",
+   "detailUrl": "https://torre.potencia.com.co/app/proyectos-terceros",
+   "updatedAt": null,
+   "sourceDateText": "02 de oct de 2026",
+   "sourceHeader": "MUNICIPIO DE ANSERMA CALDAS · SECOP II · 02 de oct de 2026",
+   "rawText": "MUNICIPIO DE ANSERMA CALDAS · SECOP II · 02 de oct de 2026\nRealizar obras para adelantar las acciones de atención, mitigación y reconstrucción de las zonas afectadas por el sismo ocurrido el 10 de agosto de 2026 en el marco del plan de acción de la declaratoria de calamidad pública y urgencia manifiesta.\n Anserma (Caldas)\nMonto: $ 490.000.000\nIncluye componentes de infraestructura y apoyo a la gestión del riesgo municipal.",
+   "sourceRecordId": "CO1.NTC.10997145",
+   "territoryUnresolved": false
+  },
+  {
+   "id": "snapshot-confirmed-5-ceef43b00c98ef077af9",
+   "idType": "local_capture_row",
+   "origin": "tercero",
+   "title": "Contrato de alquiler de maquinaria amarilla para remoción de escombros",
+   "mission": [
+    "Vivienda y hábitat"
+   ],
+   "stage": null,
+   "status": "En ejecución",
+   "type": "Contrato",
+   "reviewStatus": "confirmed",
+   "territories": [
+    {
+     "department": "Caldas",
+     "municipality": "Anserma"
+    }
+   ],
+   "territoryText": "Anserma (Caldas)",
+   "valueText": "$ 200.000.000",
+   "beneficiaries": null,
+   "description": "Alquiler de Maquinaria Amarilla para remoción de escombros en zonas afectadas por el sismo del 10 de agosto de 2026, en el marco del plan de acción de la declaratoria de calamidad pública y urgencia manifiesta.",
+   "sourceUrl": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10994304&isFromPublicArea=True&isModal=true&asPopupView=true",
+   "detailUrl": "https://torre.potencia.com.co/app/proyectos-terceros",
+   "updatedAt": null,
+   "sourceDateText": "01 de oct de 2026",
+   "sourceHeader": "MUNICIPIO DE ANSERMA CALDAS · SECOP II · 01 de oct de 2026",
+   "rawText": "MUNICIPIO DE ANSERMA CALDAS · SECOP II · 01 de oct de 2026\nAlquiler de Maquinaria Amarilla para remoción de escombros en zonas afectadas por el sismo del 10 de agosto de 2026, en el marco del plan de acción de la declaratoria de calamidad pública y urgencia manifiesta.\n Anserma (Caldas)\nMonto: $ 200.000.000\nRelacionado con la remoción de escombros, parte de la gestión post-terremoto.",
+   "sourceRecordId": "CO1.NTC.10994304",
+   "territoryUnresolved": false
+  },
+  {
+   "id": "snapshot-confirmed-6-4c159c746249453e3eab",
+   "idType": "local_capture_row",
+   "origin": "tercero",
+   "title": "Contrato de prestación de servicios para alimentación en unidades de alojamiento temporal",
+   "mission": [
+    "Otra / por definir"
+   ],
+   "stage": null,
+   "status": "En ejecución",
+   "type": "Contrato",
+   "reviewStatus": "confirmed",
+   "territories": [
+    {
+     "department": "Risaralda",
+     "municipality": "Dosquebradas"
+    }
+   ],
+   "territoryText": "Dosquebradas (Risaralda)",
+   "valueText": "$ 341.250.000",
+   "beneficiaries": null,
+   "description": "Prestación del servicio de alimentación para las unidades de alojamiento temporal destinadas a la atención de personas damnificadas por el sismo del 10 de agosto de 2026 en Dosquebradas, Risaralda.",
+   "sourceUrl": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10948347&isFromPublicArea=True&isModal=true&asPopupView=true",
+   "detailUrl": "https://torre.potencia.com.co/app/proyectos-terceros",
+   "updatedAt": null,
+   "sourceDateText": "30 de sept de 2026",
+   "sourceHeader": "ALCALDIA MUNICIPIO DE DOSQUEBRADAS · SECOP II · 30 de sept de 2026",
+   "rawText": "ALCALDIA MUNICIPIO DE DOSQUEBRADAS · SECOP II · 30 de sept de 2026\nPrestación del servicio de alimentación para las unidades de alojamiento temporal destinadas a la atención de personas damnificadas por el sismo del 10 de agosto de 2026 en Dosquebradas, Risaralda.\n Dosquebradas (Risaralda)\nMonto: $ 341.250.000\nCorresponde a alimentación y alojamiento temporal, categorías no cubiertas por las misiones definidas.",
+   "sourceRecordId": "CO1.NTC.10948347",
+   "territoryUnresolved": false
+  },
+  {
+   "id": "snapshot-confirmed-7-dff5c3d9bb9bf81b58c9",
+   "idType": "local_capture_row",
+   "origin": "tercero",
+   "title": "Interventoría técnica, administrativa, financiera y jurídica para mantenimiento, rehabilitación y reconstrucción de infraestructura vial urbana en Manizales (Fase II)",
+   "mission": [
+    "Vivienda y hábitat"
+   ],
+   "stage": null,
+   "status": "En ejecución",
+   "type": "Contrato",
+   "reviewStatus": "confirmed",
+   "territories": [
+    {
+     "department": "Caldas",
+     "municipality": "Manizales"
+    }
+   ],
+   "territoryText": "Manizales (Caldas)",
+   "valueText": "$ 472.931.371",
+   "beneficiaries": null,
+   "description": "Interventoría al contrato de obra para mantenimiento, rehabilitación, mejoramiento y optimización de la infraestructura vial urbana, incluyendo reparación, reconstrucción, construcción y/o reposición de pavimentos vehiculares y peatonales en Manizales.",
+   "sourceUrl": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10416074&isFromPublicArea=True&isModal=true&asPopupView=true",
+   "detailUrl": "https://torre.potencia.com.co/app/proyectos-terceros",
+   "updatedAt": null,
+   "sourceDateText": "28 de sept de 2026",
+   "sourceHeader": "MUNICIPIO DE MANIZALES · SECOP II · 28 de sept de 2026",
+   "rawText": "MUNICIPIO DE MANIZALES · SECOP II · 28 de sept de 2026\nInterventoría al contrato de obra para mantenimiento, rehabilitación, mejoramiento y optimización de la infraestructura vial urbana, incluyendo reparación, reconstrucción, construcción y/o reposición de pavimentos vehiculares y peatonales en Manizales.\n Manizales (Caldas)\nMonto: $ 472.931.371\nRelacionado directamente con la recuperación de infraestructura vial afectada por el terremoto del 10 de agosto de 2026.",
+   "sourceRecordId": "CO1.NTC.10416074",
+   "territoryUnresolved": false
+  },
+  {
+   "id": "snapshot-confirmed-8-8859bb899f465b6ad522",
+   "idType": "local_capture_row",
+   "origin": "tercero",
+   "title": "Prestación del servicio de recolección, transporte y disposición final de residuos sólidos inservibles y voluminosos",
+   "mission": [
+    "Vivienda y hábitat"
+   ],
+   "stage": null,
+   "status": "En ejecución",
+   "type": "Contrato",
+   "reviewStatus": "confirmed",
+   "territories": [
+    {
+     "department": "Risaralda",
+     "municipality": "Santa Rosa de Cabal"
+    }
+   ],
+   "territoryText": "Santa Rosa de Cabal (Risaralda)",
+   "valueText": "$ 200.000.000",
+   "beneficiaries": null,
+   "description": "Servicio contratado para la recolección, transporte y disposición final de escombros y residuos sólidos generados por el sismo del 10 de agosto de 2026 en Santa Rosa de Cabal.",
+   "sourceUrl": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10950839&isFromPublicArea=True&isModal=true&asPopupView=true",
+   "detailUrl": "https://torre.potencia.com.co/app/proyectos-terceros",
+   "updatedAt": null,
+   "sourceDateText": "24 de sept de 2026",
+   "sourceHeader": "MUNICIPIO DE SANTA ROSA DE CABAL · SECOP II · 24 de sept de 2026",
+   "rawText": "MUNICIPIO DE SANTA ROSA DE CABAL · SECOP II · 24 de sept de 2026\nServicio contratado para la recolección, transporte y disposición final de escombros y residuos sólidos generados por el sismo del 10 de agosto de 2026 en Santa Rosa de Cabal.\n Santa Rosa de Cabal (Risaralda)\nMonto: $ 200.000.000\nEl contrato está en el marco de la emergencia por el sismo y la declaratoria de calamidad pública.",
+   "sourceRecordId": "CO1.NTC.10950839",
+   "territoryUnresolved": false
+  },
+  {
+   "id": "snapshot-confirmed-9-e7b4e3844fb860e6b43a",
+   "idType": "local_capture_row",
+   "origin": "tercero",
+   "title": "Contrato para disposición final de residuos de construcción y demolición (RCD)",
+   "mission": [
+    "Vivienda y hábitat"
+   ],
+   "stage": null,
+   "status": "En ejecución",
+   "type": "Contrato",
+   "reviewStatus": "confirmed",
+   "territories": [
+    {
+     "department": "Risaralda",
+     "municipality": "Dosquebradas"
+    }
+   ],
+   "territoryText": "Dosquebradas (Risaralda)",
+   "valueText": "$ 300.000.000",
+   "beneficiaries": null,
+   "description": "Disposición final de los residuos de construcción y demolición generados por el sismo del 10 de agosto de 2026 en Dosquebradas.",
+   "sourceUrl": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10907672&isFromPublicArea=True&isModal=true&asPopupView=true",
+   "detailUrl": "https://torre.potencia.com.co/app/proyectos-terceros",
+   "updatedAt": null,
+   "sourceDateText": "24 de sept de 2026",
+   "sourceHeader": "ALCALDIA MUNICIPIO DE DOSQUEBRADAS · SECOP II · 24 de sept de 2026",
+   "rawText": "ALCALDIA MUNICIPIO DE DOSQUEBRADAS · SECOP II · 24 de sept de 2026\nDisposición final de los residuos de construcción y demolición generados por el sismo del 10 de agosto de 2026 en Dosquebradas.\n Dosquebradas (Risaralda)\nMonto: $ 300.000.000\nRelacionado con la gestión de escombros y residuos generados por el sismo.",
+   "sourceRecordId": "CO1.NTC.10907672",
+   "territoryUnresolved": false
+  },
+  {
+   "id": "snapshot-confirmed-10-5cb438d08776eb78104e",
+   "idType": "local_capture_row",
+   "origin": "tercero",
+   "title": "Suministro de tejas galvanizadas para atención inmediata por sismo",
+   "mission": [
+    "Vivienda y hábitat"
+   ],
+   "stage": null,
+   "status": "En ejecución",
+   "type": "Contrato",
+   "reviewStatus": "confirmed",
+   "territories": [
+    {
+     "department": "Risaralda",
+     "municipality": "Belén de Umbría"
+    }
+   ],
+   "territoryText": "Belén de Umbría (Risaralda)",
+   "valueText": "$ 185.501.450",
+   "beneficiaries": null,
+   "description": "Contrato para suministro de tejas galvanizadas destinadas a la atención de la emergencia ocasionada por el terremoto del 10 de agosto de 2026 en Belén de Umbría.",
+   "sourceUrl": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10953986&isFromPublicArea=True&isModal=true&asPopupView=true",
+   "detailUrl": "https://torre.potencia.com.co/app/proyectos-terceros",
+   "updatedAt": null,
+   "sourceDateText": "24 de sept de 2026",
+   "sourceHeader": "MUNICIPIO DE BELEN DE UMBRIA · SECOP II · 24 de sept de 2026",
+   "rawText": "MUNICIPIO DE BELEN DE UMBRIA · SECOP II · 24 de sept de 2026\nContrato para suministro de tejas galvanizadas destinadas a la atención de la emergencia ocasionada por el terremoto del 10 de agosto de 2026 en Belén de Umbría.\n Belén de Umbría (Risaralda)\nMonto: $ 185.501.450",
+   "sourceRecordId": "CO1.NTC.10953986",
+   "territoryUnresolved": false
+  },
+  {
+   "id": "snapshot-confirmed-11-f8e733c6c487c45340c1",
+   "idType": "local_capture_row",
+   "origin": "tercero",
+   "title": "Contrato para suministro de personal en misión para atención de emergencia por sismo",
+   "mission": [
+    "Fortalecimiento institucional"
+   ],
+   "stage": null,
+   "status": "En ejecución",
+   "type": "Contrato",
+   "reviewStatus": "confirmed",
+   "territories": [
+    {
+     "department": "Risaralda",
+     "municipality": "Santa Rosa de Cabal"
+    }
+   ],
+   "territoryText": "Santa Rosa de Cabal (Risaralda)",
+   "valueText": "$ 260.000.000",
+   "beneficiaries": null,
+   "description": "Suministro del personal en misión para la atención de la emergencia originada por el sismo del 10 de agosto de 2026 en el marco de la situación de calamidad pública.",
+   "sourceUrl": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10943111&isFromPublicArea=True&isModal=true&asPopupView=true",
+   "detailUrl": "https://torre.potencia.com.co/app/proyectos-terceros",
+   "updatedAt": null,
+   "sourceDateText": "23 de sept de 2026",
+   "sourceHeader": "MUNICIPIO DE SANTA ROSA DE CABAL · SECOP II · 23 de sept de 2026",
+   "rawText": "MUNICIPIO DE SANTA ROSA DE CABAL · SECOP II · 23 de sept de 2026\nSuministro del personal en misión para la atención de la emergencia originada por el sismo del 10 de agosto de 2026 en el marco de la situación de calamidad pública.\n Santa Rosa de Cabal (Risaralda)\nMonto: $ 260.000.000\nEl contrato se enfoca en apoyo logístico y técnico para la gestión de la emergencia, alineado con decretos de calamidad pública y urgencia manifiesta.",
+   "sourceRecordId": "CO1.NTC.10943111",
+   "territoryUnresolved": false
+  },
+  {
+   "id": "snapshot-confirmed-12-0a8486c567377e257d12",
+   "idType": "local_capture_row",
+   "origin": "tercero",
+   "title": "Contrato de alquiler de maquinaria y equipos para rehabilitación, recolección de escombros y transporte",
+   "mission": [
+    "Vivienda y hábitat"
+   ],
+   "stage": null,
+   "status": "En ejecución",
+   "type": "Contrato",
+   "reviewStatus": "confirmed",
+   "territories": [
+    {
+     "department": "Risaralda",
+     "municipality": "Dosquebradas"
+    }
+   ],
+   "territoryText": "Dosquebradas (Risaralda)",
+   "valueText": "$ 1.300.000.000",
+   "beneficiaries": null,
+   "description": "Alquiler de maquinaria y equipos para rehabilitación; recolección de escombros; transporte y atención del sismo 2026 en el marco de las declaratorias de calamidad pública y urgencia manifiesta.",
+   "sourceUrl": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10899361&isFromPublicArea=True&isModal=true&asPopupView=true",
+   "detailUrl": "https://torre.potencia.com.co/app/proyectos-terceros",
+   "updatedAt": null,
+   "sourceDateText": "22 de sept de 2026",
+   "sourceHeader": "ALCALDIA MUNICIPIO DE DOSQUEBRADAS · SECOP II · 22 de sept de 2026",
+   "rawText": "ALCALDIA MUNICIPIO DE DOSQUEBRADAS · SECOP II · 22 de sept de 2026\nAlquiler de maquinaria y equipos para rehabilitación; recolección de escombros; transporte y atención del sismo 2026 en el marco de las declaratorias de calamidad pública y urgencia manifiesta.\n Dosquebradas (Risaralda)\nMonto: $ 1.300.000.000\nIncluye recolección de escombros y rehabilitación de infraestructura afectada por el terremoto.",
+   "sourceRecordId": "CO1.NTC.10899361",
+   "territoryUnresolved": false
+  },
+  {
+   "id": "snapshot-confirmed-13-4c6030367b9ec1126241",
+   "idType": "local_capture_row",
+   "origin": "tercero",
+   "title": "Contrato de demolición de estructuras de alto riesgo e inhabitables por sismo del 10/08/2026",
+   "mission": [
+    "Vivienda y hábitat"
+   ],
+   "stage": null,
+   "status": "En ejecución",
+   "type": "Contrato",
+   "reviewStatus": "confirmed",
+   "territories": [
+    {
+     "department": "Risaralda",
+     "municipality": "Santa Rosa de Cabal"
+    }
+   ],
+   "territoryText": "Santa Rosa de Cabal (Risaralda)",
+   "valueText": "$ 300.000.000",
+   "beneficiaries": null,
+   "description": "Demolición de estructuras de alto riesgo e inhabitables en el municipio de Santa Rosa de Cabal, Risaralda, como respuesta a la emergencia originada por el terremoto del 10 de agosto de 2026.",
+   "sourceUrl": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10934259&isFromPublicArea=True&isModal=true&asPopupView=true",
+   "detailUrl": "https://torre.potencia.com.co/app/proyectos-terceros",
+   "updatedAt": null,
+   "sourceDateText": "22 de sept de 2026",
+   "sourceHeader": "MUNICIPIO DE SANTA ROSA DE CABAL · SECOP II · 22 de sept de 2026",
+   "rawText": "MUNICIPIO DE SANTA ROSA DE CABAL · SECOP II · 22 de sept de 2026\nDemolición de estructuras de alto riesgo e inhabitables en el municipio de Santa Rosa de Cabal, Risaralda, como respuesta a la emergencia originada por el terremoto del 10 de agosto de 2026.\n Santa Rosa de Cabal (Risaralda)\nMonto: $ 300.000.000",
+   "sourceRecordId": "CO1.NTC.10934259",
+   "territoryUnresolved": false
+  },
+  {
+   "id": "snapshot-confirmed-14-dd3f9b6e24392769c7e6",
+   "idType": "local_capture_row",
+   "origin": "tercero",
+   "title": "Contrato para demolición controlada de edificaciones inseguras tras sismo del 10/08/2026",
+   "mission": [
+    "Vivienda y hábitat"
+   ],
+   "stage": null,
+   "status": "En ejecución",
+   "type": "Contrato",
+   "reviewStatus": "confirmed",
+   "territories": [
+    {
+     "department": "Caldas",
+     "municipality": "Manizales"
+    }
+   ],
+   "territoryText": "Manizales (Caldas)",
+   "valueText": "$ 1.000.000.000",
+   "beneficiaries": null,
+   "description": "Ejecución, por el sistema de precios unitarios fijos y por monto agotable, de la demolición controlada y especializada de edificaciones e inmuebles clasificados como inseguros o en riesgo inminente de colapso como consecuencia del sismo del 10 de agosto de 2026. Incluye alistamiento y aseguramiento del frente, recuperación controlada de bienes y enseres, desmantelamiento de elementos arquitectónicos no estructurales, apuntalamiento y estabilización provisional, y cargue y transporte de escombros.",
+   "sourceUrl": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10923205&isFromPublicArea=True&isModal=true&asPopupView=true",
+   "detailUrl": "https://torre.potencia.com.co/app/proyectos-terceros",
+   "updatedAt": null,
+   "sourceDateText": "21 de sept de 2026",
+   "sourceHeader": "INSTITUTO DE FINANCIAMIENTO PROMOCIÓN Y DESARROLLO DE MANIZALES - INFI-MANIZALES · SECOP II · 21 de sept de 2026",
+   "rawText": "INSTITUTO DE FINANCIAMIENTO PROMOCIÓN Y DESARROLLO DE MANIZALES - INFI-MANIZALES · SECOP II · 21 de sept de 2026\nEjecución, por el sistema de precios unitarios fijos y por monto agotable, de la demolición controlada y especializada de edificaciones e inmuebles clasificados como inseguros o en riesgo inminente de colapso como consecuencia del sismo del 10 de agosto de 2026. Incluye alistamiento y aseguramiento del frente, recuperación controlada de bienes y enseres, desmantelamiento de elementos arquitectónicos no estructurales, apuntalamiento y estabilización provisional, y cargue y transporte de escombros.\n Manizales (Caldas)\nMonto: $ 1.000.000.000\nEl contrato aborda específicamente la demolición de estructuras afectadas por el terremoto, gestión de escombros y estabilización de infraestructura.",
+   "sourceRecordId": "CO1.NTC.10923205",
+   "territoryUnresolved": false
+  },
+  {
+   "id": "snapshot-confirmed-15-863d4ab851a3da3abef0",
+   "idType": "local_capture_row",
+   "origin": "tercero",
+   "title": "Gestión integral para suministro y distribución de materiales de construcción",
+   "mission": [
+    "Vivienda y hábitat"
+   ],
+   "stage": null,
+   "status": "Anunciado",
+   "type": "Contrato",
+   "reviewStatus": "confirmed",
+   "territories": [
+    {
+     "department": "Valle del Cauca",
+     "municipality": "Cali"
+    }
+   ],
+   "territoryText": "Cali (Valle del Cauca)",
+   "valueText": "$ 8.592.000.000",
+   "beneficiaries": null,
+   "description": "Suministro y distribución de materiales de construcción para el mejoramiento de viviendas afectadas por el sismo del 10 de agosto de 2026 en municipios del Valle del Cauca.",
+   "sourceUrl": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10917528&isFromPublicArea=True&isModal=true&asPopupView=true",
+   "detailUrl": "https://torre.potencia.com.co/app/proyectos-terceros",
+   "updatedAt": null,
+   "sourceDateText": "18 de sept de 2026",
+   "sourceHeader": "GOBERNACION DEL VALLE DEL CAUCA - SECRETARIA DE VIVIENDA Y HABITAT · SECOP II · 18 de sept de 2026",
+   "rawText": "GOBERNACION DEL VALLE DEL CAUCA - SECRETARIA DE VIVIENDA Y HABITAT · SECOP II · 18 de sept de 2026\nSuministro y distribución de materiales de construcción para el mejoramiento de viviendas afectadas por el sismo del 10 de agosto de 2026 en municipios del Valle del Cauca.\n Cali (Valle del Cauca)\nMonto: $ 8.592.000.000",
+   "sourceRecordId": "CO1.NTC.10917528",
+   "territoryUnresolved": false
+  },
+  {
+   "id": "snapshot-confirmed-16-4d1b2d4d624553a4f306",
+   "idType": "local_capture_row",
+   "origin": "tercero",
+   "title": "Contrato de alquiler de maquinaria para demolición, remoción y transporte de escombros",
+   "mission": [
+    "Vivienda y hábitat"
+   ],
+   "stage": null,
+   "status": "En ejecución",
+   "type": "Contrato",
+   "reviewStatus": "confirmed",
+   "territories": [
+    {
+     "department": "Risaralda",
+     "municipality": "Pereira"
+    }
+   ],
+   "territoryText": "Pereira (Risaralda)",
+   "valueText": "$ 500.000.000",
+   "beneficiaries": null,
+   "description": "Alquiler de maquinaria, equipos o vehículos para el desarrollo de actividades de demolición, remoción y transporte de escombros en el marco de la declaratoria de desastre nacional por el sismo del 10 de agosto de 2026",
+   "sourceUrl": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10886866&isFromPublicArea=True&isModal=true&asPopupView=true",
+   "detailUrl": "https://torre.potencia.com.co/app/proyectos-terceros",
+   "updatedAt": null,
+   "sourceDateText": "17 de sept de 2026",
+   "sourceHeader": "MUNICIPIO DE PEREIRA- OFICIAL · SECOP II · 17 de sept de 2026",
+   "rawText": "MUNICIPIO DE PEREIRA- OFICIAL · SECOP II · 17 de sept de 2026\nAlquiler de maquinaria, equipos o vehículos para el desarrollo de actividades de demolición, remoción y transporte de escombros en el marco de la declaratoria de desastre nacional por el sismo del 10 de agosto de 2026\n Pereira (Risaralda)\nMonto: $ 500.000.000",
+   "sourceRecordId": "CO1.NTC.10886866",
+   "territoryUnresolved": false
+  },
+  {
+   "id": "snapshot-confirmed-17-af8d3c55a9851dba04d3",
+   "idType": "local_capture_row",
+   "origin": "tercero",
+   "title": "Adquisición de tejas para viviendas afectadas por el sismo del 10 de agosto de 2026",
+   "mission": [
+    "Vivienda y hábitat"
+   ],
+   "stage": null,
+   "status": "En ejecución",
+   "type": "Contrato",
+   "reviewStatus": "confirmed",
+   "territories": [
+    {
+     "department": "Risaralda",
+     "municipality": "Pereira"
+    }
+   ],
+   "territoryText": "Pereira (Risaralda)",
+   "valueText": "$ 2.300.000.000",
+   "beneficiaries": null,
+   "description": "Contrato de suministro para la atención de cubiertas de viviendas priorizadas tras el terremoto.",
+   "sourceUrl": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10897997&isFromPublicArea=True&isModal=true&asPopupView=true",
+   "detailUrl": "https://torre.potencia.com.co/app/proyectos-terceros",
+   "updatedAt": null,
+   "sourceDateText": "17 de sept de 2026",
+   "sourceHeader": "MUNICIPIO DE PEREIRA- OFICIAL · SECOP II · 17 de sept de 2026",
+   "rawText": "MUNICIPIO DE PEREIRA- OFICIAL · SECOP II · 17 de sept de 2026\nContrato de suministro para la atención de cubiertas de viviendas priorizadas tras el terremoto.\n Pereira (Risaralda)\nMonto: $ 2.300.000.000",
+   "sourceRecordId": "CO1.NTC.10897997",
+   "territoryUnresolved": false
+  },
+  {
+   "id": "snapshot-confirmed-18-01df1395be192957dbf7",
+   "idType": "local_capture_row",
+   "origin": "tercero",
+   "title": "Contrato para suministro e instalación de cocina industrial en alojamiento temporal",
+   "mission": [
+    "Otra / por definir"
+   ],
+   "stage": null,
+   "status": "En ejecución",
+   "type": "Contrato",
+   "reviewStatus": "confirmed",
+   "territories": [
+    {
+     "department": "Risaralda",
+     "municipality": "Dosquebradas"
+    }
+   ],
+   "territoryText": "Dosquebradas (Risaralda)",
+   "valueText": "$ 119.890.000",
+   "beneficiaries": null,
+   "description": "Suministro e instalación de cocina industrial para atención alimentaria en el alojamiento temporal del Centro Vida Argemiro Cárdenas, definido por el CMGRD debido al sismo del 10 de agosto de 2026.",
+   "sourceUrl": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10865620&isFromPublicArea=True&isModal=true&asPopupView=true",
+   "detailUrl": "https://torre.potencia.com.co/app/proyectos-terceros",
+   "updatedAt": null,
+   "sourceDateText": "17 de sept de 2026",
+   "sourceHeader": "ALCALDIA MUNICIPIO DE DOSQUEBRADAS · SECOP II · 17 de sept de 2026",
+   "rawText": "ALCALDIA MUNICIPIO DE DOSQUEBRADAS · SECOP II · 17 de sept de 2026\nSuministro e instalación de cocina industrial para atención alimentaria en el alojamiento temporal del Centro Vida Argemiro Cárdenas, definido por el CMGRD debido al sismo del 10 de agosto de 2026.\n Dosquebradas (Risaralda)\nMonto: $ 119.890.000\nSe clasifica como 'Otra / por definir' porque el objeto del contrato está relacionado con atención alimentaria y alojamiento temporal, no cubierto específicamente por las misiones definidas.",
+   "sourceRecordId": "CO1.NTC.10865620",
+   "territoryUnresolved": false
+  },
+  {
+   "id": "snapshot-confirmed-19-12ca67be9d8b3773aa51",
+   "idType": "local_capture_row",
+   "origin": "tercero",
+   "title": "Adquisición de tejas para viviendas afectadas por el sismo del 10 de agosto de 2026",
+   "mission": [
+    "Vivienda y hábitat"
+   ],
+   "stage": null,
+   "status": "En ejecución",
+   "type": "Contrato",
+   "reviewStatus": "confirmed",
+   "territories": [
+    {
+     "department": "Risaralda",
+     "municipality": "Pereira"
+    }
+   ],
+   "territoryText": "Pereira (Risaralda)",
+   "valueText": "$ 4.000.000.000",
+   "beneficiaries": null,
+   "description": "Contrato para la adquisición de tejas destinadas a la atención de cubiertas de viviendas caracterizadas y priorizadas, afectadas por el terremoto del 10 de agosto de 2026 en Pereira, Risaralda.",
+   "sourceUrl": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10897997&isFromPublicArea=True&isModal=true&asPopupView=true",
+   "detailUrl": "https://torre.potencia.com.co/app/proyectos-terceros",
+   "updatedAt": null,
+   "sourceDateText": "17 de sept de 2026",
+   "sourceHeader": "MUNICIPIO DE PEREIRA- OFICIAL · SECOP II · 17 de sept de 2026",
+   "rawText": "MUNICIPIO DE PEREIRA- OFICIAL · SECOP II · 17 de sept de 2026\nContrato para la adquisición de tejas destinadas a la atención de cubiertas de viviendas caracterizadas y priorizadas, afectadas por el terremoto del 10 de agosto de 2026 en Pereira, Risaralda.\n Pereira (Risaralda)\nMonto: $ 4.000.000.000",
+   "sourceRecordId": "CO1.NTC.10897997",
+   "territoryUnresolved": false
+  },
+  {
+   "id": "snapshot-confirmed-20-e0f37524a692795f2dfd",
+   "idType": "local_capture_row",
+   "origin": "tercero",
+   "title": "Contrato de alquiler de maquinaria para demolición, remoción y transporte de escombros",
+   "mission": [
+    "Vivienda y hábitat"
+   ],
+   "stage": null,
+   "status": "En ejecución",
+   "type": "Contrato",
+   "reviewStatus": "confirmed",
+   "territories": [
+    {
+     "department": "Risaralda",
+     "municipality": "Pereira"
+    }
+   ],
+   "territoryText": "Pereira (Risaralda)",
+   "valueText": "$ 1.500.000.000",
+   "beneficiaries": null,
+   "description": "Alquiler de maquinaria, equipos o vehículos para actividades de demolición, remoción y transporte de escombros en el marco de la emergencia por el sismo del 10 de agosto de 2026.",
+   "sourceUrl": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10886866&isFromPublicArea=True&isModal=true&asPopupView=true",
+   "detailUrl": "https://torre.potencia.com.co/app/proyectos-terceros",
+   "updatedAt": null,
+   "sourceDateText": "17 de sept de 2026",
+   "sourceHeader": "MUNICIPIO DE PEREIRA- OFICIAL · SECOP II · 17 de sept de 2026",
+   "rawText": "MUNICIPIO DE PEREIRA- OFICIAL · SECOP II · 17 de sept de 2026\nAlquiler de maquinaria, equipos o vehículos para actividades de demolición, remoción y transporte de escombros en el marco de la emergencia por el sismo del 10 de agosto de 2026.\n Pereira (Risaralda)\nMonto: $ 1.500.000.000",
+   "sourceRecordId": "CO1.NTC.10886866",
+   "territoryUnresolved": false
+  },
+  {
+   "id": "snapshot-confirmed-21-f90b77acd1966dc653c7",
+   "idType": "local_capture_row",
+   "origin": "tercero",
+   "title": "Contrato de alquiler de maquinaria, equipos o vehículos para demolición, remoción y transporte de escombros",
+   "mission": [
+    "Vivienda y hábitat"
+   ],
+   "stage": null,
+   "status": "En ejecución",
+   "type": "Contrato",
+   "reviewStatus": "confirmed",
+   "territories": [
+    {
+     "department": "Risaralda",
+     "municipality": "Pereira"
+    }
+   ],
+   "territoryText": "Pereira (Risaralda)",
+   "valueText": "$ 2.000.000.000",
+   "beneficiaries": null,
+   "description": "Alquiler de maquinaria, equipos o vehículos para el desarrollo de actividades de demolición, remoción y transporte de escombros en el marco de la declaratoria de desastre nacional por el sismo del 10 de agosto de 2026",
+   "sourceUrl": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10886866&isFromPublicArea=True&isModal=true&asPopupView=true",
+   "detailUrl": "https://torre.potencia.com.co/app/proyectos-terceros",
+   "updatedAt": null,
+   "sourceDateText": "17 de sept de 2026",
+   "sourceHeader": "MUNICIPIO DE PEREIRA- OFICIAL · SECOP II · 17 de sept de 2026",
+   "rawText": "MUNICIPIO DE PEREIRA- OFICIAL · SECOP II · 17 de sept de 2026\nAlquiler de maquinaria, equipos o vehículos para el desarrollo de actividades de demolición, remoción y transporte de escombros en el marco de la declaratoria de desastre nacional por el sismo del 10 de agosto de 2026\n Pereira (Risaralda)\nMonto: $ 2.000.000.000",
+   "sourceRecordId": "CO1.NTC.10886866",
+   "territoryUnresolved": false
+  },
+  {
+   "id": "snapshot-confirmed-22-cea9c035b0e8c2d76937",
+   "idType": "local_capture_row",
+   "origin": "tercero",
+   "title": "Contrato de alquiler de maquinaria, equipos o vehículos para demolición, remoción y transporte de escombros",
+   "mission": [
+    "Vivienda y hábitat"
+   ],
+   "stage": null,
+   "status": "En ejecución",
+   "type": "Contrato",
+   "reviewStatus": "confirmed",
+   "territories": [
+    {
+     "department": "Risaralda",
+     "municipality": "Pereira"
+    }
+   ],
+   "territoryText": "Pereira (Risaralda)",
+   "valueText": "$ 5.500.000.000",
+   "beneficiaries": null,
+   "description": "Alquiler de maquinaria, equipos o vehículos para el desarrollo de actividades de demolición, remoción y transporte de escombros en el marco de la declaratoria de desastre nacional por el sismo del 10 de agosto de 2026 en el Municipio de Pereira.",
+   "sourceUrl": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10886866&isFromPublicArea=True&isModal=true&asPopupView=true",
+   "detailUrl": "https://torre.potencia.com.co/app/proyectos-terceros",
+   "updatedAt": null,
+   "sourceDateText": "17 de sept de 2026",
+   "sourceHeader": "MUNICIPIO DE PEREIRA- OFICIAL · SECOP II · 17 de sept de 2026",
+   "rawText": "MUNICIPIO DE PEREIRA- OFICIAL · SECOP II · 17 de sept de 2026\nAlquiler de maquinaria, equipos o vehículos para el desarrollo de actividades de demolición, remoción y transporte de escombros en el marco de la declaratoria de desastre nacional por el sismo del 10 de agosto de 2026 en el Municipio de Pereira.\n Pereira (Risaralda)\nMonto: $ 5.500.000.000\nEl contrato está directamente relacionado con la gestión de escombros y demolición, por lo que se asigna la misión de Vivienda y hábitat como la más cercana.",
+   "sourceRecordId": "CO1.NTC.10886866",
+   "territoryUnresolved": false
+  },
+  {
+   "id": "snapshot-confirmed-23-33f370075f85af77e79f",
+   "idType": "local_capture_row",
+   "origin": "tercero",
+   "title": "Contrato de alquiler de maquinaria, equipos o vehículos para demolición, remoción y transporte de escombros",
+   "mission": [
+    "Vivienda y hábitat"
+   ],
+   "stage": null,
+   "status": "En ejecución",
+   "type": "Contrato",
+   "reviewStatus": "confirmed",
+   "territories": [
+    {
+     "department": "Risaralda",
+     "municipality": "Pereira"
+    }
+   ],
+   "territoryText": "Pereira (Risaralda)",
+   "valueText": "$ 500.000.000",
+   "beneficiaries": null,
+   "description": "Alquiler de maquinaria, equipos o vehículos para el desarrollo de actividades de demolición, remoción y transporte de escombros en el marco de la declaratoria de desastre nacional por el sismo del 10 de agosto de 2026 en Pereira.",
+   "sourceUrl": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10886866&isFromPublicArea=True&isModal=true&asPopupView=true",
+   "detailUrl": "https://torre.potencia.com.co/app/proyectos-terceros",
+   "updatedAt": null,
+   "sourceDateText": "17 de sept de 2026",
+   "sourceHeader": "MUNICIPIO DE PEREIRA- OFICIAL · SECOP II · 17 de sept de 2026",
+   "rawText": "MUNICIPIO DE PEREIRA- OFICIAL · SECOP II · 17 de sept de 2026\nAlquiler de maquinaria, equipos o vehículos para el desarrollo de actividades de demolición, remoción y transporte de escombros en el marco de la declaratoria de desastre nacional por el sismo del 10 de agosto de 2026 en Pereira.\n Pereira (Risaralda)\nMonto: $ 500.000.000",
+   "sourceRecordId": "CO1.NTC.10886866",
+   "territoryUnresolved": false
+  },
+  {
+   "id": "snapshot-confirmed-24-cac1576c8161fde66968",
+   "idType": "local_capture_row",
+   "origin": "tercero",
+   "title": "Contrato para verificación técnica de viviendas afectadas en Pereira",
+   "mission": [
+    "Vivienda y hábitat"
+   ],
+   "stage": null,
+   "status": "En ejecución",
+   "type": "Contrato",
+   "reviewStatus": "confirmed",
+   "territories": [
+    {
+     "department": "Risaralda",
+     "municipality": "Pereira"
+    }
+   ],
+   "territoryText": "Pereira (Risaralda)",
+   "valueText": "$ 229.075.000",
+   "beneficiaries": null,
+   "description": "Realizar la verificación técnica en campo de las viviendas identificadas y priorizadas con posible afectación en sus cubiertas, para determinar cantidades, dimensiones, referencias y especificaciones técnicas de tejas y elementos de fijación requeridos, así como elaborar las solicitudes de suministro.",
+   "sourceUrl": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10882511&isFromPublicArea=True&isModal=true&asPopupView=true",
+   "detailUrl": "https://torre.potencia.com.co/app/proyectos-terceros",
+   "updatedAt": null,
+   "sourceDateText": "11 de sept de 2026",
+   "sourceHeader": "MUNICIPIO DE PEREIRA- OFICIAL · SECOP II · 11 de sept de 2026",
+   "rawText": "MUNICIPIO DE PEREIRA- OFICIAL · SECOP II · 11 de sept de 2026\nRealizar la verificación técnica en campo de las viviendas identificadas y priorizadas con posible afectación en sus cubiertas, para determinar cantidades, dimensiones, referencias y especificaciones técnicas de tejas y elementos de fijación requeridos, así como elaborar las solicitudes de suministro.\n Pereira (Risaralda)\nMonto: $ 229.075.000",
+   "sourceRecordId": "CO1.NTC.10882511",
+   "territoryUnresolved": false
+  },
+  {
+   "id": "snapshot-confirmed-25-03d93a808bf07eb4ee58",
+   "idType": "local_capture_row",
+   "origin": "tercero",
+   "title": "Contrato de prestación de servicios como operador logístico para atención del terremoto del 10 de agosto de 2026",
+   "mission": [
+    "Salud"
+   ],
+   "stage": null,
+   "status": "En ejecución",
+   "type": "Contrato",
+   "reviewStatus": "confirmed",
+   "territories": [
+    {
+     "department": "Risaralda",
+     "municipality": "Pereira"
+    }
+   ],
+   "territoryText": "Pereira (Risaralda)",
+   "valueText": "$ 100.000.000",
+   "beneficiaries": null,
+   "description": "Prestar los servicios de apoyo como operador logístico para atender las necesidades derivadas del terremoto del 10 de agosto de 2026 en Risaralda.",
+   "sourceUrl": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10862151&isFromPublicArea=True&isModal=true&asPopupView=true",
+   "detailUrl": "https://torre.potencia.com.co/app/proyectos-terceros",
+   "updatedAt": null,
+   "sourceDateText": "10 de sept de 2026",
+   "sourceHeader": "CORPORACION AUTONOMA REGIONAL DE RISARALDA · SECOP II · 10 de sept de 2026",
+   "rawText": "CORPORACION AUTONOMA REGIONAL DE RISARALDA · SECOP II · 10 de sept de 2026\nPrestar los servicios de apoyo como operador logístico para atender las necesidades derivadas del terremoto del 10 de agosto de 2026 en Risaralda.\n Pereira (Risaralda)\nMonto: $ 100.000.000\nEl texto no especifica municipios exactos dentro de Risaralda, ni detalles concretos sobre el tipo de apoyo logístico (puede incluir gestión de escombros, transporte, almacén, etc.), pero se asigna 'Fortalecimiento institucional' por estar orientado a acciones institucionales de respuesta al desastre. Se descarta 'Vivienda y hábitat' u otras misiones porque el objeto del contrato es genérico y no menciona obras específicas.",
+   "sourceRecordId": "CO1.NTC.10862151",
+   "territoryUnresolved": false
+  },
+  {
+   "id": "snapshot-confirmed-26-150b07998942add6c14b",
+   "idType": "local_capture_row",
+   "origin": "tercero",
+   "title": "Suministro e instalación de repuestos para mantenimiento correctivo de maquinaria y vehículos",
+   "mission": [
+    "Vivienda y hábitat"
+   ],
+   "stage": null,
+   "status": "En ejecución",
+   "type": "Contrato",
+   "reviewStatus": "confirmed",
+   "territories": [
+    {
+     "department": "Risaralda",
+     "municipality": null
+    }
+   ],
+   "territoryText": "Todo Risaralda",
+   "valueText": "$ 148.500.000",
+   "beneficiaries": null,
+   "description": "Contrato para el suministro e instalación de repuestos bajo la modalidad de monto agotable para el mantenimiento correctivo de maquinaria amarilla, vehículos de carga tipo volqueta de 7m3 y vehículos livianos propiedad del municipio de Santuario (Risaralda).",
+   "sourceUrl": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10864918&isFromPublicArea=True&isModal=true&asPopupView=true",
+   "detailUrl": "https://torre.potencia.com.co/app/proyectos-terceros",
+   "updatedAt": null,
+   "sourceDateText": "10 de sept de 2026",
+   "sourceHeader": "ALCALDÍA DEL MUNICIPIO DE SANTUARIO RISARALDA · SECOP II · 10 de sept de 2026",
+   "rawText": "ALCALDÍA DEL MUNICIPIO DE SANTUARIO RISARALDA · SECOP II · 10 de sept de 2026\nContrato para el suministro e instalación de repuestos bajo la modalidad de monto agotable para el mantenimiento correctivo de maquinaria amarilla, vehículos de carga tipo volqueta de 7m3 y vehículos livianos propiedad del municipio de Santuario (Risaralda).\n Todo Risaralda\nMonto: $ 148.500.000\nEl contrato está dirigido a la recuperación de la malla vial rural, demolición, remoción y limpieza de escombros, y movilización de personal y ayudas humanitarias en el marco de la calamidad pública por el sismo.",
+   "sourceRecordId": "CO1.NTC.10864918",
+   "territoryUnresolved": false
+  },
+  {
+   "id": "snapshot-confirmed-27-a869eda6b8236daa714e",
+   "idType": "local_capture_row",
+   "origin": "tercero",
+   "title": "Contrato para suministro de raciones alimentarias preparadas",
+   "mission": [
+    "Salud"
+   ],
+   "stage": null,
+   "status": "En ejecución",
+   "type": "Contrato",
+   "reviewStatus": "confirmed",
+   "territories": [
+    {
+     "department": "Risaralda",
+     "municipality": "Pereira"
+    }
+   ],
+   "territoryText": "Pereira (Risaralda)",
+   "valueText": "$ 5.000.000.000",
+   "beneficiaries": null,
+   "description": "Suministro de raciones alimentarias preparadas mediante entregas parciales y sucesivas para la asistencia humanitaria de la población damnificada y afectada por el sismo del 10 de agosto de 2026.",
+   "sourceUrl": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10836637&isFromPublicArea=True&isModal=true&asPopupView=true",
+   "detailUrl": "https://torre.potencia.com.co/app/proyectos-terceros",
+   "updatedAt": null,
+   "sourceDateText": "04 de sept de 2026",
+   "sourceHeader": "MUNICIPIO DE PEREIRA- OFICIAL · SECOP II · 04 de sept de 2026",
+   "rawText": "MUNICIPIO DE PEREIRA- OFICIAL · SECOP II · 04 de sept de 2026\nSuministro de raciones alimentarias preparadas mediante entregas parciales y sucesivas para la asistencia humanitaria de la población damnificada y afectada por el sismo del 10 de agosto de 2026.\n Pereira (Risaralda)\nMonto: $ 5.000.000.000\nClasificado como 'Otra / por definir' porque corresponde a asistencia alimentaria (no encaja en las misiones definidas: vivienda, salud, educación, productividad/recuperación económica, o fortalecimiento institucional).",
+   "sourceRecordId": "CO1.NTC.10836637",
+   "territoryUnresolved": false
+  },
+  {
+   "id": "snapshot-confirmed-28-16cbc02e8624a7aba994",
+   "idType": "local_capture_row",
+   "origin": "tercero",
+   "title": "Contrato para servicios funerarios integrales",
+   "mission": [
+    "Salud"
+   ],
+   "stage": null,
+   "status": "En ejecución",
+   "type": "Contrato",
+   "reviewStatus": "confirmed",
+   "territories": [
+    {
+     "department": "Risaralda",
+     "municipality": "Pereira"
+    }
+   ],
+   "territoryText": "Pereira (Risaralda)",
+   "valueText": "$ 100.000.000",
+   "beneficiaries": null,
+   "description": "Prestación de servicios funerarios integrales (inhumación o cremación) para víctimas del sismo del 10 de agosto de 2026 en Pereira, sin cobertura previsional.",
+   "sourceUrl": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.10800878&isFromPublicArea=True&isModal=true&asPopupView=true",
+   "detailUrl": "https://torre.potencia.com.co/app/proyectos-terceros",
+   "updatedAt": null,
+   "sourceDateText": "31 de ago de 2026",
+   "sourceHeader": "MUNICIPIO DE PEREIRA- OFICIAL · SECOP II · 31 de ago de 2026",
+   "rawText": "MUNICIPIO DE PEREIRA- OFICIAL · SECOP II · 31 de ago de 2026\nPrestación de servicios funerarios integrales (inhumación o cremación) para víctimas del sismo del 10 de agosto de 2026 en Pereira, sin cobertura previsional.\n Pereira (Risaralda)\nMonto: $ 100.000.000\nNo encaja en las misiones definidas (vivienda, salud, educación, productividad o fortalecimiento institucional). Se relaciona con gestión de víctimas fatales, pero no es asistencia médica ni salud mental.",
+   "sourceRecordId": "CO1.NTC.10800878",
+   "territoryUnresolved": false
+  }
+ ]
+}

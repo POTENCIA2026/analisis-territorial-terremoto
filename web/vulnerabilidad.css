@@ -1,0 +1,29 @@
+
+/* Pestaña de vulnerabilidad: usa la misma paleta y el mismo tema del tablero. */
+#vulnerabilidad{--vuln-gap:18px}
+.vuln-heading{display:flex;justify-content:space-between;align-items:start;gap:20px;margin:6px 0 20px}
+.vuln-heading h2{font-size:26px;margin:4px 0 6px}.vuln-heading p{margin:0;max-width:800px}
+.vuln-baseline{white-space:nowrap;border:1px solid var(--border-strong);border-radius:30px;padding:7px 12px;font-size:12px;color:var(--muted)}
+.vuln-filters{grid-template-columns:1.1fr 1fr 1.5fr;margin-bottom:18px}
+#vuln-profile{scroll-margin-top:75px;padding:24px}
+.vuln-profile-head{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:18px}
+.vuln-profile-head h3{font-size:27px;line-height:1.25;margin:7px 0}.vuln-profile-head h3 span{font-size:18px;font-weight:400;color:var(--muted);display:inline-block;margin-left:8px}
+.vuln-profile-head p{margin:0}.vuln-rank{text-align:right;display:flex;flex-direction:column;gap:3px}.vuln-rank strong{font-size:27px;font-variant-numeric:tabular-nums}.vuln-rank span{font-size:12px;color:var(--muted)}
+.vuln-profile-grid{display:grid;grid-template-columns:minmax(200px,.8fr) minmax(0,3fr);gap:var(--vuln-gap)}
+.vuln-score{background:var(--navy);color:#fff;border-radius:12px;padding:22px;display:flex;flex-direction:column;justify-content:center;min-width:0}
+.vuln-score>span:first-child{font-size:14px;font-weight:600}.vuln-score>strong{font-size:50px;line-height:1.2;letter-spacing:-.03em;margin:8px 0 0;font-variant-numeric:tabular-nums}.vuln-score-scale{font-size:12px;color:#d6eaf4}.vuln-score p{font-size:12px;line-height:1.5;margin:13px 0 0;color:#d6eaf4}
+.vuln-score-track{height:7px;background:#ffffff24;border-radius:8px;margin-top:18px;overflow:hidden}.vuln-score-track i{height:100%;display:block;background:#6bc4ff;border-radius:8px}
+.vuln-components{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--vuln-gap)}
+.vuln-component{padding:18px;border:1px solid var(--border);border-top:3px solid var(--component-color);border-radius:9px;background:var(--surface-2);min-width:0}
+.vuln-component-title{display:flex;justify-content:space-between;gap:10px;align-items:start;min-height:49px}.vuln-component h4{font-size:15px;line-height:1.35;margin:0}.vuln-weight{font-size:14px;border:1px solid var(--border-strong);padding:1px 7px;border-radius:15px;white-space:nowrap;color:var(--muted)}
+.vuln-raw{min-height:78px;display:flex;flex-direction:column;margin:8px 0 13px}.vuln-raw strong{font-size:29px;font-variant-numeric:tabular-nums;line-height:1.2}.vuln-raw span{font-size:11px;color:var(--muted);margin-top:5px}
+.vuln-percentile{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:11px}.vuln-percentile b{font-size:13px;white-space:nowrap;font-variant-numeric:tabular-nums}.vuln-component-track{height:6px;border-radius:8px;background:var(--surface-3);margin:8px 0 12px;overflow:hidden}.vuln-component-track i{height:100%;display:block;background:var(--component-color);border-radius:8px}.vuln-component p{font-size:11px;line-height:1.5;margin:0}
+.vuln-reading{color:var(--muted);margin:16px 0 0}.vuln-reading strong{color:var(--ink)}
+.vuln-ranking-head{display:flex;justify-content:space-between;gap:20px;align-items:center;margin-bottom:10px}.vuln-ranking-head h3{margin:0 0 4px;font-size:19px}.vuln-ranking-head p{margin:0}.vuln-ranking-actions{display:flex;gap:10px;align-items:end}.vuln-ranking-actions .search{width:270px;max-width:none}.vuln-ranking-actions .secondary{min-height:41px;white-space:nowrap}
+#vuln-ranking{max-height:570px;border:1px solid var(--border);border-radius:8px}#vuln-ranking table{min-width:690px}#vuln-ranking th[scope=row]{position:static;background:transparent;font-size:14px;color:var(--ink);font-weight:400;vertical-align:top}#vuln-ranking th[scope=row]>span{display:block;margin-top:4px}#vuln-ranking thead th:not(:nth-child(2)){text-align:right}#vuln-ranking tr.is-selected{background:var(--accent-soft)}
+.vuln-municipality-link{border:0;background:transparent;color:var(--accent);text-align:left;font-size:14px;line-height:1.35;font-weight:650;padding:0;text-decoration:underline;text-underline-offset:3px}.vuln-table-score{font-weight:700;color:var(--ink)}
+.vuln-method{padding:0 3px;color:var(--muted)}.vuln-method summary{font-size:12px;font-weight:500}.vuln-method p,.vuln-method li{font-size:12px;line-height:1.6}.vuln-method p{max-width:1050px}.vuln-method .formula{font-size:13px;margin:10px 0}.vuln-method a{overflow-wrap:anywhere}
+@media(max-width:1100px){.vuln-profile-grid{grid-template-columns:1fr}.vuln-score{display:grid;grid-template-columns:1fr 1fr;column-gap:20px;align-items:center}.vuln-score>strong{grid-column:1;grid-row:2;font-size:43px}.vuln-score-scale{grid-column:1;grid-row:3}.vuln-score-track{grid-column:2;grid-row:2;margin:0}.vuln-score p{grid-column:2;grid-row:3;margin:0}.vuln-ranking-head{align-items:start}}
+@media(max-width:760px){.vuln-heading{flex-direction:column;gap:12px}.vuln-filters{grid-template-columns:1fr}.vuln-components{grid-template-columns:1fr}.vuln-component-title{min-height:0}.vuln-raw{min-height:0;margin:14px 0}.vuln-profile-head{align-items:start}.vuln-profile-head h3 span{display:block;margin:7px 0 0;font-size:16px}.vuln-rank strong{font-size:22px}.vuln-rank span{max-width:120px}.vuln-ranking-head{flex-direction:column}.vuln-ranking-actions{width:100%}.vuln-ranking-actions .search{width:auto;flex:1;min-width:0}#vuln-profile{padding:18px}.vuln-municipality-link{min-height:36px}}
+@media(prefers-reduced-motion:reduce){#vulnerabilidad *{scroll-behavior:auto!important}}
+

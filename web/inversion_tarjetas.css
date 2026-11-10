@@ -1,0 +1,18 @@
+
+/* v11: dark summary cards only; existing chart layout and interaction preserved. */
+.project-overview{margin:18px 0 22px;color:#ffffff}
+.project-overview-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.project-overview-card{background:#365f70;border:1px solid #61818d;border-left:5px solid #55bde6;border-radius:0 17px 17px 0;overflow:hidden;min-width:0;box-shadow:0 2px 5px #102f3b24}
+.project-overview-card h3{font-size:16px!important;line-height:1.35;margin:0!important;padding:15px 16px 9px;color:#ffffff!important;min-height:62px}
+.project-overview-row{display:flex;justify-content:space-between;gap:12px;padding:8px 16px 17px;align-items:flex-start}
+.project-overview-count{min-width:70px;max-width:43%}
+.project-overview-count strong{font-size:29px;line-height:1.2;color:#ffffff;display:block}
+.project-overview-count small,.project-overview-value small{display:block;font-size:11px;line-height:1.45;color:#e0edf2;margin-top:3px}
+.project-overview-value{text-align:right;min-width:0;flex:1}
+.project-overview-value strong{display:block;font-size:21px;line-height:1.35;color:#ffffff;overflow-wrap:anywhere}
+.project-overview-value strong.project-value-unconsolidated{font-size:17px}
+.project-value-component{display:block;font-size:12px;font-weight:650;color:#8ee1ff;margin-top:7px}
+.project-overview-secondary{border-top:1px solid #61818d;background:#2d5262;padding-top:14px}
+.project-overview-note{font-size:11px!important;color:#e0edf2!important;line-height:1.5;margin:10px 3px 0!important;max-width:1100px}
+.project-chart-stats{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+@media(max-width:850px){.project-overview-grid{grid-template-columns:1fr}.project-overview-card h3{min-height:0}.project-overview-count{max-width:48%}}

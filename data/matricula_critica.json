@@ -1,0 +1,5016 @@
+{
+  "version": 1,
+  "enabled": true,
+  "report_date": "2026-09-21",
+  "critical_damage": [
+    "colapso parcial",
+    "colapso total",
+    "riesgo inminente de colapso"
+  ],
+  "sources": {
+    "men": {
+      "file": "MEN Sedes escolares afectadas 20260921.xlsx",
+      "sheet": "Sheet1",
+      "cut": "2026-09-21",
+      "note": "Corte inferido del nombre del archivo. Matrícula en AM, daño en AP; fecha propia de la matrícula no acreditada. Solo sedes oficiales reportadas.",
+      "sha256": "eaa1342470b270fd3e5880da44378f24a673947d3657fb628bec2ad7d105d781"
+    },
+    "simat": {
+      "file": "SIMAT_Primera_Infancia_5_Departamentos.xlsx",
+      "sheet": "Sedes_5_Departamentos",
+      "cut": "2026-07",
+      "note": "Resumen declara Base Nación SIMAT julio 2026. Se usa para delimitar el ámbito, no como numerador ni denominador de este indicador.",
+      "sha256": "2f8f625f8ab8ed57def8923014a9699b65dfca1622c5cb69f3575ca49a51cc6f"
+    }
+  },
+  "municipalities": [
+    {
+      "code": "05001",
+      "d": "Antioquia",
+      "m": "Medellín",
+      "reported_sites": 234,
+      "critical_sites": 2,
+      "critical_enrollment": 1763,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05002",
+      "d": "Antioquia",
+      "m": "Abejorral",
+      "reported_sites": 6,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05021",
+      "d": "Antioquia",
+      "m": "Alejandría",
+      "reported_sites": 10,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05030",
+      "d": "Antioquia",
+      "m": "Amagá",
+      "reported_sites": 17,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05031",
+      "d": "Antioquia",
+      "m": "Amalfi",
+      "reported_sites": 3,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05034",
+      "d": "Antioquia",
+      "m": "Andes",
+      "reported_sites": 34,
+      "critical_sites": 2,
+      "critical_enrollment": 37,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05036",
+      "d": "Antioquia",
+      "m": "Angelópolis",
+      "reported_sites": 7,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05038",
+      "d": "Antioquia",
+      "m": "Angostura",
+      "reported_sites": 3,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05042",
+      "d": "Antioquia",
+      "m": "Santafé de Antioquia",
+      "reported_sites": 18,
+      "critical_sites": 1,
+      "critical_enrollment": 656,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05044",
+      "d": "Antioquia",
+      "m": "Anzá",
+      "reported_sites": 8,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05045",
+      "d": "Antioquia",
+      "m": "Apartadó",
+      "reported_sites": 15,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05055",
+      "d": "Antioquia",
+      "m": "Argelia",
+      "reported_sites": 18,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05079",
+      "d": "Antioquia",
+      "m": "Barbosa",
+      "reported_sites": 14,
+      "critical_sites": 2,
+      "critical_enrollment": 61,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05088",
+      "d": "Antioquia",
+      "m": "Bello",
+      "reported_sites": 35,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05091",
+      "d": "Antioquia",
+      "m": "Betania",
+      "reported_sites": 7,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05093",
+      "d": "Antioquia",
+      "m": "Betulia",
+      "reported_sites": 11,
+      "critical_sites": 1,
+      "critical_enrollment": 14,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05101",
+      "d": "Antioquia",
+      "m": "Ciudad Bolívar",
+      "reported_sites": 24,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05134",
+      "d": "Antioquia",
+      "m": "Campamento",
+      "reported_sites": 9,
+      "critical_sites": 2,
+      "critical_enrollment": 21,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05138",
+      "d": "Antioquia",
+      "m": "Cañasgordas",
+      "reported_sites": 7,
+      "critical_sites": 2,
+      "critical_enrollment": 64,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05145",
+      "d": "Antioquia",
+      "m": "Caramanta",
+      "reported_sites": 9,
+      "critical_sites": 2,
+      "critical_enrollment": 19,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05148",
+      "d": "Antioquia",
+      "m": "El Carmen de Viboral",
+      "reported_sites": 9,
+      "critical_sites": 1,
+      "critical_enrollment": 15,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05154",
+      "d": "Antioquia",
+      "m": "Caucasia",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05172",
+      "d": "Antioquia",
+      "m": "Chigorodó",
+      "reported_sites": 9,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05197",
+      "d": "Antioquia",
+      "m": "Cocorná",
+      "reported_sites": 21,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05206",
+      "d": "Antioquia",
+      "m": "Concepción",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05209",
+      "d": "Antioquia",
+      "m": "Concordia",
+      "reported_sites": 29,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05212",
+      "d": "Antioquia",
+      "m": "Copacabana",
+      "reported_sites": 8,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05264",
+      "d": "Antioquia",
+      "m": "Entrerríos",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05266",
+      "d": "Antioquia",
+      "m": "Envigado",
+      "reported_sites": 17,
+      "critical_sites": 1,
+      "critical_enrollment": 831,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05282",
+      "d": "Antioquia",
+      "m": "Fredonia",
+      "reported_sites": 14,
+      "critical_sites": 1,
+      "critical_enrollment": 9,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05284",
+      "d": "Antioquia",
+      "m": "Frontino",
+      "reported_sites": 12,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05308",
+      "d": "Antioquia",
+      "m": "Girardota",
+      "reported_sites": 3,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05313",
+      "d": "Antioquia",
+      "m": "Granada",
+      "reported_sites": 4,
+      "critical_sites": 1,
+      "critical_enrollment": 9,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05321",
+      "d": "Antioquia",
+      "m": "Guatapé",
+      "reported_sites": 4,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05347",
+      "d": "Antioquia",
+      "m": "Heliconia",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05360",
+      "d": "Antioquia",
+      "m": "Itagüí",
+      "reported_sites": 20,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05368",
+      "d": "Antioquia",
+      "m": "Jericó",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05376",
+      "d": "Antioquia",
+      "m": "La Ceja",
+      "reported_sites": 10,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05390",
+      "d": "Antioquia",
+      "m": "La Pintada",
+      "reported_sites": 3,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05411",
+      "d": "Antioquia",
+      "m": "Liborina",
+      "reported_sites": 4,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05425",
+      "d": "Antioquia",
+      "m": "Maceo",
+      "reported_sites": 4,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05440",
+      "d": "Antioquia",
+      "m": "Marinilla",
+      "reported_sites": 14,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05467",
+      "d": "Antioquia",
+      "m": "Montebello",
+      "reported_sites": 13,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05483",
+      "d": "Antioquia",
+      "m": "Nariño",
+      "reported_sites": 3,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05541",
+      "d": "Antioquia",
+      "m": "Peñol",
+      "reported_sites": 8,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05576",
+      "d": "Antioquia",
+      "m": "Pueblorrico",
+      "reported_sites": 4,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05591",
+      "d": "Antioquia",
+      "m": "Puerto Triunfo",
+      "reported_sites": 4,
+      "critical_sites": 1,
+      "critical_enrollment": 38,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05615",
+      "d": "Antioquia",
+      "m": "Rionegro",
+      "reported_sites": 32,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05628",
+      "d": "Antioquia",
+      "m": "Sabanalarga",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05631",
+      "d": "Antioquia",
+      "m": "Sabaneta",
+      "reported_sites": 4,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05642",
+      "d": "Antioquia",
+      "m": "Salgar",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05649",
+      "d": "Antioquia",
+      "m": "San Carlos",
+      "reported_sites": 7,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05665",
+      "d": "Antioquia",
+      "m": "San Pedro de Urabá",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05674",
+      "d": "Antioquia",
+      "m": "San Vicente",
+      "reported_sites": 5,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05679",
+      "d": "Antioquia",
+      "m": "Santa Bárbara",
+      "reported_sites": 13,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05686",
+      "d": "Antioquia",
+      "m": "Santa Rosa de Osos",
+      "reported_sites": 13,
+      "critical_sites": 1,
+      "critical_enrollment": 56,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05690",
+      "d": "Antioquia",
+      "m": "Santo Domingo",
+      "reported_sites": 6,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05697",
+      "d": "Antioquia",
+      "m": "El Santuario",
+      "reported_sites": 15,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05756",
+      "d": "Antioquia",
+      "m": "Sonsón",
+      "reported_sites": 11,
+      "critical_sites": 4,
+      "critical_enrollment": 833,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05761",
+      "d": "Antioquia",
+      "m": "Sopetrán",
+      "reported_sites": 11,
+      "critical_sites": 2,
+      "critical_enrollment": 44,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05789",
+      "d": "Antioquia",
+      "m": "Támesis",
+      "reported_sites": 6,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05792",
+      "d": "Antioquia",
+      "m": "Tarso",
+      "reported_sites": 5,
+      "critical_sites": 2,
+      "critical_enrollment": 204,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05837",
+      "d": "Antioquia",
+      "m": "Turbo",
+      "reported_sites": 17,
+      "critical_sites": 1,
+      "critical_enrollment": 179,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05847",
+      "d": "Antioquia",
+      "m": "Urrao",
+      "reported_sites": 3,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05854",
+      "d": "Antioquia",
+      "m": "Valdivia",
+      "reported_sites": 4,
+      "critical_sites": 1,
+      "critical_enrollment": 77,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05856",
+      "d": "Antioquia",
+      "m": "Valparaíso",
+      "reported_sites": 5,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05858",
+      "d": "Antioquia",
+      "m": "Vegachí",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05890",
+      "d": "Antioquia",
+      "m": "Yolombó",
+      "reported_sites": 3,
+      "critical_sites": 1,
+      "critical_enrollment": 124,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "05893",
+      "d": "Antioquia",
+      "m": "Yondó",
+      "reported_sites": 5,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "13001",
+      "d": "Bolívar",
+      "m": "Cartagena de Indias",
+      "reported_sites": 99,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "13006",
+      "d": "Bolívar",
+      "m": "Achí",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "13042",
+      "d": "Bolívar",
+      "m": "Arenal",
+      "reported_sites": 1,
+      "critical_sites": 1,
+      "critical_enrollment": 306,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "13160",
+      "d": "Bolívar",
+      "m": "Cantagallo",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "13222",
+      "d": "Bolívar",
+      "m": "Clemencia",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "13430",
+      "d": "Bolívar",
+      "m": "Magangué",
+      "reported_sites": 2,
+      "critical_sites": 1,
+      "critical_enrollment": 54,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "13440",
+      "d": "Bolívar",
+      "m": "Margarita",
+      "reported_sites": 3,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "13580",
+      "d": "Bolívar",
+      "m": "Regidor",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "13670",
+      "d": "Bolívar",
+      "m": "San Pablo",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "13688",
+      "d": "Bolívar",
+      "m": "Santa Rosa del Sur",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "13744",
+      "d": "Bolívar",
+      "m": "Simití",
+      "reported_sites": 6,
+      "critical_sites": 1,
+      "critical_enrollment": 305,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "13838",
+      "d": "Bolívar",
+      "m": "Turbaná",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "17001",
+      "d": "Caldas",
+      "m": "Manizales",
+      "reported_sites": 76,
+      "critical_sites": 15,
+      "critical_enrollment": 8571,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "17013",
+      "d": "Caldas",
+      "m": "Aguadas",
+      "reported_sites": 54,
+      "critical_sites": 12,
+      "critical_enrollment": 783,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "17042",
+      "d": "Caldas",
+      "m": "Anserma",
+      "reported_sites": 41,
+      "critical_sites": 12,
+      "critical_enrollment": 601,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "17050",
+      "d": "Caldas",
+      "m": "Aranzazu",
+      "reported_sites": 25,
+      "critical_sites": 1,
+      "critical_enrollment": 5,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "17088",
+      "d": "Caldas",
+      "m": "Belalcázar",
+      "reported_sites": 24,
+      "critical_sites": 14,
+      "critical_enrollment": 497,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "17174",
+      "d": "Caldas",
+      "m": "Chinchiná",
+      "reported_sites": 23,
+      "critical_sites": 5,
+      "critical_enrollment": 1796,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "17272",
+      "d": "Caldas",
+      "m": "Filadelfia",
+      "reported_sites": 10,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "17380",
+      "d": "Caldas",
+      "m": "La Dorada",
+      "reported_sites": 14,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "17388",
+      "d": "Caldas",
+      "m": "La Merced",
+      "reported_sites": 5,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "17433",
+      "d": "Caldas",
+      "m": "Manzanares",
+      "reported_sites": 40,
+      "critical_sites": 6,
+      "critical_enrollment": 232,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "17442",
+      "d": "Caldas",
+      "m": "Marmato",
+      "reported_sites": 9,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "17444",
+      "d": "Caldas",
+      "m": "Marquetalia",
+      "reported_sites": 32,
+      "critical_sites": 3,
+      "critical_enrollment": 27,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "17446",
+      "d": "Caldas",
+      "m": "Marulanda",
+      "reported_sites": 8,
+      "critical_sites": 1,
+      "critical_enrollment": 61,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "17486",
+      "d": "Caldas",
+      "m": "Neira",
+      "reported_sites": 33,
+      "critical_sites": 3,
+      "critical_enrollment": 413,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "17495",
+      "d": "Caldas",
+      "m": "Norcasia",
+      "reported_sites": 16,
+      "critical_sites": 1,
+      "critical_enrollment": 6,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "17513",
+      "d": "Caldas",
+      "m": "Pácora",
+      "reported_sites": 27,
+      "critical_sites": 1,
+      "critical_enrollment": 8,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "17524",
+      "d": "Caldas",
+      "m": "Palestina",
+      "reported_sites": 10,
+      "critical_sites": 1,
+      "critical_enrollment": 14,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "17541",
+      "d": "Caldas",
+      "m": "Pensilvania",
+      "reported_sites": 57,
+      "critical_sites": 2,
+      "critical_enrollment": 365,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "17614",
+      "d": "Caldas",
+      "m": "Riosucio",
+      "reported_sites": 64,
+      "critical_sites": 9,
+      "critical_enrollment": 632,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "17616",
+      "d": "Caldas",
+      "m": "Risaralda",
+      "reported_sites": 18,
+      "critical_sites": 2,
+      "critical_enrollment": 19,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "17653",
+      "d": "Caldas",
+      "m": "Salamina",
+      "reported_sites": 19,
+      "critical_sites": 1,
+      "critical_enrollment": 8,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "17662",
+      "d": "Caldas",
+      "m": "Samaná",
+      "reported_sites": 52,
+      "critical_sites": 1,
+      "critical_enrollment": 5,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "17665",
+      "d": "Caldas",
+      "m": "San José",
+      "reported_sites": 5,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "17777",
+      "d": "Caldas",
+      "m": "Supía",
+      "reported_sites": 25,
+      "critical_sites": 5,
+      "critical_enrollment": 580,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "17867",
+      "d": "Caldas",
+      "m": "Victoria",
+      "reported_sites": 15,
+      "critical_sites": 1,
+      "critical_enrollment": 216,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "17873",
+      "d": "Caldas",
+      "m": "Villamaría",
+      "reported_sites": 29,
+      "critical_sites": 5,
+      "critical_enrollment": 2291,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "17877",
+      "d": "Caldas",
+      "m": "Viterbo",
+      "reported_sites": 11,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "18001",
+      "d": "Caquetá",
+      "m": "Florencia",
+      "reported_sites": 11,
+      "critical_sites": 11,
+      "critical_enrollment": 5879,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "18029",
+      "d": "Caquetá",
+      "m": "Albania",
+      "reported_sites": 3,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "18150",
+      "d": "Caquetá",
+      "m": "Cartagena del Chairá",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "18247",
+      "d": "Caquetá",
+      "m": "El Doncello",
+      "reported_sites": 3,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "18256",
+      "d": "Caquetá",
+      "m": "El Paujíl",
+      "reported_sites": 6,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "18410",
+      "d": "Caquetá",
+      "m": "La Montañita",
+      "reported_sites": 3,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "18460",
+      "d": "Caquetá",
+      "m": "Milán",
+      "reported_sites": 2,
+      "critical_sites": 1,
+      "critical_enrollment": 141,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "18592",
+      "d": "Caquetá",
+      "m": "Puerto Rico",
+      "reported_sites": 5,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "18753",
+      "d": "Caquetá",
+      "m": "San Vicente del Caguán",
+      "reported_sites": 9,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "18756",
+      "d": "Caquetá",
+      "m": "Solano",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "18785",
+      "d": "Caquetá",
+      "m": "Solita",
+      "reported_sites": 4,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "18860",
+      "d": "Caquetá",
+      "m": "Valparaíso",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "19001",
+      "d": "Cauca",
+      "m": "Popayán",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "19022",
+      "d": "Cauca",
+      "m": "Almaguer",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "19050",
+      "d": "Cauca",
+      "m": "Argelia",
+      "reported_sites": 22,
+      "critical_sites": 4,
+      "critical_enrollment": 429,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "19075",
+      "d": "Cauca",
+      "m": "Balboa",
+      "reported_sites": 12,
+      "critical_sites": 1,
+      "critical_enrollment": 8,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "19100",
+      "d": "Cauca",
+      "m": "Bolívar",
+      "reported_sites": 24,
+      "critical_sites": 1,
+      "critical_enrollment": 8,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "19110",
+      "d": "Cauca",
+      "m": "Buenos Aires",
+      "reported_sites": 28,
+      "critical_sites": 13,
+      "critical_enrollment": 1020,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "19130",
+      "d": "Cauca",
+      "m": "Cajibío",
+      "reported_sites": 26,
+      "critical_sites": 6,
+      "critical_enrollment": 358,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "19137",
+      "d": "Cauca",
+      "m": "Caldono",
+      "reported_sites": 6,
+      "critical_sites": 3,
+      "critical_enrollment": 130,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "19142",
+      "d": "Cauca",
+      "m": "Caloto",
+      "reported_sites": 5,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "19212",
+      "d": "Cauca",
+      "m": "Corinto",
+      "reported_sites": 17,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "19256",
+      "d": "Cauca",
+      "m": "El Tambo",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "19300",
+      "d": "Cauca",
+      "m": "Guachené",
+      "reported_sites": 6,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "19318",
+      "d": "Cauca",
+      "m": "Guapi",
+      "reported_sites": 13,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "19355",
+      "d": "Cauca",
+      "m": "Inzá",
+      "reported_sites": 13,
+      "critical_sites": 2,
+      "critical_enrollment": 267,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "19392",
+      "d": "Cauca",
+      "m": "La Sierra",
+      "reported_sites": 2,
+      "critical_sites": 1,
+      "critical_enrollment": 141,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "19418",
+      "d": "Cauca",
+      "m": "López de Micay",
+      "reported_sites": 12,
+      "critical_sites": 1,
+      "critical_enrollment": 25,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "19450",
+      "d": "Cauca",
+      "m": "Mercaderes",
+      "reported_sites": 5,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "19455",
+      "d": "Cauca",
+      "m": "Miranda",
+      "reported_sites": 6,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "19473",
+      "d": "Cauca",
+      "m": "Morales",
+      "reported_sites": 11,
+      "critical_sites": 2,
+      "critical_enrollment": 112,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "19513",
+      "d": "Cauca",
+      "m": "Padilla",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "19517",
+      "d": "Cauca",
+      "m": "Páez",
+      "reported_sites": 9,
+      "critical_sites": 9,
+      "critical_enrollment": 1153,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "19532",
+      "d": "Cauca",
+      "m": "Patía",
+      "reported_sites": 12,
+      "critical_sites": 12,
+      "critical_enrollment": 1642,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "19533",
+      "d": "Cauca",
+      "m": "Piamonte",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "19548",
+      "d": "Cauca",
+      "m": "Piendamó - Tunía",
+      "reported_sites": 14,
+      "critical_sites": 1,
+      "critical_enrollment": 879,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "19573",
+      "d": "Cauca",
+      "m": "Puerto Tejada",
+      "reported_sites": 4,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "19585",
+      "d": "Cauca",
+      "m": "Puracé",
+      "reported_sites": 4,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "19622",
+      "d": "Cauca",
+      "m": "Rosas",
+      "reported_sites": 8,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "19693",
+      "d": "Cauca",
+      "m": "San Sebastián",
+      "reported_sites": 9,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "19698",
+      "d": "Cauca",
+      "m": "Santander de Quilichao",
+      "reported_sites": 29,
+      "critical_sites": 4,
+      "critical_enrollment": 246,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "19701",
+      "d": "Cauca",
+      "m": "Santa Rosa",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "19743",
+      "d": "Cauca",
+      "m": "Silvia",
+      "reported_sites": 5,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "19780",
+      "d": "Cauca",
+      "m": "Suárez",
+      "reported_sites": 9,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "19785",
+      "d": "Cauca",
+      "m": "Sucre",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "19807",
+      "d": "Cauca",
+      "m": "Timbío",
+      "reported_sites": 6,
+      "critical_sites": 3,
+      "critical_enrollment": 214,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "19809",
+      "d": "Cauca",
+      "m": "Timbiquí",
+      "reported_sites": 6,
+      "critical_sites": 5,
+      "critical_enrollment": 997,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "19821",
+      "d": "Cauca",
+      "m": "Toribío",
+      "reported_sites": 17,
+      "critical_sites": 16,
+      "critical_enrollment": 1852,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "19824",
+      "d": "Cauca",
+      "m": "Totoró",
+      "reported_sites": 8,
+      "critical_sites": 8,
+      "critical_enrollment": 756,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "19845",
+      "d": "Cauca",
+      "m": "Villa Rica",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25001",
+      "d": "Cundinamarca",
+      "m": "Agua de Dios",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25035",
+      "d": "Cundinamarca",
+      "m": "Anapoima",
+      "reported_sites": 7,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25040",
+      "d": "Cundinamarca",
+      "m": "Anolaima",
+      "reported_sites": 2,
+      "critical_sites": 1,
+      "critical_enrollment": 28,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25053",
+      "d": "Cundinamarca",
+      "m": "Arbeláez",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25095",
+      "d": "Cundinamarca",
+      "m": "Bituima",
+      "reported_sites": 8,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25120",
+      "d": "Cundinamarca",
+      "m": "Cabrera",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25126",
+      "d": "Cundinamarca",
+      "m": "Cajicá",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25148",
+      "d": "Cundinamarca",
+      "m": "Caparrapí",
+      "reported_sites": 5,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25151",
+      "d": "Cundinamarca",
+      "m": "Cáqueza",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25154",
+      "d": "Cundinamarca",
+      "m": "Carmen de Carupa",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25168",
+      "d": "Cundinamarca",
+      "m": "Chaguaní",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25200",
+      "d": "Cundinamarca",
+      "m": "Cogua",
+      "reported_sites": 3,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25245",
+      "d": "Cundinamarca",
+      "m": "El Colegio",
+      "reported_sites": 2,
+      "critical_sites": 1,
+      "critical_enrollment": 513,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25258",
+      "d": "Cundinamarca",
+      "m": "El Peñón",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25269",
+      "d": "Cundinamarca",
+      "m": "Facatativá",
+      "reported_sites": 9,
+      "critical_sites": 3,
+      "critical_enrollment": 3817,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25279",
+      "d": "Cundinamarca",
+      "m": "Fómeque",
+      "reported_sites": 3,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25286",
+      "d": "Cundinamarca",
+      "m": "Funza",
+      "reported_sites": 7,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25288",
+      "d": "Cundinamarca",
+      "m": "Fúquene",
+      "reported_sites": 6,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25297",
+      "d": "Cundinamarca",
+      "m": "Gachetá",
+      "reported_sites": 3,
+      "critical_sites": 1,
+      "critical_enrollment": 5,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25307",
+      "d": "Cundinamarca",
+      "m": "Girardot",
+      "reported_sites": 30,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25317",
+      "d": "Cundinamarca",
+      "m": "Guachetá",
+      "reported_sites": 4,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25320",
+      "d": "Cundinamarca",
+      "m": "Guaduas",
+      "reported_sites": 4,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25322",
+      "d": "Cundinamarca",
+      "m": "Guasca",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25324",
+      "d": "Cundinamarca",
+      "m": "Guataquí",
+      "reported_sites": 3,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25339",
+      "d": "Cundinamarca",
+      "m": "Gutiérrez",
+      "reported_sites": 3,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25398",
+      "d": "Cundinamarca",
+      "m": "La Peña",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25402",
+      "d": "Cundinamarca",
+      "m": "La Vega",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25430",
+      "d": "Cundinamarca",
+      "m": "Madrid",
+      "reported_sites": 3,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25473",
+      "d": "Cundinamarca",
+      "m": "Mosquera",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25483",
+      "d": "Cundinamarca",
+      "m": "Nariño",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25488",
+      "d": "Cundinamarca",
+      "m": "Nilo",
+      "reported_sites": 5,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25489",
+      "d": "Cundinamarca",
+      "m": "Nimaima",
+      "reported_sites": 3,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25491",
+      "d": "Cundinamarca",
+      "m": "Nocaima",
+      "reported_sites": 8,
+      "critical_sites": 1,
+      "critical_enrollment": 259,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25513",
+      "d": "Cundinamarca",
+      "m": "Pacho",
+      "reported_sites": 14,
+      "critical_sites": 1,
+      "critical_enrollment": 26,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25530",
+      "d": "Cundinamarca",
+      "m": "Paratebueno",
+      "reported_sites": 3,
+      "critical_sites": 2,
+      "critical_enrollment": 187,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25535",
+      "d": "Cundinamarca",
+      "m": "Pasca",
+      "reported_sites": 3,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25572",
+      "d": "Cundinamarca",
+      "m": "Puerto Salgar",
+      "reported_sites": 6,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25580",
+      "d": "Cundinamarca",
+      "m": "Pulí",
+      "reported_sites": 4,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25592",
+      "d": "Cundinamarca",
+      "m": "Quebradanegra",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25596",
+      "d": "Cundinamarca",
+      "m": "Quipile",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25599",
+      "d": "Cundinamarca",
+      "m": "Apulo",
+      "reported_sites": 3,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25612",
+      "d": "Cundinamarca",
+      "m": "Ricaurte",
+      "reported_sites": 4,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25645",
+      "d": "Cundinamarca",
+      "m": "San Antonio del Tequendama",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25649",
+      "d": "Cundinamarca",
+      "m": "San Bernardo",
+      "reported_sites": 4,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25653",
+      "d": "Cundinamarca",
+      "m": "San Cayetano",
+      "reported_sites": 7,
+      "critical_sites": 1,
+      "critical_enrollment": 23,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25662",
+      "d": "Cundinamarca",
+      "m": "San Juan de Rioseco",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25718",
+      "d": "Cundinamarca",
+      "m": "Sasaima",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25736",
+      "d": "Cundinamarca",
+      "m": "Sesquilé",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25740",
+      "d": "Cundinamarca",
+      "m": "Sibaté",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25743",
+      "d": "Cundinamarca",
+      "m": "Silvania",
+      "reported_sites": 7,
+      "critical_sites": 1,
+      "critical_enrollment": 20,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25745",
+      "d": "Cundinamarca",
+      "m": "Simijaca",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25758",
+      "d": "Cundinamarca",
+      "m": "Sopó",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25769",
+      "d": "Cundinamarca",
+      "m": "Subachoque",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25777",
+      "d": "Cundinamarca",
+      "m": "Supatá",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25785",
+      "d": "Cundinamarca",
+      "m": "Tabio",
+      "reported_sites": 3,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25799",
+      "d": "Cundinamarca",
+      "m": "Tenjo",
+      "reported_sites": 1,
+      "critical_sites": 1,
+      "critical_enrollment": 62,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25815",
+      "d": "Cundinamarca",
+      "m": "Tocaima",
+      "reported_sites": 7,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25817",
+      "d": "Cundinamarca",
+      "m": "Tocancipá",
+      "reported_sites": 4,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25839",
+      "d": "Cundinamarca",
+      "m": "Ubalá",
+      "reported_sites": 1,
+      "critical_sites": 1,
+      "critical_enrollment": 89,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25843",
+      "d": "Cundinamarca",
+      "m": "Villa de San Diego de Ubaté",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25851",
+      "d": "Cundinamarca",
+      "m": "Útica",
+      "reported_sites": 5,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25862",
+      "d": "Cundinamarca",
+      "m": "Vergara",
+      "reported_sites": 5,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25875",
+      "d": "Cundinamarca",
+      "m": "Villeta",
+      "reported_sites": 3,
+      "critical_sites": 1,
+      "critical_enrollment": 262,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25878",
+      "d": "Cundinamarca",
+      "m": "Viotá",
+      "reported_sites": 3,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25885",
+      "d": "Cundinamarca",
+      "m": "Yacopí",
+      "reported_sites": 3,
+      "critical_sites": 1,
+      "critical_enrollment": 58,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "25899",
+      "d": "Cundinamarca",
+      "m": "Zipaquirá",
+      "reported_sites": 7,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "27001",
+      "d": "Chocó",
+      "m": "Quibdó",
+      "reported_sites": 80,
+      "critical_sites": 22,
+      "critical_enrollment": 12464,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "27025",
+      "d": "Chocó",
+      "m": "Alto Baudó",
+      "reported_sites": 21,
+      "critical_sites": 4,
+      "critical_enrollment": 843,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "27050",
+      "d": "Chocó",
+      "m": "Atrato",
+      "reported_sites": 10,
+      "critical_sites": 5,
+      "critical_enrollment": 774,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "27073",
+      "d": "Chocó",
+      "m": "Bagadó",
+      "reported_sites": 7,
+      "critical_sites": 3,
+      "critical_enrollment": 536,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "27075",
+      "d": "Chocó",
+      "m": "Bahía Solano",
+      "reported_sites": 4,
+      "critical_sites": 1,
+      "critical_enrollment": 233,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "27077",
+      "d": "Chocó",
+      "m": "Bajo Baudó",
+      "reported_sites": 23,
+      "critical_sites": 7,
+      "critical_enrollment": 499,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "27099",
+      "d": "Chocó",
+      "m": "Bojayá",
+      "reported_sites": 18,
+      "critical_sites": 2,
+      "critical_enrollment": 855,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "27135",
+      "d": "Chocó",
+      "m": "El Cantón del San Pablo",
+      "reported_sites": 9,
+      "critical_sites": 5,
+      "critical_enrollment": 1184,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "27150",
+      "d": "Chocó",
+      "m": "Carmen del Darién",
+      "reported_sites": 8,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "27160",
+      "d": "Chocó",
+      "m": "Cértegui",
+      "reported_sites": 3,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "27205",
+      "d": "Chocó",
+      "m": "Condoto",
+      "reported_sites": 11,
+      "critical_sites": 2,
+      "critical_enrollment": 198,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "27245",
+      "d": "Chocó",
+      "m": "El Carmen de Atrato",
+      "reported_sites": 12,
+      "critical_sites": 1,
+      "critical_enrollment": 359,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "27250",
+      "d": "Chocó",
+      "m": "El Litoral del San Juan",
+      "reported_sites": 16,
+      "critical_sites": 10,
+      "critical_enrollment": 1246,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "27361",
+      "d": "Chocó",
+      "m": "Istmina",
+      "reported_sites": 13,
+      "critical_sites": 10,
+      "critical_enrollment": 4237,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "27372",
+      "d": "Chocó",
+      "m": "Juradó",
+      "reported_sites": 4,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "27413",
+      "d": "Chocó",
+      "m": "Lloró",
+      "reported_sites": 12,
+      "critical_sites": 1,
+      "critical_enrollment": 11,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "27425",
+      "d": "Chocó",
+      "m": "Medio Atrato",
+      "reported_sites": 4,
+      "critical_sites": 3,
+      "critical_enrollment": 219,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "27430",
+      "d": "Chocó",
+      "m": "Medio Baudó",
+      "reported_sites": 38,
+      "critical_sites": 9,
+      "critical_enrollment": 872,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "27450",
+      "d": "Chocó",
+      "m": "Medio San Juan",
+      "reported_sites": 6,
+      "critical_sites": 1,
+      "critical_enrollment": 332,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "27491",
+      "d": "Chocó",
+      "m": "Nóvita",
+      "reported_sites": 17,
+      "critical_sites": 8,
+      "critical_enrollment": 509,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "27493",
+      "d": "Chocó",
+      "m": "Nuevo Belén de Bajirá",
+      "reported_sites": 19,
+      "critical_sites": 9,
+      "critical_enrollment": 1230,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "27580",
+      "d": "Chocó",
+      "m": "Río Iró",
+      "reported_sites": 4,
+      "critical_sites": 2,
+      "critical_enrollment": 220,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "27600",
+      "d": "Chocó",
+      "m": "Río Quito",
+      "reported_sites": 3,
+      "critical_sites": 3,
+      "critical_enrollment": 1100,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "27615",
+      "d": "Chocó",
+      "m": "Riosucio",
+      "reported_sites": 21,
+      "critical_sites": 1,
+      "critical_enrollment": 31,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "27745",
+      "d": "Chocó",
+      "m": "Sipí",
+      "reported_sites": 15,
+      "critical_sites": 2,
+      "critical_enrollment": 237,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "27787",
+      "d": "Chocó",
+      "m": "Tadó",
+      "reported_sites": 21,
+      "critical_sites": 6,
+      "critical_enrollment": 1609,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "27800",
+      "d": "Chocó",
+      "m": "Unguía",
+      "reported_sites": 3,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "27810",
+      "d": "Chocó",
+      "m": "Unión Panamericana",
+      "reported_sites": 6,
+      "critical_sites": 4,
+      "critical_enrollment": 1267,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "41001",
+      "d": "Huila",
+      "m": "Neiva",
+      "reported_sites": 43,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "41006",
+      "d": "Huila",
+      "m": "Acevedo",
+      "reported_sites": 6,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "41013",
+      "d": "Huila",
+      "m": "Agrado",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "41016",
+      "d": "Huila",
+      "m": "Aipe",
+      "reported_sites": 5,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "41020",
+      "d": "Huila",
+      "m": "Algeciras",
+      "reported_sites": 14,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "41026",
+      "d": "Huila",
+      "m": "Altamira",
+      "reported_sites": 4,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "41078",
+      "d": "Huila",
+      "m": "Baraya",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "41132",
+      "d": "Huila",
+      "m": "Campoalegre",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "41206",
+      "d": "Huila",
+      "m": "Colombia",
+      "reported_sites": 11,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "41244",
+      "d": "Huila",
+      "m": "Elías",
+      "reported_sites": 3,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "41298",
+      "d": "Huila",
+      "m": "Garzón",
+      "reported_sites": 21,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "41306",
+      "d": "Huila",
+      "m": "Gigante",
+      "reported_sites": 10,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "41349",
+      "d": "Huila",
+      "m": "Hobo",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "41357",
+      "d": "Huila",
+      "m": "Íquira",
+      "reported_sites": 3,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "41359",
+      "d": "Huila",
+      "m": "Isnos",
+      "reported_sites": 3,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "41378",
+      "d": "Huila",
+      "m": "La Argentina",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "41396",
+      "d": "Huila",
+      "m": "La Plata",
+      "reported_sites": 11,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "41483",
+      "d": "Huila",
+      "m": "Nátaga",
+      "reported_sites": 6,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "41503",
+      "d": "Huila",
+      "m": "Oporapa",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "41518",
+      "d": "Huila",
+      "m": "Paicol",
+      "reported_sites": 3,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "41524",
+      "d": "Huila",
+      "m": "Palermo",
+      "reported_sites": 3,
+      "critical_sites": 1,
+      "critical_enrollment": 7,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "41530",
+      "d": "Huila",
+      "m": "Palestina",
+      "reported_sites": 2,
+      "critical_sites": 1,
+      "critical_enrollment": 167,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "41548",
+      "d": "Huila",
+      "m": "Pital",
+      "reported_sites": 7,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "41551",
+      "d": "Huila",
+      "m": "Pitalito",
+      "reported_sites": 8,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "41615",
+      "d": "Huila",
+      "m": "Rivera",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "41660",
+      "d": "Huila",
+      "m": "Saladoblanco",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "41668",
+      "d": "Huila",
+      "m": "San Agustín",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "41676",
+      "d": "Huila",
+      "m": "Santa María",
+      "reported_sites": 7,
+      "critical_sites": 1,
+      "critical_enrollment": 10,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "41770",
+      "d": "Huila",
+      "m": "Suaza",
+      "reported_sites": 7,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "41791",
+      "d": "Huila",
+      "m": "Tarqui",
+      "reported_sites": 4,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "41797",
+      "d": "Huila",
+      "m": "Tesalia",
+      "reported_sites": 7,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "41799",
+      "d": "Huila",
+      "m": "Tello",
+      "reported_sites": 6,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "41801",
+      "d": "Huila",
+      "m": "Teruel",
+      "reported_sites": 4,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "41807",
+      "d": "Huila",
+      "m": "Timaná",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "41872",
+      "d": "Huila",
+      "m": "Villavieja",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "41885",
+      "d": "Huila",
+      "m": "Yaguará",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "52001",
+      "d": "Nariño",
+      "m": "Pasto",
+      "reported_sites": 31,
+      "critical_sites": 5,
+      "critical_enrollment": 1108,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "52079",
+      "d": "Nariño",
+      "m": "Barbacoas",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "52110",
+      "d": "Nariño",
+      "m": "Buesaco",
+      "reported_sites": 4,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "52254",
+      "d": "Nariño",
+      "m": "El Peñol",
+      "reported_sites": 2,
+      "critical_sites": 1,
+      "critical_enrollment": 204,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "52356",
+      "d": "Nariño",
+      "m": "Ipiales",
+      "reported_sites": 6,
+      "critical_sites": 1,
+      "critical_enrollment": 252,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "52585",
+      "d": "Nariño",
+      "m": "Pupiales",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "52678",
+      "d": "Nariño",
+      "m": "Samaniego",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "52693",
+      "d": "Nariño",
+      "m": "San Pablo",
+      "reported_sites": 5,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "52835",
+      "d": "Nariño",
+      "m": "San Andrés de Tumaco",
+      "reported_sites": 2,
+      "critical_sites": 2,
+      "critical_enrollment": 584,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "54001",
+      "d": "Norte de Santander",
+      "m": "San José de Cúcuta",
+      "reported_sites": 18,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "54003",
+      "d": "Norte de Santander",
+      "m": "Ábrego",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "54051",
+      "d": "Norte de Santander",
+      "m": "Arboledas",
+      "reported_sites": 1,
+      "critical_sites": 1,
+      "critical_enrollment": 9,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "54172",
+      "d": "Norte de Santander",
+      "m": "Chinácota",
+      "reported_sites": 1,
+      "critical_sites": 1,
+      "critical_enrollment": 13,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "54223",
+      "d": "Norte de Santander",
+      "m": "Cucutilla",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "54261",
+      "d": "Norte de Santander",
+      "m": "El Zulia",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "54418",
+      "d": "Norte de Santander",
+      "m": "Lourdes",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "54498",
+      "d": "Norte de Santander",
+      "m": "Ocaña",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "54520",
+      "d": "Norte de Santander",
+      "m": "Pamplonita",
+      "reported_sites": 3,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "54743",
+      "d": "Norte de Santander",
+      "m": "Silos",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "54874",
+      "d": "Norte de Santander",
+      "m": "Villa del Rosario",
+      "reported_sites": 3,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "63001",
+      "d": "Quindío",
+      "m": "Armenia",
+      "reported_sites": 38,
+      "critical_sites": 8,
+      "critical_enrollment": 3258,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "63111",
+      "d": "Quindío",
+      "m": "Buenavista",
+      "reported_sites": 1,
+      "critical_sites": 1,
+      "critical_enrollment": 200,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "63130",
+      "d": "Quindío",
+      "m": "Calarcá",
+      "reported_sites": 42,
+      "critical_sites": 4,
+      "critical_enrollment": 1098,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "63190",
+      "d": "Quindío",
+      "m": "Circasia",
+      "reported_sites": 15,
+      "critical_sites": 1,
+      "critical_enrollment": 954,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "63212",
+      "d": "Quindío",
+      "m": "Córdoba",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "63272",
+      "d": "Quindío",
+      "m": "Filandia",
+      "reported_sites": 25,
+      "critical_sites": 1,
+      "critical_enrollment": 5,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "63302",
+      "d": "Quindío",
+      "m": "Génova",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "63401",
+      "d": "Quindío",
+      "m": "La Tebaida",
+      "reported_sites": 12,
+      "critical_sites": 2,
+      "critical_enrollment": 1803,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "63470",
+      "d": "Quindío",
+      "m": "Montenegro",
+      "reported_sites": 29,
+      "critical_sites": 7,
+      "critical_enrollment": 1669,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "63548",
+      "d": "Quindío",
+      "m": "Pijao",
+      "reported_sites": 15,
+      "critical_sites": 2,
+      "critical_enrollment": 71,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "63594",
+      "d": "Quindío",
+      "m": "Quimbaya",
+      "reported_sites": 15,
+      "critical_sites": 5,
+      "critical_enrollment": 2122,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "63690",
+      "d": "Quindío",
+      "m": "Salento",
+      "reported_sites": 5,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "66001",
+      "d": "Risaralda",
+      "m": "Pereira",
+      "reported_sites": 167,
+      "critical_sites": 95,
+      "critical_enrollment": 23859,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "66045",
+      "d": "Risaralda",
+      "m": "Apía",
+      "reported_sites": 2,
+      "critical_sites": 1,
+      "critical_enrollment": 420,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "66088",
+      "d": "Risaralda",
+      "m": "Belén de Umbría",
+      "reported_sites": 25,
+      "critical_sites": 11,
+      "critical_enrollment": 501,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "66170",
+      "d": "Risaralda",
+      "m": "Dosquebradas",
+      "reported_sites": 70,
+      "critical_sites": 3,
+      "critical_enrollment": 2435,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "66318",
+      "d": "Risaralda",
+      "m": "Guática",
+      "reported_sites": 5,
+      "critical_sites": 2,
+      "critical_enrollment": 60,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "66383",
+      "d": "Risaralda",
+      "m": "La Celia",
+      "reported_sites": 11,
+      "critical_sites": 4,
+      "critical_enrollment": 406,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "66400",
+      "d": "Risaralda",
+      "m": "La Virginia",
+      "reported_sites": 6,
+      "critical_sites": 1,
+      "critical_enrollment": 746,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "66440",
+      "d": "Risaralda",
+      "m": "Marsella",
+      "reported_sites": 13,
+      "critical_sites": 3,
+      "critical_enrollment": 145,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "66572",
+      "d": "Risaralda",
+      "m": "Pueblo Rico",
+      "reported_sites": 26,
+      "critical_sites": 6,
+      "critical_enrollment": 468,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "66594",
+      "d": "Risaralda",
+      "m": "Quinchía",
+      "reported_sites": 30,
+      "critical_sites": 3,
+      "critical_enrollment": 365,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "66682",
+      "d": "Risaralda",
+      "m": "Santa Rosa de Cabal",
+      "reported_sites": 3,
+      "critical_sites": 1,
+      "critical_enrollment": 503,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "66687",
+      "d": "Risaralda",
+      "m": "Santuario",
+      "reported_sites": 1,
+      "critical_sites": 1,
+      "critical_enrollment": 35,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "68001",
+      "d": "Santander",
+      "m": "Bucaramanga",
+      "reported_sites": 16,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "68176",
+      "d": "Santander",
+      "m": "Chimá",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "68209",
+      "d": "Santander",
+      "m": "Confines",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "68276",
+      "d": "Santander",
+      "m": "Floridablanca",
+      "reported_sites": 15,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "68307",
+      "d": "Santander",
+      "m": "Girón",
+      "reported_sites": 10,
+      "critical_sites": 1,
+      "critical_enrollment": 1273,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "68397",
+      "d": "Santander",
+      "m": "La Paz",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "68406",
+      "d": "Santander",
+      "m": "Lebrija",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "68444",
+      "d": "Santander",
+      "m": "Matanza",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "68500",
+      "d": "Santander",
+      "m": "Oiba",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "68522",
+      "d": "Santander",
+      "m": "Palmar",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "68547",
+      "d": "Santander",
+      "m": "Piedecuesta",
+      "reported_sites": 10,
+      "critical_sites": 1,
+      "critical_enrollment": 3,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "68615",
+      "d": "Santander",
+      "m": "Rionegro",
+      "reported_sites": 3,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "68689",
+      "d": "Santander",
+      "m": "San Vicente de Chucurí",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "68705",
+      "d": "Santander",
+      "m": "Santa Bárbara",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "68720",
+      "d": "Santander",
+      "m": "Santa Helena del Opón",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "68780",
+      "d": "Santander",
+      "m": "Suratá",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "68895",
+      "d": "Santander",
+      "m": "Zapatoca",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "70001",
+      "d": "Sucre",
+      "m": "Sincelejo",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "70124",
+      "d": "Sucre",
+      "m": "Caimito",
+      "reported_sites": 12,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "70233",
+      "d": "Sucre",
+      "m": "El Roble",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "70508",
+      "d": "Sucre",
+      "m": "Ovejas",
+      "reported_sites": 6,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "70670",
+      "d": "Sucre",
+      "m": "Sampués",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "70678",
+      "d": "Sucre",
+      "m": "San Benito Abad",
+      "reported_sites": 3,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "70702",
+      "d": "Sucre",
+      "m": "San Juan de Betulia",
+      "reported_sites": 3,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "70708",
+      "d": "Sucre",
+      "m": "San Marcos",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "73001",
+      "d": "Tolima",
+      "m": "Ibagué",
+      "reported_sites": 44,
+      "critical_sites": 7,
+      "critical_enrollment": 3983,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "73024",
+      "d": "Tolima",
+      "m": "Alpujarra",
+      "reported_sites": 1,
+      "critical_sites": 1,
+      "critical_enrollment": 86,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "73043",
+      "d": "Tolima",
+      "m": "Anzoátegui",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "73055",
+      "d": "Tolima",
+      "m": "Armero",
+      "reported_sites": 1,
+      "critical_sites": 1,
+      "critical_enrollment": 31,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "73067",
+      "d": "Tolima",
+      "m": "Ataco",
+      "reported_sites": 21,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "73124",
+      "d": "Tolima",
+      "m": "Cajamarca",
+      "reported_sites": 17,
+      "critical_sites": 12,
+      "critical_enrollment": 339,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "73152",
+      "d": "Tolima",
+      "m": "Casabianca",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "73168",
+      "d": "Tolima",
+      "m": "Chaparral",
+      "reported_sites": 33,
+      "critical_sites": 3,
+      "critical_enrollment": 68,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "73200",
+      "d": "Tolima",
+      "m": "Coello",
+      "reported_sites": 7,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "73217",
+      "d": "Tolima",
+      "m": "Coyaima",
+      "reported_sites": 6,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "73236",
+      "d": "Tolima",
+      "m": "Dolores",
+      "reported_sites": 15,
+      "critical_sites": 6,
+      "critical_enrollment": 282,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "73270",
+      "d": "Tolima",
+      "m": "Falan",
+      "reported_sites": 16,
+      "critical_sites": 15,
+      "critical_enrollment": 656,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "73275",
+      "d": "Tolima",
+      "m": "Flandes",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "73283",
+      "d": "Tolima",
+      "m": "Fresno",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "73319",
+      "d": "Tolima",
+      "m": "Guamo",
+      "reported_sites": 11,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "73347",
+      "d": "Tolima",
+      "m": "Herveo",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "73349",
+      "d": "Tolima",
+      "m": "Honda",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "73352",
+      "d": "Tolima",
+      "m": "Icononzo",
+      "reported_sites": 9,
+      "critical_sites": 1,
+      "critical_enrollment": 16,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "73408",
+      "d": "Tolima",
+      "m": "Lérida",
+      "reported_sites": 5,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "73411",
+      "d": "Tolima",
+      "m": "Líbano",
+      "reported_sites": 9,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "73443",
+      "d": "Tolima",
+      "m": "Mariquita",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "73449",
+      "d": "Tolima",
+      "m": "Melgar",
+      "reported_sites": 7,
+      "critical_sites": 7,
+      "critical_enrollment": 601,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "73461",
+      "d": "Tolima",
+      "m": "Murillo",
+      "reported_sites": 24,
+      "critical_sites": 24,
+      "critical_enrollment": 518,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "73504",
+      "d": "Tolima",
+      "m": "Ortega",
+      "reported_sites": 20,
+      "critical_sites": 17,
+      "critical_enrollment": 475,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "73520",
+      "d": "Tolima",
+      "m": "Palocabildo",
+      "reported_sites": 22,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "73555",
+      "d": "Tolima",
+      "m": "Planadas",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "73563",
+      "d": "Tolima",
+      "m": "Prado",
+      "reported_sites": 6,
+      "critical_sites": 1,
+      "critical_enrollment": 13,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "73585",
+      "d": "Tolima",
+      "m": "Purificación",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "73616",
+      "d": "Tolima",
+      "m": "Rioblanco",
+      "reported_sites": 2,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "73622",
+      "d": "Tolima",
+      "m": "Roncesvalles",
+      "reported_sites": 6,
+      "critical_sites": 1,
+      "critical_enrollment": 11,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "73624",
+      "d": "Tolima",
+      "m": "Rovira",
+      "reported_sites": 1,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "73675",
+      "d": "Tolima",
+      "m": "San Antonio",
+      "reported_sites": 15,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "73686",
+      "d": "Tolima",
+      "m": "Santa Isabel",
+      "reported_sites": 11,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "73861",
+      "d": "Tolima",
+      "m": "Venadillo",
+      "reported_sites": 7,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "73870",
+      "d": "Tolima",
+      "m": "Villahermosa",
+      "reported_sites": 20,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "76001",
+      "d": "Valle del Cauca",
+      "m": "Cali",
+      "reported_sites": 101,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "76020",
+      "d": "Valle del Cauca",
+      "m": "Alcalá",
+      "reported_sites": 17,
+      "critical_sites": 1,
+      "critical_enrollment": 12,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "76036",
+      "d": "Valle del Cauca",
+      "m": "Andalucía",
+      "reported_sites": 11,
+      "critical_sites": 2,
+      "critical_enrollment": 963,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "76041",
+      "d": "Valle del Cauca",
+      "m": "Ansermanuevo",
+      "reported_sites": 35,
+      "critical_sites": 16,
+      "critical_enrollment": 1613,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "76054",
+      "d": "Valle del Cauca",
+      "m": "Argelia",
+      "reported_sites": 19,
+      "critical_sites": 8,
+      "critical_enrollment": 489,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "76100",
+      "d": "Valle del Cauca",
+      "m": "Bolívar",
+      "reported_sites": 50,
+      "critical_sites": 16,
+      "critical_enrollment": 551,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "76109",
+      "d": "Valle del Cauca",
+      "m": "Buenaventura",
+      "reported_sites": 24,
+      "critical_sites": 2,
+      "critical_enrollment": 395,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "76111",
+      "d": "Valle del Cauca",
+      "m": "Guadalajara de Buga",
+      "reported_sites": 53,
+      "critical_sites": 7,
+      "critical_enrollment": 2904,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "76113",
+      "d": "Valle del Cauca",
+      "m": "Bugalagrande",
+      "reported_sites": 31,
+      "critical_sites": 7,
+      "critical_enrollment": 651,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "76122",
+      "d": "Valle del Cauca",
+      "m": "Caicedonia",
+      "reported_sites": 30,
+      "critical_sites": 5,
+      "critical_enrollment": 1344,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "76126",
+      "d": "Valle del Cauca",
+      "m": "Calima",
+      "reported_sites": 20,
+      "critical_sites": 12,
+      "critical_enrollment": 1338,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "76130",
+      "d": "Valle del Cauca",
+      "m": "Candelaria",
+      "reported_sites": 30,
+      "critical_sites": 3,
+      "critical_enrollment": 1319,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "76147",
+      "d": "Valle del Cauca",
+      "m": "Cartago",
+      "reported_sites": 37,
+      "critical_sites": 12,
+      "critical_enrollment": 2329,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "76233",
+      "d": "Valle del Cauca",
+      "m": "Dagua",
+      "reported_sites": 60,
+      "critical_sites": 17,
+      "critical_enrollment": 2646,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "76243",
+      "d": "Valle del Cauca",
+      "m": "El Águila",
+      "reported_sites": 27,
+      "critical_sites": 11,
+      "critical_enrollment": 499,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "76246",
+      "d": "Valle del Cauca",
+      "m": "El Cairo",
+      "reported_sites": 23,
+      "critical_sites": 7,
+      "critical_enrollment": 333,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "76248",
+      "d": "Valle del Cauca",
+      "m": "El Cerrito",
+      "reported_sites": 32,
+      "critical_sites": 5,
+      "critical_enrollment": 1443,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "76250",
+      "d": "Valle del Cauca",
+      "m": "El Dovio",
+      "reported_sites": 37,
+      "critical_sites": 6,
+      "critical_enrollment": 283,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "76275",
+      "d": "Valle del Cauca",
+      "m": "Florida",
+      "reported_sites": 44,
+      "critical_sites": 6,
+      "critical_enrollment": 225,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "76306",
+      "d": "Valle del Cauca",
+      "m": "Ginebra",
+      "reported_sites": 17,
+      "critical_sites": 1,
+      "critical_enrollment": 110,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "76318",
+      "d": "Valle del Cauca",
+      "m": "Guacarí",
+      "reported_sites": 14,
+      "critical_sites": 2,
+      "critical_enrollment": 221,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "76364",
+      "d": "Valle del Cauca",
+      "m": "Jamundí",
+      "reported_sites": 68,
+      "critical_sites": 40,
+      "critical_enrollment": 11831,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "76377",
+      "d": "Valle del Cauca",
+      "m": "La Cumbre",
+      "reported_sites": 23,
+      "critical_sites": 11,
+      "critical_enrollment": 909,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "76400",
+      "d": "Valle del Cauca",
+      "m": "La Unión",
+      "reported_sites": 24,
+      "critical_sites": 7,
+      "critical_enrollment": 1933,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "76403",
+      "d": "Valle del Cauca",
+      "m": "La Victoria",
+      "reported_sites": 12,
+      "critical_sites": 8,
+      "critical_enrollment": 1224,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "76497",
+      "d": "Valle del Cauca",
+      "m": "Obando",
+      "reported_sites": 18,
+      "critical_sites": 2,
+      "critical_enrollment": 94,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "76520",
+      "d": "Valle del Cauca",
+      "m": "Palmira",
+      "reported_sites": 63,
+      "critical_sites": 6,
+      "critical_enrollment": 1159,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "76563",
+      "d": "Valle del Cauca",
+      "m": "Pradera",
+      "reported_sites": 23,
+      "critical_sites": 1,
+      "critical_enrollment": 83,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "76606",
+      "d": "Valle del Cauca",
+      "m": "Restrepo",
+      "reported_sites": 25,
+      "critical_sites": 10,
+      "critical_enrollment": 2060,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "76616",
+      "d": "Valle del Cauca",
+      "m": "Riofrío",
+      "reported_sites": 32,
+      "critical_sites": 18,
+      "critical_enrollment": 961,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "76622",
+      "d": "Valle del Cauca",
+      "m": "Roldanillo",
+      "reported_sites": 36,
+      "critical_sites": 18,
+      "critical_enrollment": 2624,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "76670",
+      "d": "Valle del Cauca",
+      "m": "San Pedro",
+      "reported_sites": 23,
+      "critical_sites": 4,
+      "critical_enrollment": 237,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "76736",
+      "d": "Valle del Cauca",
+      "m": "Sevilla",
+      "reported_sites": 54,
+      "critical_sites": 11,
+      "critical_enrollment": 1177,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "76823",
+      "d": "Valle del Cauca",
+      "m": "Toro",
+      "reported_sites": 20,
+      "critical_sites": 8,
+      "critical_enrollment": 854,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "76828",
+      "d": "Valle del Cauca",
+      "m": "Trujillo",
+      "reported_sites": 33,
+      "critical_sites": 15,
+      "critical_enrollment": 1276,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "76834",
+      "d": "Valle del Cauca",
+      "m": "Tuluá",
+      "reported_sites": 105,
+      "critical_sites": 20,
+      "critical_enrollment": 5078,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "76845",
+      "d": "Valle del Cauca",
+      "m": "Ulloa",
+      "reported_sites": 14,
+      "critical_sites": 0,
+      "critical_enrollment": 0,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "76863",
+      "d": "Valle del Cauca",
+      "m": "Versalles",
+      "reported_sites": 17,
+      "critical_sites": 6,
+      "critical_enrollment": 182,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "76869",
+      "d": "Valle del Cauca",
+      "m": "Vijes",
+      "reported_sites": 18,
+      "critical_sites": 2,
+      "critical_enrollment": 396,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "76890",
+      "d": "Valle del Cauca",
+      "m": "Yotoco",
+      "reported_sites": 23,
+      "critical_sites": 9,
+      "critical_enrollment": 795,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "76892",
+      "d": "Valle del Cauca",
+      "m": "Yumbo",
+      "reported_sites": 43,
+      "critical_sites": 10,
+      "critical_enrollment": 4163,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    },
+    {
+      "code": "76895",
+      "d": "Valle del Cauca",
+      "m": "Zarzal",
+      "reported_sites": 18,
+      "critical_sites": 8,
+      "critical_enrollment": 3449,
+      "missing_critical_enrollment": 0,
+      "unclassified_sites": 0
+    }
+  ],
+  "roster": [
+    {
+      "code": "17001",
+      "d": "Caldas",
+      "m": "Manizales"
+    },
+    {
+      "code": "17013",
+      "d": "Caldas",
+      "m": "Aguadas"
+    },
+    {
+      "code": "17042",
+      "d": "Caldas",
+      "m": "Anserma"
+    },
+    {
+      "code": "17050",
+      "d": "Caldas",
+      "m": "Aranzazu"
+    },
+    {
+      "code": "17088",
+      "d": "Caldas",
+      "m": "Belalcázar"
+    },
+    {
+      "code": "17174",
+      "d": "Caldas",
+      "m": "Chinchiná"
+    },
+    {
+      "code": "17272",
+      "d": "Caldas",
+      "m": "Filadelfia"
+    },
+    {
+      "code": "17380",
+      "d": "Caldas",
+      "m": "La Dorada"
+    },
+    {
+      "code": "17388",
+      "d": "Caldas",
+      "m": "La Merced"
+    },
+    {
+      "code": "17433",
+      "d": "Caldas",
+      "m": "Manzanares"
+    },
+    {
+      "code": "17442",
+      "d": "Caldas",
+      "m": "Marmato"
+    },
+    {
+      "code": "17444",
+      "d": "Caldas",
+      "m": "Marquetalia"
+    },
+    {
+      "code": "17446",
+      "d": "Caldas",
+      "m": "Marulanda"
+    },
+    {
+      "code": "17486",
+      "d": "Caldas",
+      "m": "Neira"
+    },
+    {
+      "code": "17495",
+      "d": "Caldas",
+      "m": "Norcasia"
+    },
+    {
+      "code": "17513",
+      "d": "Caldas",
+      "m": "Pácora"
+    },
+    {
+      "code": "17524",
+      "d": "Caldas",
+      "m": "Palestina"
+    },
+    {
+      "code": "17541",
+      "d": "Caldas",
+      "m": "Pensilvania"
+    },
+    {
+      "code": "17614",
+      "d": "Caldas",
+      "m": "Riosucio"
+    },
+    {
+      "code": "17616",
+      "d": "Caldas",
+      "m": "Risaralda"
+    },
+    {
+      "code": "17653",
+      "d": "Caldas",
+      "m": "Salamina"
+    },
+    {
+      "code": "17662",
+      "d": "Caldas",
+      "m": "Samaná"
+    },
+    {
+      "code": "17665",
+      "d": "Caldas",
+      "m": "San José"
+    },
+    {
+      "code": "17777",
+      "d": "Caldas",
+      "m": "Supía"
+    },
+    {
+      "code": "17867",
+      "d": "Caldas",
+      "m": "Victoria"
+    },
+    {
+      "code": "17873",
+      "d": "Caldas",
+      "m": "Villamaría"
+    },
+    {
+      "code": "17877",
+      "d": "Caldas",
+      "m": "Viterbo"
+    },
+    {
+      "code": "27001",
+      "d": "Chocó",
+      "m": "Quibdó"
+    },
+    {
+      "code": "27006",
+      "d": "Chocó",
+      "m": "Acandí"
+    },
+    {
+      "code": "27025",
+      "d": "Chocó",
+      "m": "Alto Baudó"
+    },
+    {
+      "code": "27050",
+      "d": "Chocó",
+      "m": "Atrato"
+    },
+    {
+      "code": "27073",
+      "d": "Chocó",
+      "m": "Bagadó"
+    },
+    {
+      "code": "27075",
+      "d": "Chocó",
+      "m": "Bahía Solano"
+    },
+    {
+      "code": "27077",
+      "d": "Chocó",
+      "m": "Bajo Baudó"
+    },
+    {
+      "code": "27099",
+      "d": "Chocó",
+      "m": "Bojayá"
+    },
+    {
+      "code": "27135",
+      "d": "Chocó",
+      "m": "El Cantón del San Pablo"
+    },
+    {
+      "code": "27150",
+      "d": "Chocó",
+      "m": "Carmen del Darién"
+    },
+    {
+      "code": "27160",
+      "d": "Chocó",
+      "m": "Cértegui"
+    },
+    {
+      "code": "27205",
+      "d": "Chocó",
+      "m": "Condoto"
+    },
+    {
+      "code": "27245",
+      "d": "Chocó",
+      "m": "El Carmen de Atrato"
+    },
+    {
+      "code": "27250",
+      "d": "Chocó",
+      "m": "El Litoral del San Juan"
+    },
+    {
+      "code": "27361",
+      "d": "Chocó",
+      "m": "Istmina"
+    },
+    {
+      "code": "27372",
+      "d": "Chocó",
+      "m": "Juradó"
+    },
+    {
+      "code": "27413",
+      "d": "Chocó",
+      "m": "Lloró"
+    },
+    {
+      "code": "27425",
+      "d": "Chocó",
+      "m": "Medio Atrato"
+    },
+    {
+      "code": "27430",
+      "d": "Chocó",
+      "m": "Medio Baudó"
+    },
+    {
+      "code": "27450",
+      "d": "Chocó",
+      "m": "Medio San Juan"
+    },
+    {
+      "code": "27491",
+      "d": "Chocó",
+      "m": "Nóvita"
+    },
+    {
+      "code": "27493",
+      "d": "Chocó",
+      "m": "Nuevo Belén de Bajirá"
+    },
+    {
+      "code": "27495",
+      "d": "Chocó",
+      "m": "Nuquí"
+    },
+    {
+      "code": "27580",
+      "d": "Chocó",
+      "m": "Río Iró"
+    },
+    {
+      "code": "27600",
+      "d": "Chocó",
+      "m": "Río Quito"
+    },
+    {
+      "code": "27615",
+      "d": "Chocó",
+      "m": "Riosucio"
+    },
+    {
+      "code": "27660",
+      "d": "Chocó",
+      "m": "San José del Palmar"
+    },
+    {
+      "code": "27745",
+      "d": "Chocó",
+      "m": "Sipí"
+    },
+    {
+      "code": "27787",
+      "d": "Chocó",
+      "m": "Tadó"
+    },
+    {
+      "code": "27800",
+      "d": "Chocó",
+      "m": "Unguía"
+    },
+    {
+      "code": "27810",
+      "d": "Chocó",
+      "m": "Unión Panamericana"
+    },
+    {
+      "code": "63001",
+      "d": "Quindío",
+      "m": "Armenia"
+    },
+    {
+      "code": "63111",
+      "d": "Quindío",
+      "m": "Buenavista"
+    },
+    {
+      "code": "63130",
+      "d": "Quindío",
+      "m": "Calarcá"
+    },
+    {
+      "code": "63190",
+      "d": "Quindío",
+      "m": "Circasia"
+    },
+    {
+      "code": "63212",
+      "d": "Quindío",
+      "m": "Córdoba"
+    },
+    {
+      "code": "63272",
+      "d": "Quindío",
+      "m": "Filandia"
+    },
+    {
+      "code": "63302",
+      "d": "Quindío",
+      "m": "Génova"
+    },
+    {
+      "code": "63401",
+      "d": "Quindío",
+      "m": "La Tebaida"
+    },
+    {
+      "code": "63470",
+      "d": "Quindío",
+      "m": "Montenegro"
+    },
+    {
+      "code": "63548",
+      "d": "Quindío",
+      "m": "Pijao"
+    },
+    {
+      "code": "63594",
+      "d": "Quindío",
+      "m": "Quimbaya"
+    },
+    {
+      "code": "63690",
+      "d": "Quindío",
+      "m": "Salento"
+    },
+    {
+      "code": "66001",
+      "d": "Risaralda",
+      "m": "Pereira"
+    },
+    {
+      "code": "66045",
+      "d": "Risaralda",
+      "m": "Apía"
+    },
+    {
+      "code": "66075",
+      "d": "Risaralda",
+      "m": "Balboa"
+    },
+    {
+      "code": "66088",
+      "d": "Risaralda",
+      "m": "Belén de Umbría"
+    },
+    {
+      "code": "66170",
+      "d": "Risaralda",
+      "m": "Dosquebradas"
+    },
+    {
+      "code": "66318",
+      "d": "Risaralda",
+      "m": "Guática"
+    },
+    {
+      "code": "66383",
+      "d": "Risaralda",
+      "m": "La Celia"
+    },
+    {
+      "code": "66400",
+      "d": "Risaralda",
+      "m": "La Virginia"
+    },
+    {
+      "code": "66440",
+      "d": "Risaralda",
+      "m": "Marsella"
+    },
+    {
+      "code": "66456",
+      "d": "Risaralda",
+      "m": "Mistrató"
+    },
+    {
+      "code": "66572",
+      "d": "Risaralda",
+      "m": "Pueblo Rico"
+    },
+    {
+      "code": "66594",
+      "d": "Risaralda",
+      "m": "Quinchía"
+    },
+    {
+      "code": "66682",
+      "d": "Risaralda",
+      "m": "Santa Rosa de Cabal"
+    },
+    {
+      "code": "66687",
+      "d": "Risaralda",
+      "m": "Santuario"
+    },
+    {
+      "code": "76001",
+      "d": "Valle del Cauca",
+      "m": "Cali"
+    },
+    {
+      "code": "76020",
+      "d": "Valle del Cauca",
+      "m": "Alcalá"
+    },
+    {
+      "code": "76036",
+      "d": "Valle del Cauca",
+      "m": "Andalucía"
+    },
+    {
+      "code": "76041",
+      "d": "Valle del Cauca",
+      "m": "Ansermanuevo"
+    },
+    {
+      "code": "76054",
+      "d": "Valle del Cauca",
+      "m": "Argelia"
+    },
+    {
+      "code": "76100",
+      "d": "Valle del Cauca",
+      "m": "Bolívar"
+    },
+    {
+      "code": "76109",
+      "d": "Valle del Cauca",
+      "m": "Buenaventura"
+    },
+    {
+      "code": "76111",
+      "d": "Valle del Cauca",
+      "m": "Guadalajara de Buga"
+    },
+    {
+      "code": "76113",
+      "d": "Valle del Cauca",
+      "m": "Bugalagrande"
+    },
+    {
+      "code": "76122",
+      "d": "Valle del Cauca",
+      "m": "Caicedonia"
+    },
+    {
+      "code": "76126",
+      "d": "Valle del Cauca",
+      "m": "Calima"
+    },
+    {
+      "code": "76130",
+      "d": "Valle del Cauca",
+      "m": "Candelaria"
+    },
+    {
+      "code": "76147",
+      "d": "Valle del Cauca",
+      "m": "Cartago"
+    },
+    {
+      "code": "76233",
+      "d": "Valle del Cauca",
+      "m": "Dagua"
+    },
+    {
+      "code": "76243",
+      "d": "Valle del Cauca",
+      "m": "El Águila"
+    },
+    {
+      "code": "76246",
+      "d": "Valle del Cauca",
+      "m": "El Cairo"
+    },
+    {
+      "code": "76248",
+      "d": "Valle del Cauca",
+      "m": "El Cerrito"
+    },
+    {
+      "code": "76250",
+      "d": "Valle del Cauca",
+      "m": "El Dovio"
+    },
+    {
+      "code": "76275",
+      "d": "Valle del Cauca",
+      "m": "Florida"
+    },
+    {
+      "code": "76306",
+      "d": "Valle del Cauca",
+      "m": "Ginebra"
+    },
+    {
+      "code": "76318",
+      "d": "Valle del Cauca",
+      "m": "Guacarí"
+    },
+    {
+      "code": "76364",
+      "d": "Valle del Cauca",
+      "m": "Jamundí"
+    },
+    {
+      "code": "76377",
+      "d": "Valle del Cauca",
+      "m": "La Cumbre"
+    },
+    {
+      "code": "76400",
+      "d": "Valle del Cauca",
+      "m": "La Unión"
+    },
+    {
+      "code": "76403",
+      "d": "Valle del Cauca",
+      "m": "La Victoria"
+    },
+    {
+      "code": "76497",
+      "d": "Valle del Cauca",
+      "m": "Obando"
+    },
+    {
+      "code": "76520",
+      "d": "Valle del Cauca",
+      "m": "Palmira"
+    },
+    {
+      "code": "76563",
+      "d": "Valle del Cauca",
+      "m": "Pradera"
+    },
+    {
+      "code": "76606",
+      "d": "Valle del Cauca",
+      "m": "Restrepo"
+    },
+    {
+      "code": "76616",
+      "d": "Valle del Cauca",
+      "m": "Riofrío"
+    },
+    {
+      "code": "76622",
+      "d": "Valle del Cauca",
+      "m": "Roldanillo"
+    },
+    {
+      "code": "76670",
+      "d": "Valle del Cauca",
+      "m": "San Pedro"
+    },
+    {
+      "code": "76736",
+      "d": "Valle del Cauca",
+      "m": "Sevilla"
+    },
+    {
+      "code": "76823",
+      "d": "Valle del Cauca",
+      "m": "Toro"
+    },
+    {
+      "code": "76828",
+      "d": "Valle del Cauca",
+      "m": "Trujillo"
+    },
+    {
+      "code": "76834",
+      "d": "Valle del Cauca",
+      "m": "Tuluá"
+    },
+    {
+      "code": "76845",
+      "d": "Valle del Cauca",
+      "m": "Ulloa"
+    },
+    {
+      "code": "76863",
+      "d": "Valle del Cauca",
+      "m": "Versalles"
+    },
+    {
+      "code": "76869",
+      "d": "Valle del Cauca",
+      "m": "Vijes"
+    },
+    {
+      "code": "76890",
+      "d": "Valle del Cauca",
+      "m": "Yotoco"
+    },
+    {
+      "code": "76892",
+      "d": "Valle del Cauca",
+      "m": "Yumbo"
+    },
+    {
+      "code": "76895",
+      "d": "Valle del Cauca",
+      "m": "Zarzal"
+    }
+  ],
+  "department_counts": {
+    "Caldas": 27,
+    "Chocó": 31,
+    "Quindío": 12,
+    "Risaralda": 14,
+    "Valle del Cauca": 42
+  },
+  "totals": {
+    "men_sites": 5537,
+    "men_municipalities": 434,
+    "critical_sites": 1010,
+    "critical_enrollment": 187505,
+    "simat_sites": 7023,
+    "scope_municipalities": 126,
+    "scope_with_men": 121
+  }
+}

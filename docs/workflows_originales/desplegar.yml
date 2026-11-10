@@ -1,0 +1,90 @@
+name: Desplegar en el servidor
+# Automatiza lo que antes era manual: git pull + docker compose up -d --build + forzar una actualización
+# (ver docs/despliegue_torre_de_control.md). Dos jobs: primero las pruebas, en un runner de GitHub (nunca
+# toca el servidor si fallan); solo si pasan, el job de despliegue corre en un runner propio instalado EN
+# el servidor (etiqueta `tablero-terremoto-prod`) -- el servidor solo es alcanzable vía Azure Bastion, así
+# que no hay forma de que un runner de GitHub llegue por SSH desde afuera. El runner propio sortea eso por
+# completo: es una conexión saliente de él hacia GitHub, nunca al revés.
+#
+# Por qué un runner propio es razonable acá (no es la opción por defecto en general, ver el commit que
+# introdujo esto): este workflow SOLO escucha `push` a main y `workflow_dispatch`, nunca `pull_request` --
+# así que solo puede correr código que ya pasó por algo que requería permiso de escritura sobre el repo
+# (un push directo, o un PR que alguien con permiso de fusión aprobó y fusionó). Si este repositorio alguna
+# vez se vuelve público, o si se agrega un trigger de pull_request a cualquier workflow de este repo, hay
+# que reevaluar esto -- un fork malicioso podría entonces alcanzar un runner con acceso real al servidor.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'actualizar_indice_terremoto.py'
+      - 'generar_tablero_recuperacion.py'
+      - 'migrar_clasificacion_3is.py'
+      - 'web/**'
+      - 'data/**'
+      - 'docs/**'
+      - 'deploy/**'
+      - 'historial_indicadores_no_calculo.csv'
+      - 'indicadores_largo_no_calculo.csv'
+      - 'Dockerfile'
+      - 'docker-compose.yml'
+      - '.dockerignore'
+      - '.github/workflows/desplegar.yml'
+  workflow_dispatch: {}
+concurrency:
+  group: desplegar-produccion
+  cancel-in-progress: false
+jobs:
+  probar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verificar importación, cálculos y el actualizador del contenedor
+        run: |
+          python -m unittest discover -s tests -v
+          node --test tests/*.test.js
+          node --check web/tablero.js
+      - name: Construir la imagen (mismo Dockerfile que el servidor, sin publicarla)
+        run: docker build -t tablero-terremoto:ci .
+
+  desplegar:
+    needs: probar
+    runs-on: [self-hosted, tablero-terremoto-prod]
+    steps:
+      - name: git pull + reconstruir
+        # Sin actions/checkout: a propósito, para no crear un segundo clon ni una segunda pila de
+        # docker compose junto a la que ya corre. Se opera sobre el checkout persistente del servidor
+        # (DEPLOY_PATH), el mismo que usan los comandos manuales de docs/despliegue_torre_de_control.md.
+        run: |
+          set -eu
+          cd "${{ vars.DEPLOY_PATH }}"
+          git fetch origin
+          git merge --ff-only origin/main
+          docker compose up -d --build
+      - name: Forzar una actualización ahora (sin esperar el ciclo de 4h)
+        # Mejor esfuerzo, a propósito: si una fuente externa (3iS, PNUD...) falla justo en este instante,
+        # el ciclo normal ya reintenta solo cada 30 min (ver deploy/ejecutor.py) -- el código de todas
+        # formas quedó desplegado y corriendo en el paso anterior, así que esto no debe marcar el
+        # despliegue completo como fallido por una falla ajena y transitoria de una fuente externa.
+        run: |
+          cd "${{ vars.DEPLOY_PATH }}"
+          docker compose exec -T tablero python /app/ejecutor.py --run-now \
+            || echo "::warning::No se pudo forzar la actualización de datos ahora mismo (reintenta solo en <=30 min); el código igual quedó desplegado."
+          docker compose exec -T tablero wget -qO- http://127.0.0.1:8080/status.json
+
+  verificar:
+    needs: desplegar
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verificar el tablero públicamente
+        # Este paso sí puede correr en el runner de GitHub: el sitio público es HTTPS normal vía Nginx,
+        # ajeno al problema de SSH/Bastion (eso solo afecta el acceso administrativo al servidor).
+        run: |
+          url="${{ vars.TABLERO_PUBLIC_URL || 'https://torre.potencia.com.co/tablero-terremoto' }}"
+          curl -sf --retry 5 --retry-delay 10 --retry-all-errors "$url/status.json" | tee /tmp/status.json
+          python3 -c "import json,sys;d=json.load(open('/tmp/status.json'));sys.exit(0 if d.get('ok') else 1)"
