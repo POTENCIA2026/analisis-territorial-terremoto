@@ -290,11 +290,33 @@ WEB_MODULES = (
 )
 # Conjuntos de datos que no dependen de la captura: se incrustan tal como están en data/.
 PROJECTS = ROOT / "data/proyectos_torre_control.json"
+# Iniciativas del Tablero GTRT (PNUD), ya con el formato de Proyectos: scripts/capturar_proyectos_gtrt.py.
+PROJECTS_GTRT = ROOT / "data/proyectos_gtrt.json"
 VULNERABILITY = ROOT / "data/vulnerabilidad_municipal_2018.json"
 
 
 def embedded_json(value):
     return json.dumps(value, ensure_ascii=False, separators=(",", ":"), allow_nan=False)
+
+
+def projects_snapshot():
+    """Proyectos de Torre de Control más, si existe la captura, las iniciativas del GTRT.
+
+    Se entregan en una sola lista porque el apartado Proyectos las muestra con la misma tarjeta; la
+    procedencia de las del GTRT queda en `additionalSources` y en cada registro (`sourceUrl`, `id`).
+    """
+    snapshot = json.loads(PROJECTS.read_text(encoding="utf-8"))
+    if not PROJECTS_GTRT.exists():
+        return snapshot
+    gtrt = json.loads(PROJECTS_GTRT.read_text(encoding="utf-8"))
+    repeated = {p["id"] for p in snapshot["projects"]} & {p["id"] for p in gtrt["projects"]}
+    if repeated:
+        raise ValueError(f"Identificadores de proyecto repetidos entre fuentes: {sorted(repeated)[:5]}")
+    cut = gtrt.get("cut") or {}
+    source = {"label": "Tablero GTRT (PNUD)", "url": gtrt.get("sourceUrl"), "capturedAt": gtrt.get("capturedAt"),
+              "cut": ", ".join(part for part in (cut.get("label"), cut.get("dateText")) if part),
+              "records": len(gtrt["projects"])}
+    return {**snapshot, "projects": snapshot["projects"] + gtrt["projects"], "additionalSources": [source]}
 
 
 def build_html(current, history=(), embed_history=False):
@@ -311,7 +333,7 @@ def build_html(current, history=(), embed_history=False):
         parts[marker] = uri
     parts["__BRAND__"] = brand
     parts["__DATA__"] = embedded_json(payload).replace("<", "\\u003c")
-    parts["__PROJECTS_DATA__"] = embedded_json(json.loads(PROJECTS.read_text(encoding="utf-8"))).replace("</", "<\\/")
+    parts["__PROJECTS_DATA__"] = embedded_json(projects_snapshot()).replace("</", "<\\/")
     parts["__VULNERABILITY_DATA__"] = embedded_json(json.loads(VULNERABILITY.read_text(encoding="utf-8"))).replace("</", "<\\/")
     template = (ROOT / "web" / "tablero.html").read_text(encoding="utf-8")
     missing = [marker for marker in parts if marker not in template and marker not in brand_source]

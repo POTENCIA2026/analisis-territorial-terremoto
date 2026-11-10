@@ -3,8 +3,8 @@
  "nota": "Generado por scripts/generar_manifiesto_datos.py. No editar a mano.",
  "resumen": {
   "derivado": {
-   "archivos": 17,
-   "bytes": 7366017
+   "archivos": 18,
+   "bytes": 7675787
   },
   "fuente original": {
    "archivos": 8,
@@ -111,7 +111,8 @@
    "nombrado_en_generador": true,
    "usado_por": [
     "generar_tablero_recuperacion.py",
-    "preparar_linea_base_priorizacion.py"
+    "preparar_linea_base_priorizacion.py",
+    "scripts/capturar_proyectos_gtrt.py"
    ]
   },
   {
@@ -229,6 +230,17 @@
     "generar_tablero_recuperacion.py",
     "scripts/reconstruir_capacidad_presion.py",
     "scripts/auditar_presion_salud.cjs"
+   ]
+  },
+  {
+   "archivo": "data/proyectos_gtrt.json",
+   "clase": "derivado",
+   "bytes": 309770,
+   "sha256": "b2e529fcc34e4059a6aafdc301f79e4f0e9f641b6567a89ff97c4de853df08b9",
+   "nombrado_en_generador": true,
+   "usado_por": [
+    "generar_tablero_recuperacion.py",
+    "scripts/capturar_proyectos_gtrt.py"
    ]
   },
   {

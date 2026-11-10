@@ -43,6 +43,24 @@ anteriores (las últimas 30 y una por semana de las más antiguas). El historial
 Para descargar las fuentes y actualizar la captura: `python actualizar_indice_terremoto.py --out index.html`
 seguido de `python generar_tablero_recuperacion.py`.
 
+### Proyectos: iniciativas del Tablero GTRT (rama `proyectos-pnud`)
+
+El apartado Proyectos reúne dos fuentes con la misma tarjeta: los contratos capturados de Torre de
+Control (`data/proyectos_torre_control.json`) y las iniciativas del
+[Mapa de oferta en Recuperación Temprana](https://gtrt-dashboard.vercel.app/iniciativas) del GTRT,
+con secretaría técnica del PNUD (`data/proyectos_gtrt.json`).
+
+```sh
+python scripts/capturar_proyectos_gtrt.py   # vuelve a capturar el corte vigente del GTRT
+python generar_tablero_recuperacion.py
+```
+
+Solo se copia lo que tiene equivalente directo en la tarjeta. Queda como «Por confirmar»: la
+temática de todas las iniciativas, los beneficiarios y el valor de la oferta por financiar (su
+costo de implementación va en «Trazabilidad del registro», no como valor del proyecto). El tablero
+muestra únicamente las iniciativas que el GTRT marca «Validada por la organización», igual que ya
+hacía con los terceros confirmados; las demás quedan en el archivo de datos sin mostrarse.
+
 ## Pendiente
 
 - **Fuentes fuera de Git.** Los archivos de `data/` y el historial (48 MB) siguen en el repositorio.
