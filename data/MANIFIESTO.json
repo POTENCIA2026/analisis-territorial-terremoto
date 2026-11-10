@@ -4,7 +4,7 @@
  "resumen": {
   "derivado": {
    "archivos": 17,
-   "bytes": 7366144
+   "bytes": 7366017
   },
   "fuente original": {
    "archivos": 8,
@@ -19,8 +19,8 @@
   {
    "archivo": "data/camaras_comercio_empresarios_afectados_ago2026.csv",
    "clase": "derivado",
-   "bytes": 7204,
-   "sha256": "5903cfbdf1ee650b93d84133c074aca17087cccdbe9570c5abc110f44cc080ca",
+   "bytes": 7077,
+   "sha256": "dfe83db7919ff2c8145ca23351d64037660a16ff0a44dcc5351746101aa33b6c",
    "nombrado_en_generador": true,
    "usado_por": [
     "actualizar_indice_terremoto.py",
